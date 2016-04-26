@@ -6,8 +6,14 @@
 //  Copyright © 2016 Unifai. All rights reserved.
 //
 
-import Cocoa
+import UIKit
 
 class MainNavigationController: UINavigationController {
-
+    override func viewDidAppear(animated: Bool) {
+        
+    }
+    
+    override func viewDidLoad() {
+        
+    }
 }

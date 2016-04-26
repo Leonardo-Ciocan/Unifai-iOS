@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+class Payload {}
+
+class ImagePayload : Payload {
+    var URL = ""
+}

@@ -6,8 +6,25 @@
 //  Copyright © 2016 Unifai. All rights reserved.
 //
 
-import Cocoa
+import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var txtLogin: UITextField!
+    @IBOutlet weak var txtPassword: UITextField!
+    
+    override func viewDidLoad() {
+        if NSUserDefaults.standardUserDefaults().stringForKey("token") != nil{
+            performSegueWithIdentifier("auth", sender: self)
+        }
+    }
+    
+    @IBAction func loginClicked(sender: AnyObject) {
+        Unifai.login(txtLogin.text!, password: txtPassword.text! , completion: {
+            token in
+            NSUserDefaults.standardUserDefaults().setValue(token, forKey: "token")
+            self.dismissViewControllerAnimated(true, completion: nil)
+        })
+    }
+    
 }

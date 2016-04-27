@@ -11,11 +11,9 @@ import SlackTextViewController
 
 class ThreadViewController: SLKTextViewController  {
     
+    var threadID : String?
+    
     var messages : [Message] = [
-        Message(body: "Hello world", type: .Text , payload: nil),
-        Message(body: "What's up", type: .Text , payload: nil , service: Service(name: "Skyscanner", color: UIColor.blueColor())),
-        Message(body: "Nothin", type: .Text , payload: nil),
-        Message(body: "This is a very long message that should wrap around to the next line", type: .Text , payload: nil , service: Service(name: "Budget", color: UIColor.greenColor())),
     ]
     
     override func viewDidLoad() {
@@ -26,20 +24,24 @@ class ThreadViewController: SLKTextViewController  {
         self.tableView!.rowHeight = UITableViewAutomaticDimension
         self.tableView!.estimatedRowHeight = 64.0
         self.tableView!.tableFooterView = UIView()
-        self.tableView?.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 70))
+        //self.tableView?.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 70))
         self.tableView!.separatorStyle = .None
         self.registerPrefixesForAutoCompletion([""])
         
-        
-        if NSUserDefaults.standardUserDefaults().stringForKey("token") != nil{
-            Unifai.getServices({ services in
-                Core.Services = services
-                Unifai.getFeed({ threadMessages in
-                    self.messages = threadMessages
-                    self.tableView?.reloadData()
-                })
+        self.navigationController?.navigationItem.title = "Thread";
+  
+    }
+    
+    
+    func loadData(thread : String){
+        //this is a thread view
+        Unifai.getServices({ services in
+            Core.Services = services
+            Unifai.getThread(thread , completion:{ threadMessages in
+                self.messages = threadMessages
+                self.tableView?.reloadData()
             })
-        }
+        })
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -63,4 +65,6 @@ class ThreadViewController: SLKTextViewController  {
         self.textView.text = ""
         
     }
+    
+    
 }

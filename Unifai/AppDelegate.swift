@@ -17,13 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         self.window?.tintColor = Constants.appBrandColor
-
+        self.window?.backgroundColor = UIColor.whiteColor()
         return true
     }
     
     func applicationDidFinishLaunching(application: UIApplication) {
-        UITabBar.appearance().shadowImage = UIImage()
-        UITabBar.appearance().backgroundImage = UIImage()
+        //UITabBar.appearance().shadowImage = UIImage()
+        //UITabBar.appearance().backgroundImage = UIImage()
     }
 
     func applicationWillResignActive(application: UIApplication) {

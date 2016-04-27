@@ -8,9 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		01D26ACE065065C701F8A3F1 /* Pods_Unifai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2C595C8687C920B4DB1A2A /* Pods_Unifai.framework */; };
+		B30663F51CCF9D2E00F3CC92 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30663F41CCF9D2E00F3CC92 /* FeedViewController.swift */; };
 		B363CF851CCEEBB300B6182D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363CF841CCEEBB300B6182D /* AppDelegate.swift */; };
-		B363CF871CCEEBB300B6182D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363CF861CCEEBB300B6182D /* FirstViewController.swift */; };
-		B363CF891CCEEBB300B6182D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363CF881CCEEBB300B6182D /* SecondViewController.swift */; };
 		B363CF8C1CCEEBB300B6182D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B363CF8A1CCEEBB300B6182D /* Main.storyboard */; };
 		B363CF8E1CCEEBB300B6182D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B363CF8D1CCEEBB300B6182D /* Assets.xcassets */; };
 		B363CF911CCEEBB300B6182D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B363CF8F1CCEEBB300B6182D /* LaunchScreen.storyboard */; };
@@ -52,10 +51,9 @@
 		610AC2CFFAE76B26B6619070 /* Pods-Unifai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unifai.release.xcconfig"; path = "Pods/Target Support Files/Pods-Unifai/Pods-Unifai.release.xcconfig"; sourceTree = "<group>"; };
 		6F2C595C8687C920B4DB1A2A /* Pods_Unifai.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unifai.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF737EEAD9673B524EA2C60B /* Pods-Unifai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unifai.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Unifai/Pods-Unifai.debug.xcconfig"; sourceTree = "<group>"; };
+		B30663F41CCF9D2E00F3CC92 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		B363CF811CCEEBB300B6182D /* Unifai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unifai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B363CF841CCEEBB300B6182D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B363CF861CCEEBB300B6182D /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		B363CF881CCEEBB300B6182D /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		B363CF8B1CCEEBB300B6182D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B363CF8D1CCEEBB300B6182D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B363CF901CCEEBB300B6182D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -152,8 +150,6 @@
 			children = (
 				B363CFB61CCEF30E00B6182D /* Models */,
 				B363CF841CCEEBB300B6182D /* AppDelegate.swift */,
-				B363CF861CCEEBB300B6182D /* FirstViewController.swift */,
-				B363CF881CCEEBB300B6182D /* SecondViewController.swift */,
 				B363CF8A1CCEEBB300B6182D /* Main.storyboard */,
 				B363CF8D1CCEEBB300B6182D /* Assets.xcassets */,
 				B363CF8F1CCEEBB300B6182D /* LaunchScreen.storyboard */,
@@ -163,6 +159,7 @@
 				B363CFC71CCEF9BB00B6182D /* MessageCell.xib */,
 				B363CFCF1CCF4D9600B6182D /* MainNavigationController.swift */,
 				B363CFD11CCF502A00B6182D /* LoginViewController.swift */,
+				B30663F41CCF9D2E00F3CC92 /* FeedViewController.swift */,
 			);
 			path = Unifai;
 			sourceTree = "<group>";
@@ -391,10 +388,9 @@
 				B363CFCA1CCF090700B6182D /* Constants.swift in Sources */,
 				B363CFC61CCEF9A800B6182D /* MessageCell.swift in Sources */,
 				B363CFBE1CCEF52600B6182D /* Service.swift in Sources */,
-				B363CF891CCEEBB300B6182D /* SecondViewController.swift in Sources */,
 				B363CF851CCEEBB300B6182D /* AppDelegate.swift in Sources */,
+				B30663F51CCF9D2E00F3CC92 /* FeedViewController.swift in Sources */,
 				B363CFBA1CCEF32A00B6182D /* Message.swift in Sources */,
-				B363CF871CCEEBB300B6182D /* FirstViewController.swift in Sources */,
 				B363CFC01CCEF74100B6182D /* Core.swift in Sources */,
 				B363CFB81CCEF32100B6182D /* Thread.swift in Sources */,
 				B363CFC21CCEF78E00B6182D /* ThreadViewController.swift in Sources */,

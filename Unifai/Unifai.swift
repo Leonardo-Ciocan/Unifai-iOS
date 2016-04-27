@@ -57,10 +57,21 @@ class Unifai{
     }
     
     static func getThread(id:String , completion : ([Message])->()) {
-        Alamofire.request(.GET , Constants.urlThread , headers:self.headers)
+        Alamofire.request(.GET , Constants.urlThread + id , headers:self.headers)
+            .validate()
             .responseJSON{ response in
-            let json = JSON(response.result.value!).array
-            print(json!.count)
+                switch response.result {
+                case .Success(let data):
+                    let json = JSON(data).array
+                    var messages : [Message] = []
+                    for message in json!{
+                        messages.append(Message(json: message))
+                    }
+                    completion(messages)
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                }
+        
         }
     }
     
@@ -72,9 +83,9 @@ class Unifai{
                 switch response.result {
                 case .Success(let data):
                     let json = JSON(data).array
-                    print(json)
                     var messages : [Message] = []
                     for message in json!{
+                        print(message)
                         messages.append(Message(json: message))
                     }
                     completion(messages)
@@ -88,7 +99,6 @@ class Unifai{
         Alamofire.request(.POST , Constants.urlMessage ,
             parameters: ["content":content], headers:self.headers)
             .responseJSON{ response in
-                print(response)
                 
         }
     }

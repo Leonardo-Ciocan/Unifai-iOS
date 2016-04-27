@@ -19,6 +19,7 @@ class Message {
     var type : MessageType
     var payload : Payload?
     var service : Service?
+    var threadID : String?
     
     
     var isFromUser : Bool {
@@ -63,7 +64,8 @@ class Message {
     init(json : JSON){
         let body = json["content"].string
         let service = json["service_id"].string
-
+        let thread = json["thread_id"].number?.stringValue
+        
         print(service)
         self.body = body!
         self.type = .Text
@@ -71,5 +73,6 @@ class Message {
             s in
             return s.username == service
         }).first
+        self.threadID = thread
     }
 }

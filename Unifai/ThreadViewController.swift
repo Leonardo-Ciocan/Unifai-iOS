@@ -34,12 +34,14 @@ class ThreadViewController: SLKTextViewController  {
     
     
     func loadData(thread : String){
+        self.threadID = thread
         //this is a thread view
         Unifai.getServices({ services in
             Core.Services = services
             Unifai.getThread(thread , completion:{ threadMessages in
                 self.messages = threadMessages
                 self.tableView?.reloadData()
+                self.tableView?.scrollToRowAtIndexPath(NSIndexPath(forRow: self.messages.count - 1,inSection:0), atScrollPosition: .Bottom, animated: true)
             })
         })
     }
@@ -58,10 +60,15 @@ class ThreadViewController: SLKTextViewController  {
     override func didPressRightButton(sender: AnyObject?) {
         self.textView.refreshFirstResponder()
         
-        Unifai.sendMessage( self.textView.text, completion: nil)
         
         self.messages.append(Message(body: self.textView.text, type: .Text, payload: nil))
         self.tableView?.reloadData()
+        self.tableView?.scrollToRowAtIndexPath(NSIndexPath(forRow: self.messages.count - 1,inSection:0), atScrollPosition: .Bottom, animated: true)
+        
+        Unifai.sendMessage( self.textView.text , thread: self.threadID!, completion: { (success) in
+            self.loadData(self.threadID!)
+        })
+        
         self.textView.text = ""
         
     }

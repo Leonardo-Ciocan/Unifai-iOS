@@ -4,7 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ActiveLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>DateTools.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,22 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>2B1DD3D76AC3C3C15F4E380D20A17730</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2F20148B09D9E079D19EBC3BC8DCA921</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>31C84A3832DB4AEB429573AACE8E3E73</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BF0AF8675C5702E52A07E3CFAE6F7935</key>
+		<key>AFEDA8059B169E4068B6DCC4D2F0B0E9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DBD8DCC62BAC296EC6E5E37A5A340C87</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>ED480CEBD53BD057BA521B5CF4E95CBF</key>
+		<key>C93392100504395DDB8F1E1B0DA76909</key>
 		<dict>
 			<key>primary</key>
 			<true/>

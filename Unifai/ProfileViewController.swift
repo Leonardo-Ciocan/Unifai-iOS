@@ -1,17 +1,17 @@
 //
-//  FeedViewController.swift
+//  ProfileViewController.swift
 //  Unifai
 //
-//  Created by Leonardo Ciocan on 26/04/2016.
+//  Created by Leonardo Ciocan on 27/04/2016.
 //  Copyright © 2016 Unifai. All rights reserved.
 //
 
 import UIKit
 
-class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UIViewControllerPreviewingDelegate {
-    @IBOutlet weak var tableView: UITableView!
+class ProfileViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UIViewControllerPreviewingDelegate {
     
-    var messages : [Message] = []
+    var messages : [ Message] = []
+    @IBOutlet weak var tableView: UITableView!
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -32,31 +32,19 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         self.tableView.dataSource = self
         
         
-        guard NSUserDefaults.standardUserDefaults().stringForKey("token") != nil else{return}
         
         self.tabBarController?.title = "Feed"
         self.tableView.addSubview(self.refreshControl)
+        //loadData()
         
-        Unifai.getServices({ services in
-            Core.Services = services
-            Unifai.getUserInfo({username , email in
-                Core.Username = username
-                self.loadData()
-            })
-        })
         
-        let imageView = UIImageView(frame: CGRect(x: 5, y: 5, width: 33, height: 33))
-        imageView.contentMode = .ScaleAspectFit
-        let image = UIImage(named: "logo")
-        imageView.image = image
-        navigationItem.titleView = imageView
-
         if( traitCollection.forceTouchCapability == .Available){
             
             registerForPreviewingWithDelegate(self, sourceView: view)
             
         }
         
+        loadData()
     }
     
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
@@ -68,7 +56,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         
         detailVC.loadData(messages[indexPath.row].threadID!)
         
-        detailVC.preferredContentSize = CGSize(width: 0.0, height: 300)
+        detailVC.preferredContentSize = CGSize(width: 0.0, height: 600)
         
         previewingContext.sourceRect = cell.frame
         
@@ -87,20 +75,17 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete{
-            let msg = messages.removeAtIndex(indexPath.row)
+            messages.removeAtIndex(indexPath.row)
             self.tableView.reloadData()
-            Unifai.deleteThread(msg.threadID!, completion: nil)
         }
     }
     
     
     func loadData(){
-        //this is a feed view
-        Unifai.getFeed({ threadMessages in
+        Unifai.getUserProfile({ threadMessages in
             self.messages = threadMessages
             self.tableView?.reloadData()
             self.refreshControl.endRefreshing()
-            
         })
     }
     
@@ -119,9 +104,8 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
             let destination = segue.destinationViewController as! ThreadViewController
             destination.loadData(messages[selectedRow].threadID!)
         }
-        else if segue.identifier == "toProfile"{
-            let destination = segue.destinationViewController as! ServiceProfileViewcontroller
-            destination.loadData(messages[selectedRow].service)
+        else if segue.identifier == "toCompose"{
+            
         }
     }
     
@@ -130,22 +114,19 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         cell.selectionStyle = .None
         cell.setMessage(messages[indexPath.row])
         cell.imgLogo.addTarget(self, action: #selector(imageTapped), forControlEvents: .TouchUpInside)
-
+        
         cell.accessoryView = cell.imgLogo as UIView
         cell.imgLogo.contentMode = .ScaleAspectFit
         cell.imgLogo.userInteractionEnabled = true
-        cell.imgLogo.tag = indexPath.row
         return cell
     }
     
-    func imageTapped(sender: UIButton) {
-        selectedRow = sender.tag
+    func imageTapped(sender: UITapGestureRecognizer) {
         self.performSegueWithIdentifier("toProfile", sender: self)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
-    
     
 }

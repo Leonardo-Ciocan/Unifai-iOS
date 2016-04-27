@@ -18,4 +18,7 @@ class Constants{
     static let urlLogin = urlRoot + "api-token-auth/";
     static let urlServices = urlRoot + "services/all/";
     static let urlMessage = urlRoot + "message/";
+    static let urlServiceProfile = urlRoot + "service/";
+    static let urlUserProfile = urlRoot + "user/";
+    static let urlUserInfo = urlRoot + "me/";
 }

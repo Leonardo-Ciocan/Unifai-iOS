@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		01D26ACE065065C701F8A3F1 /* Pods_Unifai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2C595C8687C920B4DB1A2A /* Pods_Unifai.framework */; };
 		B30663F51CCF9D2E00F3CC92 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30663F41CCF9D2E00F3CC92 /* FeedViewController.swift */; };
+		B335AC1E1CD0ACC100B85781 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC1D1CD0ACC100B85781 /* Utils.swift */; };
+		B335AC211CD0EF8B00B85781 /* ComposeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC201CD0EF8B00B85781 /* ComposeTextField.swift */; };
+		B335AC231CD0F3B400B85781 /* ComposeBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC221CD0F3B400B85781 /* ComposeBackground.swift */; };
+		B335AC251CD0F4A000B85781 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC241CD0F4A000B85781 /* ComposeViewController.swift */; };
+		B335AC271CD1127C00B85781 /* ServiceProfileViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC261CD1127C00B85781 /* ServiceProfileViewcontroller.swift */; };
+		B335AC291CD177C400B85781 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC281CD177C400B85781 /* ProfileViewController.swift */; };
 		B363CF851CCEEBB300B6182D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363CF841CCEEBB300B6182D /* AppDelegate.swift */; };
 		B363CF8C1CCEEBB300B6182D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B363CF8A1CCEEBB300B6182D /* Main.storyboard */; };
 		B363CF8E1CCEEBB300B6182D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B363CF8D1CCEEBB300B6182D /* Assets.xcassets */; };
@@ -52,6 +58,12 @@
 		6F2C595C8687C920B4DB1A2A /* Pods_Unifai.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unifai.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF737EEAD9673B524EA2C60B /* Pods-Unifai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unifai.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Unifai/Pods-Unifai.debug.xcconfig"; sourceTree = "<group>"; };
 		B30663F41CCF9D2E00F3CC92 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		B335AC1D1CD0ACC100B85781 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		B335AC201CD0EF8B00B85781 /* ComposeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTextField.swift; sourceTree = "<group>"; };
+		B335AC221CD0F3B400B85781 /* ComposeBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeBackground.swift; sourceTree = "<group>"; };
+		B335AC241CD0F4A000B85781 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		B335AC261CD1127C00B85781 /* ServiceProfileViewcontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceProfileViewcontroller.swift; sourceTree = "<group>"; };
+		B335AC281CD177C400B85781 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B363CF811CCEEBB300B6182D /* Unifai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unifai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B363CF841CCEEBB300B6182D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B363CF8B1CCEEBB300B6182D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -122,6 +134,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B335AC1F1CD0EF6D00B85781 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
 		B363CF781CCEEBB300B6182D = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +167,7 @@
 		B363CF831CCEEBB300B6182D /* Unifai */ = {
 			isa = PBXGroup;
 			children = (
+				B335AC1F1CD0EF6D00B85781 /* New Group */,
 				B363CFB61CCEF30E00B6182D /* Models */,
 				B363CF841CCEEBB300B6182D /* AppDelegate.swift */,
 				B363CF8A1CCEEBB300B6182D /* Main.storyboard */,
@@ -160,6 +180,11 @@
 				B363CFCF1CCF4D9600B6182D /* MainNavigationController.swift */,
 				B363CFD11CCF502A00B6182D /* LoginViewController.swift */,
 				B30663F41CCF9D2E00F3CC92 /* FeedViewController.swift */,
+				B335AC201CD0EF8B00B85781 /* ComposeTextField.swift */,
+				B335AC221CD0F3B400B85781 /* ComposeBackground.swift */,
+				B335AC241CD0F4A000B85781 /* ComposeViewController.swift */,
+				B335AC261CD1127C00B85781 /* ServiceProfileViewcontroller.swift */,
+				B335AC281CD177C400B85781 /* ProfileViewController.swift */,
 			);
 			path = Unifai;
 			sourceTree = "<group>";
@@ -192,6 +217,7 @@
 				B363CFBF1CCEF74100B6182D /* Core.swift */,
 				B363CFC91CCF090700B6182D /* Constants.swift */,
 				B363CFCB1CCF205700B6182D /* Unifai.swift */,
+				B335AC1D1CD0ACC100B85781 /* Utils.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -386,11 +412,17 @@
 				B363CFD21CCF502A00B6182D /* LoginViewController.swift in Sources */,
 				B363CFBC1CCEF49800B6182D /* Payload.swift in Sources */,
 				B363CFCA1CCF090700B6182D /* Constants.swift in Sources */,
+				B335AC1E1CD0ACC100B85781 /* Utils.swift in Sources */,
 				B363CFC61CCEF9A800B6182D /* MessageCell.swift in Sources */,
+				B335AC211CD0EF8B00B85781 /* ComposeTextField.swift in Sources */,
+				B335AC271CD1127C00B85781 /* ServiceProfileViewcontroller.swift in Sources */,
 				B363CFBE1CCEF52600B6182D /* Service.swift in Sources */,
 				B363CF851CCEEBB300B6182D /* AppDelegate.swift in Sources */,
+				B335AC291CD177C400B85781 /* ProfileViewController.swift in Sources */,
+				B335AC231CD0F3B400B85781 /* ComposeBackground.swift in Sources */,
 				B30663F51CCF9D2E00F3CC92 /* FeedViewController.swift in Sources */,
 				B363CFBA1CCEF32A00B6182D /* Message.swift in Sources */,
+				B335AC251CD0F4A000B85781 /* ComposeViewController.swift in Sources */,
 				B363CFC01CCEF74100B6182D /* Core.swift in Sources */,
 				B363CFB81CCEF32100B6182D /* Thread.swift in Sources */,
 				B363CFC21CCEF78E00B6182D /* ThreadViewController.swift in Sources */,
@@ -540,6 +572,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = unifai.Unifai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -552,6 +585,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = unifai.Unifai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

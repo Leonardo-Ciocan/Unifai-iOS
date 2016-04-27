@@ -1,10 +1,14 @@
 PODS:
+  - ActiveLabel (0.5.0)
   - Alamofire (3.3.1)
+  - DateTools (1.7.0)
   - SlackTextViewController (1.9.2)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
+  - ActiveLabel
   - Alamofire (~> 3.3)
+  - DateTools
   - SlackTextViewController
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
@@ -18,7 +22,9 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
+  ActiveLabel: c7b011767b5660faacf8a3629174a9a775886b8d
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   SlackTextViewController: bac3350ccc639bc446bb14cbd09da238f5e01f32
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 

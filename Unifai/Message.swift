@@ -20,6 +20,7 @@ class Message {
     var payload : Payload?
     var service : Service?
     var threadID : String?
+    var timestamp : NSDate = NSDate()
     
     
     var isFromUser : Bool {
@@ -65,8 +66,8 @@ class Message {
         let body = json["content"].string
         let service = json["service_id"].string
         let thread = json["thread_id"].number?.stringValue
+        let time = json["timestamp"].stringValue
         
-        print(service)
         self.body = body!
         self.type = .Text
         self.service = Core.Services.filter({
@@ -74,5 +75,8 @@ class Message {
             return s.username == service
         }).first
         self.threadID = thread
+        if let date =  NSDate(string: time, formatString: "yyyy-MM-dd hh:mm:ss.SSSSxxx"){
+            self.timestamp = date
+        }
     }
 }

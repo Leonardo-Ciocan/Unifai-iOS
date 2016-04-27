@@ -31,9 +31,9 @@ class Service{
         let color = json["colour"].string?.componentsSeparatedByString(",").map{ str in Int(str)}
         
         self.name = name!
-        self.color = UIColor(red: CGFloat(color![0]!),
-                             green: CGFloat(color![1]!),
-                             blue: CGFloat(color![2]!),
+        self.color = UIColor(red: CGFloat(color![0]!) / 255.0,
+                             green: CGFloat(color![1]!) / 255.0,
+                             blue: CGFloat(color![2]!) / 255.0,
                              alpha: 255)
     }
 }

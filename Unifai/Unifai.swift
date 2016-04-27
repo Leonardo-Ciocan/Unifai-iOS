@@ -85,7 +85,44 @@ class Unifai{
                     let json = JSON(data).array
                     var messages : [Message] = []
                     for message in json!{
-                        print(message)
+                        messages.append(Message(json: message))
+                    }
+                    completion(messages)
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                }
+        }
+    }
+    
+    static func getProfile(serviceID : String , completion : ([Message])->()) {
+        
+        Alamofire.request(.GET , Constants.urlServiceProfile + serviceID , headers:self.headers)
+            .validate()
+            .responseJSON{ response in
+                switch response.result {
+                case .Success(let data):
+                    let json = JSON(data).array
+                    var messages : [Message] = []
+                    for message in json!{
+                        messages.append(Message(json: message))
+                    }
+                    completion(messages)
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                }
+        }
+    }
+    
+    static func getUserProfile(completion : ([Message])->()) {
+        
+        Alamofire.request(.GET , Constants.urlUserProfile , headers:self.headers)
+            .validate()
+            .responseJSON{ response in
+                switch response.result {
+                case .Success(let data):
+                    let json = JSON(data).array
+                    var messages : [Message] = []
+                    for message in json!{
                         messages.append(Message(json: message))
                     }
                     completion(messages)
@@ -99,7 +136,39 @@ class Unifai{
         Alamofire.request(.POST , Constants.urlMessage ,
             parameters: ["content":content], headers:self.headers)
             .responseJSON{ response in
-                
+                completion!(true)
+        }
+    }
+    
+    static func sendMessage(content : String , thread : String , completion : ((Bool)->())?){
+        Alamofire.request(.POST , Constants.urlMessage ,
+            parameters: ["content":content , "thread_id" : thread], headers:self.headers)
+            .responseJSON{ response in
+                completion!(true)
+        }
+    }
+    
+    static func deleteThread(thread:String , completion : ((Bool)->())?){
+        Alamofire.request(.DELETE , Constants.urlThread + thread , headers:self.headers)
+            .responseJSON{ response in
+                guard completion != nil else{return}
+                completion!(true)
+        }
+    }
+    
+    static func getUserInfo(completion : (username:String,email:String)->()) {
+        
+        Alamofire.request(.GET , Constants.urlUserInfo , headers:self.headers)
+            .validate()
+            .responseJSON{ response in
+                switch response.result {
+                case .Success(let data):
+                    let json = JSON(data)
+                    
+                    completion(username:json["username"].stringValue , email:json["email"].stringValue)
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                }
         }
     }
     

@@ -5,5 +5,6 @@ target 'Unifai' do
     pod 'Alamofire', '~> 3.3'
     pod 'DateTools'
     pod 'ActiveLabel'
+    pod 'SnapKit', '~> 0.15.0'
 
 end

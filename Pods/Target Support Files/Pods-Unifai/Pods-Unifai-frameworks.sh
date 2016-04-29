@@ -88,6 +88,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Unifai/Alamofire.framework"
   install_framework "Pods-Unifai/DateTools.framework"
   install_framework "Pods-Unifai/SlackTextViewController.framework"
+  install_framework "Pods-Unifai/SnapKit.framework"
   install_framework "Pods-Unifai/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -95,5 +96,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Unifai/Alamofire.framework"
   install_framework "Pods-Unifai/DateTools.framework"
   install_framework "Pods-Unifai/SlackTextViewController.framework"
+  install_framework "Pods-Unifai/SnapKit.framework"
   install_framework "Pods-Unifai/SwiftyJSON.framework"
 fi

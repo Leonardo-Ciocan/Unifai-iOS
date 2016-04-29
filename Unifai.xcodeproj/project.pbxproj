@@ -15,6 +15,7 @@
 		B335AC251CD0F4A000B85781 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC241CD0F4A000B85781 /* ComposeViewController.swift */; };
 		B335AC271CD1127C00B85781 /* ServiceProfileViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC261CD1127C00B85781 /* ServiceProfileViewcontroller.swift */; };
 		B335AC291CD177C400B85781 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC281CD177C400B85781 /* ProfileViewController.swift */; };
+		B335AC2B1CD3336F00B85781 /* TablePayloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC2A1CD3336F00B85781 /* TablePayloadView.swift */; };
 		B363CF851CCEEBB300B6182D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363CF841CCEEBB300B6182D /* AppDelegate.swift */; };
 		B363CF8C1CCEEBB300B6182D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B363CF8A1CCEEBB300B6182D /* Main.storyboard */; };
 		B363CF8E1CCEEBB300B6182D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B363CF8D1CCEEBB300B6182D /* Assets.xcassets */; };
@@ -64,6 +65,7 @@
 		B335AC241CD0F4A000B85781 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		B335AC261CD1127C00B85781 /* ServiceProfileViewcontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceProfileViewcontroller.swift; sourceTree = "<group>"; };
 		B335AC281CD177C400B85781 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		B335AC2A1CD3336F00B85781 /* TablePayloadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TablePayloadView.swift; sourceTree = "<group>"; };
 		B363CF811CCEEBB300B6182D /* Unifai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unifai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B363CF841CCEEBB300B6182D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B363CF8B1CCEEBB300B6182D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -134,13 +136,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B335AC1F1CD0EF6D00B85781 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "New Group";
-			sourceTree = "<group>";
-		};
 		B363CF781CCEEBB300B6182D = {
 			isa = PBXGroup;
 			children = (
@@ -167,7 +162,6 @@
 		B363CF831CCEEBB300B6182D /* Unifai */ = {
 			isa = PBXGroup;
 			children = (
-				B335AC1F1CD0EF6D00B85781 /* New Group */,
 				B363CFB61CCEF30E00B6182D /* Models */,
 				B363CF841CCEEBB300B6182D /* AppDelegate.swift */,
 				B363CF8A1CCEEBB300B6182D /* Main.storyboard */,
@@ -185,6 +179,7 @@
 				B335AC241CD0F4A000B85781 /* ComposeViewController.swift */,
 				B335AC261CD1127C00B85781 /* ServiceProfileViewcontroller.swift */,
 				B335AC281CD177C400B85781 /* ProfileViewController.swift */,
+				B335AC2A1CD3336F00B85781 /* TablePayloadView.swift */,
 			);
 			path = Unifai;
 			sourceTree = "<group>";
@@ -415,6 +410,7 @@
 				B335AC1E1CD0ACC100B85781 /* Utils.swift in Sources */,
 				B363CFC61CCEF9A800B6182D /* MessageCell.swift in Sources */,
 				B335AC211CD0EF8B00B85781 /* ComposeTextField.swift in Sources */,
+				B335AC2B1CD3336F00B85781 /* TablePayloadView.swift in Sources */,
 				B335AC271CD1127C00B85781 /* ServiceProfileViewcontroller.swift in Sources */,
 				B363CFBE1CCEF52600B6182D /* Service.swift in Sources */,
 				B363CF851CCEEBB300B6182D /* AppDelegate.swift in Sources */,

@@ -18,6 +18,9 @@ class MessageCell: UITableViewCell {
     @IBOutlet weak var imgLogo: UIButton!
     @IBOutlet weak var txtTime: UILabel!
     
+    @IBOutlet weak var payloadContainer: UIView!
+    @IBOutlet weak var payloadContainerHeight: NSLayoutConstraint!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -34,6 +37,9 @@ class MessageCell: UITableViewCell {
     
     func setMessage(message : Message){
         self.txtBody.text = message.body
+        
+        self.txtTime.text = message.timestamp.shortTimeAgoSinceNow()
+        imgLogo.setImage(message.logo, forState: .Normal)
         
         if(message.isFromUser){
             //self.txtUsername.text = "@" + Core.Username
@@ -57,8 +63,14 @@ class MessageCell: UITableViewCell {
             txtBody.mentionColor = Constants.appBrandColor
         }
         
-        self.txtTime.text = message.timestamp.shortTimeAgoSinceNow()
-        imgLogo.setImage(message.logo, forState: .Normal)
+        if(message.type == .Table){
+             self.payloadContainerHeight.constant = CGFloat((message.payload as! TablePayload).rows.count) * 50 + 50
+            let tableView = TablePayloadView()
+            self.payloadContainer.addSubview(tableView)
+            tableView.loadData(message.payload as! TablePayload)
+           
+        }
+        
     }
     
 }

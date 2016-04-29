@@ -59,6 +59,10 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         
     }
     
+    override func viewDidAppear(animated: Bool) {
+        loadData()
+    }
+    
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = self.tableView.indexPathForRowAtPoint(location) else { return nil }
         

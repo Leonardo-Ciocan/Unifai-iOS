@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
-enum MessageType{
+enum MessageType : Int{
     case Text , Table , Image
 }
 
@@ -67,16 +67,28 @@ class Message {
         let service = json["service_id"].string
         let thread = json["thread_id"].number?.stringValue
         let time = json["timestamp"].stringValue
+        let data = json["data"].stringValue
+        let type = json["type"].number
         
         self.body = body!
-        self.type = .Text
         self.service = Core.Services.filter({
             s in
             return s.username == service
         }).first
         self.threadID = thread
-        if let date =  NSDate(string: time, formatString: "yyyy-MM-dd hh:mm:ss.SSSSxxx"){
+        if let date =  NSDate(string: time, formatString: "yyyy-MM-dd HH:mm:ss.SSSSxxx"){
             self.timestamp = date
         }
+
+        self.type = MessageType(rawValue:Int(type!))!
+        
+        if(type == 1){
+            self.payload = TablePayload(data: data)
+        }
+        
     }
+    
+    
+    
+    
 }

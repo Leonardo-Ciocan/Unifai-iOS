@@ -14,6 +14,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>AlertOnboarding-AlertOnboardingXib.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AlertOnboarding.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>DateTools.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,17 +62,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>037E186C39FCBD6DAC893F300256D79D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1CD314AE1A72E3B32CF0F16DC36DA426</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>31C84A3832DB4AEB429573AACE8E3E73</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6187CF4A7E59599C0D2109FD633D24B8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>76E42AA7F48511349DD93EC73E0BC4C8</key>
+		<key>69D627C4C5A66517E7671631A41D084E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,7 +92,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>86443EA058B18364F225D5D82A0D649F</key>
+		<key>85F396BBC89616ACFB9A045D159DCCAC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A698C3027CD919EED1D8EEB76B70634E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,12 +107,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F2329606E531AFD5FAA5E200A2533F85</key>
+		<key>CE4F152C0564FF7D8EA405F512377E64</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F3A765333B40BAB1F327858907588E11</key>
+		<key>F2329606E531AFD5FAA5E200A2533F85</key>
 		<dict>
 			<key>primary</key>
 			<true/>

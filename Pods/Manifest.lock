@@ -1,6 +1,7 @@
 PODS:
   - ActiveLabel (0.5.0)
   - Alamofire (3.3.1)
+  - AlertOnboarding (1.5)
   - DateTools (1.7.0)
   - Eureka (1.5.0)
   - MaterialDesignSymbol (1.7)
@@ -11,6 +12,7 @@ PODS:
 DEPENDENCIES:
   - ActiveLabel
   - Alamofire (~> 3.3)
+  - AlertOnboarding
   - DateTools
   - Eureka (~> 1.5)
   - MaterialDesignSymbol
@@ -30,6 +32,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   ActiveLabel: c7b011767b5660faacf8a3629174a9a775886b8d
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  AlertOnboarding: 4b92341965987dc9492a37d453aac7826f60f0a3
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   Eureka: 2fb37bb50569c62ee3284689d5b7aca694b040e0
   MaterialDesignSymbol: 8216d8587ff04b8d0d110a9a02eb53ea94174328

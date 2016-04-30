@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlertOnboarding
 
 class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UIViewControllerPreviewingDelegate {
     @IBOutlet weak var tableView: UITableView!
@@ -58,6 +59,33 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
             registerForPreviewingWithDelegate(self, sourceView: view)
             
         }
+        
+        var arrayOfImage = ["logoWithSlogan", "example1", "schedules","actions"]
+        var arrayOfTitle = [
+            "UNIF(AI)",
+            "Your services work toghether",
+            "SCHEDULES",
+            "ACTIONS"]
+        var arrayOfDescription = ["All your services , 1 interface",
+                                  "Simply mention the service with @ and you're ready to converse with it",
+                                  "Schedule messages so you that you don't even have to type",
+                                  "Make buttons for common things you do."]
+        
+        //Simply call AlertOnboarding...
+        var alertView = AlertOnboarding(arrayOfImage: arrayOfImage, arrayOfTitle: arrayOfTitle, arrayOfDescription: arrayOfDescription)
+        
+        alertView.colorButtonText = Constants.appBrandColor
+        alertView.colorButtonBottomBackground = UIColor(red: 0, green: 0, blue: 0, alpha: 0.01)
+        
+        alertView.colorTitleLabel = Constants.appBrandColor
+        alertView.colorCurrentPageIndicator = Constants.appBrandColor
+        
+        alertView.purcentageRatioWidth = 0.9
+        alertView.purcentageRatioHeight = 0.9
+        
+        //... and show it !
+        alertView.show()
+
         
     }
     

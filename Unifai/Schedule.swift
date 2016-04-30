@@ -22,8 +22,9 @@ class Schedule {
         let datetime = json["datetime"].stringValue
         let id = json["trigger_id"].numberValue
         
-        Schedule.formatter.dateFormat="yyyy-MM-dd HH:mm:ss.SSSSxxx"
-        
+        Schedule.formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        let enUSPosixLocale = NSLocale(localeIdentifier: "en_US_POSIX")
+        Schedule.formatter.locale = enUSPosixLocale
         self.content = message
         self.interval = Int(repeating)
         if let date = Schedule.formatter.dateFromString(datetime){

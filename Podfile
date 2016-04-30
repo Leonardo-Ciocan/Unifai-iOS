@@ -8,5 +8,6 @@ target 'Unifai' do
     pod 'SnapKit', '~> 0.15.0'
     pod 'Eureka', '~> 1.5'
     pod "MaterialDesignSymbol"
+    pod 'AlertOnboarding'
 
 end

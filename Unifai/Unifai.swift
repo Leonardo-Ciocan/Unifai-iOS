@@ -186,8 +186,9 @@ class Unifai{
     
     static func createSchedule(message:String , start:NSDate , repeating : Int , completion : ((Bool)->())?){
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSSxxx"
-        print(formatter.stringFromDate(start))
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        let enUSPosixLocale = NSLocale(localeIdentifier: "en_US_POSIX")
+        formatter.locale = enUSPosixLocale
         Alamofire.request(.POST , Constants.urlSchedules ,
             parameters: ["message":message , "repeating":repeating , "datetime":formatter.stringFromDate(start)], headers:self.headers)
             .responseJSON{ response in

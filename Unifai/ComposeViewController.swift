@@ -32,9 +32,38 @@ class ComposeViewController: UIViewController , UITextViewDelegate {
     
     
     @IBAction func create(sender: AnyObject) {
-        Unifai.sendMessage(txtContent.text, completion: { success in
-            self.dismissViewControllerAnimated(true, completion: nil)
-        })
+        
+        var target = matchesForRegexInText("(?:^|\\s|$|[.])@[\\p{L}0-9_]*", text: txtContent.text)
+        if(target.count > 0){
+            let name = target[0]
+            let services = Core.Services.filter({"@"+$0.username == name})
+            if(services.count > 0){
+                Unifai.sendMessage(txtContent.text, completion: { success in
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                })
+            }
+            else{
+                
+
+            }
+        }
+        else{
+            let alert = UIAlertController(title: "Can't send this message", message: "You need to mention a service , for example @skyscanner", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
+                switch action.style{
+                case .Default:
+                    print("default")
+                    
+                case .Cancel:
+                    print("cancel")
+                    
+                case .Destructive:
+                    print("destructive")
+                }
+            }))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        
     }
     
     @IBAction func dismiss(sender: AnyObject) {

@@ -1,11 +1,3 @@
-//
-//  Unifai.swift
-//  Unifai
-//
-//  Created by Leonardo Ciocan on 26/04/2016.
-//  Copyright © 2016 Unifai. All rights reserved.
-//
-
 import Foundation
 import Alamofire
 import SwiftyJSON
@@ -169,6 +161,37 @@ class Unifai{
                 case .Failure(let error):
                     print("Request failed with error: \(error)")
                 }
+        }
+    }
+    
+    static func getSchedules( completion : ([Schedule])->()) {
+        
+        Alamofire.request(.GET , Constants.urlSchedules, headers:self.headers)
+            .validate()
+            .responseJSON{ response in
+                switch response.result {
+                case .Success(let data):
+                    let json = JSON(data).array
+                    var schedules : [Schedule] = []
+                    for schedule in json!{
+                        schedules.append(Schedule(json: schedule))
+                    }
+                    completion(schedules)
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                    
+                }
+        }
+    }
+    
+    static func createSchedule(message:String , start:NSDate , repeating : Int , completion : ((Bool)->())?){
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSSxxx"
+        print(formatter.stringFromDate(start))
+        Alamofire.request(.POST , Constants.urlSchedules ,
+            parameters: ["message":message , "repeating":repeating , "datetime":formatter.stringFromDate(start)], headers:self.headers)
+            .responseJSON{ response in
+                completion!(true)
         }
     }
     

@@ -1,11 +1,3 @@
-//
-//  Constants.swift
-//  Unifai
-//
-//  Created by Leonardo Ciocan on 26/04/2016.
-//  Copyright © 2016 Unifai. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
@@ -21,4 +13,5 @@ class Constants{
     static let urlServiceProfile = urlRoot + "service/";
     static let urlUserProfile = urlRoot + "user/";
     static let urlUserInfo = urlRoot + "me/";
+    static let urlSchedules = urlRoot + "trigger/";
 }

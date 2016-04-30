@@ -19,6 +19,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Eureka.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MaterialDesignSymbol.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Unifai.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,7 +57,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>43E607BE2CFFD98E11064672E14B351E</key>
+		<key>6187CF4A7E59599C0D2109FD633D24B8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>76E42AA7F48511349DD93EC73E0BC4C8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,22 +72,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>7E82EF3158DC7672612EFE46DB8E4C8F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>86443EA058B18364F225D5D82A0D649F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>AFEDA8059B169E4068B6DCC4D2F0B0E9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B119E13FDA2A9AB5F9963199D8F6BB4B</key>
+		<key>F2329606E531AFD5FAA5E200A2533F85</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C8C966CF89E0C1A15B5CE0E29D340355</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EF134FEDAFFE2C61A90D8E3422BD1B7B</key>
+		<key>F3A765333B40BAB1F327858907588E11</key>
 		<dict>
 			<key>primary</key>
 			<true/>

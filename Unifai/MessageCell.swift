@@ -63,8 +63,13 @@ class MessageCell: UITableViewCell {
             txtBody.mentionColor = Constants.appBrandColor
         }
         
+        self.payloadContainer.subviews.forEach { $0.removeFromSuperview() }
+
+        if(message.type == .Text){
+            self.payloadContainerHeight.constant = 10
+        }
         if(message.type == .Table){
-             self.payloadContainerHeight.constant = CGFloat((message.payload as! TablePayload).rows.count) * 50 + 50
+            self.payloadContainerHeight.constant = CGFloat((message.payload as! TablePayload).rows.count) * 50 + 50
             let tableView = TablePayloadView()
             self.payloadContainer.addSubview(tableView)
             tableView.loadData(message.payload as! TablePayload)

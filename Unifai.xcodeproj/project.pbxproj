@@ -23,7 +23,6 @@
 		B363CF9C1CCEEBB300B6182D /* UnifaiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363CF9B1CCEEBB300B6182D /* UnifaiTests.swift */; };
 		B363CFA71CCEEBB300B6182D /* UnifaiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363CFA61CCEEBB300B6182D /* UnifaiUITests.swift */; };
 		B363CFB51CCEECA600B6182D /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B363CFB41CCEECA600B6182D /* Podfile */; };
-		B363CFB81CCEF32100B6182D /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363CFB71CCEF32100B6182D /* Thread.swift */; };
 		B363CFBA1CCEF32A00B6182D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363CFB91CCEF32A00B6182D /* Message.swift */; };
 		B363CFBC1CCEF49800B6182D /* Payload.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363CFBB1CCEF49800B6182D /* Payload.swift */; };
 		B363CFBE1CCEF52600B6182D /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363CFBD1CCEF52600B6182D /* Service.swift */; };
@@ -35,6 +34,11 @@
 		B363CFCC1CCF205700B6182D /* Unifai.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363CFCB1CCF205700B6182D /* Unifai.swift */; };
 		B363CFD01CCF4D9600B6182D /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363CFCF1CCF4D9600B6182D /* MainNavigationController.swift */; };
 		B363CFD21CCF502A00B6182D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363CFD11CCF502A00B6182D /* LoginViewController.swift */; };
+		B390068B1CD35D7F00F472AC /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B390068A1CD35D7F00F472AC /* Schedule.swift */; };
+		B390068D1CD35F4E00F472AC /* SchedulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B390068C1CD35F4E00F472AC /* SchedulesViewController.swift */; };
+		B39006901CD35FB800F472AC /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B390068E1CD35FB800F472AC /* ScheduleCell.swift */; };
+		B39006911CD35FB800F472AC /* ScheduleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B390068F1CD35FB800F472AC /* ScheduleCell.xib */; };
+		B39006931CD3714700F472AC /* NewScheduleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39006921CD3714700F472AC /* NewScheduleController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +83,6 @@
 		B363CFA61CCEEBB300B6182D /* UnifaiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifaiUITests.swift; sourceTree = "<group>"; };
 		B363CFA81CCEEBB300B6182D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B363CFB41CCEECA600B6182D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		B363CFB71CCEF32100B6182D /* Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		B363CFB91CCEF32A00B6182D /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		B363CFBB1CCEF49800B6182D /* Payload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
 		B363CFBD1CCEF52600B6182D /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -91,6 +94,11 @@
 		B363CFCB1CCF205700B6182D /* Unifai.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unifai.swift; sourceTree = "<group>"; };
 		B363CFCF1CCF4D9600B6182D /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		B363CFD11CCF502A00B6182D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B390068A1CD35D7F00F472AC /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		B390068C1CD35F4E00F472AC /* SchedulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulesViewController.swift; sourceTree = "<group>"; };
+		B390068E1CD35FB800F472AC /* ScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
+		B390068F1CD35FB800F472AC /* ScheduleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleCell.xib; sourceTree = "<group>"; };
+		B39006921CD3714700F472AC /* NewScheduleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewScheduleController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +188,10 @@
 				B335AC261CD1127C00B85781 /* ServiceProfileViewcontroller.swift */,
 				B335AC281CD177C400B85781 /* ProfileViewController.swift */,
 				B335AC2A1CD3336F00B85781 /* TablePayloadView.swift */,
+				B390068C1CD35F4E00F472AC /* SchedulesViewController.swift */,
+				B390068E1CD35FB800F472AC /* ScheduleCell.swift */,
+				B390068F1CD35FB800F472AC /* ScheduleCell.xib */,
+				B39006921CD3714700F472AC /* NewScheduleController.swift */,
 			);
 			path = Unifai;
 			sourceTree = "<group>";
@@ -205,7 +217,6 @@
 		B363CFB61CCEF30E00B6182D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B363CFB71CCEF32100B6182D /* Thread.swift */,
 				B363CFB91CCEF32A00B6182D /* Message.swift */,
 				B363CFBB1CCEF49800B6182D /* Payload.swift */,
 				B363CFBD1CCEF52600B6182D /* Service.swift */,
@@ -213,6 +224,7 @@
 				B363CFC91CCF090700B6182D /* Constants.swift */,
 				B363CFCB1CCF205700B6182D /* Unifai.swift */,
 				B335AC1D1CD0ACC100B85781 /* Utils.swift */,
+				B390068A1CD35D7F00F472AC /* Schedule.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -329,6 +341,7 @@
 			files = (
 				B363CFC81CCEF9BB00B6182D /* MessageCell.xib in Resources */,
 				B363CF911CCEEBB300B6182D /* LaunchScreen.storyboard in Resources */,
+				B39006911CD35FB800F472AC /* ScheduleCell.xib in Resources */,
 				B363CF8E1CCEEBB300B6182D /* Assets.xcassets in Resources */,
 				B363CFB51CCEECA600B6182D /* Podfile in Resources */,
 				B363CF8C1CCEEBB300B6182D /* Main.storyboard in Resources */,
@@ -416,13 +429,16 @@
 				B363CF851CCEEBB300B6182D /* AppDelegate.swift in Sources */,
 				B335AC291CD177C400B85781 /* ProfileViewController.swift in Sources */,
 				B335AC231CD0F3B400B85781 /* ComposeBackground.swift in Sources */,
+				B390068B1CD35D7F00F472AC /* Schedule.swift in Sources */,
 				B30663F51CCF9D2E00F3CC92 /* FeedViewController.swift in Sources */,
+				B390068D1CD35F4E00F472AC /* SchedulesViewController.swift in Sources */,
 				B363CFBA1CCEF32A00B6182D /* Message.swift in Sources */,
 				B335AC251CD0F4A000B85781 /* ComposeViewController.swift in Sources */,
 				B363CFC01CCEF74100B6182D /* Core.swift in Sources */,
-				B363CFB81CCEF32100B6182D /* Thread.swift in Sources */,
 				B363CFC21CCEF78E00B6182D /* ThreadViewController.swift in Sources */,
 				B363CFD01CCF4D9600B6182D /* MainNavigationController.swift in Sources */,
+				B39006931CD3714700F472AC /* NewScheduleController.swift in Sources */,
+				B39006901CD35FB800F472AC /* ScheduleCell.swift in Sources */,
 				B363CFCC1CCF205700B6182D /* Unifai.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

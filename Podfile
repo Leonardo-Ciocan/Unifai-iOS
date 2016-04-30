@@ -6,5 +6,7 @@ target 'Unifai' do
     pod 'DateTools'
     pod 'ActiveLabel'
     pod 'SnapKit', '~> 0.15.0'
+    pod 'Eureka', '~> 1.5'
+    pod "MaterialDesignSymbol"
 
 end

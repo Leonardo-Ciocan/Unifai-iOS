@@ -26,7 +26,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         self.tableView!.rowHeight = UITableViewAutomaticDimension
         self.tableView!.estimatedRowHeight = 64.0
         self.tableView!.tableFooterView = UIView()
-        self.tableView!.separatorStyle = .SingleLine
+        self.tableView!.separatorStyle = .None
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -44,6 +44,8 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
                 self.loadData()
             })
         })
+        
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
         
         let imageView = UIImageView(frame: CGRect(x: 5, y: 5, width: 33, height: 33))
         imageView.contentMode = .ScaleAspectFit

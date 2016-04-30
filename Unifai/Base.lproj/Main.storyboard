@@ -116,7 +116,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rod-Cv-Qvr">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -124,7 +124,7 @@
                         <constraints>
                             <constraint firstItem="Rod-Cv-Qvr" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="NRh-64-S3M"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Rod-Cv-Qvr" secondAttribute="trailing" constant="-20" id="UoG-C8-bgZ"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="Rod-Cv-Qvr" secondAttribute="bottom" id="bSJ-W1-OUy"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="Rod-Cv-Qvr" secondAttribute="bottom" constant="-49" id="bSJ-W1-OUy"/>
                             <constraint firstItem="Rod-Cv-Qvr" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="-64" id="mQf-of-ZPb"/>
                         </constraints>
                     </view>
@@ -149,7 +149,7 @@
             </objects>
             <point key="canvasLocation" x="1553" y="-849"/>
         </scene>
-        <!--Budget-->
+        <!--Service-->
         <scene sceneID="ezT-7Z-jnR">
             <objects>
                 <viewController id="qsg-0w-UkG" customClass="ServiceProfileViewcontroller" customModule="Unifai" customModuleProvider="target" sceneMemberID="viewController">
@@ -174,7 +174,7 @@
                             <constraint firstItem="HCv-DM-VMD" firstAttribute="leading" secondItem="0Dv-7z-Bon" secondAttribute="leadingMargin" constant="-20" id="raO-vB-dzm"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Budget" id="u3I-Uz-vkS"/>
+                    <navigationItem key="navigationItem" title="Service" id="u3I-Uz-vkS"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="tableView" destination="HCv-DM-VMD" id="Xvr-Zr-SP4"/>
@@ -207,10 +207,10 @@
             </objects>
             <point key="canvasLocation" x="2110" y="-849"/>
         </scene>
-        <!--Schedule-->
+        <!--Schedules-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="Unifai" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="8rJ-Kc-sve" customClass="SchedulesViewController" customModule="Unifai" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -219,26 +219,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="102" y="347" width="210" height="42"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qCa-d3-U4S">
+                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
-                            <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
+                            <constraint firstItem="qCa-d3-U4S" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="-20" id="3kn-bY-SZS"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="qCa-d3-U4S" secondAttribute="bottom" id="7A8-wQ-dHb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qCa-d3-U4S" secondAttribute="trailing" constant="-20" id="NeI-Hi-dmf"/>
+                            <constraint firstItem="qCa-d3-U4S" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="vwe-Q5-Hhz"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Schedule" image="schedule" id="cPa-gy-q4n"/>
+                    <navigationItem key="navigationItem" title="Schedules" id="WLq-vK-kOc">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="n1w-KE-qiY">
+                            <connections>
+                                <action selector="addNewSchedule:" destination="8rJ-Kc-sve" id="8Mu-fv-wNW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="tableView" destination="qCa-d3-U4S" id="bum-cl-mSh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1084" y="466"/>
+            <point key="canvasLocation" x="659" y="1804"/>
         </scene>
         <!--Profile-->
         <scene sceneID="lNM-Iv-luQ">
@@ -357,7 +367,6 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="gKM-Nc-SEs"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -368,15 +377,16 @@
                     </tabBar>
                     <connections>
                         <segue destination="dWu-Sv-sM9" kind="relationship" relationship="viewControllers" id="7sa-c8-iKV"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="jRb-m9-oZS" kind="relationship" relationship="viewControllers" id="auz-Ab-ZJF"/>
                         <segue destination="pPO-zc-BzD" kind="relationship" relationship="viewControllers" id="nFd-LY-gNb"/>
+                        <segue destination="tga-5G-6H2" kind="relationship" relationship="viewControllers" id="NK2-vt-EgP"/>
+                        <segue destination="jRb-m9-oZS" kind="relationship" relationship="viewControllers" id="auz-Ab-ZJF"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="13" y="-16"/>
         </scene>
-        <!--Item-->
+        <!--Actions-->
         <scene sceneID="Qvx-Je-YxJ">
             <objects>
                 <viewController id="pPO-zc-BzD" sceneMemberID="viewController">
@@ -389,12 +399,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="mvZ-oo-lK1"/>
+                    <tabBarItem key="tabBarItem" title="Actions" id="mvZ-oo-lK1"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Wl-up-64x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="415" y="898"/>
+            <point key="canvasLocation" x="919" y="906"/>
+        </scene>
+        <!--Scheduling-->
+        <scene sceneID="bf4-zK-tm7">
+            <objects>
+                <navigationController id="tga-5G-6H2" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Scheduling" image="schedule" selectedImage="schedule" id="a9V-P1-I3i"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SWw-Yw-RTj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="cZT-3c-bCQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mOy-yX-BQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="102" y="1804"/>
         </scene>
     </scenes>
     <resources>
@@ -404,6 +431,6 @@
         <image name="whiteLogo" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="C9x-fn-fyk"/>
+        <segue reference="rxh-Lq-cMM"/>
     </inferredMetricsTieBreakers>
 </document>

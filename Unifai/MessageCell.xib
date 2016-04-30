@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is the actual message content of the thing and let's add even more content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sov-qI-dkS" customClass="ActiveLabel" customModule="ActiveLabel">
-                    <rect key="frame" x="73" y="43" width="508" height="542"/>
+                    <rect key="frame" x="73" y="43" width="508" height="533"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -41,7 +41,6 @@
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Plt-Xd-OrE">
                     <rect key="frame" x="67" y="586" width="514" height="6"/>
-                    <color key="backgroundColor" red="0.88480808420000001" green="0.25572613109999998" blue="0.056465506309999997" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="6" id="6jU-cM-5m1"/>
                     </constraints>
@@ -60,7 +59,7 @@
                 <constraint firstItem="ZZE-Ct-5dI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="YrM-PT-JHh"/>
                 <constraint firstItem="sov-qI-dkS" firstAttribute="top" secondItem="rMW-pm-lz3" secondAttribute="bottom" constant="3" id="ahW-UP-kqu"/>
                 <constraint firstItem="rMW-pm-lz3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="19" id="kCk-aK-NhC"/>
-                <constraint firstItem="Plt-Xd-OrE" firstAttribute="top" secondItem="sov-qI-dkS" secondAttribute="bottom" constant="1" id="tdo-xo-afV"/>
+                <constraint firstItem="Plt-Xd-OrE" firstAttribute="top" secondItem="sov-qI-dkS" secondAttribute="bottom" constant="10" id="tdo-xo-afV"/>
                 <constraint firstAttribute="bottom" secondItem="Plt-Xd-OrE" secondAttribute="bottom" constant="8" id="tr9-C5-tSd"/>
             </constraints>
             <connections>

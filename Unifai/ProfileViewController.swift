@@ -32,6 +32,13 @@ class ProfileViewController: UIViewController , UITableViewDelegate , UITableVie
         self.tableView.dataSource = self
         
         
+        let imageView = UIImageView(frame: CGRect(x: 5, y: 5, width: 33, height: 33))
+        imageView.contentMode = .ScaleAspectFit
+        let image = UIImage(named: "logo")
+        imageView.image = image
+        navigationItem.titleView = imageView
+        
+
         
         self.tabBarController?.title = "Feed"
         self.tableView.addSubview(self.refreshControl)

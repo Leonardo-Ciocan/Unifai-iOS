@@ -48,6 +48,24 @@ class Unifai{
         }
     }
     
+    static func getActions(completion : ([Action]) -> ()){
+        Alamofire.request(.GET , Constants.urlAction , headers:self.headers)
+            .validate()
+            .responseJSON{ response in
+                switch response.result {
+                case .Success(let data):
+                    let json = JSON(data).array
+                    var actions : [Action] = []
+                    for action in json!{
+                        actions.append(Action(json: action))
+                    }
+                    completion(actions)
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                }
+        }
+    }
+    
     static func getThread(id:String , completion : ([Message])->()) {
         Alamofire.request(.GET , Constants.urlThread + id , headers:self.headers)
             .validate()
@@ -132,6 +150,14 @@ class Unifai{
         }
     }
     
+    static func createAction(message : String ,name:String, completion : ((Bool)->())?){
+        Alamofire.request(.POST , Constants.urlAction ,
+            parameters: ["message":message,"name":name], headers:self.headers)
+            .responseJSON{ response in
+                completion!(true)
+        }
+    }
+    
     static func sendMessage(content : String , thread : String , completion : ((Bool)->())?){
         Alamofire.request(.POST , Constants.urlMessage ,
             parameters: ["content":content , "thread_id" : thread], headers:self.headers)
@@ -191,6 +217,14 @@ class Unifai{
         formatter.locale = enUSPosixLocale
         Alamofire.request(.POST , Constants.urlSchedules ,
             parameters: ["message":message , "repeating":repeating , "datetime":formatter.stringFromDate(start)], headers:self.headers)
+            .responseJSON{ response in
+                completion!(true)
+        }
+    }
+    
+    static func signup(username:String,email:String , password:String , completion : ((Bool)->())?){
+        Alamofire.request(.POST , Constants.urlSignup ,
+            parameters: ["username":username , "email":email , "password":password])
             .responseJSON{ response in
                 completion!(true)
         }

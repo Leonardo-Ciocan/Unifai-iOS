@@ -39,6 +39,12 @@
 		B39006901CD35FB800F472AC /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B390068E1CD35FB800F472AC /* ScheduleCell.swift */; };
 		B39006911CD35FB800F472AC /* ScheduleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B390068F1CD35FB800F472AC /* ScheduleCell.xib */; };
 		B39006931CD3714700F472AC /* NewScheduleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39006921CD3714700F472AC /* NewScheduleController.swift */; };
+		B39006951CD661C600F472AC /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39006941CD661C600F472AC /* SignupViewController.swift */; };
+		B39006971CD66ED600F472AC /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39006961CD66ED600F472AC /* Action.swift */; };
+		B39006991CD6701C00F472AC /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39006981CD6701C00F472AC /* ActionsViewController.swift */; };
+		B390069C1CD679D700F472AC /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B390069A1CD679D700F472AC /* ActionCell.swift */; };
+		B390069D1CD679D700F472AC /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B390069B1CD679D700F472AC /* ActionCell.xib */; };
+		B390069F1CD67C2200F472AC /* NewActionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B390069E1CD67C2200F472AC /* NewActionController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +105,12 @@
 		B390068E1CD35FB800F472AC /* ScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
 		B390068F1CD35FB800F472AC /* ScheduleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleCell.xib; sourceTree = "<group>"; };
 		B39006921CD3714700F472AC /* NewScheduleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewScheduleController.swift; sourceTree = "<group>"; };
+		B39006941CD661C600F472AC /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		B39006961CD66ED600F472AC /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		B39006981CD6701C00F472AC /* ActionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionsViewController.swift; sourceTree = "<group>"; };
+		B390069A1CD679D700F472AC /* ActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
+		B390069B1CD679D700F472AC /* ActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionCell.xib; sourceTree = "<group>"; };
+		B390069E1CD67C2200F472AC /* NewActionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewActionController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +204,11 @@
 				B390068E1CD35FB800F472AC /* ScheduleCell.swift */,
 				B390068F1CD35FB800F472AC /* ScheduleCell.xib */,
 				B39006921CD3714700F472AC /* NewScheduleController.swift */,
+				B39006941CD661C600F472AC /* SignupViewController.swift */,
+				B39006981CD6701C00F472AC /* ActionsViewController.swift */,
+				B390069A1CD679D700F472AC /* ActionCell.swift */,
+				B390069B1CD679D700F472AC /* ActionCell.xib */,
+				B390069E1CD67C2200F472AC /* NewActionController.swift */,
 			);
 			path = Unifai;
 			sourceTree = "<group>";
@@ -225,6 +242,7 @@
 				B363CFCB1CCF205700B6182D /* Unifai.swift */,
 				B335AC1D1CD0ACC100B85781 /* Utils.swift */,
 				B390068A1CD35D7F00F472AC /* Schedule.swift */,
+				B39006961CD66ED600F472AC /* Action.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -341,6 +359,7 @@
 			files = (
 				B363CFC81CCEF9BB00B6182D /* MessageCell.xib in Resources */,
 				B363CF911CCEEBB300B6182D /* LaunchScreen.storyboard in Resources */,
+				B390069D1CD679D700F472AC /* ActionCell.xib in Resources */,
 				B39006911CD35FB800F472AC /* ScheduleCell.xib in Resources */,
 				B363CF8E1CCEEBB300B6182D /* Assets.xcassets in Resources */,
 				B363CFB51CCEECA600B6182D /* Podfile in Resources */,
@@ -417,6 +436,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B390069F1CD67C2200F472AC /* NewActionController.swift in Sources */,
 				B363CFD21CCF502A00B6182D /* LoginViewController.swift in Sources */,
 				B363CFBC1CCEF49800B6182D /* Payload.swift in Sources */,
 				B363CFCA1CCF090700B6182D /* Constants.swift in Sources */,
@@ -435,9 +455,13 @@
 				B363CFBA1CCEF32A00B6182D /* Message.swift in Sources */,
 				B335AC251CD0F4A000B85781 /* ComposeViewController.swift in Sources */,
 				B363CFC01CCEF74100B6182D /* Core.swift in Sources */,
+				B39006991CD6701C00F472AC /* ActionsViewController.swift in Sources */,
+				B39006971CD66ED600F472AC /* Action.swift in Sources */,
+				B39006951CD661C600F472AC /* SignupViewController.swift in Sources */,
 				B363CFC21CCEF78E00B6182D /* ThreadViewController.swift in Sources */,
 				B363CFD01CCF4D9600B6182D /* MainNavigationController.swift in Sources */,
 				B39006931CD3714700F472AC /* NewScheduleController.swift in Sources */,
+				B390069C1CD679D700F472AC /* ActionCell.swift in Sources */,
 				B39006901CD35FB800F472AC /* ScheduleCell.swift in Sources */,
 				B363CFCC1CCF205700B6182D /* Unifai.swift in Sources */,
 			);

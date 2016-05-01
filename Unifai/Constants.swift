@@ -14,4 +14,6 @@ class Constants{
     static let urlUserProfile = urlRoot + "user/";
     static let urlUserInfo = urlRoot + "me/";
     static let urlSchedules = urlRoot + "trigger/";
+    static let urlSignup = urlRoot + "signup/";
+    static let urlAction = urlRoot + "action/";
 }

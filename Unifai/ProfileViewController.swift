@@ -136,4 +136,10 @@ class ProfileViewController: UIViewController , UITableViewDelegate , UITableVie
         return messages.count
     }
     
+    @IBAction func logout(sender: AnyObject) {
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("token")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
 }

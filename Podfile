@@ -9,5 +9,6 @@ target 'Unifai' do
     pod 'Eureka', '~> 1.5'
     pod "MaterialDesignSymbol"
     pod 'AlertOnboarding'
+    pod "GSImageViewerController"
 
 end

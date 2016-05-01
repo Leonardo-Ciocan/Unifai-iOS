@@ -8,6 +8,7 @@
 
 import UIKit
 import AlertOnboarding
+import GSImageViewerController
 
 class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UIViewControllerPreviewingDelegate {
     @IBOutlet weak var tableView: UITableView!
@@ -84,7 +85,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         alertView.purcentageRatioHeight = 0.9
         
         //... and show it !
-        alertView.show()
+        //alertView.show()
 
         
     }
@@ -169,7 +170,23 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         cell.imgLogo.contentMode = .ScaleAspectFit
         cell.imgLogo.userInteractionEnabled = true
         cell.imgLogo.tag = indexPath.row
+        
+        if let imgView = cell.imgView {
+            let singleTap = UITapGestureRecognizer(target: self, action:#selector(payloadImageTapped))
+            singleTap.numberOfTapsRequired = 1
+            imgView.userInteractionEnabled = true
+            imgView.addGestureRecognizer(singleTap)
+        }
+        
         return cell
+    }
+    
+    func payloadImageTapped(senderA:UITapGestureRecognizer){
+        let sender = senderA.view as! UIImageView
+        let imageInfo      = GSImageInfo(image: sender.image!, imageMode: .AspectFit, imageHD: nil)
+        let transitionInfo = GSTransitionInfo(fromView: sender)
+        let imageViewer    = GSImageViewerController(imageInfo: imageInfo, transitionInfo: transitionInfo)
+        self.presentViewController(imageViewer, animated: true, completion: nil)
     }
     
     func imageTapped(sender: UIButton) {

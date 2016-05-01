@@ -8,6 +8,7 @@
 
 import Foundation
 import SlackTextViewController
+import GSImageViewerController
 
 class ThreadViewController: SLKTextViewController  {
     
@@ -50,9 +51,23 @@ class ThreadViewController: SLKTextViewController  {
         let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell") as! MessageCell
         cell.selectionStyle = .None
         cell.setMessage(messages[indexPath.row])
+        if let imgView = cell.imgView {
+            let singleTap = UITapGestureRecognizer(target: self, action:#selector(payloadImageTapped))
+            singleTap.numberOfTapsRequired = 1
+            imgView.userInteractionEnabled = true
+            imgView.addGestureRecognizer(singleTap)
+        }
+        
         return cell
     }
     
+    func payloadImageTapped(senderA:UITapGestureRecognizer){
+        let sender = senderA.view as! UIImageView
+        let imageInfo      = GSImageInfo(image: sender.image!, imageMode: .AspectFit, imageHD: nil)
+        let transitionInfo = GSTransitionInfo(fromView: sender)
+        let imageViewer    = GSImageViewerController(imageInfo: imageInfo, transitionInfo: transitionInfo)
+        self.presentViewController(imageViewer, animated: true, completion: nil)
+    }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }

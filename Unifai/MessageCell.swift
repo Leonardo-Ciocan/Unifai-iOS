@@ -9,7 +9,7 @@
 import UIKit
 import DateTools
 import ActiveLabel
-
+import GSImageViewerController
 class MessageCell: UITableViewCell {
     
     @IBOutlet weak var txtName: UILabel!
@@ -21,6 +21,10 @@ class MessageCell: UITableViewCell {
     @IBOutlet weak var payloadContainer: UIView!
     @IBOutlet weak var payloadContainerHeight: NSLayoutConstraint!
 
+    
+    var img : UIImage?
+    var imgView : UIImageView?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -68,12 +72,33 @@ class MessageCell: UITableViewCell {
         if(message.type == .Text){
             self.payloadContainerHeight.constant = 10
         }
-        if(message.type == .Table){
+        else if(message.type == .Table){
             self.payloadContainerHeight.constant = CGFloat((message.payload as! TablePayload).rows.count) * 50 + 50
             let tableView = TablePayloadView()
             self.payloadContainer.addSubview(tableView)
             tableView.loadData(message.payload as! TablePayload)
            
+        }
+        else if(message.type == .Image){
+            self.payloadContainerHeight.constant = 180
+            var url:NSURL? = NSURL(string: (message.payload as! ImagePayload).URL)
+            var data:NSData? = NSData(contentsOfURL : url!)
+            var image = UIImage(data : data!)
+            
+            self.img = image
+            
+            let imageView = UIImageView(image: image)
+            
+            self.imgView = imageView
+            
+            imageView.contentMode = .ScaleAspectFit
+            self.payloadContainer.addSubview(imageView)
+            imageView.snp_makeConstraints(closure: { (make)->Void in
+                make.trailing.leading.equalTo(0)
+                make.bottom.top.equalTo(0)
+            })
+            
+            
         }
         
     }

@@ -4,6 +4,7 @@ PODS:
   - AlertOnboarding (1.5)
   - DateTools (1.7.0)
   - Eureka (1.5.0)
+  - GSImageViewerController (1.1.1)
   - MaterialDesignSymbol (1.7)
   - SlackTextViewController (1.9.2)
   - SnapKit (0.15.0)
@@ -15,6 +16,7 @@ DEPENDENCIES:
   - AlertOnboarding
   - DateTools
   - Eureka (~> 1.5)
+  - GSImageViewerController
   - MaterialDesignSymbol
   - SlackTextViewController
   - SnapKit (~> 0.15.0)
@@ -35,6 +37,7 @@ SPEC CHECKSUMS:
   AlertOnboarding: 4b92341965987dc9492a37d453aac7826f60f0a3
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   Eureka: 2fb37bb50569c62ee3284689d5b7aca694b040e0
+  GSImageViewerController: 1fd7ff9210bca2eaaeb89811c55230b575377143
   MaterialDesignSymbol: 8216d8587ff04b8d0d110a9a02eb53ea94174328
   SlackTextViewController: bac3350ccc639bc446bb14cbd09da238f5e01f32
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87

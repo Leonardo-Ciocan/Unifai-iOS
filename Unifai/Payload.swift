@@ -5,6 +5,9 @@ class Payload {}
 
 class ImagePayload : Payload {
     var URL = ""
+    init(data:String) {
+        URL = data
+    }
 }
 
 class TablePayload : Payload {

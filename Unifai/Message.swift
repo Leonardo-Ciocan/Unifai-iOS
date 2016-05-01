@@ -77,6 +77,9 @@ class Message {
         if(type == 1){
             self.payload = TablePayload(data: data)
         }
+        else if(type == 2){
+            self.payload = ImagePayload(data: data)
+        }
         
     }
     

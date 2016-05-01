@@ -9,6 +9,7 @@
 import Foundation
 import SlackTextViewController
 import GSImageViewerController
+import SafariServices
 
 class ThreadViewController: SLKTextViewController  {
     
@@ -57,6 +58,12 @@ class ThreadViewController: SLKTextViewController  {
             imgView.userInteractionEnabled = true
             imgView.addGestureRecognizer(singleTap)
         }
+        
+        
+        cell.txtBody.handleURLTap({url in
+            let svc = SFSafariViewController(URL: url)
+            self.presentViewController(svc, animated: true, completion: nil)
+        })
         
         return cell
     }

@@ -10,6 +10,8 @@ import UIKit
 import DateTools
 import ActiveLabel
 import GSImageViewerController
+import SafariServices
+
 class MessageCell: UITableViewCell {
     
     @IBOutlet weak var txtName: UILabel!
@@ -55,9 +57,12 @@ class MessageCell: UITableViewCell {
                 let services = Core.Services.filter({"@"+$0.username == name})
                 if(services.count > 0){
                     txtBody.mentionColor = (services[0].color)
+                    txtBody.URLColor = (services[0].color)
                 }
                 else{
                     txtBody.mentionColor = Constants.appBrandColor
+                    txtBody.URLColor = Constants.appBrandColor
+                    
                 }
             }
         }
@@ -65,7 +70,9 @@ class MessageCell: UITableViewCell {
             //self.txtUsername.text = "@" + (message.service?.name)!
             self.txtName.text = message.service?.name
             txtBody.mentionColor = Constants.appBrandColor
+            txtBody.URLColor = Constants.appBrandColor
         }
+        
         
         self.payloadContainer.subviews.forEach { $0.removeFromSuperview() }
 

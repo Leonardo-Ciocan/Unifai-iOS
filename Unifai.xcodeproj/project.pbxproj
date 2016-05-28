@@ -52,6 +52,7 @@
 		B3F7B00E1CF93FA800734F9B /* Thread.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3F7B00C1CF93FA800734F9B /* Thread.storyboard */; };
 		B3F7B0111CF9456E00734F9B /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = B3F7B0101CF9456500734F9B /* FontAwesome.otf */; };
 		B3F7B0131CF94AD000734F9B /* MessageCreatorTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7B0121CF94AD000734F9B /* MessageCreatorTextView.swift */; };
+		B3F7B0151CF94F5800734F9B /* MessageCreatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7B0141CF94F5800734F9B /* MessageCreatorDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 		B3F7B00D1CF93FA800734F9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Thread.storyboard; sourceTree = "<group>"; };
 		B3F7B0101CF9456500734F9B /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.otf; path = "../../../../Downloads/font-awesome-4.6.3/fonts/FontAwesome.otf"; sourceTree = "<group>"; };
 		B3F7B0121CF94AD000734F9B /* MessageCreatorTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCreatorTextView.swift; sourceTree = "<group>"; };
+		B3F7B0141CF94F5800734F9B /* MessageCreatorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCreatorDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +251,7 @@
 				B3F7B0051CF93E8F00734F9B /* MessageCreator.xib */,
 				B3F7B0071CF93EA400734F9B /* MessageCreator.swift */,
 				B3F7B0121CF94AD000734F9B /* MessageCreatorTextView.swift */,
+				B3F7B0141CF94F5800734F9B /* MessageCreatorDelegate.swift */,
 			);
 			path = Unifai;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				B335AC1E1CD0ACC100B85781 /* Utils.swift in Sources */,
 				B3F7B0131CF94AD000734F9B /* MessageCreatorTextView.swift in Sources */,
 				B363CFC61CCEF9A800B6182D /* MessageCell.swift in Sources */,
+				B3F7B0151CF94F5800734F9B /* MessageCreatorDelegate.swift in Sources */,
 				B335AC211CD0EF8B00B85781 /* ComposeTextField.swift in Sources */,
 				B335AC2B1CD3336F00B85781 /* TablePayloadView.swift in Sources */,
 				B335AC271CD1127C00B85781 /* ServiceProfileViewcontroller.swift in Sources */,

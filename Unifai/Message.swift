@@ -68,7 +68,9 @@ class Message {
             return s.username == service
         }).first
         self.threadID = thread
-        if let date =  NSDate(string: time, formatString: "yyyy-MM-dd HH:mm:ss.SSSSxxx"){
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSSxxx"
+        if let date =  formatter.dateFromString(time){
             self.timestamp = date
         }
 

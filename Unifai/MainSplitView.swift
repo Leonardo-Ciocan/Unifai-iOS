@@ -7,3 +7,21 @@
 //
 
 import Foundation
+import UIKit
+
+class MainSplitView : UISplitViewController{
+    
+    var selectedMessage : Message?
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toThread"{
+            let destination = segue.destinationViewController as! ThreadViewController
+            destination.loadData(selectedMessage!.threadID!)
+        }
+        else if segue.identifier == "toProfile"{
+            let destination = segue.destinationViewController as! ServiceProfileViewcontroller
+            destination.loadData(selectedMessage!.service)
+        }
+    }
+    
+}

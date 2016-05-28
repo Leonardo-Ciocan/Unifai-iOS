@@ -43,7 +43,7 @@ class Unifai{
                     }
                     completion(services)
                 case .Failure(let error):
-                    print("Request failed with error: \(error)")
+                    print("getServices failed with error: \(error)")
                 }
         }
     }
@@ -225,8 +225,10 @@ class Unifai{
     static func signup(username:String,email:String , password:String , completion : ((Bool)->())?){
         Alamofire.request(.POST , Constants.urlSignup ,
             parameters: ["username":username , "email":email , "password":password])
-            .responseJSON{ response in
+            .validate()
+            .response{ response in
                 completion!(true)
+
         }
     }
     

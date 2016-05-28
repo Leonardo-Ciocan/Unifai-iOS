@@ -10,7 +10,7 @@ import UIKit
 import AlertOnboarding
 import GSImageViewerController
 
-class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UIViewControllerPreviewingDelegate {
+class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UIViewControllerPreviewingDelegate , MessageCreatorDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     var messages : [Message] = []
@@ -21,6 +21,10 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         
         return refreshControl
     }()
+    
+    var mainSplitView : MainSplitView {
+        return self.splitViewController as! MainSplitView
+    }
     
     override func viewDidLoad() {
         self.tableView!.registerNib(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
@@ -38,9 +42,10 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         
         self.tabBarController?.title = "Feed"
         self.tableView.addSubview(self.refreshControl)
-        
+        print("loading view")
         Unifai.getServices({ services in
             Core.Services = services
+            print("AQUIRED SERVICES")
             Unifai.getUserInfo({username , email in
                 Core.Username = username
                 self.loadData()
@@ -48,47 +53,62 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         })
         
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
+        let creator = MessageCreator(frame: CGRect(x: 0, y: 0, width: self.view.frame.width , height: 100))
+        creator.creatorDelegate = self
+        creator.backgroundColor = UIColor.whiteColor()
+        tableView.tableHeaderView = creator
         
         let imageView = UIImageView(frame: CGRect(x: 5, y: 5, width: 33, height: 33))
         imageView.contentMode = .ScaleAspectFit
-        let image = UIImage(named: "logo")
-        imageView.image = image
-        navigationItem.titleView = imageView
+//        let image = UIImage(named: "logo")
+//        imageView.image = image
+//        navigationItem.titleView = imageView
 
+        navigationItem.title = "Feed"
         if( traitCollection.forceTouchCapability == .Available){
             
             registerForPreviewingWithDelegate(self, sourceView: view)
-            
         }
         
-        var arrayOfImage = ["logoWithSlogan", "example1", "schedules","actions"]
-        var arrayOfTitle = [
-            "UNIF(AI)",
-            "Your services work toghether",
-            "SCHEDULES",
-            "ACTIONS"]
-        var arrayOfDescription = ["All your services , 1 interface",
-                                  "Simply mention the service with @ and you're ready to converse with it",
-                                  "Schedule messages so you that you don't even have to type",
-                                  "Make buttons for common things you do."]
         
-        //Simply call AlertOnboarding...
-        var alertView = AlertOnboarding(arrayOfImage: arrayOfImage, arrayOfTitle: arrayOfTitle, arrayOfDescription: arrayOfDescription)
-        
-        alertView.colorButtonText = Constants.appBrandColor
-        alertView.colorButtonBottomBackground = UIColor(red: 0, green: 0, blue: 0, alpha: 0.01)
-        
-        alertView.colorTitleLabel = Constants.appBrandColor
-        alertView.colorCurrentPageIndicator = Constants.appBrandColor
-        
-        alertView.purcentageRatioWidth = 0.9
-        alertView.purcentageRatioHeight = 0.9
-        
-        //... and show it !
-        //alertView.show()
 
         
     }
+    
+    func sendMessage(message: String) {
+        
+        var target = matchesForRegexInText("(?:^|\\s|$|[.])@[\\p{L}0-9_]*", text: message)
+        if(target.count > 0){
+            let name = target[0]
+            let services = Core.Services.filter({"@"+$0.username == name})
+            if(services.count > 0){
+                Unifai.sendMessage(message, completion: { success in
+                    self.loadData()
+                })
+            }
+            else{
+                
+                
+            }
+        }
+        else{
+            let alert = UIAlertController(title: "Can't send this message", message: "You need to mention a service , for example @skyscanner", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
+                switch action.style{
+                case .Default:
+                    print("default")
+                    
+                case .Cancel:
+                    print("cancel")
+                    
+                case .Destructive:
+                    print("destructive")
+                }
+            }))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
     
     override func viewDidAppear(animated: Bool) {
         loadData()
@@ -143,22 +163,16 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         loadData()
     }
     
+    
+    
     var selectedRow = 0
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedRow = indexPath.row
-        self.performSegueWithIdentifier("toThread", sender: self)
+        self.mainSplitView.selectedMessage = messages[indexPath.row]
+        self.splitViewController!.performSegueWithIdentifier("toThread", sender: self)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "toThread"{
-            let destination = segue.destinationViewController as! ThreadViewController
-            destination.loadData(messages[selectedRow].threadID!)
-        }
-        else if segue.identifier == "toProfile"{
-            let destination = segue.destinationViewController as! ServiceProfileViewcontroller
-            destination.loadData(messages[selectedRow].service)
-        }
-    }
+    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell") as! MessageCell
@@ -191,6 +205,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     
     func imageTapped(sender: UIButton) {
         selectedRow = sender.tag
+        //self.mainSplitView.selectedMessage = messages[indexPath.row]
         self.performSegueWithIdentifier("toProfile", sender: self)
     }
     

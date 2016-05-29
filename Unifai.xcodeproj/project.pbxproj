@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		01D26ACE065065C701F8A3F1 /* Pods_Unifai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2C595C8687C920B4DB1A2A /* Pods_Unifai.framework */; };
 		B30663F51CCF9D2E00F3CC92 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30663F41CCF9D2E00F3CC92 /* FeedViewController.swift */; };
+		B32BDC9B1CFB9D2800C18AFE /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BDC9A1CFB9D2800C18AFE /* DashboardViewController.swift */; };
+		B32BDC9D1CFBA17900C18AFE /* DashboardEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BDC9C1CFBA17900C18AFE /* DashboardEditorViewController.swift */; };
 		B335AC1E1CD0ACC100B85781 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC1D1CD0ACC100B85781 /* Utils.swift */; };
 		B335AC211CD0EF8B00B85781 /* ComposeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC201CD0EF8B00B85781 /* ComposeTextField.swift */; };
 		B335AC231CD0F3B400B85781 /* ComposeBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC221CD0F3B400B85781 /* ComposeBackground.swift */; };
@@ -90,6 +92,8 @@
 		6F2C595C8687C920B4DB1A2A /* Pods_Unifai.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unifai.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF737EEAD9673B524EA2C60B /* Pods-Unifai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unifai.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Unifai/Pods-Unifai.debug.xcconfig"; sourceTree = "<group>"; };
 		B30663F41CCF9D2E00F3CC92 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		B32BDC9A1CFB9D2800C18AFE /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		B32BDC9C1CFBA17900C18AFE /* DashboardEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardEditorViewController.swift; sourceTree = "<group>"; };
 		B335AC1D1CD0ACC100B85781 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		B335AC201CD0EF8B00B85781 /* ComposeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTextField.swift; sourceTree = "<group>"; };
 		B335AC221CD0F3B400B85781 /* ComposeBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeBackground.swift; sourceTree = "<group>"; };
@@ -217,6 +221,7 @@
 		B363CF831CCEEBB300B6182D /* Unifai */ = {
 			isa = PBXGroup;
 			children = (
+				B32BDC9A1CFB9D2800C18AFE /* DashboardViewController.swift */,
 				B3F7B00F1CF9455700734F9B /* Resources */,
 				B3F7B0031CF8AFFF00734F9B /* MainSplitView.swift */,
 				B363CFB61CCEF30E00B6182D /* Models */,
@@ -252,6 +257,7 @@
 				B3F7B0071CF93EA400734F9B /* MessageCreator.swift */,
 				B3F7B0121CF94AD000734F9B /* MessageCreatorTextView.swift */,
 				B3F7B0141CF94F5800734F9B /* MessageCreatorDelegate.swift */,
+				B32BDC9C1CFBA17900C18AFE /* DashboardEditorViewController.swift */,
 			);
 			path = Unifai;
 			sourceTree = "<group>";
@@ -514,6 +520,7 @@
 				B335AC2B1CD3336F00B85781 /* TablePayloadView.swift in Sources */,
 				B335AC271CD1127C00B85781 /* ServiceProfileViewcontroller.swift in Sources */,
 				B363CFBE1CCEF52600B6182D /* Service.swift in Sources */,
+				B32BDC9D1CFBA17900C18AFE /* DashboardEditorViewController.swift in Sources */,
 				B363CF851CCEEBB300B6182D /* AppDelegate.swift in Sources */,
 				B335AC291CD177C400B85781 /* ProfileViewController.swift in Sources */,
 				B3F7B0081CF93EA400734F9B /* MessageCreator.swift in Sources */,
@@ -521,6 +528,7 @@
 				B390068B1CD35D7F00F472AC /* Schedule.swift in Sources */,
 				B30663F51CCF9D2E00F3CC92 /* FeedViewController.swift in Sources */,
 				B390068D1CD35F4E00F472AC /* SchedulesViewController.swift in Sources */,
+				B32BDC9B1CFB9D2800C18AFE /* DashboardViewController.swift in Sources */,
 				B363CFBA1CCEF32A00B6182D /* Message.swift in Sources */,
 				B335AC251CD0F4A000B85781 /* ComposeViewController.swift in Sources */,
 				B363CFC01CCEF74100B6182D /* Core.swift in Sources */,

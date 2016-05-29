@@ -1,11 +1,3 @@
-//
-//  FeedViewController.swift
-//  Unifai
-//
-//  Created by Leonardo Ciocan on 26/04/2016.
-//  Copyright © 2016 Unifai. All rights reserved.
-//
-
 import UIKit
 import AlertOnboarding
 import GSImageViewerController
@@ -60,9 +52,10 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         
         let imageView = UIImageView(frame: CGRect(x: 5, y: 5, width: 33, height: 33))
         imageView.contentMode = .ScaleAspectFit
-//        let image = UIImage(named: "logo")
-//        imageView.image = image
-//        navigationItem.titleView = imageView
+
+        let image = UIImage(named: "simpleIcon")
+        imageView.image = image
+        navigationItem.titleView = imageView
 
         navigationItem.title = "Feed"
         if( traitCollection.forceTouchCapability == .Available){

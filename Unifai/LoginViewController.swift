@@ -25,7 +25,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
     @IBOutlet weak var logoHeight: NSLayoutConstraint!
     func keyboardWillShow(sender: NSNotification) {
         var info = sender.userInfo!
-        var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        //var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         
         UIView.animateWithDuration(0.5, animations: { () -> Void in
             self.logoHeight.constant = 0
@@ -33,7 +33,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
     }
     func keyboardWillHide(sender: NSNotification) {
         var info = sender.userInfo!
-        var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        //var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         
         UIView.animateWithDuration(0.5, animations: { () -> Void in
             self.logoHeight.constant = 215
@@ -50,19 +50,19 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
             txtLogin.delegate = self
             self.view.hidden = false
             
-            var arrayOfImage = ["logoWithSlogan", "example1", "schedules","actions"]
-            var arrayOfTitle = [
+            let arrayOfImage = ["logoWithSlogan", "example1", "schedules","actions"]
+            let arrayOfTitle = [
                 "UNIF(AI)",
                 "Your services work toghether",
                 "SCHEDULES",
                 "ACTIONS"]
-            var arrayOfDescription = ["All your services , 1 interface",
+            let arrayOfDescription = ["All your services , 1 interface",
                                       "Simply mention the service with @ and you're ready to converse with it",
                                       "Schedule messages so you that you don't even have to type",
                                       "Make buttons for common things you do."]
             
             //Simply call AlertOnboarding...
-            var alertView = AlertOnboarding(arrayOfImage: arrayOfImage, arrayOfTitle: arrayOfTitle, arrayOfDescription: arrayOfDescription)
+            let alertView = AlertOnboarding(arrayOfImage: arrayOfImage, arrayOfTitle: arrayOfTitle, arrayOfDescription: arrayOfDescription)
             
             alertView.colorButtonText = Constants.appBrandColor
             alertView.colorButtonBottomBackground = UIColor(red: 0, green: 0, blue: 0, alpha: 0.01)

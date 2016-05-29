@@ -1,8 +1,8 @@
 import UIKit
 
-class ProfileViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UIViewControllerPreviewingDelegate {
+class DashboardViewController : UIViewController , UITableViewDelegate , UITableViewDataSource {
     
-    var messages : [ Message] = []
+    var messages : [Message] = []
     @IBOutlet weak var tableView: UITableView!
     
     lazy var refreshControl: UIRefreshControl = {
@@ -30,42 +30,11 @@ class ProfileViewController: UIViewController , UITableViewDelegate , UITableVie
         imageView.image = image
         navigationItem.titleView = imageView
         
-
-        
-        self.tabBarController?.title = "Feed"
+        self.tabBarController?.title = "Dashboard"
         self.tableView.addSubview(self.refreshControl)
-        //loadData()
-        
-        
-        if( traitCollection.forceTouchCapability == .Available){
-            
-            registerForPreviewingWithDelegate(self, sourceView: view)
-            
-        }
+        self.tableView!.separatorStyle = .None
         
         loadData()
-    }
-    
-    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        guard let indexPath = self.tableView.indexPathForRowAtPoint(location) else { return nil }
-        
-        guard let cell = tableView?.cellForRowAtIndexPath(indexPath) else { return nil }
-        
-        guard let detailVC = storyboard?.instantiateViewControllerWithIdentifier("ThreadViewController") as? ThreadViewController else { return nil }
-        
-        detailVC.loadData(messages[indexPath.row].threadID!)
-        
-        detailVC.preferredContentSize = CGSize(width: 0.0, height: 600)
-        
-        previewingContext.sourceRect = cell.frame
-        
-        return detailVC
-    }
-    
-    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
-        
-        showViewController(viewControllerToCommit, sender: self)
-        
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -81,7 +50,7 @@ class ProfileViewController: UIViewController , UITableViewDelegate , UITableVie
     
     
     func loadData(){
-        Unifai.getUserProfile({ threadMessages in
+        Unifai.getDashboard({ threadMessages in
             self.messages = threadMessages
             self.tableView?.reloadData()
             self.refreshControl.endRefreshing()

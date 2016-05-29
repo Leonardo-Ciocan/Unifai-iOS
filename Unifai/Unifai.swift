@@ -26,7 +26,9 @@ class Unifai{
             parameters: ["username":username , "password":password])
             .responseJSON{ response in
                let json = JSON(response.result.value!)
-               completion(json["token"].string!)
+                if let token = json["token"].string{
+                    completion(token)
+                }
         }
     }
     
@@ -104,6 +106,25 @@ class Unifai{
         }
     }
     
+    static func getDashboard(completion : ([Message])->()) {
+        
+        Alamofire.request(.GET , Constants.urlDashboard , headers:self.headers)
+            .validate()
+            .responseJSON{ response in
+                switch response.result {
+                case .Success(let data):
+                    let json = JSON(data).array
+                    var messages : [Message] = []
+                    for message in json!{
+                        messages.append(Message(json: message))
+                    }
+                    completion(messages)
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                }
+        }
+    }
+    
     static func getProfile(serviceID : String , completion : ([Message])->()) {
         
         Alamofire.request(.GET , Constants.urlServiceProfile + serviceID , headers:self.headers)
@@ -142,7 +163,39 @@ class Unifai{
         }
     }
     
+    static func getDashboardItems(completion : ([String])->()) {
+        
+        Alamofire.request(.GET , Constants.urlDashboardItems , headers:self.headers)
+            .validate()
+            .responseJSON{ response in
+                switch response.result {
+                case .Success(let data):
+                    let json = JSON(data).array
+                    var messages : [String] = []
+                    for message in json!{
+                        if let x = message.string{
+                            messages.append(x)
+                        }
+                    }
+                    completion(messages)
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                }
+        }
+    }
+    
+    static func setDashboardItems(items : [String], completion : ((Bool)->())?){
+        print(items)
+        Alamofire.request(.POST , Constants.urlDashboardItems ,
+                          parameters: ["queries": items], headers:self.headers)
+            .responseJSON{ response in
+                completion!(true)
+        }
+    }
+    
+    
     static func sendMessage(content : String , completion : ((Bool)->())?){
+
         Alamofire.request(.POST , Constants.urlMessage ,
             parameters: ["content":content], headers:self.headers)
             .responseJSON{ response in

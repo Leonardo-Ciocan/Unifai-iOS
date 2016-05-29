@@ -23,5 +23,4 @@ class MainSplitView : UISplitViewController{
             destination.loadData(selectedMessage!.service)
         }
     }
-    
 }

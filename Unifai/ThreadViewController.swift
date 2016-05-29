@@ -13,6 +13,7 @@ import SafariServices
 
 class ThreadViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , MessageCreatorDelegate  {
     
+    @IBOutlet var rootView: UIView!
     @IBOutlet weak var messageCreator: MessageCreator!
     var threadID : String?
     
@@ -33,7 +34,22 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         self.tableView.delegate = self
         self.navigationController?.navigationItem.title = "Loaded";
         self.messageCreator.creatorDelegate = self
+        
+        self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 49 + 100))
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(keyboardWillShow),
+                                                         name: UIKeyboardDidShowNotification,
+                                                         object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self,
+                                                         selector: #selector(keyboardWillHide),
+                                                         name: UIKeyboardDidHideNotification,
+                                                         object: nil)
     }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+
     
     
     func loadData(thread : String){
@@ -92,21 +108,30 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
 
     }
     
-//     func didPressRightButton(sender: AnyObject?) {
-//        self.textView.refreshFirstResponder()
-//        
-//        
-//        self.messages.append(Message(body: self.textView.text, type: .Text, payload: nil))
-//        self.tableView?.reloadData()
-//        self.tableView?.scrollToRowAtIndexPath(NSIndexPath(forRow: self.messages.count - 1,inSection:0), atScrollPosition: .Bottom, animated: true)
-//        
-//        Unifai.sendMessage( self.textView.text , thread: self.threadID!, completion: { (success) in
-//            self.loadData(self.threadID!)
-//        })
-//        
-//        self.textView.text = ""
-//        
-//    }
+    func keyboardWillShow(notification: NSNotification) {
+        keyboardShowOrHide(notification)
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        keyboardShowOrHide(notification)
+    }
+    
+    private func keyboardShowOrHide(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else {return}
+        guard let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey]else { return }
+        guard let curve = userInfo[UIKeyboardAnimationCurveUserInfoKey] else { return }
+        guard let keyboardFrameEnd = userInfo[UIKeyboardFrameEndUserInfoKey] else { return }
+        
+        let curveOption = UIViewAnimationOptions(rawValue: UInt(curve.integerValue << 16))
+        let keyboardFrameEndRectFromView = view.convertRect(keyboardFrameEnd.CGRectValue, fromView: nil)
+        UIView.animateWithDuration(duration.doubleValue ?? 1.0,
+                                   delay: 0,
+                                   options: [curveOption, .BeginFromCurrentState],
+                                   animations: { () -> Void in
+                                       self.rootView.frame = CGRectMake(0, 0, keyboardFrameEndRectFromView.size.width, keyboardFrameEndRectFromView.origin.y);
+
+            }, completion: nil)
+    }
     
     
 }

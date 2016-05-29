@@ -57,7 +57,7 @@ class Message {
     init(json : JSON){
         let body = json["content"].string
         let service = json["service_id"].string
-        let thread = json["thread_id"].number?.stringValue
+        let thread = json["thread_id"].stringValue
         let time = json["timestamp"].stringValue
         let data = json["data"].stringValue
         let type = json["type"].number

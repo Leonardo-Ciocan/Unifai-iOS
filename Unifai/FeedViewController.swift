@@ -198,8 +198,8 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     
     func imageTapped(sender: UIButton) {
         selectedRow = sender.tag
-        //self.mainSplitView.selectedMessage = messages[indexPath.row]
-        self.performSegueWithIdentifier("toProfile", sender: self)
+        self.mainSplitView.selectedMessage = messages[selectedRow]
+        self.splitViewController!.performSegueWithIdentifier("toProfile", sender: self)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

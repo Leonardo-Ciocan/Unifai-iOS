@@ -11,6 +11,7 @@ import DateTools
 import ActiveLabel
 import GSImageViewerController
 import SafariServices
+import Charts
 
 class MessageCell: UITableViewCell {
     
@@ -46,6 +47,7 @@ class MessageCell: UITableViewCell {
         
         self.txtTime.text = message.timestamp.shortTimeAgoSinceNow()
         imgLogo.setImage(message.logo, forState: .Normal)
+        var serviceColor : UIColor = message.isFromUser ? Constants.appBrandColor : (message.service?.color)!
         
         if(message.isFromUser){
             //self.txtUsername.text = "@" + Core.Username
@@ -58,6 +60,7 @@ class MessageCell: UITableViewCell {
                 if(services.count > 0){
                     txtBody.mentionColor = (services[0].color)
                     txtBody.URLColor = (services[0].color)
+                    serviceColor = services[0].color
                 }
                 else{
                     txtBody.mentionColor = Constants.appBrandColor
@@ -106,6 +109,46 @@ class MessageCell: UITableViewCell {
             })
             
             
+        }
+        else if(message.type == .BarChart){
+            self.payloadContainerHeight.constant = 180
+            
+            let view = BarChartView()
+           
+            var yvals : [BarChartDataEntry] = []
+            let payload = message.payload as! BarChartPayload
+            var yVals : [BarChartDataEntry]  = []
+            for (index, item) in payload.values.enumerate(){
+                yVals.append(BarChartDataEntry(value: Double(item), xIndex: index))
+            }
+            
+            let dataSet = BarChartDataSet(yVals: yVals, label: "")
+            
+            dataSet.colors = [serviceColor]
+            let data = BarChartData(xVals: payload.labels, dataSet: dataSet)
+            view.data = data
+            view.tintColor = serviceColor
+            view.rightAxis.labelTextColor = UIColor.whiteColor()
+            view.leftAxis.startAtZeroEnabled = true
+            view.borderColor = UIColor.whiteColor()
+            view.drawGridBackgroundEnabled = false
+            view.legend.enabled = false
+            view.gridBackgroundColor = UIColor.whiteColor()
+            view.xAxis.drawGridLinesEnabled = false
+            view.leftAxis.drawGridLinesEnabled = false
+            view.rightAxis.drawGridLinesEnabled = false
+            view.drawBordersEnabled = false
+            view.xAxis.drawAxisLineEnabled = false
+            view.descriptionText = ""
+            view.leftAxis.drawAxisLineEnabled = false
+            view.rightAxis.drawAxisLineEnabled = false
+            view.xAxis.labelPosition = .Bottom
+            self.payloadContainer.addSubview(view)
+            
+            view.snp_makeConstraints(closure: { (make)->Void in
+                make.trailing.leading.equalTo(0)
+                make.bottom.top.equalTo(0)
+            })
         }
         
     }

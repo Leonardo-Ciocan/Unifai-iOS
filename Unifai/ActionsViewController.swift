@@ -9,7 +9,7 @@ class ActionsViewController: UIViewController , UITableViewDelegate , UITableVie
         self.tableView!.registerNib(UINib(nibName: "ActionCell", bundle: nil), forCellReuseIdentifier: "ActionCell")
         
         self.tableView!.rowHeight = UITableViewAutomaticDimension
-        self.tableView!.estimatedRowHeight = 64.0
+        self.tableView!.estimatedRowHeight = 120
         self.tableView!.tableFooterView = UIView()
         self.tableView!.separatorStyle = .None
         
@@ -18,7 +18,7 @@ class ActionsViewController: UIViewController , UITableViewDelegate , UITableVie
         
         guard NSUserDefaults.standardUserDefaults().stringForKey("token") != nil else{return}
         
-        
+        loadData()
         
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
         
@@ -30,14 +30,18 @@ class ActionsViewController: UIViewController , UITableViewDelegate , UITableVie
     }
     
     override func viewDidAppear(animated: Bool) {
-        loadData()
+       // loadData()
     }
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 120
+    }
     
     
     func loadData(){
         //this is a feed view
         Unifai.getActions({ actions in
+            print(actions.count)
             self.actions = actions
             self.tableView?.reloadData()
         })
@@ -62,7 +66,11 @@ class ActionsViewController: UIViewController , UITableViewDelegate , UITableVie
     }
     
     @IBAction func create(sender: AnyObject) {
-        self.showViewController(NewActionController(),  sender:self)
+        self.presentViewController(NewActionController(), animated: true, completion: {
+            _ in
+            self.loadData()
+            
+        })
     }
     
 }

@@ -62,20 +62,6 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
     }
     
     var selectedRow = 0
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedRow = indexPath.row
-        self.performSegueWithIdentifier("toThread", sender: self)
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "toThread"{
-            let destination = segue.destinationViewController as! ThreadViewController
-            destination.loadData(messages[selectedRow].threadID!)
-        }
-        else if segue.identifier == "toCompose"{
-            
-        }
-    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell") as! MessageCell

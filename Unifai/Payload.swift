@@ -33,3 +33,19 @@ class TablePayload : Payload {
         }
     }
 }
+
+class BarChartPayload : Payload {
+    
+    var labels : [String] = []
+    var values : [Float]  = []
+    
+    init(data:String) {
+        let dt = data.dataUsingEncoding(NSUTF8StringEncoding , allowLossyConversion: true)
+        if let json = JSON(data:dt!).array{
+            for item in json{
+                self.labels.append(item["label"].stringValue)
+                self.values.append(item["value"].floatValue)
+            }
+        }
+    }
+}

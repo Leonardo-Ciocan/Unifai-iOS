@@ -10,5 +10,5 @@ target 'Unifai' do
     pod "MaterialDesignSymbol"
     pod 'AlertOnboarding'
     pod "GSImageViewerController"
-
+    pod 'Charts'
 end

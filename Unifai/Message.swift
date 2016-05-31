@@ -3,7 +3,7 @@ import UIKit
 import SwiftyJSON
 
 enum MessageType : Int{
-    case Text , Table , Image
+    case Text , Table , Image , BarChart
 }
 
 class Message {
@@ -75,12 +75,15 @@ class Message {
         }
 
         self.type = MessageType(rawValue:Int(type!))!
-        
+        print(type!)
         if(type == 1){
             self.payload = TablePayload(data: data)
         }
         else if(type == 2){
             self.payload = ImagePayload(data: data)
+        }
+        else if(type == 3){
+            self.payload = BarChartPayload(data: data)
         }
         
     }

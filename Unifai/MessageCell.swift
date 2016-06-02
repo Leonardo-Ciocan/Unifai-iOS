@@ -28,6 +28,15 @@ class MessageCell: UITableViewCell {
     var img : UIImage?
     var imgView : UIImageView?
     
+    var hideTime : Bool{
+        set(hide){
+            txtTime.hidden = hide
+        }
+        get{
+            return txtTime.hidden
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -149,6 +158,18 @@ class MessageCell: UITableViewCell {
                 make.trailing.leading.equalTo(0)
                 make.bottom.top.equalTo(0)
             })
+        }
+        else if (message.type == .RequestAuth){
+            self.payloadContainerHeight.constant = 35
+            let btn = LoginButton()
+            btn.setService(message.service!)
+            self.payloadContainer.addSubview(btn)
+            
+            btn.snp_makeConstraints(closure: { (make)->Void in
+                make.trailing.leading.equalTo(0)
+                make.height.equalTo(35)
+                make.top.equalTo(0)
+            })  
         }
         
     }

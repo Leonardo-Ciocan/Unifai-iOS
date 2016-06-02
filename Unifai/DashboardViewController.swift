@@ -37,16 +37,6 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         loadData()
     }
     
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete{
-            messages.removeAtIndex(indexPath.row)
-            self.tableView.reloadData()
-        }
-    }
     
     
     func loadData(){
@@ -72,6 +62,7 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         cell.accessoryView = cell.imgLogo as UIView
         cell.imgLogo.contentMode = .ScaleAspectFit
         cell.imgLogo.userInteractionEnabled = true
+        cell.hideTime = true
         return cell
     }
     

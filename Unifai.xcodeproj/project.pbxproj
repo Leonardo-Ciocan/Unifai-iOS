@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		01D26ACE065065C701F8A3F1 /* Pods_Unifai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2C595C8687C920B4DB1A2A /* Pods_Unifai.framework */; };
 		B30663F51CCF9D2E00F3CC92 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30663F41CCF9D2E00F3CC92 /* FeedViewController.swift */; };
+		B31BD92B1CFF33CC001B3875 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = B31BD92A1CFF33CC001B3875 /* FontAwesome.otf */; };
+		B31BD92D1CFF93E4001B3875 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31BD92C1CFF93E4001B3875 /* LoginButton.swift */; };
+		B31BD92F1CFF93EF001B3875 /* LoginButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = B31BD92E1CFF93EF001B3875 /* LoginButton.xib */; };
 		B32BDC9B1CFB9D2800C18AFE /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BDC9A1CFB9D2800C18AFE /* DashboardViewController.swift */; };
 		B32BDC9D1CFBA17900C18AFE /* DashboardEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BDC9C1CFBA17900C18AFE /* DashboardEditorViewController.swift */; };
 		B335AC1E1CD0ACC100B85781 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC1D1CD0ACC100B85781 /* Utils.swift */; };
@@ -52,7 +55,6 @@
 		B3F7B0081CF93EA400734F9B /* MessageCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7B0071CF93EA400734F9B /* MessageCreator.swift */; };
 		B3F7B00B1CF93F0E00734F9B /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3F7B0091CF93F0E00734F9B /* Feed.storyboard */; };
 		B3F7B00E1CF93FA800734F9B /* Thread.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3F7B00C1CF93FA800734F9B /* Thread.storyboard */; };
-		B3F7B0111CF9456E00734F9B /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = B3F7B0101CF9456500734F9B /* FontAwesome.otf */; };
 		B3F7B0131CF94AD000734F9B /* MessageCreatorTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7B0121CF94AD000734F9B /* MessageCreatorTextView.swift */; };
 		B3F7B0151CF94F5800734F9B /* MessageCreatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7B0141CF94F5800734F9B /* MessageCreatorDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -92,6 +94,9 @@
 		6F2C595C8687C920B4DB1A2A /* Pods_Unifai.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unifai.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF737EEAD9673B524EA2C60B /* Pods-Unifai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unifai.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Unifai/Pods-Unifai.debug.xcconfig"; sourceTree = "<group>"; };
 		B30663F41CCF9D2E00F3CC92 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		B31BD92A1CFF33CC001B3875 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
+		B31BD92C1CFF93E4001B3875 /* LoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
+		B31BD92E1CFF93EF001B3875 /* LoginButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginButton.xib; sourceTree = "<group>"; };
 		B32BDC9A1CFB9D2800C18AFE /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		B32BDC9C1CFBA17900C18AFE /* DashboardEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardEditorViewController.swift; sourceTree = "<group>"; };
 		B335AC1D1CD0ACC100B85781 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -145,7 +150,6 @@
 		B3F7B0071CF93EA400734F9B /* MessageCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCreator.swift; sourceTree = "<group>"; };
 		B3F7B00A1CF93F0E00734F9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Feed.storyboard; sourceTree = "<group>"; };
 		B3F7B00D1CF93FA800734F9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Thread.storyboard; sourceTree = "<group>"; };
-		B3F7B0101CF9456500734F9B /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.otf; path = "../../../../Downloads/font-awesome-4.6.3/fonts/FontAwesome.otf"; sourceTree = "<group>"; };
 		B3F7B0121CF94AD000734F9B /* MessageCreatorTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCreatorTextView.swift; sourceTree = "<group>"; };
 		B3F7B0141CF94F5800734F9B /* MessageCreatorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCreatorDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -258,6 +262,8 @@
 				B3F7B0121CF94AD000734F9B /* MessageCreatorTextView.swift */,
 				B3F7B0141CF94F5800734F9B /* MessageCreatorDelegate.swift */,
 				B32BDC9C1CFBA17900C18AFE /* DashboardEditorViewController.swift */,
+				B31BD92C1CFF93E4001B3875 /* LoginButton.swift */,
+				B31BD92E1CFF93EF001B3875 /* LoginButton.xib */,
 			);
 			path = Unifai;
 			sourceTree = "<group>";
@@ -309,7 +315,7 @@
 		B3F7B00F1CF9455700734F9B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B3F7B0101CF9456500734F9B /* FontAwesome.otf */,
+				B31BD92A1CFF33CC001B3875 /* FontAwesome.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -426,7 +432,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3F7B0061CF93E8F00734F9B /* MessageCreator.xib in Resources */,
-				B3F7B0111CF9456E00734F9B /* FontAwesome.otf in Resources */,
+				B31BD92F1CFF93EF001B3875 /* LoginButton.xib in Resources */,
+				B31BD92B1CFF33CC001B3875 /* FontAwesome.otf in Resources */,
 				B363CFC81CCEF9BB00B6182D /* MessageCell.xib in Resources */,
 				B3F7B00B1CF93F0E00734F9B /* Feed.storyboard in Resources */,
 				B363CF911CCEEBB300B6182D /* LaunchScreen.storyboard in Resources */,
@@ -538,6 +545,7 @@
 				B3F7B0041CF8AFFF00734F9B /* MainSplitView.swift in Sources */,
 				B363CFC21CCEF78E00B6182D /* ThreadViewController.swift in Sources */,
 				B363CFD01CCF4D9600B6182D /* MainNavigationController.swift in Sources */,
+				B31BD92D1CFF93E4001B3875 /* LoginButton.swift in Sources */,
 				B39006931CD3714700F472AC /* NewScheduleController.swift in Sources */,
 				B390069C1CD679D700F472AC /* ActionCell.swift in Sources */,
 				B39006901CD35FB800F472AC /* ScheduleCell.swift in Sources */,

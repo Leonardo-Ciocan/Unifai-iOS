@@ -76,6 +76,18 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            items.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+    }
+    
     @IBAction func done(sender: AnyObject) {
         Unifai.setDashboardItems(self.items, completion: { s in
                 self.dismissViewControllerAnimated(true, completion: nil)

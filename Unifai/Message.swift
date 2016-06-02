@@ -3,7 +3,7 @@ import UIKit
 import SwiftyJSON
 
 enum MessageType : Int{
-    case Text , Table , Image , BarChart
+    case Text , Table , Image , BarChart , RequestAuth
 }
 
 class Message {

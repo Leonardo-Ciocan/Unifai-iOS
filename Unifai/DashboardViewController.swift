@@ -63,6 +63,7 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         cell.imgLogo.contentMode = .ScaleAspectFit
         cell.imgLogo.userInteractionEnabled = true
         cell.hideTime = true
+        cell.parentViewController = self
         return cell
     }
     

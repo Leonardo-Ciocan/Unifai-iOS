@@ -275,6 +275,15 @@ class Unifai{
         }
     }
     
+    static func updateAuthCode(serviceID : String , code : String , completion : ((Bool)->())?){
+        
+        Alamofire.request(.POST , Constants.urlAuthCode ,
+            parameters: ["service_id":serviceID , "code" : code], headers:self.headers)
+            .responseJSON{ response in
+                completion!(true)
+        }
+    }
+    
     static func signup(username:String,email:String , password:String , completion : ((Bool)->())?){
         Alamofire.request(.POST , Constants.urlSignup ,
             parameters: ["username":username , "email":email , "password":password])

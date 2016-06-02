@@ -11,4 +11,6 @@ target 'Unifai' do
     pod 'AlertOnboarding'
     pod "GSImageViewerController"
     pod 'Charts'
+    pod 'OAuthSwift', '~> 0.5.0'
+
 end

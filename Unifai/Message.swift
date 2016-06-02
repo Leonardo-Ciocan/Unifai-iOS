@@ -75,7 +75,6 @@ class Message {
         }
 
         self.type = MessageType(rawValue:Int(type!))!
-        print(type!)
         if(type == 1){
             self.payload = TablePayload(data: data)
         }
@@ -84,6 +83,9 @@ class Message {
         }
         else if(type == 3){
             self.payload = BarChartPayload(data: data)
+        }
+        else if(type == 4){
+            self.payload = RequestAuthPayload(data: data)
         }
         
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import OAuthSwift
 
 class LoginButton: UIView {
     
@@ -40,8 +41,11 @@ class LoginButton: UIView {
         let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
         view.frame = bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        
+        
         self.addSubview(view);
     }
+    
     
     let newLayer = CALayer()
 
@@ -61,6 +65,6 @@ class LoginButton: UIView {
     }
     
     override func layoutSubviews() {
-            newLayer.frame = self.layer.bounds
+        newLayer.frame = self.layer.bounds
     }
 }

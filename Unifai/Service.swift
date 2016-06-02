@@ -5,6 +5,7 @@ import SwiftyJSON
 class Service{
     var name : String
     var color : UIColor
+    var id : String?
 
     var username : String {
         get{
@@ -18,10 +19,11 @@ class Service{
     }
     
     init(json:JSON){
-        let id = json["id"].string
+        let id = json["id"].number?.stringValue
         let name = json["name"].string
         let color = json["colour"].string?.componentsSeparatedByString(",").map{ str in Int(str)}
         
+        self.id = id
         self.name = name!
         self.color = UIColor(red: CGFloat(color![0]!) / 255.0,
                              green: CGFloat(color![1]!) / 255.0,

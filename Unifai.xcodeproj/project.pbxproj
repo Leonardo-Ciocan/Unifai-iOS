@@ -12,6 +12,8 @@
 		B31BD92B1CFF33CC001B3875 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = B31BD92A1CFF33CC001B3875 /* FontAwesome.otf */; };
 		B31BD92D1CFF93E4001B3875 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31BD92C1CFF93E4001B3875 /* LoginButton.swift */; };
 		B31BD92F1CFF93EF001B3875 /* LoginButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = B31BD92E1CFF93EF001B3875 /* LoginButton.xib */; };
+		B31BD9321D003EC4001B3875 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31BD9301D003EC4001B3875 /* AuthViewController.swift */; };
+		B31BD9331D003EC4001B3875 /* AuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B31BD9311D003EC4001B3875 /* AuthViewController.xib */; };
 		B32BDC9B1CFB9D2800C18AFE /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BDC9A1CFB9D2800C18AFE /* DashboardViewController.swift */; };
 		B32BDC9D1CFBA17900C18AFE /* DashboardEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BDC9C1CFBA17900C18AFE /* DashboardEditorViewController.swift */; };
 		B335AC1E1CD0ACC100B85781 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC1D1CD0ACC100B85781 /* Utils.swift */; };
@@ -97,6 +99,8 @@
 		B31BD92A1CFF33CC001B3875 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		B31BD92C1CFF93E4001B3875 /* LoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		B31BD92E1CFF93EF001B3875 /* LoginButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginButton.xib; sourceTree = "<group>"; };
+		B31BD9301D003EC4001B3875 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		B31BD9311D003EC4001B3875 /* AuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthViewController.xib; sourceTree = "<group>"; };
 		B32BDC9A1CFB9D2800C18AFE /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		B32BDC9C1CFBA17900C18AFE /* DashboardEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardEditorViewController.swift; sourceTree = "<group>"; };
 		B335AC1D1CD0ACC100B85781 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -264,6 +268,8 @@
 				B32BDC9C1CFBA17900C18AFE /* DashboardEditorViewController.swift */,
 				B31BD92C1CFF93E4001B3875 /* LoginButton.swift */,
 				B31BD92E1CFF93EF001B3875 /* LoginButton.xib */,
+				B31BD9301D003EC4001B3875 /* AuthViewController.swift */,
+				B31BD9311D003EC4001B3875 /* AuthViewController.xib */,
 			);
 			path = Unifai;
 			sourceTree = "<group>";
@@ -439,6 +445,7 @@
 				B363CF911CCEEBB300B6182D /* LaunchScreen.storyboard in Resources */,
 				B3F7B00E1CF93FA800734F9B /* Thread.storyboard in Resources */,
 				B390069D1CD679D700F472AC /* ActionCell.xib in Resources */,
+				B31BD9331D003EC4001B3875 /* AuthViewController.xib in Resources */,
 				B39006911CD35FB800F472AC /* ScheduleCell.xib in Resources */,
 				B363CF8E1CCEEBB300B6182D /* Assets.xcassets in Resources */,
 				B363CFB51CCEECA600B6182D /* Podfile in Resources */,
@@ -531,6 +538,7 @@
 				B363CF851CCEEBB300B6182D /* AppDelegate.swift in Sources */,
 				B335AC291CD177C400B85781 /* ProfileViewController.swift in Sources */,
 				B3F7B0081CF93EA400734F9B /* MessageCreator.swift in Sources */,
+				B31BD9321D003EC4001B3875 /* AuthViewController.swift in Sources */,
 				B335AC231CD0F3B400B85781 /* ComposeBackground.swift in Sources */,
 				B390068B1CD35D7F00F472AC /* Schedule.swift in Sources */,
 				B30663F51CCF9D2E00F3CC92 /* FeedViewController.swift in Sources */,

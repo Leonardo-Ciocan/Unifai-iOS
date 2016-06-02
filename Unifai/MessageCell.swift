@@ -12,6 +12,7 @@ import ActiveLabel
 import GSImageViewerController
 import SafariServices
 import Charts
+import OAuthSwift
 
 class MessageCell: UITableViewCell {
     
@@ -24,6 +25,7 @@ class MessageCell: UITableViewCell {
     @IBOutlet weak var payloadContainer: UIView!
     @IBOutlet weak var payloadContainerHeight: NSLayoutConstraint!
 
+    var parentViewController : UIViewController?
     
     var img : UIImage?
     var imgView : UIImageView?
@@ -50,8 +52,9 @@ class MessageCell: UITableViewCell {
 //        imgLogo.userInteractionEnabled = true
         contentView.userInteractionEnabled = false
     }
-    
+    var message : Message?
     func setMessage(message : Message){
+        self.message = message
         self.txtBody.text = message.body
         
         self.txtTime.text = message.timestamp.shortTimeAgoSinceNow()
@@ -95,7 +98,12 @@ class MessageCell: UITableViewCell {
             self.payloadContainerHeight.constant = CGFloat((message.payload as! TablePayload).rows.count) * 50 + 50
             let tableView = TablePayloadView()
             self.payloadContainer.addSubview(tableView)
-            tableView.loadData(message.payload as! TablePayload)
+            tableView.snp_makeConstraints(closure: { (make)->Void in
+                make.trailing.leading.equalTo(0)
+                make.bottom.top.equalTo(0)
+            })
+            tableView.loadData(message.payload as! TablePayload , colWidth: Int(self.payloadContainer.frame.width / CGFloat((message.payload as! TablePayload).columns.count)))
+            
            
         }
         else if(message.type == .Image){
@@ -165,6 +173,11 @@ class MessageCell: UITableViewCell {
             btn.setService(message.service!)
             self.payloadContainer.addSubview(btn)
             
+            
+            var recon = UITapGestureRecognizer(target: self, action: #selector(onTap))
+            btn.addGestureRecognizer(recon)
+            
+            
             btn.snp_makeConstraints(closure: { (make)->Void in
                 make.trailing.leading.equalTo(0)
                 make.height.equalTo(35)
@@ -173,5 +186,36 @@ class MessageCell: UITableViewCell {
         }
         
     }
+    
+    func onTap(recon:UITapGestureRecognizer){
+        var payload = message?.payload as! RequestAuthPayload
+        print("logging in")
+//        let oauthswift = OAuth2Swift(
+//            consumerKey:   payload.clientID,
+//            consumerSecret: payload.secret,
+//            authorizeUrl:   payload.url,
+//            responseType:   "code"
+//        )
+//        oauthswift.authorize_url_handler = SafariURLHandler(viewController: parentViewController!)
+//        oauthswift.allowMissingStateCheck = true
+//        oauthswift.authorizeWithCallbackURL(
+//            NSURL(string: "http://127.0.0.1:8000/callback" )!,
+//            scope: payload.scope, state:"",
+//            success: { credential, response, parameters in
+//                print(credential)
+//                print(response)
+//            },
+//            failure: { error in
+//                print(error.localizedDescription)
+//            }
+//        )
+        
+        let vc = AuthViewController()
+        vc.payload = payload
+        vc.service = message?.service
+        self.parentViewController?.presentViewController(vc, animated: true, completion: nil)
+        
+    }
+
     
 }

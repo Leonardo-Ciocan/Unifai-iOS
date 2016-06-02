@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G7b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="FontAwesome.otf">
+            <string>FontAwesome</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AuthViewController" customModule="Unifai" customModuleProvider="target">
+            <connections>
+                <outlet property="header" destination="LAS-GW-Z2h" id="Mxv-Ew-0EL"/>
+                <outlet property="titleLabel" destination="pmg-RS-TH8" id="88y-Vz-q1i"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webView" destination="JKg-DZ-Hbk" id="Pjw-sg-1W4"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <webView contentMode="scaleToFill" scalesPageToFit="YES" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" mediaPlaybackAllowsAirPlay="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKg-DZ-Hbk">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                    <dataDetectorType key="dataDetectorTypes"/>
+                </webView>
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LAS-GW-Z2h">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="nRc-7g-z0H"/>
+                    </constraints>
+                </view>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lMJ-zO-cmT">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1Wn-qX-A4M">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="mCy-nN-iXG"/>
+                    </constraints>
+                    <blurEffect style="light"/>
+                </visualEffectView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmg-RS-TH8">
+                    <rect key="frame" x="274" y="29" width="52" height="26"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="21"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FHq-0j-ysR">
+                    <rect key="frame" x="15" y="27" width="46" height="30"/>
+                    <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="24"/>
+                    <state key="normal" title="">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="JKg-DZ-Hbk" secondAttribute="bottom" id="03d-WB-Axi"/>
+                <constraint firstItem="lMJ-zO-cmT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4uy-dd-oxk"/>
+                <constraint firstItem="JKg-DZ-Hbk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="89j-8T-sV5"/>
+                <constraint firstAttribute="trailing" secondItem="lMJ-zO-cmT" secondAttribute="trailing" id="BJf-Ec-veH"/>
+                <constraint firstItem="FHq-0j-ysR" firstAttribute="centerY" secondItem="pmg-RS-TH8" secondAttribute="centerY" id="GMX-iM-82I"/>
+                <constraint firstItem="JKg-DZ-Hbk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="HTq-C9-rk8"/>
+                <constraint firstItem="LAS-GW-Z2h" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Jel-VQ-jQy"/>
+                <constraint firstItem="pmg-RS-TH8" firstAttribute="centerX" secondItem="LAS-GW-Z2h" secondAttribute="centerX" id="RPz-2H-liU"/>
+                <constraint firstItem="LAS-GW-Z2h" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="RmN-ta-AdS"/>
+                <constraint firstItem="lMJ-zO-cmT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="SRA-jK-yaT"/>
+                <constraint firstAttribute="trailing" secondItem="LAS-GW-Z2h" secondAttribute="trailing" id="ddZ-Ij-a8n"/>
+                <constraint firstItem="pmg-RS-TH8" firstAttribute="centerY" secondItem="LAS-GW-Z2h" secondAttribute="centerY" id="fe0-8D-KJO"/>
+                <constraint firstItem="pmg-RS-TH8" firstAttribute="bottom" secondItem="LAS-GW-Z2h" secondAttribute="bottom" constant="-15" id="mp8-s3-LUb"/>
+                <constraint firstAttribute="trailing" secondItem="JKg-DZ-Hbk" secondAttribute="trailing" id="o2a-Im-NGn"/>
+                <constraint firstItem="FHq-0j-ysR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="uuU-IT-wbf"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="fe0-8D-KJO"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

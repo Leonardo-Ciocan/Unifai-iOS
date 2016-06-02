@@ -1,7 +1,9 @@
 import Foundation
 import SwiftyJSON
 
-class Payload {}
+class Payload {
+    
+}
 
 class ImagePayload : Payload {
     var URL = ""
@@ -47,5 +49,21 @@ class BarChartPayload : Payload {
                 self.values.append(item["value"].floatValue)
             }
         }
+    }
+}
+
+class RequestAuthPayload : Payload {
+    var url = ""
+    var clientID = ""
+    var secret = ""
+    var scope = ""
+    
+    init(data:String) {
+        let dt = data.dataUsingEncoding(NSUTF8StringEncoding , allowLossyConversion: true)
+        let json = JSON(data:dt!)
+        url = json["url"].stringValue
+        clientID = json["client_id"].stringValue
+        secret = json["secret"].stringValue
+        scope = json["scope"].stringValue
     }
 }

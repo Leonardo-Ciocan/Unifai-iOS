@@ -18,5 +18,6 @@ class Constants{
     static let urlAction         = urlRoot + "action/"
     static let urlDashboard      = urlRoot + "dashboard/"
     static let urlDashboardItems = urlRoot + "dashboard/items/"
+    static let urlAuthCode = urlRoot + "auth-code/"
 
 }

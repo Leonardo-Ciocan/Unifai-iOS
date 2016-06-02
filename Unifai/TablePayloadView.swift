@@ -21,26 +21,26 @@ class TablePayloadView: UIView {
     
     
     
-    func loadData(payload : TablePayload){
+    func loadData(payload : TablePayload , colWidth : Int){
         self.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.02)
 
         
         let cols = payload.columns;
         let rows = payload.rows;
         
-        self.snp_makeConstraints(closure: {
-            (make) -> Void in
-            //make.height.equalTo(50 * CGFloat(rows.count))
-            make.leading.trailing.equalTo(0)
-            make.height.equalTo(CGFloat(rows.count + 1) * 50.0)
-            make.top.equalTo(self.superview!)
-        })
+//        self.snp_makeConstraints(closure: {
+//            (make) -> Void in
+//            //make.height.equalTo(50 * CGFloat(rows.count))
+//            make.leading.trailing.equalTo(0)
+//            make.height.equalTo(CGFloat(rows.count + 1) * 50.0)
+//            make.top.equalTo(self.superview!)
+//        })
         
         self.hidden = true
-        let colWidth = Int(self.superview!.frame.width / CGFloat(cols.count))
+        //let colWidth = Int(self.superview!.frame.width / CGFloat(cols.count))
         print("w:\(colWidth)")
         for col in 0..<cols.count{
-            
+            print(col)
             let colLabel = UILabel()
             colLabel.textAlignment = .Center
             colLabel.font = colLabel.font.fontWithSize(13)

@@ -66,11 +66,7 @@ class ActionsViewController: UIViewController , UITableViewDelegate , UITableVie
     }
     
     @IBAction func create(sender: AnyObject) {
-        self.presentViewController(NewActionController(), animated: true, completion: {
-            _ in
-            self.loadData()
-            
-        })
+        self.navigationController?.pushViewController(NewActionController(), animated: true)
     }
     
 }

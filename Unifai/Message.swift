@@ -29,7 +29,12 @@ class Message {
                 return UIImage(named:"user")!
             }
             else{
-                return UIImage(named: (service?.username)!)!
+                if let username = service?.username{
+                    if let image = UIImage(named: username){
+                        return image
+                    }
+                }
+                return UIImage()
             }
         }
     }

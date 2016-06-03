@@ -76,9 +76,14 @@ class Cache{
             let file = try NSFileHandle(forReadingFromURL: feedPath)
             let json_data =     JSON(data:file.readDataToEndOfFile())
             
-            let json = json_data.array
+            guard let json = json_data.array else {
+                print("json not array")
+                completion([])
+                return
+            }
+            
             var messages : [Message] = []
-            for message in json!{
+            for message in json{
                 messages.append(Message(json: message))
             }
             completion(messages)

@@ -20,9 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.tintColor = Constants.appBrandColor
         self.window?.backgroundColor = UIColor.whiteColor()
         
-        let url = NSBundle.mainBundle().URLForResource("DefaultSettings", withExtension: "plist")
-        let prefs : [String:AnyObject] = NSDictionary(contentsOfURL: url!)! as! [String : AnyObject]
-        NSUserDefaults.standardUserDefaults().registerDefaults(prefs)
+        Settings.setup()
         
         return true
     }

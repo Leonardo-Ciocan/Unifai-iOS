@@ -60,6 +60,7 @@
 		B3D721321D019AA300BFEEC2 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D721311D019AA300BFEEC2 /* SettingsTableViewController.swift */; };
 		B3D721341D01A47000BFEEC2 /* DefaultSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3D721331D01A47000BFEEC2 /* DefaultSettings.plist */; };
 		B3D721361D01AFC300BFEEC2 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D721351D01AFC300BFEEC2 /* TabBarViewController.swift */; };
+		B3D721381D01B49C00BFEEC2 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D721371D01B49C00BFEEC2 /* Settings.swift */; };
 		B3F7B0041CF8AFFF00734F9B /* MainSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7B0031CF8AFFF00734F9B /* MainSplitView.swift */; };
 		B3F7B0061CF93E8F00734F9B /* MessageCreator.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3F7B0051CF93E8F00734F9B /* MessageCreator.xib */; };
 		B3F7B0081CF93EA400734F9B /* MessageCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7B0071CF93EA400734F9B /* MessageCreator.swift */; };
@@ -165,6 +166,7 @@
 		B3D721311D019AA300BFEEC2 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		B3D721331D01A47000BFEEC2 /* DefaultSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultSettings.plist; sourceTree = "<group>"; };
 		B3D721351D01AFC300BFEEC2 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		B3D721371D01B49C00BFEEC2 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		B3F7B0031CF8AFFF00734F9B /* MainSplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSplitView.swift; sourceTree = "<group>"; };
 		B3F7B0051CF93E8F00734F9B /* MessageCreator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCreator.xib; sourceTree = "<group>"; };
 		B3F7B0071CF93EA400734F9B /* MessageCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCreator.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				B335AC1D1CD0ACC100B85781 /* Utils.swift */,
 				B390068A1CD35D7F00F472AC /* Schedule.swift */,
 				B39006961CD66ED600F472AC /* Action.swift */,
+				B3D721371D01B49C00BFEEC2 /* Settings.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				B31BD92D1CFF93E4001B3875 /* LoginButton.swift in Sources */,
 				B3D721251D00CF4700BFEEC2 /* TestingViewController.swift in Sources */,
 				B39006931CD3714700F472AC /* NewScheduleController.swift in Sources */,
+				B3D721381D01B49C00BFEEC2 /* Settings.swift in Sources */,
 				B3D721321D019AA300BFEEC2 /* SettingsTableViewController.swift in Sources */,
 				B390069C1CD679D700F472AC /* ActionCell.swift in Sources */,
 				B39006901CD35FB800F472AC /* ScheduleCell.swift in Sources */,

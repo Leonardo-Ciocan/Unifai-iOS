@@ -70,7 +70,7 @@ class MessageCell: UITableViewCell {
         }
         
         //bottleneck?
-        let textSize = [10,15,20][NSUserDefaults.standardUserDefaults().integerForKey("textSize")]
+        let textSize = [10,15,20][Settings.textSize]
         let font = UIFont.systemFontOfSize(CGFloat(textSize), weight: UIFontWeightThin)
         txtBody.font = font
         txtTime.font = font

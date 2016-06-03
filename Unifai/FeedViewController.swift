@@ -176,7 +176,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell") as! MessageCell
         cell.selectionStyle = .None
-        cell.shouldShowText = !NSUserDefaults.standardUserDefaults().boolForKey("onlyTextOnFeed")
+        cell.shouldShowText = !Settings.onlyTextOnFeed
         cell.setMessage(messages[indexPath.row])
         cell.imgLogo.addTarget(self, action: #selector(imageTapped), forControlEvents: .TouchUpInside)
 

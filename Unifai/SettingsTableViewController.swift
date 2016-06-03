@@ -26,8 +26,8 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        txtTextSizePreview.text = textSizeItems[ NSUserDefaults.standardUserDefaults().integerForKey("textSize")]
-        switchTextOnFeed.on = NSUserDefaults.standardUserDefaults().boolForKey("onlyTextOnFeed")
+        txtTextSizePreview.text = textSizeItems[ Settings.textSize ]
+        switchTextOnFeed.on = Settings.onlyTextOnFeed
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,14 +60,17 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
         if(id == "textSize"){
             self.txtTextSizePreview.text = label
             NSUserDefaults.standardUserDefaults().setInteger(index, forKey: "textSize")
+            Settings.textSize = index
         }
         else if(id == "startingPage"){
             self.txtStartingPagePreview.text = label
             NSUserDefaults.standardUserDefaults().setInteger(index, forKey: "startingPage")
+            Settings.startingPage = index
         }
     }
     
     @IBAction func onSwitchTextOnFeed(sender: AnyObject) {
         NSUserDefaults.standardUserDefaults().setBool(switchTextOnFeed.on, forKey: "onlyTextOnFeed")
+        Settings.onlyTextOnFeed = switchTextOnFeed.on
     }
 }

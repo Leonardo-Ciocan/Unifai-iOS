@@ -10,4 +10,5 @@ import Foundation
 
 protocol MessageCreatorDelegate : class {
     func sendMessage(message:String)
+    func chooseAction()
 }

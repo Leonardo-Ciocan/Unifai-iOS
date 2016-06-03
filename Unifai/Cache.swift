@@ -24,10 +24,10 @@ class Cache{
         }
             
             let filePath = cacheFolder.URLByAppendingPathComponent(name+".json")
-            let jsonData = try data.rawData()
+            let jsonData = try data.rawData(options: .PrettyPrinted)
             
             if !NSFileManager.defaultManager().fileExistsAtPath(filePath.path!){
-                try NSFileManager.defaultManager().createFileAtPath(filePath.path!, contents: jsonData, attributes: nil)
+                NSFileManager.defaultManager().createFileAtPath(filePath.path!, contents: jsonData, attributes: nil)
             }
             
             let file = try NSFileHandle(forWritingToURL: filePath)
@@ -60,7 +60,6 @@ class Cache{
             print("error occured getting cache")
             completion([])
         }
-        
     }
     
     
@@ -73,11 +72,16 @@ class Cache{
         }
         do{
             let file = try NSFileHandle(forReadingFromURL: feedPath)
-            let json_data =     JSON(data:file.readDataToEndOfFile())
+            let json_data =  JSON(data:file.readDataToEndOfFile())
             
-            let json = json_data.array
+            guard let json = json_data.array else {
+                print("json not array")
+                completion([])
+                return
+            }
+            
             var messages : [Message] = []
-            for message in json!{
+            for message in json{
                 messages.append(Message(json: message))
             }
             completion(messages)

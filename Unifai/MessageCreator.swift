@@ -14,7 +14,6 @@ enum Position {
 }
 
 @IBDesignable class MessageCreator: UIView , UITextFieldDelegate {
-
     
     var suggestions : [String] = [
         "@weather what's the weather like in London?",
@@ -86,6 +85,9 @@ enum Position {
         txtMessage.placeholder = suggestions[suggestionIndex]
     }
     
+    @IBAction func runAction(sender: AnyObject) {
+        self.creatorDelegate?.chooseAction()
+    }
     
     @IBAction func send(sender: AnyObject) {
         guard creatorDelegate != nil else {return}

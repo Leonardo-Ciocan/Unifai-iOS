@@ -105,7 +105,24 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         Unifai.sendMessage( message, thread: self.threadID!, completion: { (success) in
                 self.loadData(self.threadID!)
         })
-
+    }
+    
+    
+    func chooseAction() {
+        let menu = UIAlertController(title: "Run an action", message: "", preferredStyle: .ActionSheet)
+        
+        Unifai.getActions({ actions in
+            for action in actions{
+                let item = UIAlertAction(title: action.name, style: .Default, handler: { (alert:UIAlertAction!) -> Void in
+                    if let selected = actions.filter({$0.name == alert.title}).first{
+                        self.sendMessage(selected.message)
+                    }
+                })
+                menu.addAction(item)
+            }
+            menu.addAction(UIAlertAction(title: "Cancel" , style: .Cancel , handler: nil))
+            self.presentViewController(menu, animated: true, completion: nil)
+        })
     }
     
     func keyboardWillShow(notification: NSNotification) {

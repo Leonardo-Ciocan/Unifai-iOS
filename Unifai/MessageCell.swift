@@ -163,6 +163,8 @@ class MessageCell: UITableViewCell {
             }
             
             let dataSet = BarChartDataSet(yVals: yVals, label: "")
+            dataSet.valueFormatter = NSNumberFormatter()
+            dataSet.valueFormatter?.minimumFractionDigits = 0
             
             dataSet.colors = [serviceColor]
             let data = BarChartData(xVals: payload.labels, dataSet: dataSet)
@@ -183,6 +185,10 @@ class MessageCell: UITableViewCell {
             view.leftAxis.drawAxisLineEnabled = false
             view.rightAxis.drawAxisLineEnabled = false
             view.xAxis.labelPosition = .Bottom
+            
+            view.leftAxis.valueFormatter = NSNumberFormatter()
+            view.leftAxis.valueFormatter?.minimumFractionDigits = 0
+            
             self.payloadContainer.addSubview(view)
             
             view.snp_makeConstraints(closure: { (make)->Void in

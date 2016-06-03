@@ -118,7 +118,9 @@ class Unifai{
                 switch response.result {
                 case .Success(let data):
                     let json_data = JSON(data)
+                    print("writing dashboard.json")
                     Cache.saveJSON("dashboard", data: json_data)
+                    
                     let json = json_data.array
                     var messages : [Message] = []
                     for message in json!{

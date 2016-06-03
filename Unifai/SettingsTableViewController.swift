@@ -15,6 +15,7 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
     
     @IBOutlet weak var txtCardSizePreview: UILabel!
     @IBOutlet weak var txtStartingPagePreview: UILabel!
+    @IBOutlet weak var txtCacheSize: UILabel!
     let textSizeItems = ["Small" , "Medium" , "Large"]
     let startingPageItems = ["Feed" , "Dashboard" , "Action","Scheduling" , "Profile"]
     
@@ -30,6 +31,8 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
         txtTextSizePreview.text = textSizeItems[ Settings.textSize ]
         txtCardSizePreview.text = textSizeItems[ Settings.cardSize ]
         switchTextOnFeed.on = Settings.onlyTextOnFeed
+        
+        txtCacheSize.text = String(NSFileManager.defaultManager().folderSizeAtPath(Cache.cacheFolder.path!)/Int64(1024)) + "KB"
     }
 
     override func didReceiveMemoryWarning() {

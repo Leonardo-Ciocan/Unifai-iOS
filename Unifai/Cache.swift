@@ -9,6 +9,33 @@
 import Foundation
 import SwiftyJSON
 
+extension NSFileManager {
+    func fileSizeAtPath(path: String) -> Int64 {
+        do {
+            let fileAttributes = try attributesOfItemAtPath(path)
+            let fileSizeNumber = fileAttributes[NSFileSize]
+            let fileSize = fileSizeNumber?.longLongValue
+            return fileSize!
+        } catch {
+            print("error reading filesize, NSFileManager extension fileSizeAtPath")
+            return 0
+        }
+    }
+    
+    func folderSizeAtPath(path: String) -> Int64 {
+        var size : Int64 = 0
+        do {
+            let files = try subpathsOfDirectoryAtPath(path)
+            for (i,_) in files.enumerate() {
+                size += fileSizeAtPath((path as NSString).stringByAppendingPathComponent(files[i]) as String)
+            }
+        } catch {
+            print("error reading directory, NSFileManager extension folderSizeAtPath")
+        }
+        return size
+    }
+}
+
 class Cache{
     
     static let documentsDirectoryPathString = NSURL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first!)
@@ -29,10 +56,10 @@ class Cache{
             if !NSFileManager.defaultManager().fileExistsAtPath(filePath.path!){
                 NSFileManager.defaultManager().createFileAtPath(filePath.path!, contents: jsonData, attributes: nil)
             }
-            
-            let file = try NSFileHandle(forWritingToURL: filePath)
-            file.writeData(jsonData)
-            print("JSON data was written to the file successfully!")
+            else{
+                let file = try NSFileHandle(forWritingToURL: filePath)
+                file.writeData(jsonData)
+            }
         } catch let error as NSError {
             print("Couldn't write to file: \(error.localizedDescription)")
         }

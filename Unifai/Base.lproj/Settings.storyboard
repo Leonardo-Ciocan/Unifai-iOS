@@ -272,6 +272,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="switchTextOnFeed" destination="iJX-YD-kyO" id="AKW-Ls-tT6"/>
+                        <outlet property="txtCacheSize" destination="ISm-GW-eI1" id="x51-ce-VSr"/>
                         <outlet property="txtCardSizePreview" destination="N3T-bG-yLP" id="eeB-ng-7HR"/>
                         <outlet property="txtStartingPagePreview" destination="off-Qo-ghp" id="Dtb-NV-hOp"/>
                         <outlet property="txtTextSizePreview" destination="vEP-9W-1Bq" id="Wbv-kc-KYY"/>

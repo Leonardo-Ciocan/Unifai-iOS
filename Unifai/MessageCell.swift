@@ -208,15 +208,17 @@ class MessageCell: UITableViewCell {
             })  
         }
         else if(message.type == .CardList){
-            self.payloadContainerHeight.constant = 170
             
+            let cardSize = [100,150,200][Settings.cardSize]
+            self.payloadContainerHeight.constant = CGFloat(cardSize + 20)
+
             let scrollView = UIScrollView()
             scrollView.canCancelContentTouches=false
             scrollView.showsHorizontalScrollIndicator = false
             scrollView.showsVerticalScrollIndicator = false
             scrollView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 10)
             let payload = message.payload as! CardListPayload
-            scrollView.contentSize = CGSize(width: 150 * payload.items.count + (payload.items.count-1) * 10 + 77, height: 150)
+            scrollView.contentSize = CGSize(width: cardSize * payload.items.count + (payload.items.count-1) * 10 + 77, height: cardSize)
             
             var lastCard : CardView? = nil
             for (index,item) in payload.items.enumerate(){
@@ -228,9 +230,9 @@ class MessageCell: UITableViewCell {
                 card.loadData(item,service:message.service!)
                 scrollView.addSubview(card)
                 card.snp_makeConstraints(closure: { (make)->Void in
-                    make.height.equalTo(150)
+                    make.height.equalTo(cardSize)
                     make.top.equalTo(0)
-                    make.width.equalTo(150)
+                    make.width.equalTo(cardSize)
                     if index == 0 {
                         make.leading.equalTo(77)
                     }

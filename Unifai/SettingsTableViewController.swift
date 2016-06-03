@@ -13,6 +13,7 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
     @IBOutlet weak var switchTextOnFeed: UISwitch!
     @IBOutlet weak var txtTextSizePreview: UILabel!
     
+    @IBOutlet weak var txtCardSizePreview: UILabel!
     @IBOutlet weak var txtStartingPagePreview: UILabel!
     let textSizeItems = ["Small" , "Medium" , "Large"]
     let startingPageItems = ["Feed" , "Dashboard" , "Action","Scheduling" , "Profile"]
@@ -27,6 +28,7 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         txtTextSizePreview.text = textSizeItems[ Settings.textSize ]
+        txtCardSizePreview.text = textSizeItems[ Settings.cardSize ]
         switchTextOnFeed.on = Settings.onlyTextOnFeed
     }
 
@@ -41,11 +43,15 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
         
         if(id == "textSize"){
             items = textSizeItems
-            selected = NSUserDefaults.standardUserDefaults().integerForKey("textSize")
+            selected = Settings.textSize
         }
         else if(id == "startingPage"){
             items = startingPageItems
-            selected = NSUserDefaults.standardUserDefaults().integerForKey("startingPage")
+            selected = Settings.startingPage
+        }
+        else if(id == "cardSize"){
+            items = textSizeItems
+            selected = Settings.cardSize
         }
         
         let selection = SettingsListTableViewController()
@@ -67,6 +73,12 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
             NSUserDefaults.standardUserDefaults().setInteger(index, forKey: "startingPage")
             Settings.startingPage = index
         }
+        else if(id == "cardSize"){
+            self.txtCardSizePreview.text = label
+            NSUserDefaults.standardUserDefaults().setInteger(index, forKey: "cardSize")
+            Settings.cardSize = index
+        }
+        
     }
     
     @IBAction func onSwitchTextOnFeed(sender: AnyObject) {

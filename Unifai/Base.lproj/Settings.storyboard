@@ -113,7 +113,7 @@
                                             <constraint firstAttribute="trailing" secondItem="vEP-9W-1Bq" secondAttribute="trailing" constant="30" id="llf-zc-BlF"/>
                                         </constraints>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="pjM-hP-JBy">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cardSize" id="pjM-hP-JBy">
                                         <rect key="frame" x="0.0" y="246" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pjM-hP-JBy" id="t4q-r3-DWE">
@@ -272,6 +272,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="switchTextOnFeed" destination="iJX-YD-kyO" id="AKW-Ls-tT6"/>
+                        <outlet property="txtCardSizePreview" destination="N3T-bG-yLP" id="eeB-ng-7HR"/>
                         <outlet property="txtStartingPagePreview" destination="off-Qo-ghp" id="Dtb-NV-hOp"/>
                         <outlet property="txtTextSizePreview" destination="vEP-9W-1Bq" id="Wbv-kc-KYY"/>
                     </connections>

@@ -34,7 +34,13 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         self.tableView.addSubview(self.refreshControl)
         self.tableView!.separatorStyle = .None
         
-        getServicesAndUser({ _ in self.loadData()})
+        getServicesAndUser({ _ in
+            Cache.getDashboard({ messages in
+                self.messages = messages
+                self.tableView.reloadData()
+                self.loadData()
+            })
+        })
     }
     
     

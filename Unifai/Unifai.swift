@@ -95,7 +95,9 @@ class Unifai{
             .responseJSON{ response in
                 switch response.result {
                 case .Success(let data):
-                    let json = JSON(data).array
+                    let json_data = JSON(data)
+                    Cache.saveJSON("feed", data: json_data)
+                    let json = json_data.array
                     var messages : [Message] = []
                     for message in json!{
                         messages.append(Message(json: message))
@@ -107,6 +109,7 @@ class Unifai{
         }
     }
     
+    
     static func getDashboard(completion : ([Message])->()) {
         
         Alamofire.request(.GET , Constants.urlDashboard , headers:self.headers)
@@ -114,7 +117,9 @@ class Unifai{
             .responseJSON{ response in
                 switch response.result {
                 case .Success(let data):
-                    let json = JSON(data).array
+                    let json_data = JSON(data)
+                    Cache.saveJSON("dashboard", data: json_data)
+                    let json = json_data.array
                     var messages : [Message] = []
                     for message in json!{
                         messages.append(Message(json: message))

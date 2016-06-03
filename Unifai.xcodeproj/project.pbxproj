@@ -61,6 +61,7 @@
 		B3D721341D01A47000BFEEC2 /* DefaultSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3D721331D01A47000BFEEC2 /* DefaultSettings.plist */; };
 		B3D721361D01AFC300BFEEC2 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D721351D01AFC300BFEEC2 /* TabBarViewController.swift */; };
 		B3D721381D01B49C00BFEEC2 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D721371D01B49C00BFEEC2 /* Settings.swift */; };
+		B3D7213A1D01C5AE00BFEEC2 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D721391D01C5AE00BFEEC2 /* Cache.swift */; };
 		B3F7B0041CF8AFFF00734F9B /* MainSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7B0031CF8AFFF00734F9B /* MainSplitView.swift */; };
 		B3F7B0061CF93E8F00734F9B /* MessageCreator.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3F7B0051CF93E8F00734F9B /* MessageCreator.xib */; };
 		B3F7B0081CF93EA400734F9B /* MessageCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7B0071CF93EA400734F9B /* MessageCreator.swift */; };
@@ -167,6 +168,7 @@
 		B3D721331D01A47000BFEEC2 /* DefaultSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultSettings.plist; sourceTree = "<group>"; };
 		B3D721351D01AFC300BFEEC2 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		B3D721371D01B49C00BFEEC2 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		B3D721391D01C5AE00BFEEC2 /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		B3F7B0031CF8AFFF00734F9B /* MainSplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSplitView.swift; sourceTree = "<group>"; };
 		B3F7B0051CF93E8F00734F9B /* MessageCreator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCreator.xib; sourceTree = "<group>"; };
 		B3F7B0071CF93EA400734F9B /* MessageCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCreator.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				B390068A1CD35D7F00F472AC /* Schedule.swift */,
 				B39006961CD66ED600F472AC /* Action.swift */,
 				B3D721371D01B49C00BFEEC2 /* Settings.swift */,
+				B3D721391D01C5AE00BFEEC2 /* Cache.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				B3D721301D01996000BFEEC2 /* SettingsListTableViewController.swift in Sources */,
 				B3F7B0151CF94F5800734F9B /* MessageCreatorDelegate.swift in Sources */,
 				B335AC211CD0EF8B00B85781 /* ComposeTextField.swift in Sources */,
+				B3D7213A1D01C5AE00BFEEC2 /* Cache.swift in Sources */,
 				B335AC2B1CD3336F00B85781 /* TablePayloadView.swift in Sources */,
 				B335AC271CD1127C00B85781 /* ServiceProfileViewcontroller.swift in Sources */,
 				B363CFBE1CCEF52600B6182D /* Service.swift in Sources */,

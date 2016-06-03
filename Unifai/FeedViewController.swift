@@ -38,7 +38,11 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         
         getServicesAndUser({ services in
             Core.Services = services
-            self.loadData()
+            Cache.getFeed({ messages in
+                self.messages = messages
+                self.tableView.reloadData()
+                self.loadData()
+            })
         })
         
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
@@ -110,7 +114,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     
     
     override func viewDidAppear(animated: Bool) {
-        loadData()
+        //loadData()
     }
     
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {

@@ -18,7 +18,7 @@ class ProfileViewController: UIViewController , UITableViewDelegate , UITableVie
         self.tableView!.rowHeight = UITableViewAutomaticDimension
         self.tableView!.estimatedRowHeight = 64.0
         self.tableView!.tableFooterView = UIView()
-        self.tableView!.separatorStyle = .SingleLine
+        self.tableView!.separatorStyle = .None
         
         self.tableView.delegate = self
         self.tableView.dataSource = self

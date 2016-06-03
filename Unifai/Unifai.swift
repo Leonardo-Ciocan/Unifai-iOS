@@ -43,6 +43,7 @@ class Unifai{
                     for service in json!{
                         services.append(Service(json: service))
                     }
+                    Core.Services = services
                     completion(services)
                 case .Failure(let error):
                     print("getServices failed with error: \(error)")

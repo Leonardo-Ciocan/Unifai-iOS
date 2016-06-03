@@ -39,6 +39,9 @@ class MessageCell: UITableViewCell {
         }
     }
     
+    var shouldShowText = true
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -51,11 +54,26 @@ class MessageCell: UITableViewCell {
 //        imgLogo.addGestureRecognizer(tapGestureRecognizer)
 //        imgLogo.userInteractionEnabled = true
         contentView.userInteractionEnabled = false
+        
+        
     }
+    
+    
+    
     var message : Message?
     func setMessage(message : Message){
         self.message = message
         self.txtBody.text = message.body
+        
+        if message.service?.id! == "1989"{
+            self.hideTime = true
+        }
+        
+        //bottleneck?
+        let textSize = [10,15,20][NSUserDefaults.standardUserDefaults().integerForKey("textSize")]
+        let font = UIFont.systemFontOfSize(CGFloat(textSize), weight: UIFontWeightThin)
+        txtBody.font = font
+        txtTime.font = font
         
         self.txtTime.text = message.timestamp.shortTimeAgoSinceNow()
         imgLogo.setImage(message.logo, forState: .Normal)
@@ -91,8 +109,13 @@ class MessageCell: UITableViewCell {
         
         self.payloadContainer.subviews.forEach { $0.removeFromSuperview() }
 
+        if !self.shouldShowText {
+            self.payloadContainerHeight.constant = 0
+            return
+        }
+        
         if(message.type == .Text){
-            self.payloadContainerHeight.constant = 10
+            self.payloadContainerHeight.constant = 0
         }
         else if(message.type == .Table){
             self.payloadContainerHeight.constant = CGFloat((message.payload as! TablePayload).rows.count) * 50 + 50
@@ -102,7 +125,7 @@ class MessageCell: UITableViewCell {
                 make.trailing.leading.equalTo(0)
                 make.bottom.top.equalTo(0)
             })
-            tableView.loadData(message.payload as! TablePayload , colWidth: Int(self.payloadContainer.frame.width / CGFloat((message.payload as! TablePayload).columns.count)))
+            tableView.loadData(message.payload as! TablePayload)
             
            
         }
@@ -174,7 +197,7 @@ class MessageCell: UITableViewCell {
             self.payloadContainer.addSubview(btn)
             
             
-            var recon = UITapGestureRecognizer(target: self, action: #selector(onTap))
+            let recon = UITapGestureRecognizer(target: self, action: #selector(onTap))
             btn.addGestureRecognizer(recon)
             
             
@@ -184,7 +207,53 @@ class MessageCell: UITableViewCell {
                 make.top.equalTo(0)
             })  
         }
-        
+        else if(message.type == .CardList){
+            self.payloadContainerHeight.constant = 170
+            
+            let scrollView = UIScrollView()
+            scrollView.canCancelContentTouches=false
+            scrollView.showsHorizontalScrollIndicator = false
+            scrollView.showsVerticalScrollIndicator = false
+            scrollView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 10)
+            let payload = message.payload as! CardListPayload
+            scrollView.contentSize = CGSize(width: 150 * payload.items.count + (payload.items.count-1) * 10 + 77, height: 150)
+            
+            var lastCard : CardView? = nil
+            for (index,item) in payload.items.enumerate(){
+                let card = CardView()
+                
+                let recon = UITapGestureRecognizer(target: self, action: #selector(onCardTapped))
+                card.addGestureRecognizer(recon)
+                
+                card.loadData(item,service:message.service!)
+                scrollView.addSubview(card)
+                card.snp_makeConstraints(closure: { (make)->Void in
+                    make.height.equalTo(150)
+                    make.top.equalTo(0)
+                    make.width.equalTo(150)
+                    if index == 0 {
+                        make.leading.equalTo(77)
+                    }
+                    else{
+                        make.left.equalTo((lastCard?.snp_right)!).offset(10)
+                        
+                    }
+                })
+                lastCard = card
+            }
+            self.payloadContainer.addSubview(scrollView)
+            scrollView.snp_makeConstraints(closure: { (make)->Void in
+                make.leading.equalTo(-67)
+                make.trailing.equalTo(19)
+                make.top.bottom.equalTo(0)
+            })
+        }
+    }
+    
+    func onCardTapped(recon:UITapGestureRecognizer){
+        let view = recon.view as! CardView
+        let svc = SFSafariViewController(URL: NSURL(string: view.navigateURL)!)
+        self.parentViewController!.presentViewController(svc, animated: true, completion: nil)
     }
     
     func onTap(recon:UITapGestureRecognizer){

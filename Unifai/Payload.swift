@@ -67,3 +67,27 @@ class RequestAuthPayload : Payload {
         scope = json["scope"].stringValue
     }
 }
+
+class CardListPayloadItem {
+    var title : String?
+    var imageURL : String?
+    var navigateURL : String?
+    
+    init(json:JSON) {
+        title = json["title"].string
+        imageURL = json["image_url"].string
+        navigateURL = json["navigate_url"].string
+    }
+}
+
+class CardListPayload : Payload {
+    var items : [CardListPayloadItem] = []
+    init(data:String) {
+        let dt = data.dataUsingEncoding(NSUTF8StringEncoding , allowLossyConversion: true)
+        if let json = JSON(data:dt!).array{
+            for card in json{
+                items.append(CardListPayloadItem(json: card))
+            }
+        }
+    }
+}

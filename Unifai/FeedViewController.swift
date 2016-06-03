@@ -35,13 +35,10 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         self.tabBarController?.title = "Feed"
         self.tableView.addSubview(self.refreshControl)
         print("loading view")
-        Unifai.getServices({ services in
+        
+        getServicesAndUser({ services in
             Core.Services = services
-            print("AQUIRED SERVICES")
-            Unifai.getUserInfo({username , email in
-                Core.Username = username
-                self.loadData()
-            })
+            self.loadData()
         })
         
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
@@ -62,10 +59,19 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
             
             registerForPreviewingWithDelegate(self, sourceView: view)
         }
-        
-        
-
-        
+    }
+    
+    func getServicesAndUser(callback: ([Service]) -> () ){
+        if Core.Services.count > 0 {
+            callback(Core.Services)
+            return
+        }
+        Unifai.getServices({ services in
+            Unifai.getUserInfo({username , email in
+                Core.Username = username
+                callback(services)
+            })
+        })
     }
     
     func sendMessage(message: String) {
@@ -170,6 +176,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell") as! MessageCell
         cell.selectionStyle = .None
+        cell.shouldShowText = !NSUserDefaults.standardUserDefaults().boolForKey("onlyTextOnFeed")
         cell.setMessage(messages[indexPath.row])
         cell.imgLogo.addTarget(self, action: #selector(imageTapped), forControlEvents: .TouchUpInside)
 

@@ -19,6 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         self.window?.tintColor = Constants.appBrandColor
         self.window?.backgroundColor = UIColor.whiteColor()
+        
+        let url = NSBundle.mainBundle().URLForResource("DefaultSettings", withExtension: "plist")
+        let prefs : [String:AnyObject] = NSDictionary(contentsOfURL: url!)! as! [String : AnyObject]
+        NSUserDefaults.standardUserDefaults().registerDefaults(prefs)
+        
         return true
     }
     

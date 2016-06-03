@@ -20,13 +20,11 @@ class TablePayloadView: UIView {
     }
     
     
+    var payload : TablePayload?
     
-    func loadData(payload : TablePayload , colWidth : Int){
+    func loadData(payload : TablePayload){
         self.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.02)
-
-        
-        let cols = payload.columns;
-        let rows = payload.rows;
+        self.payload = payload
         
 //        self.snp_makeConstraints(closure: {
 //            (make) -> Void in
@@ -36,42 +34,51 @@ class TablePayloadView: UIView {
 //            make.top.equalTo(self.superview!)
 //        })
         
+        setNeedsLayout()
+    }
+    
+    override func layoutSubviews() {
+        guard payload != nil else {return}
+        
+        self.subviews.forEach({ $0.removeFromSuperview()})
+        
+        let cols = payload!.columns;
+        let rows = payload!.rows;
+        
         self.hidden = true
-        //let colWidth = Int(self.superview!.frame.width / CGFloat(cols.count))
-        print("w:\(colWidth)")
+        let colWidth = Int(self.superview!.frame.width / CGFloat(cols.count))
         for col in 0..<cols.count{
             print(col)
             let colLabel = UILabel()
             colLabel.textAlignment = .Center
             colLabel.font = colLabel.font.fontWithSize(13)
-            colLabel.text = payload.columns[col]
+            colLabel.text = payload!.columns[col]
             colLabel.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.02)
             self.addSubview(colLabel)
-            colLabel.snp_makeConstraints(closure: { (make)->Void in
-                make.leading.equalTo(colWidth * col)
-                make.width.equalTo(colWidth)
-                make.top.equalTo(0)
-                make.height.equalTo(50)
-            })
+                        colLabel.snp_makeConstraints(closure: { (make)->Void in
+                            make.leading.equalTo(colWidth * col)
+                            make.width.equalTo(colWidth)
+                            make.top.equalTo(0)
+                            make.height.equalTo(50)
+                        })
             
             
             for row in 0..<rows.count{
                 let label = UILabel()
                 label.textAlignment = .Center
                 label.font = label.font.fontWithSize(12)
-                label.text = payload.rows[row][col]
+                label.text = payload!.rows[row][col]
                 self.addSubview(label)
-
-                label.snp_makeConstraints(closure: { (make)->Void in
-                    make.leading.equalTo(colWidth * col)
-                    make.width.equalTo(colWidth)
-                    make.top.equalTo(50 * row + 50)
-                    make.height.equalTo(50)
-                })
+                
+                                label.snp_makeConstraints(closure: { (make)->Void in
+                                    make.leading.equalTo(colWidth * col)
+                                    make.width.equalTo(colWidth)
+                                    make.top.equalTo(50 * row + 50)
+                                    make.height.equalTo(50)
+                                })
             }
         }
         self.hidden = false
-        
     }
     
 }

@@ -26,7 +26,7 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         
         let imageView = UIImageView(frame: CGRect(x: 5, y: 5, width: 33, height: 33))
         imageView.contentMode = .ScaleAspectFit
-        let image = UIImage(named: "logo")
+        let image = UIImage(named: "simpleIcon")
         imageView.image = image
         navigationItem.titleView = imageView
         
@@ -34,10 +34,22 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         self.tableView.addSubview(self.refreshControl)
         self.tableView!.separatorStyle = .None
         
-        loadData()
+        getServicesAndUser({ _ in self.loadData()})
     }
     
     
+    func getServicesAndUser(callback: ([Service]) -> () ){
+        if Core.Services.count > 0 {
+            callback(Core.Services)
+            return
+        }
+        Unifai.getServices({ services in
+            Unifai.getUserInfo({username , email in
+                Core.Username = username
+                callback(services)
+            })
+        })
+    }
     
     func loadData(){
         Unifai.getDashboard({ threadMessages in

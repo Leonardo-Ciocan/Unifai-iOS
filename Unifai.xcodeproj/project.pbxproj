@@ -52,6 +52,14 @@
 		B390069C1CD679D700F472AC /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B390069A1CD679D700F472AC /* ActionCell.swift */; };
 		B390069D1CD679D700F472AC /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B390069B1CD679D700F472AC /* ActionCell.xib */; };
 		B390069F1CD67C2200F472AC /* NewActionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B390069E1CD67C2200F472AC /* NewActionController.swift */; };
+		B3D721251D00CF4700BFEEC2 /* TestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D721241D00CF4700BFEEC2 /* TestingViewController.swift */; };
+		B3D721271D00DD8B00BFEEC2 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D721261D00DD8B00BFEEC2 /* CardView.swift */; };
+		B3D721291D00DD9F00BFEEC2 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3D721281D00DD9F00BFEEC2 /* CardView.xib */; };
+		B3D7212C1D01987100BFEEC2 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3D7212A1D01987100BFEEC2 /* Settings.storyboard */; };
+		B3D721301D01996000BFEEC2 /* SettingsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D7212F1D01996000BFEEC2 /* SettingsListTableViewController.swift */; };
+		B3D721321D019AA300BFEEC2 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D721311D019AA300BFEEC2 /* SettingsTableViewController.swift */; };
+		B3D721341D01A47000BFEEC2 /* DefaultSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3D721331D01A47000BFEEC2 /* DefaultSettings.plist */; };
+		B3D721361D01AFC300BFEEC2 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D721351D01AFC300BFEEC2 /* TabBarViewController.swift */; };
 		B3F7B0041CF8AFFF00734F9B /* MainSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7B0031CF8AFFF00734F9B /* MainSplitView.swift */; };
 		B3F7B0061CF93E8F00734F9B /* MessageCreator.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3F7B0051CF93E8F00734F9B /* MessageCreator.xib */; };
 		B3F7B0081CF93EA400734F9B /* MessageCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7B0071CF93EA400734F9B /* MessageCreator.swift */; };
@@ -149,6 +157,14 @@
 		B39006A81CD6853400F472AC /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		B39006AB1CD6853400F472AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		B39006AD1CD6853400F472AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3D721241D00CF4700BFEEC2 /* TestingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingViewController.swift; sourceTree = "<group>"; };
+		B3D721261D00DD8B00BFEEC2 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		B3D721281D00DD9F00BFEEC2 /* CardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
+		B3D7212B1D01987100BFEEC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
+		B3D7212F1D01996000BFEEC2 /* SettingsListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsListTableViewController.swift; sourceTree = "<group>"; };
+		B3D721311D019AA300BFEEC2 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		B3D721331D01A47000BFEEC2 /* DefaultSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultSettings.plist; sourceTree = "<group>"; };
+		B3D721351D01AFC300BFEEC2 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		B3F7B0031CF8AFFF00734F9B /* MainSplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSplitView.swift; sourceTree = "<group>"; };
 		B3F7B0051CF93E8F00734F9B /* MessageCreator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCreator.xib; sourceTree = "<group>"; };
 		B3F7B0071CF93EA400734F9B /* MessageCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCreator.swift; sourceTree = "<group>"; };
@@ -235,6 +251,7 @@
 				B363CFB61CCEF30E00B6182D /* Models */,
 				B363CF841CCEEBB300B6182D /* AppDelegate.swift */,
 				B363CF8A1CCEEBB300B6182D /* Main.storyboard */,
+				B3D7212A1D01987100BFEEC2 /* Settings.storyboard */,
 				B3F7B00C1CF93FA800734F9B /* Thread.storyboard */,
 				B3F7B0091CF93F0E00734F9B /* Feed.storyboard */,
 				B363CF8D1CCEEBB300B6182D /* Assets.xcassets */,
@@ -270,6 +287,13 @@
 				B31BD92E1CFF93EF001B3875 /* LoginButton.xib */,
 				B31BD9301D003EC4001B3875 /* AuthViewController.swift */,
 				B31BD9311D003EC4001B3875 /* AuthViewController.xib */,
+				B3D721241D00CF4700BFEEC2 /* TestingViewController.swift */,
+				B3D721261D00DD8B00BFEEC2 /* CardView.swift */,
+				B3D721281D00DD9F00BFEEC2 /* CardView.xib */,
+				B3D721311D019AA300BFEEC2 /* SettingsTableViewController.swift */,
+				B3D7212F1D01996000BFEEC2 /* SettingsListTableViewController.swift */,
+				B3D721331D01A47000BFEEC2 /* DefaultSettings.plist */,
+				B3D721351D01AFC300BFEEC2 /* TabBarViewController.swift */,
 			);
 			path = Unifai;
 			sourceTree = "<group>";
@@ -442,11 +466,14 @@
 				B31BD92B1CFF33CC001B3875 /* FontAwesome.otf in Resources */,
 				B363CFC81CCEF9BB00B6182D /* MessageCell.xib in Resources */,
 				B3F7B00B1CF93F0E00734F9B /* Feed.storyboard in Resources */,
+				B3D721341D01A47000BFEEC2 /* DefaultSettings.plist in Resources */,
 				B363CF911CCEEBB300B6182D /* LaunchScreen.storyboard in Resources */,
 				B3F7B00E1CF93FA800734F9B /* Thread.storyboard in Resources */,
 				B390069D1CD679D700F472AC /* ActionCell.xib in Resources */,
 				B31BD9331D003EC4001B3875 /* AuthViewController.xib in Resources */,
+				B3D7212C1D01987100BFEEC2 /* Settings.storyboard in Resources */,
 				B39006911CD35FB800F472AC /* ScheduleCell.xib in Resources */,
+				B3D721291D00DD9F00BFEEC2 /* CardView.xib in Resources */,
 				B363CF8E1CCEEBB300B6182D /* Assets.xcassets in Resources */,
 				B363CFB51CCEECA600B6182D /* Podfile in Resources */,
 				B363CF8C1CCEEBB300B6182D /* Main.storyboard in Resources */,
@@ -529,6 +556,7 @@
 				B335AC1E1CD0ACC100B85781 /* Utils.swift in Sources */,
 				B3F7B0131CF94AD000734F9B /* MessageCreatorTextView.swift in Sources */,
 				B363CFC61CCEF9A800B6182D /* MessageCell.swift in Sources */,
+				B3D721301D01996000BFEEC2 /* SettingsListTableViewController.swift in Sources */,
 				B3F7B0151CF94F5800734F9B /* MessageCreatorDelegate.swift in Sources */,
 				B335AC211CD0EF8B00B85781 /* ComposeTextField.swift in Sources */,
 				B335AC2B1CD3336F00B85781 /* TablePayloadView.swift in Sources */,
@@ -548,13 +576,17 @@
 				B335AC251CD0F4A000B85781 /* ComposeViewController.swift in Sources */,
 				B363CFC01CCEF74100B6182D /* Core.swift in Sources */,
 				B39006991CD6701C00F472AC /* ActionsViewController.swift in Sources */,
+				B3D721271D00DD8B00BFEEC2 /* CardView.swift in Sources */,
 				B39006971CD66ED600F472AC /* Action.swift in Sources */,
 				B39006951CD661C600F472AC /* SignupViewController.swift in Sources */,
 				B3F7B0041CF8AFFF00734F9B /* MainSplitView.swift in Sources */,
+				B3D721361D01AFC300BFEEC2 /* TabBarViewController.swift in Sources */,
 				B363CFC21CCEF78E00B6182D /* ThreadViewController.swift in Sources */,
 				B363CFD01CCF4D9600B6182D /* MainNavigationController.swift in Sources */,
 				B31BD92D1CFF93E4001B3875 /* LoginButton.swift in Sources */,
+				B3D721251D00CF4700BFEEC2 /* TestingViewController.swift in Sources */,
 				B39006931CD3714700F472AC /* NewScheduleController.swift in Sources */,
+				B3D721321D019AA300BFEEC2 /* SettingsTableViewController.swift in Sources */,
 				B390069C1CD679D700F472AC /* ActionCell.swift in Sources */,
 				B39006901CD35FB800F472AC /* ScheduleCell.swift in Sources */,
 				B363CFCC1CCF205700B6182D /* Unifai.swift in Sources */,
@@ -615,6 +647,14 @@
 				B39006AB1CD6853400F472AC /* Base */,
 			);
 			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		B3D7212A1D01987100BFEEC2 /* Settings.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B3D7212B1D01987100BFEEC2 /* Base */,
+			);
+			name = Settings.storyboard;
 			sourceTree = "<group>";
 		};
 		B3F7B0091CF93F0E00734F9B /* Feed.storyboard */ = {

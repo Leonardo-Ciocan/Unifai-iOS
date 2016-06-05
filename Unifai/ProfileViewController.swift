@@ -30,7 +30,7 @@ class ProfileViewController: UIViewController , UITableViewDelegate , UITableVie
         imageView.image = image
         navigationItem.titleView = imageView
         
-
+        
         
         self.tabBarController?.title = "Feed"
         self.tableView.addSubview(self.refreshControl)

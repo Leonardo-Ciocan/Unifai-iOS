@@ -50,7 +50,6 @@
 		B39006971CD66ED600F472AC /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39006961CD66ED600F472AC /* Action.swift */; };
 		B39006991CD6701C00F472AC /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39006981CD6701C00F472AC /* ActionsViewController.swift */; };
 		B390069C1CD679D700F472AC /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B390069A1CD679D700F472AC /* ActionCell.swift */; };
-		B390069D1CD679D700F472AC /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B390069B1CD679D700F472AC /* ActionCell.xib */; };
 		B390069F1CD67C2200F472AC /* NewActionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B390069E1CD67C2200F472AC /* NewActionController.swift */; };
 		B3D721251D00CF4700BFEEC2 /* TestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D721241D00CF4700BFEEC2 /* TestingViewController.swift */; };
 		B3D721271D00DD8B00BFEEC2 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D721261D00DD8B00BFEEC2 /* CardView.swift */; };
@@ -62,6 +61,7 @@
 		B3D721361D01AFC300BFEEC2 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D721351D01AFC300BFEEC2 /* TabBarViewController.swift */; };
 		B3D721381D01B49C00BFEEC2 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D721371D01B49C00BFEEC2 /* Settings.swift */; };
 		B3D7213A1D01C5AE00BFEEC2 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D721391D01C5AE00BFEEC2 /* Cache.swift */; };
+		B3D7213E1D03A8B300BFEEC2 /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3D7213D1D03A8B300BFEEC2 /* ActionCell.xib */; };
 		B3F7B0041CF8AFFF00734F9B /* MainSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7B0031CF8AFFF00734F9B /* MainSplitView.swift */; };
 		B3F7B0061CF93E8F00734F9B /* MessageCreator.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3F7B0051CF93E8F00734F9B /* MessageCreator.xib */; };
 		B3F7B0081CF93EA400734F9B /* MessageCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7B0071CF93EA400734F9B /* MessageCreator.swift */; };
@@ -153,7 +153,6 @@
 		B39006961CD66ED600F472AC /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		B39006981CD6701C00F472AC /* ActionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionsViewController.swift; sourceTree = "<group>"; };
 		B390069A1CD679D700F472AC /* ActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
-		B390069B1CD679D700F472AC /* ActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionCell.xib; sourceTree = "<group>"; };
 		B390069E1CD67C2200F472AC /* NewActionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewActionController.swift; sourceTree = "<group>"; };
 		B39006A51CD6853400F472AC /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		B39006A81CD6853400F472AC /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +168,7 @@
 		B3D721351D01AFC300BFEEC2 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		B3D721371D01B49C00BFEEC2 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		B3D721391D01C5AE00BFEEC2 /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		B3D7213D1D03A8B300BFEEC2 /* ActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionCell.xib; sourceTree = "<group>"; };
 		B3F7B0031CF8AFFF00734F9B /* MainSplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSplitView.swift; sourceTree = "<group>"; };
 		B3F7B0051CF93E8F00734F9B /* MessageCreator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCreator.xib; sourceTree = "<group>"; };
 		B3F7B0071CF93EA400734F9B /* MessageCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCreator.swift; sourceTree = "<group>"; };
@@ -280,7 +280,7 @@
 				B39006941CD661C600F472AC /* SignupViewController.swift */,
 				B39006981CD6701C00F472AC /* ActionsViewController.swift */,
 				B390069A1CD679D700F472AC /* ActionCell.swift */,
-				B390069B1CD679D700F472AC /* ActionCell.xib */,
+				B3D7213D1D03A8B300BFEEC2 /* ActionCell.xib */,
 				B390069E1CD67C2200F472AC /* NewActionController.swift */,
 				B3F7B0051CF93E8F00734F9B /* MessageCreator.xib */,
 				B3F7B0071CF93EA400734F9B /* MessageCreator.swift */,
@@ -475,12 +475,12 @@
 				B3D721341D01A47000BFEEC2 /* DefaultSettings.plist in Resources */,
 				B363CF911CCEEBB300B6182D /* LaunchScreen.storyboard in Resources */,
 				B3F7B00E1CF93FA800734F9B /* Thread.storyboard in Resources */,
-				B390069D1CD679D700F472AC /* ActionCell.xib in Resources */,
 				B31BD9331D003EC4001B3875 /* AuthViewController.xib in Resources */,
 				B3D7212C1D01987100BFEEC2 /* Settings.storyboard in Resources */,
 				B39006911CD35FB800F472AC /* ScheduleCell.xib in Resources */,
 				B3D721291D00DD9F00BFEEC2 /* CardView.xib in Resources */,
 				B363CF8E1CCEEBB300B6182D /* Assets.xcassets in Resources */,
+				B3D7213E1D03A8B300BFEEC2 /* ActionCell.xib in Resources */,
 				B363CFB51CCEECA600B6182D /* Podfile in Resources */,
 				B363CF8C1CCEEBB300B6182D /* Main.storyboard in Resources */,
 			);

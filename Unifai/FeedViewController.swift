@@ -1,7 +1,10 @@
 import UIKit
 import AlertOnboarding
 import GSImageViewerController
-
+import DGElasticPullToRefresh
+extension UIScrollView {
+    func dg_stopScrollingAnimation() {}
+}
 class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UIViewControllerPreviewingDelegate , MessageCreatorDelegate {
     @IBOutlet weak var tableView: UITableView!
     
@@ -33,8 +36,16 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         guard NSUserDefaults.standardUserDefaults().stringForKey("token") != nil else{return}
         
         self.tabBarController?.title = "Feed"
-        self.tableView.addSubview(self.refreshControl)
-        print("loading view")
+        //self.tableView.addSubview(self.refreshControl)
+        
+        let loadingView = DGElasticPullToRefreshLoadingViewCircle()
+        loadingView.tintColor = UIColor.whiteColor()
+        tableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
+            self!.loadData()
+            self?.tableView.dg_stopLoading()
+            }, loadingView: loadingView)
+        tableView.dg_setPullToRefreshFillColor(Constants.appBrandColor)
+        tableView.dg_setPullToRefreshBackgroundColor(tableView.backgroundColor!)
         
         getServicesAndUser({ services in
             Core.Services = services

@@ -1,4 +1,5 @@
 import UIKit
+import DGElasticPullToRefresh
 
 class DashboardViewController : UIViewController , UITableViewDelegate , UITableViewDataSource {
     
@@ -31,7 +32,18 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         navigationItem.titleView = imageView
         
         self.tabBarController?.title = "Dashboard"
-        self.tableView.addSubview(self.refreshControl)
+        
+        
+        let loadingView = DGElasticPullToRefreshLoadingViewCircle()
+        loadingView.tintColor = UIColor.whiteColor()
+        tableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
+            self!.loadData()
+            self?.tableView.dg_stopLoading()
+            }, loadingView: loadingView)
+        tableView.dg_setPullToRefreshFillColor(Constants.appBrandColor)
+        tableView.dg_setPullToRefreshBackgroundColor(tableView.backgroundColor!)
+
+        
         self.tableView!.separatorStyle = .None
         
         getServicesAndUser({ _ in

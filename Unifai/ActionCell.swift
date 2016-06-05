@@ -8,8 +8,9 @@
 
 import UIKit
 
-class ActionCell: UITableViewCell {
+class ActionCell: UICollectionViewCell {
 
+    @IBOutlet weak var blur: UIVisualEffectView!
     @IBOutlet weak var txtName: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
     
@@ -17,7 +18,6 @@ class ActionCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    
     func loadData(action:Action){
         txtName.text = action.name
         var target = matchesForRegexInText("(?:^|\\s|$|[.])@[\\p{L}0-9_]*", text: action.message)
@@ -26,7 +26,7 @@ class ActionCell: UITableViewCell {
             let services = Core.Services.filter({"@"+$0.username == name})
             if(services.count > 0){
                 //self.layer.backgroundColor = services[0].color.CGColor
-                self.backgroundImage.image = UIImage(named: services[0].username + "-banner")
+                self.backgroundImage.image = UIImage(named: services[0].username)
             }
             else{
                 
@@ -34,7 +34,11 @@ class ActionCell: UITableViewCell {
         }
     }
     
-    override func layoutSubviews() {
-        contentView.frame = UIEdgeInsetsInsetRect(contentView.frame, UIEdgeInsetsMake(0, 0, 10, 0))
+    
+    override func drawRect(rect: CGRect) {
+        super.drawRect(rect)
+        self.layer.cornerRadius = 5
+        self.layer.masksToBounds = true
     }
+    
 }

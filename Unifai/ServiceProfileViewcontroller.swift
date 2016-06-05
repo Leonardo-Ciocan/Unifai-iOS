@@ -30,7 +30,7 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
         self.tableView!.rowHeight = UITableViewAutomaticDimension
         self.tableView!.estimatedRowHeight = 64.0
         self.tableView!.tableFooterView = UIView()
-        self.tableView!.separatorStyle = .None
+        self.tableView!.separatorStyle = .SingleLine
         
         self.tableView.delegate = self
         self.tableView.dataSource = self

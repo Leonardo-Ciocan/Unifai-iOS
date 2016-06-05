@@ -12,5 +12,7 @@ target 'Unifai' do
     pod "GSImageViewerController"
     pod 'Charts'
     pod 'OAuthSwift', '~> 0.5.0'
+    pod "DGElasticPullToRefresh"
+    pod 'expanding-collection'
 
 end

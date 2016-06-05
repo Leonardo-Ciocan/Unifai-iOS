@@ -1,72 +1,72 @@
 import UIKit
 
-class ActionsViewController: UIViewController , UITableViewDelegate , UITableViewDataSource  {
-    @IBOutlet weak var tableView: UITableView!
+class ActionsViewController: UIViewController , UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
     
+    private let reuseIdentifier = "ActionCell"
+    private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+    
+    @IBOutlet weak var collectionView: UICollectionView!
     var actions : [Action] = []
     
     override func viewDidLoad() {
-        self.tableView!.registerNib(UINib(nibName: "ActionCell", bundle: nil), forCellReuseIdentifier: "ActionCell")
-        
-        self.tableView!.rowHeight = UITableViewAutomaticDimension
-        self.tableView!.estimatedRowHeight = 120
-        self.tableView!.tableFooterView = UIView()
-        self.tableView!.separatorStyle = .None
-        
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
         
         guard NSUserDefaults.standardUserDefaults().stringForKey("token") != nil else{return}
         
-        loadData()
-        
-        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
-        
-        let imageView = UIImageView(frame: CGRect(x: 5, y: 5, width: 33, height: 33))
-        imageView.contentMode = .ScaleAspectFit
-        let image = UIImage(named: "logo")
-        imageView.image = image
-        navigationItem.titleView = imageView
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-       // loadData()
-    }
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 120
-    }
-    
-    
-    func loadData(){
-        //this is a feed view
+        self.collectionView.registerNib(UINib(nibName: "ActionCell", bundle: nil), forCellWithReuseIdentifier: "ActionCell")
+        collectionView.delegate = self
+        collectionView.dataSource = self
         Unifai.getActions({ actions in
-            print(actions.count)
             self.actions = actions
-            self.tableView?.reloadData()
+            self.collectionView.reloadData()
         })
+        self.navigationItem.title = "Actions"
     }
     
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        Unifai.sendMessage(self.actions[indexPath.row].message, completion: { _ in
-            self.tabBarController?.selectedIndex = 0
-        })
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ActionCell") as! ActionCell
-        cell.loadData(self.actions[indexPath.row])
-        cell.selectionStyle = .None
-        return cell
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return actions.count
-    }
     
     @IBAction func create(sender: AnyObject) {
         self.navigationController?.pushViewController(NewActionController(), animated: true)
+    }
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return actions.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ActionCell
+        //cell.backgroundColor = UIColor.redColor()
+        cell.loadData(actions[indexPath.row])
+        return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let screenRect = UIScreen.mainScreen().bounds
+        let screenWidth = screenRect.size.width
+        let cellWidth = screenWidth / 2.0
+        let size = CGSizeMake(cellWidth-10, cellWidth-10)
+        return size
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10)
+    }
+//
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 10.0
+    }
+//
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+//        return 10.0
+//    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        Unifai.sendMessage(actions[indexPath.row].message, completion: { _ in
+                //((self.tabBarController?.viewControllers?.first as! MainSplitView).viewControllers.first as! FeedViewController).loadData()
+                self.tabBarController?.selectedIndex = 0
+        })
     }
     
 }

@@ -9,7 +9,11 @@
 import Foundation
 import UIKit
 
-class MainSplitView : UISplitViewController{
+class MainSplitView : UISplitViewController , UISplitViewControllerDelegate {
+    
+    override func viewDidLoad() {
+        self.delegate = self
+    }
     
     var selectedMessage : Message?
     
@@ -23,4 +27,10 @@ class MainSplitView : UISplitViewController{
             destination.loadData(selectedMessage!.service)
         }
     }
+    
+    func splitViewController(svc: UISplitViewController, shouldHideViewController vc: UIViewController, inOrientation orientation: UIInterfaceOrientation) -> Bool {
+        return false
+    }
+    
+    
 }

@@ -123,6 +123,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
             if(services.count > 0){
                 Unifai.sendMessage(message, completion: { success in
                     self.loadData()
+                    self.creator?.setLoading(false)
                 })
             }
             else{

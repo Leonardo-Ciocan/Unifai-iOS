@@ -28,6 +28,8 @@
 		B335AC271CD1127C00B85781 /* ServiceProfileViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC261CD1127C00B85781 /* ServiceProfileViewcontroller.swift */; };
 		B335AC291CD177C400B85781 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC281CD177C400B85781 /* ProfileViewController.swift */; };
 		B335AC2B1CD3336F00B85781 /* TablePayloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC2A1CD3336F00B85781 /* TablePayloadView.swift */; };
+		B350B9251D381B3A00FADBB6 /* ActionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350B9231D381B3A00FADBB6 /* ActionPickerViewController.swift */; };
+		B350B9261D381B3A00FADBB6 /* ActionPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350B9241D381B3A00FADBB6 /* ActionPickerViewController.xib */; };
 		B35598751D37F5F7002F4C59 /* ActionRunnerPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = B35598741D37F5F7002F4C59 /* ActionRunnerPage.xib */; };
 		B35598771D37F626002F4C59 /* ActionRunnerPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35598761D37F626002F4C59 /* ActionRunnerPage.swift */; };
 		B363CF851CCEEBB300B6182D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363CF841CCEEBB300B6182D /* AppDelegate.swift */; };
@@ -134,6 +136,8 @@
 		B335AC261CD1127C00B85781 /* ServiceProfileViewcontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceProfileViewcontroller.swift; sourceTree = "<group>"; };
 		B335AC281CD177C400B85781 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B335AC2A1CD3336F00B85781 /* TablePayloadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TablePayloadView.swift; sourceTree = "<group>"; };
+		B350B9231D381B3A00FADBB6 /* ActionPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionPickerViewController.swift; sourceTree = "<group>"; };
+		B350B9241D381B3A00FADBB6 /* ActionPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionPickerViewController.xib; sourceTree = "<group>"; };
 		B35598741D37F5F7002F4C59 /* ActionRunnerPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionRunnerPage.xib; sourceTree = "<group>"; };
 		B35598761D37F626002F4C59 /* ActionRunnerPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionRunnerPage.swift; sourceTree = "<group>"; };
 		B363CF811CCEEBB300B6182D /* Unifai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unifai.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -325,6 +329,8 @@
 				B3D761FE1D35B7060088877A /* CreatorAssistant.xib */,
 				B35598741D37F5F7002F4C59 /* ActionRunnerPage.xib */,
 				B35598761D37F626002F4C59 /* ActionRunnerPage.swift */,
+				B350B9231D381B3A00FADBB6 /* ActionPickerViewController.swift */,
+				B350B9241D381B3A00FADBB6 /* ActionPickerViewController.xib */,
 			);
 			path = Unifai;
 			sourceTree = "<group>";
@@ -511,6 +517,7 @@
 				B39006911CD35FB800F472AC /* ScheduleCell.xib in Resources */,
 				B3D721291D00DD9F00BFEEC2 /* CardView.xib in Resources */,
 				B363CF8E1CCEEBB300B6182D /* Assets.xcassets in Resources */,
+				B350B9261D381B3A00FADBB6 /* ActionPickerViewController.xib in Resources */,
 				B3D7213E1D03A8B300BFEEC2 /* ActionCell.xib in Resources */,
 				B363CFB51CCEECA600B6182D /* Podfile in Resources */,
 				B363CF8C1CCEEBB300B6182D /* Main.storyboard in Resources */,
@@ -623,6 +630,7 @@
 				B39006951CD661C600F472AC /* SignupViewController.swift in Sources */,
 				B3F7B0041CF8AFFF00734F9B /* MainSplitView.swift in Sources */,
 				B3D721361D01AFC300BFEEC2 /* TabBarViewController.swift in Sources */,
+				B350B9251D381B3A00FADBB6 /* ActionPickerViewController.swift in Sources */,
 				B363CFC21CCEF78E00B6182D /* ThreadViewController.swift in Sources */,
 				B363CFD01CCF4D9600B6182D /* MainNavigationController.swift in Sources */,
 				B31BD92D1CFF93E4001B3875 /* LoginButton.swift in Sources */,

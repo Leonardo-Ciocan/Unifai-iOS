@@ -13,7 +13,7 @@ enum Position {
     case Bottom
 }
 
-@IBDesignable class MessageCreator: UIView , UITextFieldDelegate , UIImagePickerControllerDelegate , UINavigationControllerDelegate{
+@IBDesignable class MessageCreator: UIView , UITextFieldDelegate , UIImagePickerControllerDelegate , UINavigationControllerDelegate , ActionPickerDelegate {
     
     var suggestions : [String] = [
         "@weather what's the weather like in London?",
@@ -23,6 +23,7 @@ enum Position {
         "@reddit front page"
     ]
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var shadowView: UIView!
     
     @IBOutlet weak var btnImage: UIButton!
@@ -112,7 +113,27 @@ enum Position {
     }
     
     @IBAction func runAction(sender: AnyObject) {
-        self.creatorDelegate?.chooseAction()
+        let picker = ActionPickerViewController()
+        picker.delegate = self
+        self.parentViewController?.presentViewController(picker, animated: true, completion: nil)
+    }
+    
+    func selectedAction(message: String) {
+        txtMessage.text = message
+        textChanged(self)
+    }
+    
+    func setLoading(loading:Bool){
+        if loading {
+            activityIndicator.startAnimating()
+            btnSend.hidden = true
+            activityIndicator.hidden = false
+        }
+        else{
+            activityIndicator.stopAnimating()
+            btnSend.hidden = false
+            activityIndicator.hidden = true
+        }
     }
     
     @IBAction func send(sender: AnyObject) {
@@ -122,6 +143,9 @@ enum Position {
         txtMessage.text = ""
         txtMessage.resignFirstResponder()
         btnSend.tintColor = Constants.appBrandColor
+        btnImage.tintColor = UIColor.blackColor()
+        btnAction.tintColor = UIColor.blackColor()
+        setLoading(true)
     }
     
     @IBAction func textChanged(sender: AnyObject) {

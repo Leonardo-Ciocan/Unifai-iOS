@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="16A239j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActionPickerViewController" customModule="Unifai" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="G2d-EC-1ow" id="5IK-2F-gu3"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wu0-eZ-czq">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="62"/>
+                    <color key="backgroundColor" red="0.96852236986160278" green="0.96868807077407837" blue="0.96851199865341187" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="62" id="5Vj-AB-dVj"/>
+                    </constraints>
+                </view>
+                <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xqh-rN-y0Q">
+                    <rect key="frame" x="0.0" y="18" width="600" height="44"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <items>
+                        <navigationItem title="Pick an action" id="ZHS-es-QAm">
+                            <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Ggq-Ea-jqj">
+                                <connections>
+                                    <action selector="CancelTapped:" destination="-1" id="3W3-ml-OLD"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="G2d-EC-1ow">
+                    <rect key="frame" x="0.0" y="62" width="600" height="538"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="KCc-5s-Dhx">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <cells/>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Xqh-rN-y0Q" secondAttribute="trailing" id="5vZ-Nm-099"/>
+                <constraint firstItem="wu0-eZ-czq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="BNU-AP-uop"/>
+                <constraint firstAttribute="bottom" secondItem="G2d-EC-1ow" secondAttribute="bottom" id="Iph-nE-Sog"/>
+                <constraint firstItem="wu0-eZ-czq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NIh-k3-YS9"/>
+                <constraint firstItem="G2d-EC-1ow" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="62" id="OaI-AD-82w"/>
+                <constraint firstAttribute="trailing" secondItem="G2d-EC-1ow" secondAttribute="trailing" id="SVu-Ld-JQY"/>
+                <constraint firstItem="G2d-EC-1ow" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Te3-YC-Jdf"/>
+                <constraint firstItem="Xqh-rN-y0Q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="18" id="W6M-jR-jQ6"/>
+                <constraint firstAttribute="trailing" secondItem="wu0-eZ-czq" secondAttribute="trailing" id="lKe-Tk-Kd6"/>
+                <constraint firstItem="Xqh-rN-y0Q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="p3z-Vm-Mpr"/>
+            </constraints>
+        </view>
+        <navigationItem title="Hello world" id="MUO-Yy-3so"/>
+        <barButtonItem title="Item" id="M0S-OE-JMx"/>
+    </objects>
+</document>

@@ -1,6 +1,6 @@
 import UIKit
 
-class ActionsViewController: UIViewController , UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
+class ActionsViewController: UIViewController , UICollectionViewDelegate , UICollectionViewDataSource {
     
     @IBOutlet weak var btnEdit: UIBarButtonItem!
     private let reuseIdentifier = "ActionCell"
@@ -29,6 +29,15 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         
     }
     
+    func deleteAction(){
+        print("deleting")
+    }
+
+    
+    @IBAction func create(sender: AnyObject) {
+        self.navigationController?.pushViewController(NewActionController(), animated: true)
+    }
+    
     func getServicesAndUser(callback: ([Service]) -> () ){
         if Core.Services.count > 0 {
             callback(Core.Services)
@@ -42,14 +51,6 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         })
     }
     
-    func deleteAction(){
-        print("deleting")
-    }
-    
-    
-    @IBAction func create(sender: AnyObject) {
-        self.navigationController?.pushViewController(NewActionController(), animated: true)
-    }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -78,7 +79,7 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10)
     }
-//
+    //
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
         return 10.0
     }
@@ -119,7 +120,7 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         effectView.messages.append(actionMessage)
         effectView.tableView.reloadData()
         
-        effectView.alpha = 0
+        //effectView.alpha = 0
         effectView.tableView.alpha = 0
         effectView.hidden = false
         
@@ -131,7 +132,6 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
             UIView.animateWithDuration(0.35, delay: 0, options: .CurveEaseIn, animations: {
                     effectMaskViewChild.frame = targetFrame
                     effectView.alpha = 0
-                effectMaskViewChild.layer.cornerRadius = 100
 
                 }, completion: { _ in
                     effectView.removeFromSuperview()
@@ -154,7 +154,7 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         
         UIView.animateWithDuration(0.35, delay: 0, options: .CurveEaseOut, animations: {
                 effectMaskViewChild.frame = UIScreen.mainScreen().bounds
-                effectView.alpha = 1
+                //effectView.alpha = 1
                 effectMaskViewChild.layer.cornerRadius = 0
 
             }, completion: { _ in

@@ -89,16 +89,17 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
+        navigationController?.navigationBar.barStyle = .Black
         
         let cell = collectionView.cellForItemAtIndexPath(indexPath)!
         let cellFrame = collectionView.convertRect(cell.frame, toView: self.view)
         let frame = CGRect(origin: CGPoint(x:cellFrame.origin.x ,y:cellFrame.origin.y ), size: cellFrame.size)
         let window = UIApplication.sharedApplication().keyWindow
         
-        let effectView = UIView(frame: UIScreen.mainScreen().bounds)
+        let effectView = ActionRunnerPage(frame: UIScreen.mainScreen().bounds)
         effectView.hidden = true
         let serviceColor = extractServiceColorFrom(self.actions[indexPath.row].message)
-        effectView.backgroundColor = serviceColor
+        effectView.colorView.backgroundColor = serviceColor
         effectView.layer.masksToBounds = true
         window?.addSubview(effectView)
         
@@ -107,49 +108,72 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         effectMaskView.addSubview(effectMaskViewChild)
         //effectView.addSubview(effectMaskView)
         effectMaskViewChild.backgroundColor = UIColor.whiteColor()
+        effectView.backgroundColor = serviceColor
         effectView.maskView = effectMaskView
-        effectMaskViewChild.layer.cornerRadius = 100
+        effectMaskViewChild.layer.cornerRadius = 300
 
-        let txtEffectView = UILabel()
-        txtEffectView.font = txtEffectView.font.fontWithSize(20)
-        txtEffectView.text = self.actions[indexPath.row].message
-        txtEffectView.textColor = serviceColor?.lighterColor()
-        txtEffectView.layer.shadowColor = serviceColor?.darkenColor(0.8).CGColor
-        txtEffectView.layer.shadowOffset = CGSizeZero
-        txtEffectView.layer.shadowOpacity = 1
-        txtEffectView.layer.shadowRadius = 30
-        txtEffectView.numberOfLines = 0
-        txtEffectView.textAlignment = .Center
-        effectView.addSubview(txtEffectView)
-        txtEffectView.snp_makeConstraints(closure: { make in
-                make.centerY.equalTo(txtEffectView.superview!)
-                make.leading.equalTo(txtEffectView.superview!).offset(10)
-                make.trailing.equalTo(txtEffectView.superview!).offset(-10)
-        })
+        let service = extractService(self.actions[indexPath.row].message)
+        effectView.imgLogo.image = UIImage(named: service!.username)
+
+        let actionMessage = Message(body: self.actions[indexPath.row].message , type: .Text, payload: nil)
+        effectView.messages.append(actionMessage)
+        effectView.tableView.reloadData()
         
         effectView.alpha = 0
+        effectView.tableView.alpha = 0
         effectView.hidden = false
         
+        effectView.tableView.transform = CGAffineTransformMakeTranslation(0, 35)
+        
+        effectView.btnKeepHandler = {
+            self.navigationController?.navigationBar.barStyle = .Default
+            let targetFrame = effectView.convertRect(effectView.btnKeep.frame, toView: nil)
+            UIView.animateWithDuration(0.35, delay: 0, options: .CurveEaseIn, animations: {
+                    effectMaskViewChild.frame = targetFrame
+                    effectView.alpha = 0
+                effectMaskViewChild.layer.cornerRadius = 100
+
+                }, completion: { _ in
+                    effectView.removeFromSuperview()
+            })
+        }
+        
+        effectView.btnDiscardHandler = {
+            Unifai.deleteThread(effectView.message!.threadID!, completion: nil)
+            self.navigationController?.navigationBar.barStyle = .Default
+            let targetFrame = effectView.convertRect(effectView.btnDiscard.frame, toView: nil)
+            UIView.animateWithDuration(0.35, delay: 0, options: .CurveEaseIn, animations: {
+                effectMaskViewChild.frame = targetFrame
+                effectView.alpha = 0
+                }, completion: { _ in
+                    effectView.removeFromSuperview()
+            })
+        }
+        
+        effectMaskView.userInteractionEnabled = false
         
         UIView.animateWithDuration(0.35, delay: 0, options: .CurveEaseOut, animations: {
                 effectMaskViewChild.frame = UIScreen.mainScreen().bounds
                 effectView.alpha = 1
                 effectMaskViewChild.layer.cornerRadius = 0
-            }, completion: {_ in
-                Unifai.sendMessage(self.actions[indexPath.row].message, completion: { _ in
-                                    self.tabBarController?.selectedIndex = 0
-                                   (((self.tabBarController?.viewControllers?.first as! MainSplitView).viewControllers.first as! UINavigationController).topViewController as! FeedViewController).loadData()
 
-                    UIView.animateWithDuration(0.35, delay: 0.45, options: .CurveEaseOut, animations: {
-                        effectView.alpha = 0
-                        }, completion: { _ in
-                            effectView.removeFromSuperview()
-                    })
-                            })
-               
+            }, completion: { _ in
+                UIView.animateWithDuration(0.3, delay: 0.35, options: .CurveEaseOut, animations: {
+                    effectView.tableView.alpha = 1
+                    effectView.backgroundColor = UIColor.whiteColor()
+                    effectView.tableView.transform = CGAffineTransformMakeTranslation(0, 0)
+                    }, completion: { _ in
+                        
+                })
         })
         
-//        
+        Unifai.runAction(self.actions[indexPath.row], completion: { msg in
+            effectView.message = msg
+            effectView.messages.append(msg)
+            effectView.tableView.reloadData()
+            effectView.activityIndicator.stopAnimating()
+        })
+        
 //        Unifai.sendMessage(actions[indexPath.row].message, completion: { _ in
 //                //((self.tabBarController?.viewControllers?.first as! MainSplitView).viewControllers.first as! FeedViewController).loadData()
 //                self.tabBarController?.selectedIndex = 0

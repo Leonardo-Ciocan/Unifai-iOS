@@ -218,6 +218,22 @@ class Unifai{
         }
     }
     
+    
+    static func runAction(action : Action , completion : ((Message)->())?){
+        
+        Alamofire.request(.POST , Constants.urlRunAction ,
+            parameters: ["message" : action.message], headers:self.headers)
+            .responseJSON{ response in
+                switch response.result {
+                case .Success(let data):
+                    let json = JSON(data)
+                    completion!(Message(json: json))
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                }
+        }
+    }
+    
     static func createAction(message : String ,name:String, completion : ((Bool)->())?){
         Alamofire.request(.POST , Constants.urlAction ,
             parameters: ["message":message,"name":name], headers:self.headers)

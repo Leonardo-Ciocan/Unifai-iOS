@@ -16,6 +16,7 @@ class Constants{
     static let urlSchedules      = urlRoot + "trigger/"
     static let urlSignup         = urlRoot + "signup/"
     static let urlAction         = urlRoot + "action/"
+    static let urlRunAction         = urlRoot + "run_action/"
     static let urlDashboard      = urlRoot + "dashboard/"
     static let urlDashboardItems = urlRoot + "dashboard/items/"
     static let urlAuthCode       = urlRoot + "auth-code/"

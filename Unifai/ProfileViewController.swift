@@ -43,7 +43,7 @@ class ProfileViewController: UIViewController , UITableViewDelegate , UITableVie
             
         }
         
-        loadData()
+        //loadData()
     }
     
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {

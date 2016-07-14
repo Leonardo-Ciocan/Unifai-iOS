@@ -42,7 +42,6 @@ class AuthViewController: UIViewController  , UIWebViewDelegate{
 
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         if let url : String = request.URL?.absoluteString{
-            print("loaded")
             if(url.containsString("code=")){
                 var urlComponents = NSURLComponents(string:url)
                 let code = urlComponents?.queryItems?.filter({ $0.name == "code"}).first?.value
@@ -57,6 +56,9 @@ class AuthViewController: UIViewController  , UIWebViewDelegate{
         return true
     }
     
+    @IBAction func closeTapped(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
         print(error?.localizedDescription)

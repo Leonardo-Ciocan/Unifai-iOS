@@ -8,6 +8,7 @@ extension UIScrollView {
 class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UIViewControllerPreviewingDelegate , MessageCreatorDelegate {
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var creatorAssistant: UIView!
     var messages : [Message] = []
     
     lazy var refreshControl: UIRefreshControl = {
@@ -20,8 +21,15 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     var mainSplitView : MainSplitView {
         return self.splitViewController as! MainSplitView
     }
+    let doneButton = UIBarButtonItem()
+    var creator : MessageCreator?
     
+    @IBOutlet weak var assistantBottomConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
+        doneButton.action = #selector(doneClicked)
+        doneButton.title = "Done"
+        doneButton.style = .Done
+        
         self.tableView!.registerNib(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
         
         self.tableView!.rowHeight = UITableViewAutomaticDimension
@@ -57,23 +65,40 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         })
         
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
-        let creator = MessageCreator(frame: CGRect(x: 0, y: 0, width: self.view.frame.width , height: 100))
-        creator.creatorDelegate = self
-        creator.backgroundColor = UIColor.whiteColor()
+        self.creator = MessageCreator(frame: CGRect(x: 0, y: 0, width: self.view.frame.width , height: 110))
+        creator!.assistant = creatorAssistant
+        creator!.parentViewController = self
+        creator!.creatorDelegate = self
+        creator!.backgroundColor = UIColor.whiteColor()
         tableView.tableHeaderView = creator
         
-        let imageView = UIImageView(frame: CGRect(x: 5, y: 5, width: 33, height: 33))
-        imageView.contentMode = .ScaleAspectFit
+//        let imageView = UIImageView(frame: CGRect(x: 5, y: 5, width: 33, height: 33))
+//        imageView.contentMode = .ScaleAspectFit
+//
+//        let image = UIImage(named: "unifaiNewSmall")
+//        imageView.image = image?.imageWithRenderingMode(.AlwaysTemplate)
+//        imageView.tintColor = Constants.appBrandColor
+//
+//        imageView.layer.masksToBounds = true
+//        imageView.layer.cornerRadius = 5
+//        imageView.clipsToBounds = true
+//        
+//        navigationItem.titleView = imageView
+        
+        let txtTile = UILabel(frame:CGRect(x:0,y:0,width:150,height:33))
+        txtTile.text = "UNIFAI"
+        txtTile.textAlignment = .Center
+        txtTile.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.85)
+        txtTile.font = UIFont(name: "AmericanTypewriter", size: 18)
 
-        let image = UIImage(named: "simpleIcon")
-        imageView.image = image
-        navigationItem.titleView = imageView
-
-        navigationItem.title = "Feed"
+        navigationItem.titleView = txtTile
+        
         if( traitCollection.forceTouchCapability == .Available){
             
             registerForPreviewingWithDelegate(self, sourceView: view)
         }
+        
+        registerForKeyboardNotifications()
     }
     
     func getServicesAndUser(callback: ([Service]) -> () ){
@@ -141,8 +166,13 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         })
     }
     
-    override func viewDidAppear(animated: Bool) {
-        //loadData()
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBar.barStyle = .Default
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor(red:0,green: 0,blue: 0,alpha: 0.9)]
+    
+        self.navigationController?.navigationBar.translucent = true
+        self.navigationController?.navigationBar.tintColor = Constants.appBrandColor
+        self.navigationController?.navigationBar.barTintColor = nil
     }
     
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
@@ -209,7 +239,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell") as! MessageCell
         cell.selectionStyle = .None
         cell.shouldShowText = !Settings.onlyTextOnFeed
-        cell.setMessage(messages[indexPath.row])
+        cell.setMessage(messages[indexPath.row] , shouldShowThreadCount: true)
         cell.imgLogo.addTarget(self, action: #selector(imageTapped), forControlEvents: .TouchUpInside)
 
         cell.accessoryView = cell.imgLogo as UIView
@@ -241,9 +271,68 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         self.splitViewController!.performSegueWithIdentifier("toProfile", sender: self)
     }
     
+    
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
     
+    let spinner = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
+    var barItem : UIBarButtonItem?
+    @IBAction func toCatalog(sender: AnyObject) {
+        barItem = sender as! UIBarButtonItem
+        spinner.startAnimating()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: spinner)
+        Unifai.getCatalog({ catalog in
+                Core.Catalog = catalog
+                self.performSegueWithIdentifier("toCatalog", sender: self)
+                self.navigationItem.rightBarButtonItem = self.barItem
+        })
+    }
+    
+    
+    
+    func doneClicked(){
+        creator?.txtMessage.resignFirstResponder()
+    }
+    
+    func didStartWriting() {
+        self.navigationItem.leftBarButtonItem = doneButton
+    }
+    
+    func didFinishWirting() {
+        self.navigationItem.leftBarButtonItem = nil
+    }
+    
+    func registerForKeyboardNotifications()
+    {
+        //Adding notifies on keyboard appearing
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(FeedViewController.keyboardWasShown(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillBeHidden:"), name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    
+    func deregisterFromKeyboardNotifications()
+    {
+        //Removing notifies on keyboard appearing
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func keyboardWasShown(notification: NSNotification)
+    {
+        var info : NSDictionary = notification.userInfo!
+        var keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue().size
+        var contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
+        
+        assistantBottomConstraint.constant = (keyboardSize?.height)! - (tabBarController?.tabBar.frame.height)!
+    }
+    
+    
+    func keyboardWillBeHidden(notification: NSNotification)
+    {
+        assistantBottomConstraint.constant = 0
+    }
+
     
 }

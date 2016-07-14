@@ -25,6 +25,8 @@ class MessageCell: UITableViewCell {
     @IBOutlet weak var payloadContainer: UIView!
     @IBOutlet weak var payloadContainerHeight: NSLayoutConstraint!
 
+    @IBOutlet weak var threadCount: UILabel!
+    @IBOutlet weak var threadCountView: UIView!
     var parentViewController : UIViewController?
     
     var img : UIImage?
@@ -39,13 +41,14 @@ class MessageCell: UITableViewCell {
         }
     }
     
+    
     var shouldShowText = true
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        imgLogo.layer.cornerRadius = 5
+        imgLogo.layer.cornerRadius = imgLogo.frame.width/2
         imgLogo.layer.masksToBounds = true
         
         
@@ -54,19 +57,31 @@ class MessageCell: UITableViewCell {
 //        imgLogo.addGestureRecognizer(tapGestureRecognizer)
 //        imgLogo.userInteractionEnabled = true
         contentView.userInteractionEnabled = false
-        
+        threadCountView.layer.masksToBounds = true
+        threadCountView.layer.cornerRadius = 10
+        threadCountView.layer.borderWidth = 2
+        threadCountView.layer.borderColor = UIColor.whiteColor().CGColor
         
     }
     
     
     
     var message : Message?
-    func setMessage(message : Message){
+    func setMessage(message : Message , shouldShowThreadCount : Bool = false){
         self.message = message
         self.txtBody.text = message.body
         
         if message.service?.id! == "1989"{
             self.hideTime = true
+        }
+        txtName.textColor = message.service?.color.darkerColor()
+        imgLogo.backgroundColor = message.service?.color
+        
+        if shouldShowThreadCount {
+            threadCountView.backgroundColor = message.service?.color
+            threadCount.text = String(message.messagesInThread)
+        } else {
+            threadCountView.hidden = true
         }
         
         //bottleneck?
@@ -170,12 +185,12 @@ class MessageCell: UITableViewCell {
             let data = BarChartData(xVals: payload.labels, dataSet: dataSet)
             view.data = data
             view.tintColor = serviceColor
-            view.rightAxis.labelTextColor = UIColor.whiteColor()
+            view.rightAxis.labelTextColor = UIColor.clearColor()
             view.leftAxis.startAtZeroEnabled = true
-            view.borderColor = UIColor.whiteColor()
+            view.borderColor = UIColor.clearColor()
             view.drawGridBackgroundEnabled = false
             view.legend.enabled = false
-            view.gridBackgroundColor = UIColor.whiteColor()
+            view.gridBackgroundColor = UIColor.clearColor()
             view.xAxis.drawGridLinesEnabled = false
             view.leftAxis.drawGridLinesEnabled = false
             view.rightAxis.drawGridLinesEnabled = false
@@ -185,7 +200,7 @@ class MessageCell: UITableViewCell {
             view.leftAxis.drawAxisLineEnabled = false
             view.rightAxis.drawAxisLineEnabled = false
             view.xAxis.labelPosition = .Bottom
-            
+            view.backgroundColor = UIColor.clearColor()
             view.leftAxis.valueFormatter = NSNumberFormatter()
             view.leftAxis.valueFormatter?.minimumFractionDigits = 0
             

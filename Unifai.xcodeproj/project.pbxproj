@@ -67,6 +67,8 @@
 		B3D721381D01B49C00BFEEC2 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D721371D01B49C00BFEEC2 /* Settings.swift */; };
 		B3D7213A1D01C5AE00BFEEC2 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D721391D01C5AE00BFEEC2 /* Cache.swift */; };
 		B3D7213E1D03A8B300BFEEC2 /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3D7213D1D03A8B300BFEEC2 /* ActionCell.xib */; };
+		B3D761FD1D35B6F50088877A /* CreatorAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D761FC1D35B6F50088877A /* CreatorAssistant.swift */; };
+		B3D761FF1D35B7060088877A /* CreatorAssistant.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3D761FE1D35B7060088877A /* CreatorAssistant.xib */; };
 		B3F7B0041CF8AFFF00734F9B /* MainSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7B0031CF8AFFF00734F9B /* MainSplitView.swift */; };
 		B3F7B0061CF93E8F00734F9B /* MessageCreator.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3F7B0051CF93E8F00734F9B /* MessageCreator.xib */; };
 		B3F7B0081CF93EA400734F9B /* MessageCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7B0071CF93EA400734F9B /* MessageCreator.swift */; };
@@ -179,6 +181,8 @@
 		B3D721371D01B49C00BFEEC2 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		B3D721391D01C5AE00BFEEC2 /* Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		B3D7213D1D03A8B300BFEEC2 /* ActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionCell.xib; sourceTree = "<group>"; };
+		B3D761FC1D35B6F50088877A /* CreatorAssistant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatorAssistant.swift; sourceTree = "<group>"; };
+		B3D761FE1D35B7060088877A /* CreatorAssistant.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreatorAssistant.xib; sourceTree = "<group>"; };
 		B3F7B0031CF8AFFF00734F9B /* MainSplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSplitView.swift; sourceTree = "<group>"; };
 		B3F7B0051CF93E8F00734F9B /* MessageCreator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCreator.xib; sourceTree = "<group>"; };
 		B3F7B0071CF93EA400734F9B /* MessageCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCreator.swift; sourceTree = "<group>"; };
@@ -313,6 +317,8 @@
 				B307437E1D2C4EFE00A9CD0E /* CatalogCell.xib */,
 				B30743811D2C592400A9CD0E /* CatalogItemCell.swift */,
 				B30743821D2C592400A9CD0E /* CatalogItemCell.xib */,
+				B3D761FC1D35B6F50088877A /* CreatorAssistant.swift */,
+				B3D761FE1D35B7060088877A /* CreatorAssistant.xib */,
 			);
 			path = Unifai;
 			sourceTree = "<group>";
@@ -483,6 +489,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3F7B0061CF93E8F00734F9B /* MessageCreator.xib in Resources */,
+				B3D761FF1D35B7060088877A /* CreatorAssistant.xib in Resources */,
 				B31BD92F1CFF93EF001B3875 /* LoginButton.xib in Resources */,
 				B31BD92B1CFF33CC001B3875 /* FontAwesome.otf in Resources */,
 				B363CFC81CCEF9BB00B6182D /* MessageCell.xib in Resources */,
@@ -581,6 +588,7 @@
 				B307437F1D2C4EFE00A9CD0E /* CatalogCell.swift in Sources */,
 				B363CFC61CCEF9A800B6182D /* MessageCell.swift in Sources */,
 				B3D721301D01996000BFEEC2 /* SettingsListTableViewController.swift in Sources */,
+				B3D761FD1D35B6F50088877A /* CreatorAssistant.swift in Sources */,
 				B3F7B0151CF94F5800734F9B /* MessageCreatorDelegate.swift in Sources */,
 				B335AC211CD0EF8B00B85781 /* ComposeTextField.swift in Sources */,
 				B3D7213A1D01C5AE00BFEEC2 /* Cache.swift in Sources */,

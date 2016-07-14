@@ -26,6 +26,7 @@ class CardView: UIView {
         }
         txtTitle.text = payload.title
         self.navigateURL = payload.navigateURL!
+        imageView.backgroundColor = service.color
     }
     
     override init(frame: CGRect) {

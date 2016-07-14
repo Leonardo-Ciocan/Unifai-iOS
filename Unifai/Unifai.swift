@@ -133,19 +133,26 @@ class Unifai{
         }
     }
     
-    static func getProfile(serviceID : String , completion : ([Message])->()) {
+    /// - parameters:
+    ///     - String : The ID of the service
+    ///     - (Message,[Message]) -> () : Returns the pinned message and a list of messages
+    static func getProfile(serviceID : String , completion : (Message,[Message])->()) {
         
         Alamofire.request(.GET , Constants.urlServiceProfile + serviceID , headers:self.headers)
             .validate()
             .responseJSON{ response in
                 switch response.result {
                 case .Success(let data):
-                    let json = JSON(data).array
+                    let json = JSON(data)
+                    
+                    let pinnedMessage = Message(json: json["pinnedMessage"])
+                    
+                    let array = json["messages"].array
                     var messages : [Message] = []
-                    for message in json!{
+                    for message in array!{
                         messages.append(Message(json: message))
                     }
-                    completion(messages)
+                    completion(pinnedMessage,messages)
                 case .Failure(let error):
                     print("Request failed with error: \(error)")
                 }
@@ -235,6 +242,14 @@ class Unifai{
         }
     }
     
+    static func deleteAction(actionID:String , completion : ((Bool)->())?){
+        Alamofire.request(.DELETE , Constants.urlAction + actionID, headers:self.headers)
+            .responseJSON{ response in
+                guard completion != nil else{return}
+                completion!(true)
+        }
+    }
+    
     static func getUserInfo(completion : (username:String,email:String)->()) {
         
         Alamofire.request(.GET , Constants.urlUserInfo , headers:self.headers)
@@ -264,6 +279,32 @@ class Unifai{
                         schedules.append(Schedule(json: schedule))
                     }
                     completion(schedules)
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                    
+                }
+        }
+    }
+    
+    static func getCatalog( completion : ([String:[String]])->() ) {
+        Alamofire.request(.GET , Constants.urlCatalog, headers:self.headers)
+            .validate()
+            .responseJSON{ response in
+                switch response.result {
+                case .Success(let data):
+                    let json = JSON(data).dictionaryValue
+                    print(JSON(data))
+                    var result : [String:[String]] = [:]
+                    for (service,examples) in json {
+                        var items : [String] = []
+                        if let array = examples.array {
+                            for item in array{
+                                items.append(item.stringValue)
+                            }
+                        }
+                        result[service] = items
+                    }
+                    completion(result)
                 case .Failure(let error):
                     print("Request failed with error: \(error)")
                     

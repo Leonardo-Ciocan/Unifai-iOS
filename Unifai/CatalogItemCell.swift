@@ -10,6 +10,9 @@ import UIKit
 
 class CatalogItemCell: UITableViewCell {
 
+    @IBOutlet weak var imgAction: UIImageView!
+    @IBOutlet weak var whiteView: UIView!
+    @IBOutlet weak var txtText: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

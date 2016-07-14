@@ -14,5 +14,6 @@ target 'Unifai' do
     pod 'OAuthSwift', '~> 0.5.0'
     pod "DGElasticPullToRefresh"
     pod 'expanding-collection'
+    pod 'DynamicColor', '~> 2.4.0'
 
 end

@@ -24,7 +24,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Charts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>DGElasticPullToRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>DateTools.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>DynamicColor.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -40,6 +55,11 @@
 			<false/>
 		</dict>
 		<key>MaterialDesignSymbol.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>OAuthSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -64,6 +84,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>expanding-collection.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -72,7 +97,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>09DC61DA92483F7F5FCF71A4386F10EC</key>
+		<key>08F6A5AF8E89681F880EB03F167AACB7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>115824B7CB2E76E5ACB836A251E79404</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,17 +117,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>20C25F91BB3B20D77CE99A859E5B12C4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>31C84A3832DB4AEB429573AACE8E3E73</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5EB58692894E860DCAABF8E06F02E257</key>
+		<key>45935B91DF0442390E2CA6DEEF68AE99</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>741E0BDA9CC8E49CD907477EA0AD2B7B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,12 +142,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8B4B3CB092117D2A4887092CFF33C347</key>
+		<key>886C73F1408573C5A056EEDC90A14545</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A123F9BC2D715A41CD462653690372B1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AC03989E989EBEB49376DF0AD94031AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>AFEDA8059B169E4068B6DCC4D2F0B0E9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C6828C2508515BC0428D6BDAA1292DC9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EE6F8FB84D2DCEC393CE14367531057F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

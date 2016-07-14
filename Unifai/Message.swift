@@ -13,6 +13,7 @@ class Message {
     var service : Service?
     var threadID : String?
     var timestamp : NSDate = NSDate()
+    var messagesInThread = "0"
     
     
     var isFromUser : Bool {
@@ -66,6 +67,7 @@ class Message {
         let time = json["timestamp"].stringValue
         let data = json["data"].stringValue
         let type = json["type"].number
+        self.messagesInThread = String(json["numberOfMessagesInThread"].numberValue)
         
         self.body = body!
         self.service = Core.Services.filter({

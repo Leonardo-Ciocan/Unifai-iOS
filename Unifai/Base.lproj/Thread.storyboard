@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="16A201w" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -44,9 +44,13 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isTop" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="UPY-XS-3xP">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="UPY-XS-3xP" firstAttribute="centerY" secondItem="p4f-uC-4yO" secondAttribute="centerY" id="4Dt-CC-pY7"/>
                             <constraint firstItem="IRh-sT-B6t" firstAttribute="top" secondItem="raS-3S-9q9" secondAttribute="bottom" constant="-49" id="DrN-c8-tQM"/>
                             <constraint firstItem="IRh-sT-B6t" firstAttribute="top" secondItem="cQT-cZ-Zeu" secondAttribute="bottom" id="G1I-RQ-ZwB"/>
                             <constraint firstItem="Qo1-aj-NSE" firstAttribute="leading" secondItem="p4f-uC-4yO" secondAttribute="leadingMargin" constant="-20" id="GjQ-iE-AcX"/>
@@ -55,6 +59,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Qo1-aj-NSE" secondAttribute="trailing" constant="-20" id="m8g-M8-CEp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="raS-3S-9q9" secondAttribute="trailing" constant="-20" id="n5j-dH-5pM"/>
                             <constraint firstItem="raS-3S-9q9" firstAttribute="top" secondItem="hdI-zC-lR5" secondAttribute="bottom" id="qLw-z2-hc2"/>
+                            <constraint firstItem="UPY-XS-3xP" firstAttribute="centerX" secondItem="p4f-uC-4yO" secondAttribute="centerX" id="sJA-9n-Qir"/>
                             <constraint firstItem="cQT-cZ-Zeu" firstAttribute="leading" secondItem="p4f-uC-4yO" secondAttribute="leadingMargin" constant="-20" id="uvC-79-VTr"/>
                             <constraint firstItem="IRh-sT-B6t" firstAttribute="top" secondItem="Qo1-aj-NSE" secondAttribute="bottom" id="wkZ-VP-Qpv"/>
                         </constraints>
@@ -62,6 +67,7 @@
                     <connections>
                         <outlet property="messageCreator" destination="Qo1-aj-NSE" id="bQd-pc-d9G"/>
                         <outlet property="rootView" destination="p4f-uC-4yO" id="nmQ-Ks-NDA"/>
+                        <outlet property="spinner" destination="UPY-XS-3xP" id="Rf8-R7-Ih3"/>
                         <outlet property="tableView" destination="raS-3S-9q9" id="rT0-zT-ose"/>
                     </connections>
                 </viewController>

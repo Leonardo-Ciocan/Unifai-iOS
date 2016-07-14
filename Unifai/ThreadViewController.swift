@@ -13,6 +13,7 @@ import SafariServices
 
 class ThreadViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , MessageCreatorDelegate  {
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet var rootView: UIView!
     @IBOutlet weak var messageCreator: MessageCreator!
     var threadID : String?
@@ -58,6 +59,9 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         Unifai.getServices({ services in
             Core.Services = services
             Unifai.getThread(thread , completion:{ threadMessages in
+                if let spinner = self.spinner {
+                    self.spinner.stopAnimating()
+                }
                 self.messages = threadMessages
                 self.tableView?.reloadData()
                 self.tableView?.scrollToRowAtIndexPath(NSIndexPath(forRow: self.messages.count - 1,inSection:0), atScrollPosition: .Bottom, animated: true)
@@ -68,7 +72,7 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell") as! MessageCell
         cell.selectionStyle = .None
-        cell.setMessage(messages[indexPath.row])
+        cell.setMessage(messages[indexPath.row] , shouldShowThreadCount: false)
         if let imgView = cell.imgView {
             let singleTap = UITapGestureRecognizer(target: self, action:#selector(payloadImageTapped))
             singleTap.numberOfTapsRequired = 1
@@ -150,5 +154,11 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
             }, completion: nil)
     }
     
+    func didStartWriting() {
+        
+    }
     
+    func didFinishWirting() {
+        
+    }
 }

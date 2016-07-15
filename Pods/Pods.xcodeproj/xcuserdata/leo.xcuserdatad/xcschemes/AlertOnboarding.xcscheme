@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1CD314AE1A72E3B32CF0F16DC36DA426"
-               BlueprintName = "AlertOnboarding"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "AlertOnboarding.framework">
+               BuildableIdentifier = 'primary'
+               BlueprintIdentifier = 'F2945337A64D54CB059DCCDD'
+               BlueprintName = 'AlertOnboarding'
+               ReferencedContainer = 'container:Pods.xcodeproj'
+               BuildableName = 'AlertOnboarding.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

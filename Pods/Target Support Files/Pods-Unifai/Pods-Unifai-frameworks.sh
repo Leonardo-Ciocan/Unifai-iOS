@@ -98,6 +98,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Unifai/SlackTextViewController.framework"
   install_framework "Pods-Unifai/SnapKit.framework"
   install_framework "Pods-Unifai/SwiftyJSON.framework"
+  install_framework "Pods-Unifai/TextFieldEffects.framework"
   install_framework "Pods-Unifai/expanding_collection.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -115,5 +116,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Unifai/SlackTextViewController.framework"
   install_framework "Pods-Unifai/SnapKit.framework"
   install_framework "Pods-Unifai/SwiftyJSON.framework"
+  install_framework "Pods-Unifai/TextFieldEffects.framework"
   install_framework "Pods-Unifai/expanding_collection.framework"
 fi

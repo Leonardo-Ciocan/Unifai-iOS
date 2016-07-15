@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "115824B7CB2E76E5ACB836A251E79404"
-               BlueprintName = "DGElasticPullToRefresh"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "DGElasticPullToRefresh.framework">
+               BuildableIdentifier = 'primary'
+               BlueprintIdentifier = '0B7845A12C9EEF37BC7434B5'
+               BlueprintName = 'DGElasticPullToRefresh'
+               ReferencedContainer = 'container:Pods.xcodeproj'
+               BuildableName = 'DGElasticPullToRefresh.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

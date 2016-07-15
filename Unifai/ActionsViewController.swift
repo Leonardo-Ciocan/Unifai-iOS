@@ -1,6 +1,6 @@
 import UIKit
 
-class ActionsViewController: UIViewController , UICollectionViewDelegate , UICollectionViewDataSource {
+class ActionsViewController: UIViewController , UICollectionViewDelegate , UICollectionViewDataSource , ActionCreatorDelegate {
     
     @IBOutlet weak var btnEdit: UIBarButtonItem!
     private let reuseIdentifier = "ActionCell"
@@ -35,7 +35,19 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
 
     
     @IBAction func create(sender: AnyObject) {
-        self.navigationController?.pushViewController(NewActionController(), animated: true)
+        //self.navigationController?.pushViewController(NewActionController(), animated: true)
+        let creator = ActionCreatorViewController()
+        creator.delegate = self
+        self.presentViewController(creator, animated: true, completion: nil)
+    }
+    
+    func createAction(name: String, message: String) {
+        Unifai.createAction(message, name: name, completion: { _ in
+            Unifai.getActions({ actions in
+                self.actions = actions
+                self.collectionView.reloadData()
+            })
+        })
     }
     
     func getServicesAndUser(callback: ([Service]) -> () ){

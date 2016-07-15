@@ -16,6 +16,7 @@ PODS:
   - SlackTextViewController (1.9.2)
   - SnapKit (0.15.0)
   - SwiftyJSON (2.3.2)
+  - TextFieldEffects (1.2.0)
 
 DEPENDENCIES:
   - ActiveLabel
@@ -33,6 +34,7 @@ DEPENDENCIES:
   - SlackTextViewController
   - SnapKit (~> 0.15.0)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
+  - TextFieldEffects
 
 EXTERNAL SOURCES:
   SwiftyJSON:
@@ -59,5 +61,6 @@ SPEC CHECKSUMS:
   SlackTextViewController: bac3350ccc639bc446bb14cbd09da238f5e01f32
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  TextFieldEffects: bc4fd3bd557321bd61a0762f3f50965477a36f62
 
 COCOAPODS: 0.39.0

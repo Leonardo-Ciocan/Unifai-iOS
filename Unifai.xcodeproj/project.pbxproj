@@ -30,6 +30,8 @@
 		B335AC2B1CD3336F00B85781 /* TablePayloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC2A1CD3336F00B85781 /* TablePayloadView.swift */; };
 		B350B9251D381B3A00FADBB6 /* ActionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350B9231D381B3A00FADBB6 /* ActionPickerViewController.swift */; };
 		B350B9261D381B3A00FADBB6 /* ActionPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350B9241D381B3A00FADBB6 /* ActionPickerViewController.xib */; };
+		B350B9291D3868BB00FADBB6 /* ActionCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350B9271D3868BB00FADBB6 /* ActionCreatorViewController.swift */; };
+		B350B92A1D3868BB00FADBB6 /* ActionCreatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350B9281D3868BB00FADBB6 /* ActionCreatorViewController.xib */; };
 		B35598751D37F5F7002F4C59 /* ActionRunnerPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = B35598741D37F5F7002F4C59 /* ActionRunnerPage.xib */; };
 		B35598771D37F626002F4C59 /* ActionRunnerPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35598761D37F626002F4C59 /* ActionRunnerPage.swift */; };
 		B363CF851CCEEBB300B6182D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363CF841CCEEBB300B6182D /* AppDelegate.swift */; };
@@ -138,6 +140,8 @@
 		B335AC2A1CD3336F00B85781 /* TablePayloadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TablePayloadView.swift; sourceTree = "<group>"; };
 		B350B9231D381B3A00FADBB6 /* ActionPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionPickerViewController.swift; sourceTree = "<group>"; };
 		B350B9241D381B3A00FADBB6 /* ActionPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionPickerViewController.xib; sourceTree = "<group>"; };
+		B350B9271D3868BB00FADBB6 /* ActionCreatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCreatorViewController.swift; sourceTree = "<group>"; };
+		B350B9281D3868BB00FADBB6 /* ActionCreatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionCreatorViewController.xib; sourceTree = "<group>"; };
 		B35598741D37F5F7002F4C59 /* ActionRunnerPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionRunnerPage.xib; sourceTree = "<group>"; };
 		B35598761D37F626002F4C59 /* ActionRunnerPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionRunnerPage.swift; sourceTree = "<group>"; };
 		B363CF811CCEEBB300B6182D /* Unifai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unifai.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -331,6 +335,8 @@
 				B35598761D37F626002F4C59 /* ActionRunnerPage.swift */,
 				B350B9231D381B3A00FADBB6 /* ActionPickerViewController.swift */,
 				B350B9241D381B3A00FADBB6 /* ActionPickerViewController.xib */,
+				B350B9271D3868BB00FADBB6 /* ActionCreatorViewController.swift */,
+				B350B9281D3868BB00FADBB6 /* ActionCreatorViewController.xib */,
 			);
 			path = Unifai;
 			sourceTree = "<group>";
@@ -513,6 +519,7 @@
 				B363CF911CCEEBB300B6182D /* LaunchScreen.storyboard in Resources */,
 				B3F7B00E1CF93FA800734F9B /* Thread.storyboard in Resources */,
 				B31BD9331D003EC4001B3875 /* AuthViewController.xib in Resources */,
+				B350B92A1D3868BB00FADBB6 /* ActionCreatorViewController.xib in Resources */,
 				B3D7212C1D01987100BFEEC2 /* Settings.storyboard in Resources */,
 				B39006911CD35FB800F472AC /* ScheduleCell.xib in Resources */,
 				B3D721291D00DD9F00BFEEC2 /* CardView.xib in Resources */,
@@ -602,6 +609,7 @@
 				B35598771D37F626002F4C59 /* ActionRunnerPage.swift in Sources */,
 				B307437F1D2C4EFE00A9CD0E /* CatalogCell.swift in Sources */,
 				B363CFC61CCEF9A800B6182D /* MessageCell.swift in Sources */,
+				B350B9291D3868BB00FADBB6 /* ActionCreatorViewController.swift in Sources */,
 				B3D721301D01996000BFEEC2 /* SettingsListTableViewController.swift in Sources */,
 				B3D761FD1D35B6F50088877A /* CreatorAssistant.swift in Sources */,
 				B3F7B0151CF94F5800734F9B /* MessageCreatorDelegate.swift in Sources */,

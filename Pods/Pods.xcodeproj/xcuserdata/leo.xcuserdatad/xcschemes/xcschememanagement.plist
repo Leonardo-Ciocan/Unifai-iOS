@@ -84,6 +84,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>TextFieldEffects.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>expanding-collection.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -127,12 +132,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>741E0BDA9CC8E49CD907477EA0AD2B7B</key>
+		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
+		<key>7C648DB717E18DE73F847771E144896D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -147,12 +152,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A123F9BC2D715A41CD462653690372B1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AC03989E989EBEB49376DF0AD94031AD</key>
+		<key>88E3917BCBAA74B3AF63D0A7A0434336</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -167,7 +167,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EE6F8FB84D2DCEC393CE14367531057F</key>
+		<key>E214FD2B3C6FE495B0570FA6E5FD3208</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EEB13AD04B1649492C3AC7536B01EB0D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EFF16ECD9D00DD4AE2CE26A623914F60</key>
 		<dict>
 			<key>primary</key>
 			<true/>

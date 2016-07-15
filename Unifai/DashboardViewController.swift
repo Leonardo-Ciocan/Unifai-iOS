@@ -24,13 +24,8 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        
-        let imageView = UIImageView(frame: CGRect(x: 5, y: 5, width: 33, height: 33))
-        imageView.contentMode = .ScaleAspectFit
-        let image = UIImage(named: "simpleIcon")
-        imageView.image = image
-        navigationItem.titleView = imageView
-        
+        navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)! ]
+
         self.tabBarController?.title = "Dashboard"
         
         

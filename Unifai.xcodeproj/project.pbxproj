@@ -75,6 +75,7 @@
 		B3D7213E1D03A8B300BFEEC2 /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3D7213D1D03A8B300BFEEC2 /* ActionCell.xib */; };
 		B3D761FD1D35B6F50088877A /* CreatorAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D761FC1D35B6F50088877A /* CreatorAssistant.swift */; };
 		B3D761FF1D35B7060088877A /* CreatorAssistant.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3D761FE1D35B7060088877A /* CreatorAssistant.xib */; };
+		B3EA79A11D387924000C40DE /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA79A01D387924000C40DE /* PaddedTextField.swift */; };
 		B3F7B0041CF8AFFF00734F9B /* MainSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7B0031CF8AFFF00734F9B /* MainSplitView.swift */; };
 		B3F7B0061CF93E8F00734F9B /* MessageCreator.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3F7B0051CF93E8F00734F9B /* MessageCreator.xib */; };
 		B3F7B0081CF93EA400734F9B /* MessageCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7B0071CF93EA400734F9B /* MessageCreator.swift */; };
@@ -195,6 +196,7 @@
 		B3D7213D1D03A8B300BFEEC2 /* ActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionCell.xib; sourceTree = "<group>"; };
 		B3D761FC1D35B6F50088877A /* CreatorAssistant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatorAssistant.swift; sourceTree = "<group>"; };
 		B3D761FE1D35B7060088877A /* CreatorAssistant.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreatorAssistant.xib; sourceTree = "<group>"; };
+		B3EA79A01D387924000C40DE /* PaddedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
 		B3F7B0031CF8AFFF00734F9B /* MainSplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSplitView.swift; sourceTree = "<group>"; };
 		B3F7B0051CF93E8F00734F9B /* MessageCreator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCreator.xib; sourceTree = "<group>"; };
 		B3F7B0071CF93EA400734F9B /* MessageCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCreator.swift; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 				B350B9241D381B3A00FADBB6 /* ActionPickerViewController.xib */,
 				B350B9271D3868BB00FADBB6 /* ActionCreatorViewController.swift */,
 				B350B9281D3868BB00FADBB6 /* ActionCreatorViewController.xib */,
+				B3EA79A01D387924000C40DE /* PaddedTextField.swift */,
 			);
 			path = Unifai;
 			sourceTree = "<group>";
@@ -619,6 +622,7 @@
 				B307437C1D2C4E7300A9CD0E /* CatalogViewController.swift in Sources */,
 				B335AC271CD1127C00B85781 /* ServiceProfileViewcontroller.swift in Sources */,
 				B363CFBE1CCEF52600B6182D /* Service.swift in Sources */,
+				B3EA79A11D387924000C40DE /* PaddedTextField.swift in Sources */,
 				B32BDC9D1CFBA17900C18AFE /* DashboardEditorViewController.swift in Sources */,
 				B363CF851CCEEBB300B6182D /* AppDelegate.swift in Sources */,
 				B335AC291CD177C400B85781 /* ProfileViewController.swift in Sources */,

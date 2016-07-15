@@ -23,16 +23,12 @@ class ProfileViewController: UIViewController , UITableViewDelegate , UITableVie
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        
-        let imageView = UIImageView(frame: CGRect(x: 5, y: 5, width: 33, height: 33))
-        imageView.contentMode = .ScaleAspectFit
-        let image = UIImage(named: "logo")
-        imageView.image = image
-        navigationItem.titleView = imageView
+        navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)! ]
+
         
         
-        
-        self.tabBarController?.title = "Feed"
+        self.tabBarController?.title = "Profile"
+        self.navigationItem.title = "Profile"
         self.tableView.addSubview(self.refreshControl)
         //loadData()
         
@@ -43,7 +39,7 @@ class ProfileViewController: UIViewController , UITableViewDelegate , UITableVie
             
         }
         
-        //loadData()
+        loadData()
     }
     
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
@@ -128,9 +124,4 @@ class ProfileViewController: UIViewController , UITableViewDelegate , UITableVie
         return messages.count
     }
     
-    @IBAction func logout(sender: AnyObject) {
-        NSUserDefaults.standardUserDefaults().removeObjectForKey("token")
-        NSUserDefaults.standardUserDefaults().synchronize()
-        dismissViewControllerAnimated(true, completion: nil)
-    }
 }

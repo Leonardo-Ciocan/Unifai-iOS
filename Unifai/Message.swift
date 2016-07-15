@@ -3,7 +3,7 @@ import UIKit
 import SwiftyJSON
 
 enum MessageType : Int{
-    case Text , Table , Image , BarChart , RequestAuth , CardList
+    case Text , Table , Image , BarChart , RequestAuth , CardList , File
 }
 
 class Message {
@@ -80,7 +80,7 @@ class Message {
         if let date =  formatter.dateFromString(time){
             self.timestamp = date
         }
-
+        
         self.type = MessageType(rawValue:Int(type!))!
         if(type == 1){
             self.payload = TablePayload(data: data)

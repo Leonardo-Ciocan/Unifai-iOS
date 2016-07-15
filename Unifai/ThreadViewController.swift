@@ -10,6 +10,7 @@ import Foundation
 import SlackTextViewController
 import GSImageViewerController
 import SafariServices
+import UIKit
 
 class ThreadViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , MessageCreatorDelegate  {
     
@@ -45,6 +46,8 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
                                                          selector: #selector(keyboardWillHide),
                                                          name: UIKeyboardDidHideNotification,
                                                          object: nil)
+        
+        navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)! ]
     }
     
     deinit {
@@ -59,7 +62,8 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         Unifai.getServices({ services in
             Core.Services = services
             Unifai.getThread(thread , completion:{ threadMessages in
-                if let spinner = self.spinner {
+                self.navigationItem.title = String(threadMessages.count) + " messages"
+                if self.spinner != nil {
                     self.spinner.stopAnimating()
                 }
                 self.messages = threadMessages

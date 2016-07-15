@@ -94,11 +94,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="profile" id="I9B-4O-5cd"/>
                     <navigationItem key="navigationItem" id="Sjc-TZ-rIK">
-                        <barButtonItem key="leftBarButtonItem" title="Log out" id="b3o-Wj-hWO">
-                            <connections>
-                                <action selector="logout:" destination="jRb-m9-oZS" id="4GX-jD-FzE"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="Am2-Zv-paO">
                             <connections>
                                 <segue destination="Eel-ld-4l7" kind="show" id="GvM-iP-RdN"/>

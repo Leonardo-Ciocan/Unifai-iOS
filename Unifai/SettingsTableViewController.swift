@@ -44,6 +44,13 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
         let id = tableView.cellForRowAtIndexPath(indexPath)?.reuseIdentifier
         var selected = 0
         
+        if id == "logout" {
+            NSUserDefaults.standardUserDefaults().removeObjectForKey("token")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            self.presentingViewController?.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+            return
+        }
+        
         if(id == "textSize"){
             items = textSizeItems
             selected = Settings.textSize

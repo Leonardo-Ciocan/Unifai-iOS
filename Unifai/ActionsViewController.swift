@@ -26,7 +26,8 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         })
         
         self.navigationItem.title = "Actions"
-        
+        navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)! ]
+
     }
     
     func deleteAction(){

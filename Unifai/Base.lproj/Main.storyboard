@@ -94,7 +94,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="profile" id="I9B-4O-5cd"/>
                     <navigationItem key="navigationItem" id="Sjc-TZ-rIK">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="Am2-Zv-paO">
+                        <barButtonItem key="rightBarButtonItem" id="Am2-Zv-paO">
                             <connections>
                                 <segue destination="Eel-ld-4l7" kind="show" id="GvM-iP-RdN"/>
                             </connections>
@@ -102,6 +102,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="settingsButton" destination="Am2-Zv-paO" id="LOe-1B-Q0d"/>
                         <outlet property="tableView" destination="LkO-zf-VX5" id="S4Y-4L-Rf6"/>
                         <segue destination="5cy-gj-VKf" kind="show" identifier="toThread" id="f1j-qg-wbE"/>
                     </connections>

@@ -302,7 +302,7 @@ class Unifai{
         }
     }
     
-    static func getCatalog( completion : ([String:[String]])->() ) {
+    static func getCatalog( completion : ([String:[CatalogItem]])->() ) {
         Alamofire.request(.GET , Constants.urlCatalog, headers:self.headers)
             .validate()
             .responseJSON{ response in
@@ -310,12 +310,12 @@ class Unifai{
                 case .Success(let data):
                     let json = JSON(data).dictionaryValue
                     print(JSON(data))
-                    var result : [String:[String]] = [:]
+                    var result : [String:[CatalogItem]] = [:]
                     for (service,examples) in json {
-                        var items : [String] = []
+                        var items : [CatalogItem] = []
                         if let array = examples.array {
                             for item in array{
-                                items.append(item.stringValue)
+                                items.append(CatalogItem(json:item))
                             }
                         }
                         result[service] = items

@@ -14,6 +14,10 @@
 		B30743801D2C4EFE00A9CD0E /* CatalogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B307437E1D2C4EFE00A9CD0E /* CatalogCell.xib */; };
 		B30743831D2C592400A9CD0E /* CatalogItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30743811D2C592400A9CD0E /* CatalogItemCell.swift */; };
 		B30743841D2C592400A9CD0E /* CatalogItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B30743821D2C592400A9CD0E /* CatalogItemCell.xib */; };
+		B3131F4E1D395BA000461C12 /* CatalogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3131F4D1D395BA000461C12 /* CatalogItem.swift */; };
+		B3131F501D39A1D400461C12 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3131F4F1D39A1D400461C12 /* ProgressView.swift */; };
+		B3131F521D39A1EE00461C12 /* ProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3131F511D39A1EE00461C12 /* ProgressView.xib */; };
+		B3131F541D39CCCA00461C12 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3131F531D39CCCA00461C12 /* Theme.swift */; };
 		B31BD92B1CFF33CC001B3875 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = B31BD92A1CFF33CC001B3875 /* FontAwesome.otf */; };
 		B31BD92D1CFF93E4001B3875 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31BD92C1CFF93E4001B3875 /* LoginButton.swift */; };
 		B31BD92F1CFF93EF001B3875 /* LoginButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = B31BD92E1CFF93EF001B3875 /* LoginButton.xib */; };
@@ -125,6 +129,10 @@
 		B307437E1D2C4EFE00A9CD0E /* CatalogCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CatalogCell.xib; sourceTree = "<group>"; };
 		B30743811D2C592400A9CD0E /* CatalogItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogItemCell.swift; sourceTree = "<group>"; };
 		B30743821D2C592400A9CD0E /* CatalogItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CatalogItemCell.xib; sourceTree = "<group>"; };
+		B3131F4D1D395BA000461C12 /* CatalogItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogItem.swift; sourceTree = "<group>"; };
+		B3131F4F1D39A1D400461C12 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		B3131F511D39A1EE00461C12 /* ProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressView.xib; sourceTree = "<group>"; };
+		B3131F531D39CCCA00461C12 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		B31BD92A1CFF33CC001B3875 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		B31BD92C1CFF93E4001B3875 /* LoginButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
 		B31BD92E1CFF93EF001B3875 /* LoginButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginButton.xib; sourceTree = "<group>"; };
@@ -340,6 +348,8 @@
 				B350B9271D3868BB00FADBB6 /* ActionCreatorViewController.swift */,
 				B350B9281D3868BB00FADBB6 /* ActionCreatorViewController.xib */,
 				B3EA79A01D387924000C40DE /* PaddedTextField.swift */,
+				B3131F4F1D39A1D400461C12 /* ProgressView.swift */,
+				B3131F511D39A1EE00461C12 /* ProgressView.xib */,
 			);
 			path = Unifai;
 			sourceTree = "<group>";
@@ -376,6 +386,8 @@
 				B39006961CD66ED600F472AC /* Action.swift */,
 				B3D721371D01B49C00BFEEC2 /* Settings.swift */,
 				B3D721391D01C5AE00BFEEC2 /* Cache.swift */,
+				B3131F4D1D395BA000461C12 /* CatalogItem.swift */,
+				B3131F531D39CCCA00461C12 /* Theme.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -525,6 +537,7 @@
 				B350B92A1D3868BB00FADBB6 /* ActionCreatorViewController.xib in Resources */,
 				B3D7212C1D01987100BFEEC2 /* Settings.storyboard in Resources */,
 				B39006911CD35FB800F472AC /* ScheduleCell.xib in Resources */,
+				B3131F521D39A1EE00461C12 /* ProgressView.xib in Resources */,
 				B3D721291D00DD9F00BFEEC2 /* CardView.xib in Resources */,
 				B363CF8E1CCEEBB300B6182D /* Assets.xcassets in Resources */,
 				B350B9261D381B3A00FADBB6 /* ActionPickerViewController.xib in Resources */,
@@ -630,6 +643,7 @@
 				B31BD9321D003EC4001B3875 /* AuthViewController.swift in Sources */,
 				B335AC231CD0F3B400B85781 /* ComposeBackground.swift in Sources */,
 				B390068B1CD35D7F00F472AC /* Schedule.swift in Sources */,
+				B3131F541D39CCCA00461C12 /* Theme.swift in Sources */,
 				B30663F51CCF9D2E00F3CC92 /* FeedViewController.swift in Sources */,
 				B390068D1CD35F4E00F472AC /* SchedulesViewController.swift in Sources */,
 				B32BDC9B1CFB9D2800C18AFE /* DashboardViewController.swift in Sources */,
@@ -641,6 +655,7 @@
 				B39006971CD66ED600F472AC /* Action.swift in Sources */,
 				B39006951CD661C600F472AC /* SignupViewController.swift in Sources */,
 				B3F7B0041CF8AFFF00734F9B /* MainSplitView.swift in Sources */,
+				B3131F501D39A1D400461C12 /* ProgressView.swift in Sources */,
 				B3D721361D01AFC300BFEEC2 /* TabBarViewController.swift in Sources */,
 				B350B9251D381B3A00FADBB6 /* ActionPickerViewController.swift in Sources */,
 				B363CFC21CCEF78E00B6182D /* ThreadViewController.swift in Sources */,
@@ -653,6 +668,7 @@
 				B3D721321D019AA300BFEEC2 /* SettingsTableViewController.swift in Sources */,
 				B390069C1CD679D700F472AC /* ActionCell.swift in Sources */,
 				B39006901CD35FB800F472AC /* ScheduleCell.swift in Sources */,
+				B3131F4E1D395BA000461C12 /* CatalogItem.swift in Sources */,
 				B363CFCC1CCF205700B6182D /* Unifai.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

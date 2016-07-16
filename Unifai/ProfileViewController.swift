@@ -2,6 +2,7 @@ import UIKit
 
 class ProfileViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UIViewControllerPreviewingDelegate {
     
+    @IBOutlet weak var settingsButton: UIBarButtonItem!
     var messages : [ Message] = []
     @IBOutlet weak var tableView: UITableView!
     
@@ -23,12 +24,16 @@ class ProfileViewController: UIViewController , UITableViewDelegate , UITableVie
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)! ]
 
         
+        let segment = UISegmentedControl(items: ["Passport" , "Send messages"])
+        segment.selectedSegmentIndex = 0
+        navigationItem.titleView = segment
+        self.settingsButton.title = NSString(string: "\u{2699}") as String
+        if let font = UIFont(name: "Helvetica", size: 18.0) {
+            self.settingsButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
+        }
         
-        self.tabBarController?.title = "Profile"
-        self.navigationItem.title = "Profile"
         self.tableView.addSubview(self.refreshControl)
         //loadData()
         

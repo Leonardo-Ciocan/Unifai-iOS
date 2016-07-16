@@ -271,6 +271,24 @@ class MessageCell: UITableViewCell {
                 make.top.bottom.equalTo(0)
             })
         }
+        else if(message.type == .Progress) {
+            let progressView = ProgressView()
+            
+            self.payloadContainerHeight.constant = 90
+            self.payloadContainer.addSubview(progressView)
+            
+            let payload = message.payload as! ProgressPayload
+            
+            progressView.snp_makeConstraints(closure: { make in
+                make.leading.trailing.top.bottom.equalTo(0)
+            })
+            
+            progressView.setProgressValues(payload.min, max: payload.max, value: payload.value)
+            progressView.progressBar.backgroundColor = message.service?.color
+            progressView.valueBackground.backgroundColor = message.service?.color
+            progressView.barView.layer.borderColor = message.service?.color.CGColor
+            progressView.barView.layer.borderWidth = 1
+        }
     }
     
     func onCardTapped(recon:UITapGestureRecognizer){

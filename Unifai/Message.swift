@@ -3,7 +3,7 @@ import UIKit
 import SwiftyJSON
 
 enum MessageType : Int{
-    case Text , Table , Image , BarChart , RequestAuth , CardList , File
+    case Text , Table , Image , BarChart , RequestAuth , CardList , File , Progress
 }
 
 class Message {
@@ -96,6 +96,9 @@ class Message {
         }
         else if(type == 5){
             self.payload = CardListPayload(data: data)
+        }
+        else if(type == 7){
+            self.payload = ProgressPayload(data: data)
         }
         
     }

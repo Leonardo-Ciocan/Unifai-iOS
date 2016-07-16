@@ -16,6 +16,8 @@ class ActionCreatorViewController: UIViewController {
     @IBOutlet weak var txtMessage: UITextField!
     
     var delegate : ActionCreatorDelegate?
+    var presetName : String = ""
+    var presetMessage : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,26 +27,23 @@ class ActionCreatorViewController: UIViewController {
         txtMessage.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.1)
         txtMessage.layer.cornerRadius = 5
         txtMessage.layer.borderWidth = 0
+        txtName.text = presetName
+        txtMessage.text = presetMessage
     }
     
+    override func viewDidAppear(animated: Bool) {
+        let color = extractServiceColorFrom(txtMessage.text!)
+        UIView.animateWithDuration(0.6, animations: {
+            self.view.backgroundColor = color ?? UIColor.blackColor()
+        })
+    }
 
     @IBAction func textChanged(sender: AnyObject) {
         print("changing")
-        var target = matchesForRegexInText("(?:^|\\s|$|[.])@[\\p{L}0-9_]*", text: txtMessage.text)
-        if(target.count > 0){
-            let namex = target[0]
-            let services = Core.Services.filter({"@"+$0.username == namex})
-            if(services.count > 0){
-                UIView.animateWithDuration(0.6, animations: {
-                    self.view.backgroundColor = services[0].color
-                })
-            }
-            else{
-                UIView.animateWithDuration(0.6, animations: {
-                    self.view.backgroundColor = UIColor.blackColor()
-                })
-            }
-        }
+        let color = extractServiceColorFrom(txtMessage.text!)
+        UIView.animateWithDuration(0.6, animations: {
+            self.view.backgroundColor = color ?? UIColor.blackColor()
+        })
     }
     
     @IBAction func createTapped(sender: AnyObject) {

@@ -91,3 +91,26 @@ class CardListPayload : Payload {
         }
     }
 }
+
+class ProgressPayload : Payload {
+    var min = 0
+    var max = 0
+    var value = 0
+    
+    init(data : String ) {
+        let dt = data.dataUsingEncoding(NSUTF8StringEncoding , allowLossyConversion: true)
+        let json = JSON(data:dt!)
+        print(data)
+        if let min = json["min"].int {
+            self.min = min
+        }
+        
+        if let max = json["max"].int {
+            self.max = max
+        }
+        
+        if let value = json["value"].int {
+            self.value = value
+        }
+    }
+}

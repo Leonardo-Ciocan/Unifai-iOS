@@ -45,15 +45,18 @@ class CatalogViewController : UIViewController , UICollectionViewDelegate , UICo
         
         (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).minimumInteritemSpacing = 0
         (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).itemSize = UIScreen.mainScreen().bounds.size
+        
+        
+        self.tabBarController?.tabBar.tintColor  = serivices[0].color
+        self.navigationController?.navigationBar.barTintColor = serivices[0].color
+        self.collectionView.backgroundColor = serivices[0].color
     }
 
     
     override func viewDidAppear(animated: Bool) {
-        self.tabBarController?.tabBar.tintColor  = serivices[0].color
-        self.navigationController?.navigationBar.barTintColor = serivices[0].color
+
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
-        self.collectionView.backgroundColor = serivices[0].color
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -67,6 +70,7 @@ class CatalogViewController : UIViewController , UICollectionViewDelegate , UICo
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CatalogCell", forIndexPath: indexPath) as! CatalogCell
         cell.loadData(self.serivices[indexPath.row])
+        cell.parentViewController = self
         return cell
     }
             

@@ -21,6 +21,9 @@ class CatalogCell: UICollectionViewCell , UITableViewDelegate , UITableViewDataS
 
     @IBOutlet weak var imgIcon: UIImageView!
     @IBOutlet weak var txtTitle: UILabel!
+    
+    var parentViewController : UIViewController?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -35,11 +38,7 @@ class CatalogCell: UICollectionViewCell , UITableViewDelegate , UITableViewDataS
         tableView.layer.masksToBounds = true
     }
     
-    var items : [String] = [
-        "Add £200 to vacations",
-        "All expenses",
-        "How much did I spend on tech this week?",
-        "One,two,three,four,five,six,seven,eigh,nine,ten,eleven,cake"
+    var items : [CatalogItem] = [
     ]
     
     
@@ -53,7 +52,7 @@ class CatalogCell: UICollectionViewCell , UITableViewDelegate , UITableViewDataS
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CatalogItemCell", forIndexPath: indexPath) as! CatalogItemCell
-        cell.txtText.text = items[indexPath.row]
+        cell.txtText.text = items[indexPath.row].name
 //        if indexPath.row == 0 {
 //            cell.whiteView.roundCorners([.TopLeft,.TopRight], radius: 5)
 //        }
@@ -68,6 +67,9 @@ class CatalogCell: UICollectionViewCell , UITableViewDelegate , UITableViewDataS
         cell.imgAction.image = cell.imgAction.image?.imageWithRenderingMode(.AlwaysTemplate)
         cell.imgAction.tintColor = UIColor.whiteColor()
         cell.backgroundColor = UIColor.clearColor()
+        cell.parentViewController = self.parentViewController
+        
+        cell.item = items[indexPath.row]
         return cell
     }
     

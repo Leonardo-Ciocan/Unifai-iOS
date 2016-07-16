@@ -413,41 +413,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lYQ-X9-Zfp">
-                                <rect key="frame" x="0.0" y="64" width="414" height="628"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lYQ-X9-Zfp">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xYq-vq-EWW">
-                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
-                                <items>
-                                    <barButtonItem title="Add new item" id="WQU-44-eHM">
-                                        <connections>
-                                            <action selector="newItem:" destination="Re7-Md-hbd" id="Gxx-Wu-LRC"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FyY-4Z-6bw" firstAttribute="top" secondItem="xYq-vq-EWW" secondAttribute="bottom" id="2MG-OH-PQm"/>
-                            <constraint firstItem="xYq-vq-EWW" firstAttribute="leading" secondItem="fBr-eD-Bqp" secondAttribute="leadingMargin" constant="-20" id="IPC-nA-hCj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lYQ-X9-Zfp" secondAttribute="trailing" constant="-20" id="LJb-rI-UbI"/>
-                            <constraint firstItem="FyY-4Z-6bw" firstAttribute="top" secondItem="lYQ-X9-Zfp" secondAttribute="bottom" constant="44" id="Phd-s4-GMC"/>
+                            <constraint firstItem="FyY-4Z-6bw" firstAttribute="top" secondItem="lYQ-X9-Zfp" secondAttribute="bottom" id="Phd-s4-GMC"/>
                             <constraint firstItem="lYQ-X9-Zfp" firstAttribute="leading" secondItem="fBr-eD-Bqp" secondAttribute="leadingMargin" constant="-20" id="QWE-B8-EVO"/>
                             <constraint firstItem="lYQ-X9-Zfp" firstAttribute="top" secondItem="v0t-QA-C0S" secondAttribute="bottom" id="dIY-Ze-Cqa"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xYq-vq-EWW" secondAttribute="trailing" constant="-20" id="yke-Qs-Hj3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit dashboard" id="KNO-cl-s2k">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1iD-Cn-rSW">
-                            <connections>
-                                <action selector="cancel:" destination="Re7-Md-hbd" id="HUo-LP-vN1"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="qfk-Ku-WM4">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="qfk-Ku-WM4">
                             <connections>
                                 <action selector="done:" destination="Re7-Md-hbd" id="rm3-p1-ofc"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xMM-Ta-3sC">
+                            <connections>
+                                <action selector="newItem:" destination="Re7-Md-hbd" id="Bpi-uC-Ak1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

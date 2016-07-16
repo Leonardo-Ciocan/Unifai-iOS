@@ -31,6 +31,10 @@ class ProgressView: UIView {
         valueBackground.layer.cornerRadius = 5
         valueBackground.layer.masksToBounds = true
         self.addSubview(view);
+        view.backgroundColor = currentTheme.backgroundColor
+        txtMax.textColor = currentTheme.foregroundColor
+        txtMin.textColor = currentTheme.foregroundColor
+        barView.backgroundColor = currentTheme.backgroundColor
     }
     
     func setProgressValues(min : Int , max : Int , value : Int){

@@ -24,6 +24,10 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
+        self.view.backgroundColor = currentTheme.backgroundColor
+        self.tableView.backgroundColor = currentTheme.backgroundColor
+        self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
+
         super.viewDidLoad()
         self.tableView!.registerNib(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
         

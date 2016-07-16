@@ -14,6 +14,10 @@ class ProfileViewController: UIViewController , UITableViewDelegate , UITableVie
     }()
     
     override func viewDidLoad() {
+        self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
+        self.view.backgroundColor = currentTheme.backgroundColor
+        self.tableView.backgroundColor = currentTheme.backgroundColor
+
         self.tableView!.registerNib(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
         
         self.tableView!.rowHeight = UITableViewAutomaticDimension
@@ -45,6 +49,11 @@ class ProfileViewController: UIViewController , UITableViewDelegate , UITableVie
         }
         
         loadData()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
+        self.tabBarController?.tabBar.barStyle = currentTheme.barStyle
     }
     
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {

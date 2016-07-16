@@ -48,7 +48,7 @@ enum Position {
         self.layer.backgroundColor = UIColor.whiteColor().CGColor
         self.backgroundColor = UIColor.whiteColor()
 
-        border.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.05).CGColor
+        border.backgroundColor = currentTheme.shadeColor.CGColor
         border.frame = CGRect(x: 15, y: isTop ? self.frame.height - 1 : 0, width: self.frame.width-30, height: 1)
         self.layer.addSublayer(border)
         super.drawRect(rect)
@@ -75,13 +75,17 @@ enum Position {
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(view);
         
+        view.backgroundColor = currentTheme.backgroundColor
+        self.backgroundColor = currentTheme.backgroundColor
+        
        txtMessage.addTarget(
             self,
             action: #selector(textChanged),
             forControlEvents: UIControlEvents.EditingChanged
         )
         txtMessage.delegate = self
-        txtMessage.placeholder = self.suggestions[0]
+        txtMessage.attributedPlaceholder = NSAttributedString(string:suggestions[0],
+                                                             attributes:[NSForegroundColorAttributeName: currentTheme.secondaryForegroundColor])
         NSTimer.scheduledTimerWithTimeInterval(8, target: self, selector: #selector(nextSuggestion), userInfo: nil, repeats: true)
         imagePicker.delegate = self
         imageView.layer.cornerRadius = 5
@@ -94,10 +98,14 @@ enum Position {
         self.shadowView.layer.shadowOffset = CGSizeMake(0.0, 0.0)
         self.shadowView.layer.shadowRadius = 5.0
         self.shadowView.layer.shadowOpacity = 0.1
-        btnAction.tintColor = UIColor.blackColor()
-        btnImage.tintColor = UIColor.blackColor()
+        btnAction.tintColor = currentTheme.foregroundColor
+        btnImage.tintColor = currentTheme.foregroundColor
         btnAction.setImage(btnAction.currentImage!.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
         btnImage.setImage(btnImage.currentImage!.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+        
+        txtMessage.layer.borderColor = currentTheme.foregroundColor.CGColor
+        txtMessage.textColor = currentTheme.foregroundColor
+        txtMessage.backgroundColor = currentTheme.shadeColor
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -109,7 +117,8 @@ enum Position {
     var suggestionIndex = 0
     func nextSuggestion(){
         suggestionIndex = (suggestionIndex + 1) % suggestions.count
-        txtMessage.placeholder = suggestions[suggestionIndex]
+        txtMessage.attributedPlaceholder = NSAttributedString(string:suggestions[suggestionIndex],
+                                                               attributes:[NSForegroundColorAttributeName: currentTheme.secondaryForegroundColor])
     }
     
     @IBAction func runAction(sender: AnyObject) {
@@ -143,8 +152,8 @@ enum Position {
         txtMessage.text = ""
         txtMessage.resignFirstResponder()
         btnSend.tintColor = Constants.appBrandColor
-        btnImage.tintColor = UIColor.blackColor()
-        btnAction.tintColor = UIColor.blackColor()
+        btnImage.tintColor = currentTheme.foregroundColor
+        btnAction.tintColor = currentTheme.foregroundColor
         setLoading(true)
     }
     
@@ -165,8 +174,8 @@ enum Position {
             }
             else{
                 btnSend.tintColor = Constants.appBrandColor
-                btnAction.tintColor = UIColor.blackColor()
-                btnImage.tintColor = UIColor.blackColor()
+                btnAction.tintColor = currentTheme.foregroundColor
+                btnImage.tintColor = currentTheme.foregroundColor
             }
         }
     }

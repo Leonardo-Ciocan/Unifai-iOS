@@ -60,7 +60,12 @@ class MessageCell: UITableViewCell {
         threadCountView.layer.masksToBounds = true
         threadCountView.layer.cornerRadius = 10
         threadCountView.layer.borderWidth = 2
-        threadCountView.layer.borderColor = UIColor.whiteColor().CGColor
+        threadCountView.layer.borderColor = currentTheme.backgroundColor.CGColor
+        self.backgroundColor = currentTheme.backgroundColor
+        txtBody.textColor = currentTheme.foregroundColor
+        txtName.textColor = currentTheme.foregroundColor
+        
+        
         
     }
     
@@ -74,7 +79,6 @@ class MessageCell: UITableViewCell {
         if message.service?.id! == "1989"{
             self.hideTime = true
         }
-        txtName.textColor = message.service?.color.darkerColor()
         imgLogo.backgroundColor = message.service?.color
         
         if shouldShowThreadCount {
@@ -93,7 +97,8 @@ class MessageCell: UITableViewCell {
         self.txtTime.text = message.timestamp.shortTimeAgoSinceNow()
         imgLogo.setImage(message.logo, forState: .Normal)
         var serviceColor : UIColor = message.isFromUser ? Constants.appBrandColor : (message.service?.color)!
-        
+        txtName.textColor = serviceColor
+  
         if(message.isFromUser){
             //self.txtUsername.text = "@" + Core.Username
             self.txtName.text = Core.Username
@@ -128,6 +133,8 @@ class MessageCell: UITableViewCell {
             self.payloadContainerHeight.constant = 0
             return
         }
+        
+        self.payloadContainer.backgroundColor = currentTheme.backgroundColor
         
         if(message.type == .Text){
             self.payloadContainerHeight.constant = 0
@@ -169,8 +176,7 @@ class MessageCell: UITableViewCell {
             self.payloadContainerHeight.constant = 180
             
             let view = BarChartView()
-           
-            var yvals : [BarChartDataEntry] = []
+            view.userInteractionEnabled = false
             let payload = message.payload as! BarChartPayload
             var yVals : [BarChartDataEntry]  = []
             for (index, item) in payload.values.enumerate(){
@@ -203,6 +209,9 @@ class MessageCell: UITableViewCell {
             view.backgroundColor = UIColor.clearColor()
             view.leftAxis.valueFormatter = NSNumberFormatter()
             view.leftAxis.valueFormatter?.minimumFractionDigits = 0
+            view.leftAxis.labelTextColor = currentTheme.foregroundColor
+            view.xAxis.labelTextColor = currentTheme.foregroundColor
+            view.leftAxis.labelTextColor = currentTheme.foregroundColor
             
             self.payloadContainer.addSubview(view)
             
@@ -273,7 +282,6 @@ class MessageCell: UITableViewCell {
         }
         else if(message.type == .Progress) {
             let progressView = ProgressView()
-            
             self.payloadContainerHeight.constant = 90
             self.payloadContainer.addSubview(progressView)
             

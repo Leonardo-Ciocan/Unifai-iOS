@@ -14,6 +14,7 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
 
         self.selectedIndex = NSUserDefaults.standardUserDefaults().integerForKey("startingPage")
+        self.tabBar.barStyle = currentTheme.barStyle
     }
 
     override func didReceiveMemoryWarning() {

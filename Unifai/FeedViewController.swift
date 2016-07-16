@@ -26,6 +26,13 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     
     @IBOutlet weak var assistantBottomConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
+        //Theme setup
+        self.view.backgroundColor = currentTheme.backgroundColor
+        self.tableView.backgroundColor = currentTheme.backgroundColor
+        self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
+
+        
+
         doneButton.action = #selector(doneClicked)
         doneButton.title = "Done"
         doneButton.style = .Done
@@ -88,7 +95,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         let txtTile = UILabel(frame:CGRect(x:0,y:0,width:150,height:33))
         txtTile.text = "UNIFAI"
         txtTile.textAlignment = .Center
-        txtTile.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.85)
+        txtTile.textColor = currentTheme.foregroundColor
         txtTile.font = UIFont(name: "AmericanTypewriter", size: 18)
 
         navigationItem.titleView = txtTile
@@ -99,6 +106,17 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         }
         
         registerForKeyboardNotifications()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        //Theme setup
+        self.view.backgroundColor = currentTheme.backgroundColor
+        self.tableView.backgroundColor = currentTheme.backgroundColor
+        self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
     }
     
     func getServicesAndUser(callback: ([Service]) -> () ){
@@ -168,12 +186,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.navigationController?.navigationBar.barStyle = .Default
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor(red:0,green: 0,blue: 0,alpha: 0.9)]
-    
-        self.navigationController?.navigationBar.translucent = true
-        self.navigationController?.navigationBar.tintColor = Constants.appBrandColor
-        self.navigationController?.navigationBar.barTintColor = nil
+        UIApplication.sharedApplication().statusBarStyle = currentTheme.statusBarStyle
     }
     
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
@@ -197,6 +210,8 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         showViewController(viewControllerToCommit, sender: self)
         
     }
+    
+    
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true

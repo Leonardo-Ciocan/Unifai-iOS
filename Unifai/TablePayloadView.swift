@@ -23,7 +23,7 @@ class TablePayloadView: UIView {
     var payload : TablePayload?
     
     func loadData(payload : TablePayload){
-        self.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.02)
+        self.backgroundColor = currentTheme.shadeColor
         self.payload = payload
         
 //        self.snp_makeConstraints(closure: {
@@ -50,10 +50,11 @@ class TablePayloadView: UIView {
         for col in 0..<cols.count{
             print(col)
             let colLabel = UILabel()
+            colLabel.textColor = currentTheme.foregroundColor
             colLabel.textAlignment = .Center
             colLabel.font = colLabel.font.fontWithSize(13)
             colLabel.text = payload!.columns[col]
-            colLabel.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.02)
+            colLabel.backgroundColor = currentTheme.shadeColor
             self.addSubview(colLabel)
                         colLabel.snp_makeConstraints(closure: { (make)->Void in
                             make.leading.equalTo(colWidth * col)
@@ -65,6 +66,7 @@ class TablePayloadView: UIView {
             
             for row in 0..<rows.count{
                 let label = UILabel()
+                label.textColor = currentTheme.foregroundColor
                 label.textAlignment = .Center
                 label.font = label.font.fontWithSize(12)
                 label.text = payload!.rows[row][col]

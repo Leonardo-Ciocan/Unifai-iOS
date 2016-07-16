@@ -55,7 +55,7 @@ class ActionRunnerPage: UIView , UITableViewDelegate , UITableViewDataSource {
         
         tableView.dataSource = self
         tableView.delegate = self
-        
+        view.backgroundColor = currentTheme.backgroundColor
         self.addSubview(view);
     }
     

@@ -29,9 +29,12 @@
             <objects>
                 <navigationController storyboardIdentifier="UINavigationController-dWu-Sv-sM9" id="08g-V4-0Ah" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="2es-pj-X81"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" shadowImage="whitepixel" backIndicatorImage="whitepixel" id="6jC-zB-0Re">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6jC-zB-0Re">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.0008559375689" green="0.68458518400000001" blue="0.016235069370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="ua2-zG-dfi" kind="relationship" relationship="rootViewController" id="c6q-0G-0Qk"/>
@@ -266,9 +269,8 @@
     </scenes>
     <resources>
         <image name="feed" width="30" height="30"/>
-        <image name="whitepixel" width="1" height="1"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EDk-Fs-wBx"/>
+        <segue reference="OuX-8E-Hqg"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -14,6 +14,7 @@ class CatalogItemCell: UITableViewCell , ActionCreatorDelegate {
     @IBOutlet weak var whiteView: UIView!
     @IBOutlet weak var txtText: UILabel!
     
+    @IBOutlet weak var txtDescription: UILabel!
     var parentViewController : UIViewController?
     var item : CatalogItem?
     

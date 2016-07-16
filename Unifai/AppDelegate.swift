@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Settings.setup()
         
+        
         return true
     }
     

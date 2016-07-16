@@ -38,8 +38,7 @@ class CatalogCell: UICollectionViewCell , UITableViewDelegate , UITableViewDataS
         tableView.layer.masksToBounds = true
     }
     
-    var items : [CatalogItem] = [
-    ]
+    var items : [CatalogItem] = []
     
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -53,17 +52,9 @@ class CatalogCell: UICollectionViewCell , UITableViewDelegate , UITableViewDataS
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CatalogItemCell", forIndexPath: indexPath) as! CatalogItemCell
         cell.txtText.text = items[indexPath.row].name
-//        if indexPath.row == 0 {
-//            cell.whiteView.roundCorners([.TopLeft,.TopRight], radius: 5)
-//        }
-//        else if indexPath.row == items.count - 1 {
-//            cell.whiteView.roundCorners([.BottomLeft,.BottomRight], radius: 5)
-//        }
-//        else{
-//            cell.whiteView.layer.mask = nil
-//        }
+        cell.txtDescription.text = items[indexPath.row].description
         cell.backgroundView?.backgroundColor = UIColor.clearColor()
-        cell.contentView.backgroundColor = serviceColor!.lightenColor(0.1)
+        cell.contentView.backgroundColor = serviceColor!.lightenColor(0.05)
         cell.imgAction.image = cell.imgAction.image?.imageWithRenderingMode(.AlwaysTemplate)
         cell.imgAction.tintColor = UIColor.whiteColor()
         cell.backgroundColor = UIColor.clearColor()

@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/ThreadViewController.swift"
-            timestampString = "490243830.851916"
+            timestampString = "490330769.540415"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "keyboardShowOrHide(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -152,11 +152,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/ThreadViewController.swift"
-            timestampString = "490243830.851916"
+            timestampString = "490330769.540415"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "deinit"
             landmarkType = "5">
          </BreakpointContent>
@@ -168,11 +168,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/ThreadViewController.swift"
-            timestampString = "490243830.851916"
+            timestampString = "490330769.540415"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "loadData(_:)"
             landmarkType = "5">
             <Locations>
@@ -392,11 +392,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/MessageCell.swift"
-            timestampString = "489980032.543383"
+            timestampString = "490330239.21803"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "setMessage(_:shouldShowThreadCount:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -408,39 +408,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/MessageCell.swift"
-            timestampString = "489980032.543383"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "setMessage(_:shouldShowThreadCount:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Unifai/MessageCell.swift"
-            timestampString = "489980032.543383"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "setMessage(_:shouldShowThreadCount:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Unifai/MessageCell.swift"
-            timestampString = "489980032.543383"
+            timestampString = "490330239.21803"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "97"
@@ -455,13 +423,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Unifai/FeedViewController.swift"
-            timestampString = "490220058.364934"
+            filePath = "Unifai/MessageCell.swift"
+            timestampString = "490330239.21803"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "243"
-            endingLineNumber = "243"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "setMessage(_:shouldShowThreadCount:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -472,11 +440,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/MessageCell.swift"
-            timestampString = "489980032.543383"
+            timestampString = "490330239.21803"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "setMessage(_:shouldShowThreadCount:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -488,11 +456,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/FeedViewController.swift"
-            timestampString = "490220058.364934"
+            timestampString = "490329733.843452"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -504,11 +472,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/MessageCell.swift"
-            timestampString = "489980032.543383"
+            timestampString = "490330239.21803"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "setMessage(_:shouldShowThreadCount:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Unifai/FeedViewController.swift"
+            timestampString = "490329733.843452"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
+            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Unifai/MessageCell.swift"
+            timestampString = "490330239.21803"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "setMessage(_:shouldShowThreadCount:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -838,11 +838,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/ThreadViewController.swift"
-            timestampString = "490243830.851916"
+            timestampString = "490330769.540415"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -870,11 +870,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/DashboardEditorViewController.swift"
-            timestampString = "486255247.096762"
+            timestampString = "490331777.121678"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "newItem(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -886,11 +886,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/DashboardEditorViewController.swift"
-            timestampString = "486255247.096762"
+            timestampString = "490331777.121678"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "newItem(_:)"
             landmarkType = "5">
             <Locations>
@@ -950,11 +950,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/MessageCell.swift"
-            timestampString = "489980032.543383"
+            timestampString = "490330486.513228"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
             landmarkName = "setMessage(_:shouldShowThreadCount:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -966,11 +966,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/MessageCell.swift"
-            timestampString = "489980032.543383"
+            timestampString = "490330486.513228"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
             landmarkName = "setMessage(_:shouldShowThreadCount:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -982,11 +982,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/DashboardViewController.swift"
-            timestampString = "490243950.469099"
+            timestampString = "490329990.666414"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -998,11 +998,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/MessageCell.swift"
-            timestampString = "490319032.958199"
+            timestampString = "490330486.513228"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
+            startingLineNumber = "310"
+            endingLineNumber = "310"
             landmarkName = "onTap(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1030,11 +1030,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/SettingsTableViewController.swift"
-            timestampString = "490243389.836906"
+            timestampString = "490332390.779576"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
             landmarkType = "5">
             <Locations>
@@ -1078,11 +1078,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/SettingsTableViewController.swift"
-            timestampString = "490243389.836906"
+            timestampString = "490332390.779576"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1110,11 +1110,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/FeedViewController.swift"
-            timestampString = "490060108.274534"
+            timestampString = "490329733.843452"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "getServicesAndUser(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1142,11 +1142,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/FeedViewController.swift"
-            timestampString = "490220058.364934"
+            timestampString = "490329733.843452"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
             landmarkName = "loadData()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1158,11 +1158,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/FeedViewController.swift"
-            timestampString = "490060108.274534"
+            timestampString = "490329733.843452"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1174,11 +1174,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/ActionsViewController.swift"
-            timestampString = "490243912.492731"
+            timestampString = "490329990.666414"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "collectionView(_:numberOfItemsInSection:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1190,23 +1190,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/ActionsViewController.swift"
-            timestampString = "490243912.492731"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "collectionView(_:layout:sizeForItemAtIndexPath:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Unifai/ActionsViewController.swift"
-            timestampString = "490243912.492731"
+            timestampString = "490329990.666414"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "89"
@@ -1222,11 +1206,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/ActionsViewController.swift"
-            timestampString = "490243912.492731"
+            timestampString = "490329990.666414"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "collectionView(_:layout:sizeForItemAtIndexPath:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Unifai/ActionsViewController.swift"
+            timestampString = "490329990.666414"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
             landmarkName = "collectionView(_:canPerformAction:forItemAtIndexPath:withSender:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1286,11 +1286,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/CatalogCell.swift"
-            timestampString = "490299357.384039"
+            timestampString = "490331397.362104"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "loadData(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1350,11 +1350,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/FeedViewController.swift"
-            timestampString = "490220058.364934"
+            timestampString = "490329733.843452"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
+            startingLineNumber = "287"
+            endingLineNumber = "287"
             landmarkName = "imageTapped(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1494,11 +1494,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/MessageCreator.swift"
-            timestampString = "490220058.364934"
+            timestampString = "490328980.193343"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "loadViewFromNib()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1510,11 +1510,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/ActionsViewController.swift"
-            timestampString = "490243912.492731"
+            timestampString = "490329990.666414"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "collectionView(_:didSelectItemAtIndexPath:)"
             landmarkType = "5">
             <Locations>
@@ -1558,11 +1558,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/ActionsViewController.swift"
-            timestampString = "490243912.492731"
+            timestampString = "490329990.666414"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "collectionView(_:didSelectItemAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1574,11 +1574,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/ActionsViewController.swift"
-            timestampString = "490243912.492731"
+            timestampString = "490329990.666414"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
             landmarkName = "collectionView(_:canPerformAction:forItemAtIndexPath:withSender:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1622,11 +1622,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/ActionsViewController.swift"
-            timestampString = "490243912.492731"
+            timestampString = "490329990.666414"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "collectionView(_:didSelectItemAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1654,11 +1654,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/ActionsViewController.swift"
-            timestampString = "490243912.492731"
+            timestampString = "490329990.666414"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "collectionView(_:didSelectItemAtIndexPath:)"
             landmarkType = "5">
             <Locations>
@@ -1734,11 +1734,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/CatalogItemCell.swift"
-            timestampString = "490299573.526274"
+            timestampString = "490331397.362104"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "awakeFromNib()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1750,23 +1750,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/CatalogItemCell.swift"
-            timestampString = "490299573.526274"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "imgActionTapped()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Unifai/CatalogItemCell.swift"
-            timestampString = "490299587.942446"
+            timestampString = "490331397.362104"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
@@ -1781,12 +1765,28 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Unifai/ProgressView.swift"
-            timestampString = "490319032.958199"
+            filePath = "Unifai/CatalogItemCell.swift"
+            timestampString = "490331397.362104"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "imgActionTapped()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Unifai/ProgressView.swift"
+            timestampString = "490329162.156945"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "setProgressValues(_:max:value:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1798,11 +1798,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/ProgressView.swift"
-            timestampString = "490319032.958199"
+            timestampString = "490329162.156945"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "setProgressValues(_:max:value:)"
             landmarkType = "5">
             <Locations>
@@ -1846,11 +1846,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/ProgressView.swift"
-            timestampString = "490319032.958199"
+            timestampString = "490329162.156945"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "setProgressValues(_:max:value:)"
             landmarkType = "5">
          </BreakpointContent>

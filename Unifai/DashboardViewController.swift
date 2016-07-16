@@ -14,6 +14,10 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
     }()
     
     override func viewDidLoad() {
+        self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
+        self.view.backgroundColor = currentTheme.backgroundColor
+        self.tableView.backgroundColor = currentTheme.backgroundColor
+        
         self.tableView!.registerNib(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
         
         self.tableView!.rowHeight = UITableViewAutomaticDimension

@@ -12,6 +12,7 @@ import SwiftyJSON
 class CatalogItem {
     var name = ""
     var message = ""
+    var description = ""
     
     init(json:JSON){
         if let name = json["name"].string {
@@ -20,6 +21,10 @@ class CatalogItem {
         
         if let message = json["message"].string {
             self.message = message
+        }
+        
+        if let description = json["description"].string {
+            self.description = description
         }
     }
 }

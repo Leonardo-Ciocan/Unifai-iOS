@@ -10,6 +10,7 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController , SettingsListDelegate {
 
+    @IBOutlet weak var switchDarkTheme: UISwitch!
     @IBOutlet weak var switchTextOnFeed: UISwitch!
     @IBOutlet weak var txtTextSizePreview: UILabel!
     
@@ -22,19 +23,21 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationController?.navigationBar.barStyle = .Default
+        self.tabBarController?.tabBar.barStyle = .Default
         
         txtTextSizePreview.text = textSizeItems[ Settings.textSize ]
         txtCardSizePreview.text = textSizeItems[ Settings.cardSize ]
         switchTextOnFeed.on = Settings.onlyTextOnFeed
+        switchDarkTheme.on = Settings.darkTheme
         
         txtCacheSize.text = String(NSFileManager.defaultManager().folderSizeAtPath(Cache.cacheFolder.path!)/Int64(1024)) + "KB"
     }
 
+    @IBAction func changeTheme(sender: AnyObject) {
+        NSUserDefaults.standardUserDefaults().setBool(switchDarkTheme.on, forKey: "darkTheme")
+        Settings.darkTheme = switchDarkTheme.on
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

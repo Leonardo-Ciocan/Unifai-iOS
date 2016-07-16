@@ -17,11 +17,18 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.backgroundColor = currentTheme.backgroundColor
+        self.tableView.backgroundColor = currentTheme.backgroundColor
+        self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
+        
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.allowsSelection = false
         self.tableView.editing = true
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.tableFooterView = UIView()
         loadData()
     }
     
@@ -50,7 +57,8 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
         let cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
         
         cell.textLabel?.text = self.items[indexPath.row]
-        
+        cell.textLabel?.textColor = currentTheme.foregroundColor
+        cell.backgroundColor = currentTheme.backgroundColor
         return cell
     }
     

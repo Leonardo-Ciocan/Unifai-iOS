@@ -12,7 +12,10 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
     override func viewDidLoad() {
         
         guard NSUserDefaults.standardUserDefaults().stringForKey("token") != nil else{return}
-        
+        self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
+        self.view.backgroundColor = currentTheme.backgroundColor
+        self.collectionView.backgroundColor = currentTheme.backgroundColor
+
         self.collectionView.registerNib(UINib(nibName: "ActionCell", bundle: nil), forCellWithReuseIdentifier: "ActionCell")
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -140,7 +143,7 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         effectView.tableView.transform = CGAffineTransformMakeTranslation(0, 35)
         
         effectView.btnKeepHandler = {
-            self.navigationController?.navigationBar.barStyle = .Default
+            self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
             let targetFrame = effectView.convertRect(effectView.btnKeep.frame, toView: nil)
             UIView.animateWithDuration(0.35, delay: 0, options: .CurveEaseIn, animations: {
                     effectMaskViewChild.frame = targetFrame
@@ -153,7 +156,7 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         
         effectView.btnDiscardHandler = {
             Unifai.deleteThread(effectView.message!.threadID!, completion: nil)
-            self.navigationController?.navigationBar.barStyle = .Default
+            self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
             let targetFrame = effectView.convertRect(effectView.btnDiscard.frame, toView: nil)
             UIView.animateWithDuration(0.35, delay: 0, options: .CurveEaseIn, animations: {
                 effectMaskViewChild.frame = targetFrame

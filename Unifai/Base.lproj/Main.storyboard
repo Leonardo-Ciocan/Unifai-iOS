@@ -433,11 +433,6 @@
                                 <action selector="done:" destination="Re7-Md-hbd" id="rm3-p1-ofc"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xMM-Ta-3sC">
-                            <connections>
-                                <action selector="newItem:" destination="Re7-Md-hbd" id="Bpi-uC-Ak1"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="16A239j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardEditorHeader" customModule="Unifai" customModuleProvider="target">
+            <connections>
+                <outlet property="btnCreate" destination="Nze-41-hzy" id="AdI-Lj-X1M"/>
+                <outlet property="txtMessage" destination="crW-56-m1P" id="mvI-EN-Thu"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="612" height="128"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="crW-56-m1P" customClass="MessageCreatorTextView" customModule="Unifai" customModuleProvider="target">
+                    <rect key="frame" x="20" y="49" width="518" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nze-41-hzy">
+                    <rect key="frame" x="546" y="49" width="46" height="30"/>
+                    <state key="normal" title="Create"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="crW-56-m1P" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="3dz-TL-acO"/>
+                <constraint firstItem="Nze-41-hzy" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="52c-AG-XIN"/>
+                <constraint firstItem="crW-56-m1P" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Elt-cd-pTM"/>
+                <constraint firstAttribute="trailing" secondItem="crW-56-m1P" secondAttribute="trailing" constant="74" id="otu-fS-75V"/>
+                <constraint firstAttribute="trailing" secondItem="Nze-41-hzy" secondAttribute="trailing" constant="20" id="rf5-Jb-Bb4"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="146" y="-82"/>
+        </view>
+    </objects>
+</document>

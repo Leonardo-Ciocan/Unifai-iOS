@@ -28,7 +28,7 @@ class AuthViewController: UIViewController  , UIWebViewDelegate{
             NSURLQueryItem(name: "client_id", value: payload?.clientID),
             NSURLQueryItem(name: "response_type", value: "code"),
             NSURLQueryItem(name: "state", value: "unifai"),
-            NSURLQueryItem(name: "scope", value: "identity"),
+            NSURLQueryItem(name: "scope", value: payload?.scope),
             NSURLQueryItem(name: "duration", value: "permanent"),
         ]
         var url = urlComponents?.URL

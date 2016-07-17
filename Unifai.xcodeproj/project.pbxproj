@@ -33,6 +33,8 @@
 		B335AC291CD177C400B85781 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC281CD177C400B85781 /* ProfileViewController.swift */; };
 		B335AC2B1CD3336F00B85781 /* TablePayloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC2A1CD3336F00B85781 /* TablePayloadView.swift */; };
 		B3449FF01D3ADFAB00811E6C /* ActionsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3449FEF1D3ADFAB00811E6C /* ActionsHeader.xib */; };
+		B3449FF21D3B165D00811E6C /* DashboardEditorHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3449FF11D3B165D00811E6C /* DashboardEditorHeader.swift */; };
+		B3449FF41D3B167200811E6C /* DashboardEditorHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3449FF31D3B167200811E6C /* DashboardEditorHeader.xib */; };
 		B350B9251D381B3A00FADBB6 /* ActionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350B9231D381B3A00FADBB6 /* ActionPickerViewController.swift */; };
 		B350B9261D381B3A00FADBB6 /* ActionPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350B9241D381B3A00FADBB6 /* ActionPickerViewController.xib */; };
 		B350B9291D3868BB00FADBB6 /* ActionCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350B9271D3868BB00FADBB6 /* ActionCreatorViewController.swift */; };
@@ -150,6 +152,8 @@
 		B335AC281CD177C400B85781 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B335AC2A1CD3336F00B85781 /* TablePayloadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TablePayloadView.swift; sourceTree = "<group>"; };
 		B3449FEF1D3ADFAB00811E6C /* ActionsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionsHeader.xib; sourceTree = "<group>"; };
+		B3449FF11D3B165D00811E6C /* DashboardEditorHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardEditorHeader.swift; sourceTree = "<group>"; };
+		B3449FF31D3B167200811E6C /* DashboardEditorHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardEditorHeader.xib; sourceTree = "<group>"; };
 		B350B9231D381B3A00FADBB6 /* ActionPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionPickerViewController.swift; sourceTree = "<group>"; };
 		B350B9241D381B3A00FADBB6 /* ActionPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionPickerViewController.xib; sourceTree = "<group>"; };
 		B350B9271D3868BB00FADBB6 /* ActionCreatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCreatorViewController.swift; sourceTree = "<group>"; };
@@ -356,6 +360,8 @@
 				B3131F4F1D39A1D400461C12 /* ProgressView.swift */,
 				B3131F511D39A1EE00461C12 /* ProgressView.xib */,
 				B3449FEF1D3ADFAB00811E6C /* ActionsHeader.xib */,
+				B3449FF11D3B165D00811E6C /* DashboardEditorHeader.swift */,
+				B3449FF31D3B167200811E6C /* DashboardEditorHeader.xib */,
 			);
 			path = Unifai;
 			sourceTree = "<group>";
@@ -528,6 +534,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3F7B0061CF93E8F00734F9B /* MessageCreator.xib in Resources */,
+				B3449FF41D3B167200811E6C /* DashboardEditorHeader.xib in Resources */,
 				B3D761FF1D35B7060088877A /* CreatorAssistant.xib in Resources */,
 				B31BD92F1CFF93EF001B3875 /* LoginButton.xib in Resources */,
 				B31BD92B1CFF33CC001B3875 /* FontAwesome.otf in Resources */,
@@ -661,6 +668,7 @@
 				B39006991CD6701C00F472AC /* ActionsViewController.swift in Sources */,
 				B3D721271D00DD8B00BFEEC2 /* CardView.swift in Sources */,
 				B39006971CD66ED600F472AC /* Action.swift in Sources */,
+				B3449FF21D3B165D00811E6C /* DashboardEditorHeader.swift in Sources */,
 				B39006951CD661C600F472AC /* SignupViewController.swift in Sources */,
 				B3F7B0041CF8AFFF00734F9B /* MainSplitView.swift in Sources */,
 				B3131F501D39A1D400461C12 /* ProgressView.swift in Sources */,

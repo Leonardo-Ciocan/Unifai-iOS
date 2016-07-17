@@ -91,6 +91,7 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
 //         make.leftMargin.topMargin.rightMargin.bottomMargin.equalTo(0)
 //        })
         
+        self.view.backgroundColor = currentTheme.backgroundColor
         
         self.tableView.tableHeaderView = header
         

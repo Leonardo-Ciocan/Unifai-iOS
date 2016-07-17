@@ -14,7 +14,7 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
     var tableView: UITableView!
     
     var items : [String] = []
-    
+    var header : DashboardEditorHeader?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,7 +29,16 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
         self.tableView.editing = true
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.tableView.tableFooterView = UIView()
+        header = DashboardEditorHeader(frame:CGRect(x: 0, y: 0, width: self.view.frame.width, height: 70))
+        header!.btnCreate.addTarget(self, action: #selector(create), forControlEvents: .TouchUpInside)
+        self.tableView.tableHeaderView = header
         loadData()
+    }
+    
+    func create() {
+        self.items.append((header?.txtMessage.text)!)
+        self.tableView.reloadData()
+        header?.txtMessage.text = ""
     }
     
     func loadData(){

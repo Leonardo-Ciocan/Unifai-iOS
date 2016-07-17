@@ -18,7 +18,7 @@ class MessageCreatorTextView: UITextField {
         self.layer.borderWidth = 1
     }
     
-    let padding = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 5);
+    let padding = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 5);
     
     override func textRectForBounds(bounds: CGRect) -> CGRect {
         return UIEdgeInsetsInsetRect(bounds, padding)

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -511,7 +512,7 @@
         <!--Actions-->
         <scene sceneID="Qvx-Je-YxJ">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="pPO-zc-BzD" customClass="ActionsViewController" customModule="Unifai" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pPO-zc-BzD" customClass="ActionsViewController" customModule="Unifai" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0hL-oD-YXf"/>
                         <viewControllerLayoutGuide type="bottom" id="ZxO-dh-vom"/>
@@ -521,22 +522,60 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3WF-XI-cTN">
-                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="zbH-Pi-a6D">
                                     <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="50" height="67"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="header" id="Ndz-Vt-acF" customClass="ActionsHeader" customModule="Unifai" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="64" width="414" height="67"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hS-p3-FuG">
+                                            <rect key="frame" x="386" y="25" width="10" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xf7-Rm-sey">
+                                            <rect key="frame" x="18" y="18" width="36" height="36"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="xf7-Rm-sey" secondAttribute="height" multiplier="1:1" id="ImG-mZ-4id"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zP-5G-p1C">
+                                            <rect key="frame" x="182" y="21" width="50" height="26"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="6zP-5G-p1C" firstAttribute="centerX" secondItem="Ndz-Vt-acF" secondAttribute="centerX" id="6m3-ja-3S6"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="xf7-Rm-sey" secondAttribute="bottom" constant="5" id="90U-eb-2M1"/>
+                                        <constraint firstItem="6hS-p3-FuG" firstAttribute="centerY" secondItem="6zP-5G-p1C" secondAttribute="centerY" id="9vH-fb-0Iy"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="6hS-p3-FuG" secondAttribute="trailing" constant="10" id="Mcg-yC-k5v"/>
+                                        <constraint firstItem="xf7-Rm-sey" firstAttribute="leading" secondItem="Ndz-Vt-acF" secondAttribute="leadingMargin" constant="10" id="Qb9-8B-oLI"/>
+                                        <constraint firstAttribute="topMargin" secondItem="xf7-Rm-sey" secondAttribute="top" constant="-10" id="RDl-Bg-IgG"/>
+                                        <constraint firstItem="6zP-5G-p1C" firstAttribute="centerY" secondItem="xf7-Rm-sey" secondAttribute="centerY" id="ZE6-yh-rTI"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="imgLogo" destination="xf7-Rm-sey" id="OuP-bX-P2W"/>
+                                        <outlet property="txtCount" destination="6hS-p3-FuG" id="nFJ-px-0yf"/>
+                                        <outlet property="txtName" destination="6zP-5G-p1C" id="87s-iN-81j"/>
+                                    </connections>
+                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3WF-XI-cTN" firstAttribute="top" secondItem="0hL-oD-YXf" secondAttribute="bottom" id="5Fi-1n-LUc"/>
+                            <constraint firstItem="3WF-XI-cTN" firstAttribute="top" secondItem="0hL-oD-YXf" secondAttribute="bottom" constant="-64" id="5Fi-1n-LUc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3WF-XI-cTN" secondAttribute="trailing" constant="-20" id="Jom-y0-joo"/>
-                            <constraint firstItem="ZxO-dh-vom" firstAttribute="top" secondItem="3WF-XI-cTN" secondAttribute="bottom" id="TRf-L0-lkj"/>
+                            <constraint firstItem="ZxO-dh-vom" firstAttribute="top" secondItem="3WF-XI-cTN" secondAttribute="bottom" constant="-49" id="TRf-L0-lkj"/>
                             <constraint firstItem="3WF-XI-cTN" firstAttribute="leading" secondItem="NNr-pu-ON2" secondAttribute="leadingMargin" constant="-20" id="yq3-Nf-fp3"/>
                         </constraints>
                     </view>

@@ -32,6 +32,7 @@
 		B335AC271CD1127C00B85781 /* ServiceProfileViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC261CD1127C00B85781 /* ServiceProfileViewcontroller.swift */; };
 		B335AC291CD177C400B85781 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC281CD177C400B85781 /* ProfileViewController.swift */; };
 		B335AC2B1CD3336F00B85781 /* TablePayloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC2A1CD3336F00B85781 /* TablePayloadView.swift */; };
+		B3449FF01D3ADFAB00811E6C /* ActionsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3449FEF1D3ADFAB00811E6C /* ActionsHeader.xib */; };
 		B350B9251D381B3A00FADBB6 /* ActionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350B9231D381B3A00FADBB6 /* ActionPickerViewController.swift */; };
 		B350B9261D381B3A00FADBB6 /* ActionPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350B9241D381B3A00FADBB6 /* ActionPickerViewController.xib */; };
 		B350B9291D3868BB00FADBB6 /* ActionCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350B9271D3868BB00FADBB6 /* ActionCreatorViewController.swift */; };
@@ -66,6 +67,7 @@
 		B39006991CD6701C00F472AC /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39006981CD6701C00F472AC /* ActionsViewController.swift */; };
 		B390069C1CD679D700F472AC /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B390069A1CD679D700F472AC /* ActionCell.swift */; };
 		B390069F1CD67C2200F472AC /* NewActionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B390069E1CD67C2200F472AC /* NewActionController.swift */; };
+		B3D6FB2F1D3ACFD70090502F /* ActionsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D6FB2E1D3ACFD70090502F /* ActionsHeader.swift */; };
 		B3D721251D00CF4700BFEEC2 /* TestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D721241D00CF4700BFEEC2 /* TestingViewController.swift */; };
 		B3D721271D00DD8B00BFEEC2 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D721261D00DD8B00BFEEC2 /* CardView.swift */; };
 		B3D721291D00DD9F00BFEEC2 /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3D721281D00DD9F00BFEEC2 /* CardView.xib */; };
@@ -147,6 +149,7 @@
 		B335AC261CD1127C00B85781 /* ServiceProfileViewcontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceProfileViewcontroller.swift; sourceTree = "<group>"; };
 		B335AC281CD177C400B85781 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B335AC2A1CD3336F00B85781 /* TablePayloadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TablePayloadView.swift; sourceTree = "<group>"; };
+		B3449FEF1D3ADFAB00811E6C /* ActionsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionsHeader.xib; sourceTree = "<group>"; };
 		B350B9231D381B3A00FADBB6 /* ActionPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionPickerViewController.swift; sourceTree = "<group>"; };
 		B350B9241D381B3A00FADBB6 /* ActionPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionPickerViewController.xib; sourceTree = "<group>"; };
 		B350B9271D3868BB00FADBB6 /* ActionCreatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCreatorViewController.swift; sourceTree = "<group>"; };
@@ -191,6 +194,7 @@
 		B39006A81CD6853400F472AC /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		B39006AB1CD6853400F472AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		B39006AD1CD6853400F472AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3D6FB2E1D3ACFD70090502F /* ActionsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionsHeader.swift; sourceTree = "<group>"; };
 		B3D721241D00CF4700BFEEC2 /* TestingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingViewController.swift; sourceTree = "<group>"; };
 		B3D721261D00DD8B00BFEEC2 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		B3D721281D00DD9F00BFEEC2 /* CardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
@@ -285,6 +289,7 @@
 		B363CF831CCEEBB300B6182D /* Unifai */ = {
 			isa = PBXGroup;
 			children = (
+				B3D6FB2E1D3ACFD70090502F /* ActionsHeader.swift */,
 				B32BDC9A1CFB9D2800C18AFE /* DashboardViewController.swift */,
 				B3F7B00F1CF9455700734F9B /* Resources */,
 				B3F7B0031CF8AFFF00734F9B /* MainSplitView.swift */,
@@ -350,6 +355,7 @@
 				B3EA79A01D387924000C40DE /* PaddedTextField.swift */,
 				B3131F4F1D39A1D400461C12 /* ProgressView.swift */,
 				B3131F511D39A1EE00461C12 /* ProgressView.xib */,
+				B3449FEF1D3ADFAB00811E6C /* ActionsHeader.xib */,
 			);
 			path = Unifai;
 			sourceTree = "<group>";
@@ -525,6 +531,7 @@
 				B3D761FF1D35B7060088877A /* CreatorAssistant.xib in Resources */,
 				B31BD92F1CFF93EF001B3875 /* LoginButton.xib in Resources */,
 				B31BD92B1CFF33CC001B3875 /* FontAwesome.otf in Resources */,
+				B3449FF01D3ADFAB00811E6C /* ActionsHeader.xib in Resources */,
 				B363CFC81CCEF9BB00B6182D /* MessageCell.xib in Resources */,
 				B30743841D2C592400A9CD0E /* CatalogItemCell.xib in Resources */,
 				B35598751D37F5F7002F4C59 /* ActionRunnerPage.xib in Resources */,
@@ -635,6 +642,7 @@
 				B307437C1D2C4E7300A9CD0E /* CatalogViewController.swift in Sources */,
 				B335AC271CD1127C00B85781 /* ServiceProfileViewcontroller.swift in Sources */,
 				B363CFBE1CCEF52600B6182D /* Service.swift in Sources */,
+				B3D6FB2F1D3ACFD70090502F /* ActionsHeader.swift in Sources */,
 				B3EA79A11D387924000C40DE /* PaddedTextField.swift in Sources */,
 				B32BDC9D1CFBA17900C18AFE /* DashboardEditorViewController.swift in Sources */,
 				B363CF851CCEEBB300B6182D /* AppDelegate.swift in Sources */,

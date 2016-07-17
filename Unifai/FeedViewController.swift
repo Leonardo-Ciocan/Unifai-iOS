@@ -113,6 +113,8 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         self.view.backgroundColor = currentTheme.backgroundColor
         self.tableView.backgroundColor = currentTheme.backgroundColor
         self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
+        self.navigationController?.navigationBar.barTintColor = nil
+        self.navigationController?.navigationBar.translucent = true
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {

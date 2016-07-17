@@ -29,6 +29,8 @@ class ActionCreatorViewController: UIViewController {
         txtMessage.layer.borderWidth = 0
         txtName.text = presetName
         txtMessage.text = presetMessage
+        
+        
     }
     
     override func viewDidAppear(animated: Bool) {

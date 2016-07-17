@@ -52,13 +52,14 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
         
         let header = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 220))
         let pinnedText = UILabel()
+        pinnedText.textColor = currentTheme.foregroundColor
         pinnedText.text = "Pinned message"
         header.addSubview(pinnedText)
         pinnedText.snp_makeConstraints(closure: { make in
                 make.bottomMargin.leftMargin.rightMargin.equalTo(0)
                 make.height.equalTo(30)
         })
-        pinnedText.backgroundColor = UIColor(red: 0.96,green: 0.96,blue: 0.96,alpha: 1)
+        pinnedText.backgroundColor = currentTheme.secondaryBackgroundColor
         pinnedText.textAlignment = .Center
         pinnedText.font = pinnedText.font.fontWithSize(14)
         
@@ -112,8 +113,6 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
         headerImage.layer.shadowOpacity = 0.35
         headerImage.layer.shadowRadius = 15
         self.headerBackground.backgroundColor = service?.color
-        //self.view.backgroundColor = service?.color
-        
         
         self.navigationController?.navigationBar.barTintColor = service!.color
 
@@ -191,7 +190,7 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
         cell.setMessage(indexPath.row == 0 ? pinnedMessage! : messages[indexPath.row - 1])
         cell.hideTime = indexPath.row == 0
         if indexPath.row == 0 {
-            cell.backgroundColor = UIColor(red: 0.96,green: 0.96,blue: 0.96,alpha: 1)
+            cell.backgroundColor = currentTheme.secondaryBackgroundColor
         }
         cell.parentViewController = self
         

@@ -2,7 +2,11 @@ import Foundation
 import UIKit
 import SwiftyJSON
 
-class Service{
+func ==(lhs: Service, rhs: Service) -> Bool {
+    return lhs.id == rhs.id
+}
+
+class Service : Hashable {
     var name : String
     var color : UIColor
     var id : String?
@@ -29,5 +33,11 @@ class Service{
                              green: CGFloat(color![1]!) / 255.0,
                              blue: CGFloat(color![2]!) / 255.0,
                              alpha: 255)
+    }
+    
+    var hashValue: Int {
+        get {
+            return (id?.hashValue)!
+        }
     }
 }

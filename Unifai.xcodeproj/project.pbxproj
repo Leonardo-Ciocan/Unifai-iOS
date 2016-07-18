@@ -26,9 +26,6 @@
 		B32BDC9B1CFB9D2800C18AFE /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BDC9A1CFB9D2800C18AFE /* DashboardViewController.swift */; };
 		B32BDC9D1CFBA17900C18AFE /* DashboardEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BDC9C1CFBA17900C18AFE /* DashboardEditorViewController.swift */; };
 		B335AC1E1CD0ACC100B85781 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC1D1CD0ACC100B85781 /* Utils.swift */; };
-		B335AC211CD0EF8B00B85781 /* ComposeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC201CD0EF8B00B85781 /* ComposeTextField.swift */; };
-		B335AC231CD0F3B400B85781 /* ComposeBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC221CD0F3B400B85781 /* ComposeBackground.swift */; };
-		B335AC251CD0F4A000B85781 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC241CD0F4A000B85781 /* ComposeViewController.swift */; };
 		B335AC271CD1127C00B85781 /* ServiceProfileViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC261CD1127C00B85781 /* ServiceProfileViewcontroller.swift */; };
 		B335AC291CD177C400B85781 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC281CD177C400B85781 /* ProfileViewController.swift */; };
 		B335AC2B1CD3336F00B85781 /* TablePayloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC2A1CD3336F00B85781 /* TablePayloadView.swift */; };
@@ -60,10 +57,6 @@
 		B363CFD01CCF4D9600B6182D /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363CFCF1CCF4D9600B6182D /* MainNavigationController.swift */; };
 		B363CFD21CCF502A00B6182D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363CFD11CCF502A00B6182D /* LoginViewController.swift */; };
 		B390068B1CD35D7F00F472AC /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B390068A1CD35D7F00F472AC /* Schedule.swift */; };
-		B390068D1CD35F4E00F472AC /* SchedulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B390068C1CD35F4E00F472AC /* SchedulesViewController.swift */; };
-		B39006901CD35FB800F472AC /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B390068E1CD35FB800F472AC /* ScheduleCell.swift */; };
-		B39006911CD35FB800F472AC /* ScheduleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B390068F1CD35FB800F472AC /* ScheduleCell.xib */; };
-		B39006931CD3714700F472AC /* NewScheduleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39006921CD3714700F472AC /* NewScheduleController.swift */; };
 		B39006951CD661C600F472AC /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39006941CD661C600F472AC /* SignupViewController.swift */; };
 		B39006971CD66ED600F472AC /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39006961CD66ED600F472AC /* Action.swift */; };
 		B39006991CD6701C00F472AC /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39006981CD6701C00F472AC /* ActionsViewController.swift */; };
@@ -145,9 +138,6 @@
 		B32BDC9A1CFB9D2800C18AFE /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		B32BDC9C1CFBA17900C18AFE /* DashboardEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardEditorViewController.swift; sourceTree = "<group>"; };
 		B335AC1D1CD0ACC100B85781 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		B335AC201CD0EF8B00B85781 /* ComposeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTextField.swift; sourceTree = "<group>"; };
-		B335AC221CD0F3B400B85781 /* ComposeBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeBackground.swift; sourceTree = "<group>"; };
-		B335AC241CD0F4A000B85781 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		B335AC261CD1127C00B85781 /* ServiceProfileViewcontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceProfileViewcontroller.swift; sourceTree = "<group>"; };
 		B335AC281CD177C400B85781 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B335AC2A1CD3336F00B85781 /* TablePayloadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TablePayloadView.swift; sourceTree = "<group>"; };
@@ -185,10 +175,6 @@
 		B363CFCF1CCF4D9600B6182D /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		B363CFD11CCF502A00B6182D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B390068A1CD35D7F00F472AC /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
-		B390068C1CD35F4E00F472AC /* SchedulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulesViewController.swift; sourceTree = "<group>"; };
-		B390068E1CD35FB800F472AC /* ScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
-		B390068F1CD35FB800F472AC /* ScheduleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleCell.xib; sourceTree = "<group>"; };
-		B39006921CD3714700F472AC /* NewScheduleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewScheduleController.swift; sourceTree = "<group>"; };
 		B39006941CD661C600F472AC /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		B39006961CD66ED600F472AC /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		B39006981CD6701C00F472AC /* ActionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionsViewController.swift; sourceTree = "<group>"; };
@@ -266,6 +252,86 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B32040AA1D3C7D7E0062686F /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				B3449FEF1D3ADFAB00811E6C /* ActionsHeader.xib */,
+				B3D6FB2E1D3ACFD70090502F /* ActionsHeader.swift */,
+				B39006981CD6701C00F472AC /* ActionsViewController.swift */,
+				B390069A1CD679D700F472AC /* ActionCell.swift */,
+				B3D7213D1D03A8B300BFEEC2 /* ActionCell.xib */,
+				B390069E1CD67C2200F472AC /* NewActionController.swift */,
+				B35598741D37F5F7002F4C59 /* ActionRunnerPage.xib */,
+				B35598761D37F626002F4C59 /* ActionRunnerPage.swift */,
+				B350B9231D381B3A00FADBB6 /* ActionPickerViewController.swift */,
+				B350B9241D381B3A00FADBB6 /* ActionPickerViewController.xib */,
+				B350B9271D3868BB00FADBB6 /* ActionCreatorViewController.swift */,
+				B350B9281D3868BB00FADBB6 /* ActionCreatorViewController.xib */,
+			);
+			name = Actions;
+			sourceTree = "<group>";
+		};
+		B32040AB1D3C7D8F0062686F /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				B3449FF11D3B165D00811E6C /* DashboardEditorHeader.swift */,
+				B3449FF31D3B167200811E6C /* DashboardEditorHeader.xib */,
+				B32BDC9A1CFB9D2800C18AFE /* DashboardViewController.swift */,
+				B32BDC9C1CFBA17900C18AFE /* DashboardEditorViewController.swift */,
+			);
+			name = Dashboard;
+			sourceTree = "<group>";
+		};
+		B32040AC1D3C7DA00062686F /* MessageCreator */ = {
+			isa = PBXGroup;
+			children = (
+				B3D721261D00DD8B00BFEEC2 /* CardView.swift */,
+				B3D721281D00DD9F00BFEEC2 /* CardView.xib */,
+				B3D761FC1D35B6F50088877A /* CreatorAssistant.swift */,
+				B3D761FE1D35B7060088877A /* CreatorAssistant.xib */,
+				B3F7B0051CF93E8F00734F9B /* MessageCreator.xib */,
+				B3F7B0071CF93EA400734F9B /* MessageCreator.swift */,
+				B3F7B0121CF94AD000734F9B /* MessageCreatorTextView.swift */,
+				B3F7B0141CF94F5800734F9B /* MessageCreatorDelegate.swift */,
+			);
+			name = MessageCreator;
+			sourceTree = "<group>";
+		};
+		B32040AD1D3C7E2A0062686F /* MessageCell */ = {
+			isa = PBXGroup;
+			children = (
+				B363CFC51CCEF9A800B6182D /* MessageCell.swift */,
+				B363CFC71CCEF9BB00B6182D /* MessageCell.xib */,
+				B335AC2A1CD3336F00B85781 /* TablePayloadView.swift */,
+				B31BD92C1CFF93E4001B3875 /* LoginButton.swift */,
+				B31BD92E1CFF93EF001B3875 /* LoginButton.xib */,
+				B3131F4F1D39A1D400461C12 /* ProgressView.swift */,
+				B3131F511D39A1EE00461C12 /* ProgressView.xib */,
+			);
+			name = MessageCell;
+			sourceTree = "<group>";
+		};
+		B32040AE1D3C7E960062686F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B3D721311D019AA300BFEEC2 /* SettingsTableViewController.swift */,
+				B3D7212F1D01996000BFEEC2 /* SettingsListTableViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		B32040AF1D3C7EA30062686F /* Catalog */ = {
+			isa = PBXGroup;
+			children = (
+				B307437B1D2C4E7300A9CD0E /* CatalogViewController.swift */,
+				B307437D1D2C4EFE00A9CD0E /* CatalogCell.swift */,
+				B307437E1D2C4EFE00A9CD0E /* CatalogCell.xib */,
+				B30743811D2C592400A9CD0E /* CatalogItemCell.swift */,
+				B30743821D2C592400A9CD0E /* CatalogItemCell.xib */,
+			);
+			name = Catalog;
+			sourceTree = "<group>";
+		};
 		B363CF781CCEEBB300B6182D = {
 			isa = PBXGroup;
 			children = (
@@ -293,75 +359,36 @@
 		B363CF831CCEEBB300B6182D /* Unifai */ = {
 			isa = PBXGroup;
 			children = (
-				B3D6FB2E1D3ACFD70090502F /* ActionsHeader.swift */,
-				B32BDC9A1CFB9D2800C18AFE /* DashboardViewController.swift */,
+				B363CF8D1CCEEBB300B6182D /* Assets.xcassets */,
+				B32040AA1D3C7D7E0062686F /* Actions */,
+				B32040AC1D3C7DA00062686F /* MessageCreator */,
 				B3F7B00F1CF9455700734F9B /* Resources */,
-				B3F7B0031CF8AFFF00734F9B /* MainSplitView.swift */,
 				B363CFB61CCEF30E00B6182D /* Models */,
+				B32040AB1D3C7D8F0062686F /* Dashboard */,
+				B32040AD1D3C7E2A0062686F /* MessageCell */,
+				B32040AE1D3C7E960062686F /* Settings */,
+				B32040AF1D3C7EA30062686F /* Catalog */,
+				B3F7B0031CF8AFFF00734F9B /* MainSplitView.swift */,
 				B363CF841CCEEBB300B6182D /* AppDelegate.swift */,
 				B363CF8A1CCEEBB300B6182D /* Main.storyboard */,
 				B3D7212A1D01987100BFEEC2 /* Settings.storyboard */,
 				B3F7B00C1CF93FA800734F9B /* Thread.storyboard */,
 				B3F7B0091CF93F0E00734F9B /* Feed.storyboard */,
-				B363CF8D1CCEEBB300B6182D /* Assets.xcassets */,
 				B363CF8F1CCEEBB300B6182D /* LaunchScreen.storyboard */,
 				B363CF921CCEEBB300B6182D /* Info.plist */,
 				B363CFC11CCEF78E00B6182D /* ThreadViewController.swift */,
-				B363CFC51CCEF9A800B6182D /* MessageCell.swift */,
-				B363CFC71CCEF9BB00B6182D /* MessageCell.xib */,
 				B363CFCF1CCF4D9600B6182D /* MainNavigationController.swift */,
 				B363CFD11CCF502A00B6182D /* LoginViewController.swift */,
 				B30663F41CCF9D2E00F3CC92 /* FeedViewController.swift */,
-				B335AC201CD0EF8B00B85781 /* ComposeTextField.swift */,
-				B335AC221CD0F3B400B85781 /* ComposeBackground.swift */,
-				B335AC241CD0F4A000B85781 /* ComposeViewController.swift */,
 				B335AC261CD1127C00B85781 /* ServiceProfileViewcontroller.swift */,
 				B335AC281CD177C400B85781 /* ProfileViewController.swift */,
-				B335AC2A1CD3336F00B85781 /* TablePayloadView.swift */,
-				B390068C1CD35F4E00F472AC /* SchedulesViewController.swift */,
-				B390068E1CD35FB800F472AC /* ScheduleCell.swift */,
-				B390068F1CD35FB800F472AC /* ScheduleCell.xib */,
-				B39006921CD3714700F472AC /* NewScheduleController.swift */,
 				B39006941CD661C600F472AC /* SignupViewController.swift */,
-				B39006981CD6701C00F472AC /* ActionsViewController.swift */,
-				B390069A1CD679D700F472AC /* ActionCell.swift */,
-				B3D7213D1D03A8B300BFEEC2 /* ActionCell.xib */,
-				B390069E1CD67C2200F472AC /* NewActionController.swift */,
-				B3F7B0051CF93E8F00734F9B /* MessageCreator.xib */,
-				B3F7B0071CF93EA400734F9B /* MessageCreator.swift */,
-				B3F7B0121CF94AD000734F9B /* MessageCreatorTextView.swift */,
-				B3F7B0141CF94F5800734F9B /* MessageCreatorDelegate.swift */,
-				B32BDC9C1CFBA17900C18AFE /* DashboardEditorViewController.swift */,
-				B31BD92C1CFF93E4001B3875 /* LoginButton.swift */,
-				B31BD92E1CFF93EF001B3875 /* LoginButton.xib */,
 				B31BD9301D003EC4001B3875 /* AuthViewController.swift */,
 				B31BD9311D003EC4001B3875 /* AuthViewController.xib */,
 				B3D721241D00CF4700BFEEC2 /* TestingViewController.swift */,
-				B3D721261D00DD8B00BFEEC2 /* CardView.swift */,
-				B3D721281D00DD9F00BFEEC2 /* CardView.xib */,
-				B3D721311D019AA300BFEEC2 /* SettingsTableViewController.swift */,
-				B3D7212F1D01996000BFEEC2 /* SettingsListTableViewController.swift */,
 				B3D721331D01A47000BFEEC2 /* DefaultSettings.plist */,
 				B3D721351D01AFC300BFEEC2 /* TabBarViewController.swift */,
-				B307437B1D2C4E7300A9CD0E /* CatalogViewController.swift */,
-				B307437D1D2C4EFE00A9CD0E /* CatalogCell.swift */,
-				B307437E1D2C4EFE00A9CD0E /* CatalogCell.xib */,
-				B30743811D2C592400A9CD0E /* CatalogItemCell.swift */,
-				B30743821D2C592400A9CD0E /* CatalogItemCell.xib */,
-				B3D761FC1D35B6F50088877A /* CreatorAssistant.swift */,
-				B3D761FE1D35B7060088877A /* CreatorAssistant.xib */,
-				B35598741D37F5F7002F4C59 /* ActionRunnerPage.xib */,
-				B35598761D37F626002F4C59 /* ActionRunnerPage.swift */,
-				B350B9231D381B3A00FADBB6 /* ActionPickerViewController.swift */,
-				B350B9241D381B3A00FADBB6 /* ActionPickerViewController.xib */,
-				B350B9271D3868BB00FADBB6 /* ActionCreatorViewController.swift */,
-				B350B9281D3868BB00FADBB6 /* ActionCreatorViewController.xib */,
 				B3EA79A01D387924000C40DE /* PaddedTextField.swift */,
-				B3131F4F1D39A1D400461C12 /* ProgressView.swift */,
-				B3131F511D39A1EE00461C12 /* ProgressView.xib */,
-				B3449FEF1D3ADFAB00811E6C /* ActionsHeader.xib */,
-				B3449FF11D3B165D00811E6C /* DashboardEditorHeader.swift */,
-				B3449FF31D3B167200811E6C /* DashboardEditorHeader.xib */,
 			);
 			path = Unifai;
 			sourceTree = "<group>";
@@ -550,7 +577,6 @@
 				B31BD9331D003EC4001B3875 /* AuthViewController.xib in Resources */,
 				B350B92A1D3868BB00FADBB6 /* ActionCreatorViewController.xib in Resources */,
 				B3D7212C1D01987100BFEEC2 /* Settings.storyboard in Resources */,
-				B39006911CD35FB800F472AC /* ScheduleCell.xib in Resources */,
 				B3131F521D39A1EE00461C12 /* ProgressView.xib in Resources */,
 				B3D721291D00DD9F00BFEEC2 /* CardView.xib in Resources */,
 				B363CF8E1CCEEBB300B6182D /* Assets.xcassets in Resources */,
@@ -643,7 +669,6 @@
 				B3D721301D01996000BFEEC2 /* SettingsListTableViewController.swift in Sources */,
 				B3D761FD1D35B6F50088877A /* CreatorAssistant.swift in Sources */,
 				B3F7B0151CF94F5800734F9B /* MessageCreatorDelegate.swift in Sources */,
-				B335AC211CD0EF8B00B85781 /* ComposeTextField.swift in Sources */,
 				B3D7213A1D01C5AE00BFEEC2 /* Cache.swift in Sources */,
 				B335AC2B1CD3336F00B85781 /* TablePayloadView.swift in Sources */,
 				B307437C1D2C4E7300A9CD0E /* CatalogViewController.swift in Sources */,
@@ -656,14 +681,11 @@
 				B335AC291CD177C400B85781 /* ProfileViewController.swift in Sources */,
 				B3F7B0081CF93EA400734F9B /* MessageCreator.swift in Sources */,
 				B31BD9321D003EC4001B3875 /* AuthViewController.swift in Sources */,
-				B335AC231CD0F3B400B85781 /* ComposeBackground.swift in Sources */,
 				B390068B1CD35D7F00F472AC /* Schedule.swift in Sources */,
 				B3131F541D39CCCA00461C12 /* Theme.swift in Sources */,
 				B30663F51CCF9D2E00F3CC92 /* FeedViewController.swift in Sources */,
-				B390068D1CD35F4E00F472AC /* SchedulesViewController.swift in Sources */,
 				B32BDC9B1CFB9D2800C18AFE /* DashboardViewController.swift in Sources */,
 				B363CFBA1CCEF32A00B6182D /* Message.swift in Sources */,
-				B335AC251CD0F4A000B85781 /* ComposeViewController.swift in Sources */,
 				B363CFC01CCEF74100B6182D /* Core.swift in Sources */,
 				B39006991CD6701C00F472AC /* ActionsViewController.swift in Sources */,
 				B3D721271D00DD8B00BFEEC2 /* CardView.swift in Sources */,
@@ -678,12 +700,10 @@
 				B363CFD01CCF4D9600B6182D /* MainNavigationController.swift in Sources */,
 				B31BD92D1CFF93E4001B3875 /* LoginButton.swift in Sources */,
 				B3D721251D00CF4700BFEEC2 /* TestingViewController.swift in Sources */,
-				B39006931CD3714700F472AC /* NewScheduleController.swift in Sources */,
 				B30743831D2C592400A9CD0E /* CatalogItemCell.swift in Sources */,
 				B3D721381D01B49C00BFEEC2 /* Settings.swift in Sources */,
 				B3D721321D019AA300BFEEC2 /* SettingsTableViewController.swift in Sources */,
 				B390069C1CD679D700F472AC /* ActionCell.swift in Sources */,
-				B39006901CD35FB800F472AC /* ScheduleCell.swift in Sources */,
 				B3131F4E1D395BA000461C12 /* CatalogItem.swift in Sources */,
 				B363CFCC1CCF205700B6182D /* Unifai.swift in Sources */,
 			);

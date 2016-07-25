@@ -2,24 +2,39 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="16A239j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10116"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreatorAssistant" customModule="Unifai" customModuleProvider="target">
+            <connections>
+                <outlet property="serviceAutoCompleteView" destination="HBE-3B-QFG" id="5ic-J1-rT8"/>
+                <outlet property="suggestionsView" destination="9gW-TZ-ozD" id="1fv-ZB-IEw"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1t-pc-nV3">
-                    <rect key="frame" x="546" y="562" width="46" height="30"/>
-                    <state key="normal" title="Button"/>
-                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9gW-TZ-ozD" customClass="AutoCompletionSuggestions" customModule="Unifai" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HBE-3B-QFG" customClass="AutoCompletionServices" customModule="Unifai" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="G1t-pc-nV3" secondAttribute="trailing" constant="8" id="7af-sC-COu"/>
-                <constraint firstAttribute="bottom" secondItem="G1t-pc-nV3" secondAttribute="bottom" constant="8" id="PYE-hh-BVp"/>
+                <constraint firstAttribute="bottom" secondItem="HBE-3B-QFG" secondAttribute="bottom" id="2Ro-Li-hqc"/>
+                <constraint firstItem="9gW-TZ-ozD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="390-Lr-tIp"/>
+                <constraint firstItem="HBE-3B-QFG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="L26-9X-Q0q"/>
+                <constraint firstAttribute="bottom" secondItem="9gW-TZ-ozD" secondAttribute="bottom" id="Mof-H5-aHb"/>
+                <constraint firstItem="9gW-TZ-ozD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Q24-uI-qyu"/>
+                <constraint firstAttribute="trailing" secondItem="HBE-3B-QFG" secondAttribute="trailing" id="SgC-yb-cfv"/>
+                <constraint firstAttribute="trailing" secondItem="9gW-TZ-ozD" secondAttribute="trailing" id="hqt-tk-xhA"/>
+                <constraint firstItem="HBE-3B-QFG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yxH-vO-aRB"/>
             </constraints>
         </view>
     </objects>

@@ -38,15 +38,16 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         self.actions = [:]
         self.serviceOrder = []
         for action in actions {
-            let service = extractService(action.message)
-            if !serviceOrder.contains(service!) {
-                serviceOrder.append(service!)
+            if let service = extractService(action.message) {
+            if !serviceOrder.contains(service) {
+                serviceOrder.append(service)
             }
-            if let serviceSlot = self.actions[service!] {
-                self.actions[service!]!.append(action)
+            if let serviceSlot = self.actions[service] {
+                self.actions[service]!.append(action)
             }
             else{
-                self.actions[service!] = [action]
+                self.actions[service] = [action]
+            }
             }
         }
     }
@@ -175,7 +176,9 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         }
         
         effectView.btnDiscardHandler = {
-            Unifai.deleteThread(effectView.message!.threadID!, completion: nil)
+            if effectView.message?.threadID != nil{
+                Unifai.deleteThread(effectView.message!.threadID!, completion: nil)
+            }
             self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
             let targetFrame = effectView.convertRect(effectView.btnDiscard.frame, toView: nil)
             UIView.animateWithDuration(0.35, delay: 0, options: .CurveEaseIn, animations: {
@@ -220,10 +223,6 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         let header =  collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "header", forIndexPath: indexPath) as! ActionsHeader
 
         let service = serviceOrder[indexPath.section]
-        header.imgLogo.layer.cornerRadius = header.imgLogo.frame.width/2
-        header.imgLogo.layer.masksToBounds = true
-        header.imgLogo.image = UIImage(named: service.username)
-        header.imgLogo.backgroundColor = service.color
         
         header.txtName.textColor = service.color
         header.txtCount.textColor = currentTheme.secondaryForegroundColor

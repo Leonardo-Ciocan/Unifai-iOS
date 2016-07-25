@@ -8,7 +8,7 @@ extension UIScrollView {
 class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UIViewControllerPreviewingDelegate , MessageCreatorDelegate {
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var creatorAssistant: UIView!
+    @IBOutlet weak var creatorAssistant: CreatorAssistant!
     var messages : [Message] = []
     
     lazy var refreshControl: UIRefreshControl = {
@@ -30,7 +30,6 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         self.view.backgroundColor = currentTheme.backgroundColor
         self.tableView.backgroundColor = currentTheme.backgroundColor
         self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
-
         
 
         doneButton.action = #selector(doneClicked)
@@ -62,8 +61,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         tableView.dg_setPullToRefreshFillColor(Constants.appBrandColor)
         tableView.dg_setPullToRefreshBackgroundColor(tableView.backgroundColor!)
         
-        getServicesAndUser({ services in
-            Core.Services = services
+        Core.populateAll(withCallback: {
             Cache.getFeed({ messages in
                 self.messages = messages
                 self.tableView.reloadData()
@@ -79,26 +77,30 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         creator!.backgroundColor = UIColor.whiteColor()
         tableView.tableHeaderView = creator
         
-//        let imageView = UIImageView(frame: CGRect(x: 5, y: 5, width: 33, height: 33))
+//        let imageView = UIImageView(frame: CGRect(x: 5, y: 5, width: 66, height: 33))
 //        imageView.contentMode = .ScaleAspectFit
 //
-//        let image = UIImage(named: "unifaiNewSmall")
+//        let image = UIImage(named: "ai")
 //        imageView.image = image?.imageWithRenderingMode(.AlwaysTemplate)
-//        imageView.tintColor = Constants.appBrandColor
-//
-//        imageView.layer.masksToBounds = true
-//        imageView.layer.cornerRadius = 5
-//        imageView.clipsToBounds = true
+//        //imageView.image = image
+//        imageView.tintColor = currentTheme.secondaryForegroundColor
+//        
+//        
 //        
 //        navigationItem.titleView = imageView
-        
-        let txtTile = UILabel(frame:CGRect(x:0,y:0,width:150,height:33))
-        txtTile.text = "UNIFAI"
-        txtTile.textAlignment = .Center
-        txtTile.textColor = currentTheme.foregroundColor
-        txtTile.font = UIFont(name: "AmericanTypewriter", size: 18)
 
-        navigationItem.titleView = txtTile
+        
+//        let txtTile = UILabel(frame:CGRect(x:0,y:0,width:150,height:33))
+//        txtTile.text = "UNIFAI"
+//        txtTile.textAlignment = .Center
+//        txtTile.textColor = currentTheme.foregroundColor
+//        txtTile.font = UIFont(name: "AmericanTypewriter", size: 18)
+//
+//        navigationItem.titleView = txtTile
+        
+        
+        self.navigationItem.title = "Feed"
+        navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)! ]
         
         if( traitCollection.forceTouchCapability == .Available){
             
@@ -108,17 +110,27 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         registerForKeyboardNotifications()
     }
     
+    func didSelectService(service: Service?) {
+        UIView.animateWithDuration(1, animations: {
+            },completion: { _ in
+                self.navigationController?.navigationBar.barStyle = service == nil ? currentTheme.barStyle : .Black
+                self.navigationController?.navigationBar.barTintColor = service == nil ? nil : service!.color
+                self.navigationController?.navigationBar.tintColor = service == nil ? currentTheme.foregroundColor : UIColor.whiteColor()
+        })
+    }
+    
     override func viewDidAppear(animated: Bool) {
         //Theme setup
         self.view.backgroundColor = currentTheme.backgroundColor
         self.tableView.backgroundColor = currentTheme.backgroundColor
         self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
         self.navigationController?.navigationBar.barTintColor = nil
+        self.navigationController?.navigationBar.tintColor = currentTheme.foregroundColor
         self.navigationController?.navigationBar.translucent = true
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+        return currentTheme.statusBarStyle
     }
     
     func getServicesAndUser(callback: ([Service]) -> () ){
@@ -169,23 +181,6 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         }
     }
     
-    
-    func chooseAction() {
-        let menu = UIAlertController(title: "Run an action", message: "", preferredStyle: .ActionSheet)
-        
-        Unifai.getActions({ actions in
-            for action in actions{
-                let item = UIAlertAction(title: action.name, style: .Default, handler: { (alert:UIAlertAction!) -> Void in
-                    if let selected = actions.filter({$0.name == alert.title}).first{
-                        self.sendMessage(selected.message)
-                    }
-                })
-                menu.addAction(item)
-            }
-            menu.addAction(UIAlertAction(title: "Cancel" , style: .Cancel , handler: nil))
-            self.presentViewController(menu, animated: true, completion: nil)
-        })
-    }
     
     override func viewWillAppear(animated: Bool) {
         UIApplication.sharedApplication().statusBarStyle = currentTheme.statusBarStyle
@@ -311,6 +306,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     
     
     func doneClicked(){
+        self.didSelectService(nil)
         creator?.txtMessage.resignFirstResponder()
     }
     
@@ -321,6 +317,25 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     func didFinishWirting() {
         self.navigationItem.leftBarButtonItem = nil
     }
+    
+    
+    func chooseAction() {
+        let menu = UIAlertController(title: "Run an action", message: "", preferredStyle: .ActionSheet)
+        
+        Unifai.getActions({ actions in
+            for action in actions{
+                let item = UIAlertAction(title: action.name, style: .Default, handler: { (alert:UIAlertAction!) -> Void in
+                    if let selected = actions.filter({$0.name == alert.title}).first{
+                        self.sendMessage(selected.message)
+                    }
+                })
+                menu.addAction(item)
+            }
+            menu.addAction(UIAlertAction(title: "Cancel" , style: .Cancel , handler: nil))
+            self.presentViewController(menu, animated: true, completion: nil)
+        })
+    }
+
     
     func registerForKeyboardNotifications()
     {

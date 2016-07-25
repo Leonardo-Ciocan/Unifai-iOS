@@ -111,10 +111,6 @@ class ActionPickerViewController: UIViewController , UICollectionViewDataSource 
         let header =  collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "header", forIndexPath: indexPath) as! ActionsHeader
         
         let service = serviceOrder[indexPath.section]
-        header.imgLogo.layer.cornerRadius = header.imgLogo.frame.width/2
-        header.imgLogo.layer.masksToBounds = true
-        header.imgLogo.image = UIImage(named: service.username)
-        header.imgLogo.backgroundColor = service.color
         
         header.txtName.textColor = service.color
         header.txtCount.textColor = currentTheme.secondaryForegroundColor

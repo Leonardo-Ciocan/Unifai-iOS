@@ -59,7 +59,10 @@
                     </constraints>
                 </view>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pUy-nG-BDM" customClass="MessageCreatorTextView" customModule="Unifai" customModuleProvider="target">
-                    <rect key="frame" x="20" y="114" width="560" height="30"/>
+                    <rect key="frame" x="20" y="114" width="560" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="VJv-vE-CHJ"/>
+                    </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes"/>
@@ -76,7 +79,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g35-ys-hkM" customClass="MessageCreatorTextView" customModule="Unifai" customModuleProvider="target">
-                    <rect key="frame" x="20" y="187" width="560" height="30"/>
+                    <rect key="frame" x="20" y="189" width="560" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="U3U-tt-4oc"/>
+                    </constraints>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>

@@ -10,9 +10,13 @@ import UIKit
 
 class SuggestionCell: UITableViewCell {
 
+    @IBOutlet weak var txtMessage: UILabel!
+    @IBOutlet weak var txtName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        self.backgroundColor = UIColor.clearColor()
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

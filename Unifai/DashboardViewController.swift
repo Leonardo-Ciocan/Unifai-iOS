@@ -13,6 +13,7 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         return refreshControl
     }()
     
+    var activityControl : UIActivityIndicatorView?
     override func viewDidLoad() {
         self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
         self.view.backgroundColor = currentTheme.backgroundColor
@@ -50,8 +51,15 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
                 self.messages = messages
                 self.tableView.reloadData()
                 self.loadData()
+                self.activityControl?.stopAnimating()
+                
             })
         })
+        
+        activityControl = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        let button = UIBarButtonItem(customView: activityControl!)
+        self.navigationItem.rightBarButtonItem = button
+        activityControl!.startAnimating()
     }
     
     
@@ -73,6 +81,7 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
             self.messages = threadMessages
             self.tableView?.reloadData()
             self.refreshControl.endRefreshing()
+            self.activityControl?.stopAnimating()
         })
     }
     

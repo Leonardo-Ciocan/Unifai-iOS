@@ -13,6 +13,7 @@ import SafariServices
 import UIKit
 
 class ThreadViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , MessageCreatorDelegate  {
+    @IBOutlet weak var creatorAssistant: CreatorAssistant!
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet var rootView: UIView!
@@ -22,11 +23,15 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     var messages : [Message] = [
     ]
     @IBOutlet weak var tableView: UITableView!
-    
+    let doneButton = UIBarButtonItem()
+
     override func viewDidLoad() {
         self.view.backgroundColor = currentTheme.backgroundColor
         self.tableView.backgroundColor = currentTheme.backgroundColor
         self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
+        doneButton.action = #selector(doneClicked)
+        doneButton.title = "Done"
+        doneButton.style = .Done
 
         super.viewDidLoad()
         self.tableView!.registerNib(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
@@ -40,7 +45,7 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         self.tableView.delegate = self
         self.navigationController?.navigationItem.title = "Loaded";
         self.messageCreator.creatorDelegate = self
-        
+        self.messageCreator.assistant = creatorAssistant
         self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 49 + 100))
         NSNotificationCenter.defaultCenter().addObserver(self,
                                                          selector: #selector(keyboardWillShow),
@@ -58,7 +63,14 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
-    
+    func didSelectService(service: Service?) {
+        UIView.animateWithDuration(1, animations: {
+            },completion: { _ in
+                self.navigationController?.navigationBar.barStyle = service == nil ? currentTheme.barStyle : .Black
+                self.navigationController?.navigationBar.barTintColor = service == nil ? nil : service!.color
+                self.navigationController?.navigationBar.tintColor = service == nil ? currentTheme.foregroundColor : UIColor.whiteColor()
+        })
+    }
     
     func loadData(thread : String){
         self.threadID = thread
@@ -120,23 +132,6 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     }
     
     
-    func chooseAction() {
-        let menu = UIAlertController(title: "Run an action", message: "", preferredStyle: .ActionSheet)
-        
-        Unifai.getActions({ actions in
-            for action in actions{
-                let item = UIAlertAction(title: action.name, style: .Default, handler: { (alert:UIAlertAction!) -> Void in
-                    if let selected = actions.filter({$0.name == alert.title}).first{
-                        self.sendMessage(selected.message)
-                    }
-                })
-                menu.addAction(item)
-            }
-            menu.addAction(UIAlertAction(title: "Cancel" , style: .Cancel , handler: nil))
-            self.presentViewController(menu, animated: true, completion: nil)
-        })
-    }
-    
     func keyboardWillShow(notification: NSNotification) {
         keyboardShowOrHide(notification)
     }
@@ -162,11 +157,34 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
             }, completion: nil)
     }
     
+    func doneClicked(){
+        messageCreator?.txtMessage.resignFirstResponder()
+    }
+    
     func didStartWriting() {
-        
+        self.navigationItem.leftBarButtonItem = doneButton
     }
     
     func didFinishWirting() {
-        
+        self.navigationItem.leftBarButtonItem = nil
     }
+    
+    
+    func chooseAction() {
+        let menu = UIAlertController(title: "Run an action", message: "", preferredStyle: .ActionSheet)
+        
+        Unifai.getActions({ actions in
+            for action in actions{
+                let item = UIAlertAction(title: action.name, style: .Default, handler: { (alert:UIAlertAction!) -> Void in
+                    if let selected = actions.filter({$0.name == alert.title}).first{
+                        self.sendMessage(selected.message)
+                    }
+                })
+                menu.addAction(item)
+            }
+            menu.addAction(UIAlertAction(title: "Cancel" , style: .Cancel , handler: nil))
+            self.presentViewController(menu, animated: true, completion: nil)
+        })
+    }
+
 }

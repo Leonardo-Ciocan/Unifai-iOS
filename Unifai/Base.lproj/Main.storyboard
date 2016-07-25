@@ -7,49 +7,6 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Schedules-->
-        <scene sceneID="wg7-f3-ORb">
-            <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="8rJ-Kc-sve" customClass="SchedulesViewController" customModule="Unifai" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
-                        <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qCa-d3-U4S">
-                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="qCa-d3-U4S" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="-20" id="3kn-bY-SZS"/>
-                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="qCa-d3-U4S" secondAttribute="bottom" id="7A8-wQ-dHb"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qCa-d3-U4S" secondAttribute="trailing" constant="-20" id="NeI-Hi-dmf"/>
-                            <constraint firstItem="qCa-d3-U4S" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="vwe-Q5-Hhz"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Schedule" image="schedule" id="cPa-gy-q4n"/>
-                    <navigationItem key="navigationItem" title="Schedules" id="WLq-vK-kOc">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="n1w-KE-qiY">
-                            <connections>
-                                <action selector="addNewSchedule:" destination="8rJ-Kc-sve" id="8Mu-fv-wNW"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                    <connections>
-                        <outlet property="tableView" destination="qCa-d3-U4S" id="bum-cl-mSh"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="794" y="1878"/>
-        </scene>
         <!--Profile-->
         <scene sceneID="CUI-Br-zvL">
             <objects>
@@ -84,12 +41,22 @@
                                 <rect key="frame" x="0.0" y="20" width="414" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6rj-g4-tPw">
+                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <connections>
+                                    <segue destination="lfp-lU-dKD" kind="embed" id="jpG-la-7L0"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="LkO-zf-VX5" secondAttribute="trailing" constant="-20" id="6AP-y4-uZ2"/>
+                            <constraint firstItem="6rj-g4-tPw" firstAttribute="top" secondItem="46n-1j-q3w" secondAttribute="bottom" id="9Eh-dw-syh"/>
+                            <constraint firstItem="r29-EG-WBZ" firstAttribute="top" secondItem="6rj-g4-tPw" secondAttribute="bottom" id="ST9-3D-HO8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6rj-g4-tPw" secondAttribute="trailing" constant="-20" id="UQ5-Jm-RkM"/>
                             <constraint firstItem="LkO-zf-VX5" firstAttribute="top" secondItem="46n-1j-q3w" secondAttribute="bottom" id="akc-20-BSx"/>
                             <constraint firstItem="r29-EG-WBZ" firstAttribute="top" secondItem="LkO-zf-VX5" secondAttribute="bottom" id="gnR-ve-xpp"/>
+                            <constraint firstItem="6rj-g4-tPw" firstAttribute="leading" secondItem="g58-oF-RLv" secondAttribute="leadingMargin" constant="-20" id="hga-p8-7Bp"/>
                             <constraint firstItem="LkO-zf-VX5" firstAttribute="leading" secondItem="g58-oF-RLv" secondAttribute="leadingMargin" constant="-20" id="yC5-4I-Vhx"/>
                         </constraints>
                     </view>
@@ -591,23 +558,6 @@
             </objects>
             <point key="canvasLocation" x="1276" y="1878"/>
         </scene>
-        <!--Scheduling-->
-        <scene sceneID="bf4-zK-tm7">
-            <objects>
-                <navigationController id="tga-5G-6H2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Scheduling" image="schedule" selectedImage="schedule" id="a9V-P1-I3i"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SWw-Yw-RTj">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="cZT-3c-bCQ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mOy-yX-BQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="640" y="878"/>
-        </scene>
         <!--Feed-->
         <scene sceneID="qzL-CV-NVK">
             <objects>
@@ -634,15 +584,99 @@
             </objects>
             <point key="canvasLocation" x="1276" y="-809"/>
         </scene>
+        <!--Passport View Controller-->
+        <scene sceneID="sLu-fP-iB7">
+            <objects>
+                <viewController id="lfp-lU-dKD" customClass="PassportViewController" customModule="Unifai" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fbf-Fy-iGZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZSW-jf-Yot"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HrT-hv-t7h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Epa-An-fe7">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MWr-E7-kiV">
+                                        <rect key="frame" x="32" y="15" width="350" height="478"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport" translatesAutoresizingMaskIntoConstraints="NO" id="Nhx-4v-Jyy">
+                                                <rect key="frame" x="47" y="11" width="256" height="128"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="128" id="1CW-H5-Gt5"/>
+                                                    <constraint firstAttribute="width" secondItem="Nhx-4v-Jyy" secondAttribute="height" multiplier="2:1" id="kdU-aJ-7gm"/>
+                                                </constraints>
+                                            </imageView>
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PYD-8J-4ec">
+                                                <rect key="frame" x="25" y="268" width="300" height="200"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="pWS-py-lvs"/>
+                                                </constraints>
+                                            </mapView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fri-8B-70r">
+                                                <rect key="frame" x="25" y="164" width="300" height="21"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3t3-Fa-kj7">
+                                                <rect key="frame" x="25" y="175" width="325" height="63"/>
+                                                <string key="text">Some services use your location to answer your queries without having to ask you which location you are in. This information is not shared with services outside of Unifai</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="3t3-Fa-kj7" firstAttribute="top" secondItem="fri-8B-70r" secondAttribute="bottom" constant="5" id="MgH-Xt-Cf4"/>
+                                            <constraint firstAttribute="trailing" secondItem="fri-8B-70r" secondAttribute="trailing" constant="25" id="Rnq-EC-CBD"/>
+                                            <constraint firstAttribute="trailing" secondItem="PYD-8J-4ec" secondAttribute="trailing" constant="25" id="TWq-fQ-zFW"/>
+                                            <constraint firstItem="Nhx-4v-Jyy" firstAttribute="centerX" secondItem="MWr-E7-kiV" secondAttribute="centerX" id="Ucs-qk-QBr"/>
+                                            <constraint firstItem="PYD-8J-4ec" firstAttribute="leading" secondItem="MWr-E7-kiV" secondAttribute="leading" constant="25" id="bNW-7E-BzE"/>
+                                            <constraint firstItem="Nhx-4v-Jyy" firstAttribute="top" secondItem="MWr-E7-kiV" secondAttribute="top" constant="11" id="bwv-Nm-G8l"/>
+                                            <constraint firstItem="3t3-Fa-kj7" firstAttribute="trailing" secondItem="fri-8B-70r" secondAttribute="trailing" id="cEa-r3-g3T"/>
+                                            <constraint firstItem="PYD-8J-4ec" firstAttribute="top" secondItem="3t3-Fa-kj7" secondAttribute="bottom" constant="15" id="rcf-yr-rHj"/>
+                                            <constraint firstItem="fri-8B-70r" firstAttribute="top" secondItem="Nhx-4v-Jyy" secondAttribute="bottom" constant="25" id="tsd-ef-4x4"/>
+                                            <constraint firstItem="fri-8B-70r" firstAttribute="leading" secondItem="MWr-E7-kiV" secondAttribute="leading" constant="25" id="uGB-w9-ibx"/>
+                                            <constraint firstAttribute="bottom" secondItem="PYD-8J-4ec" secondAttribute="bottom" constant="10" id="yVX-ah-v3c"/>
+                                            <constraint firstItem="3t3-Fa-kj7" firstAttribute="leading" secondItem="fri-8B-70r" secondAttribute="leading" id="ytY-tn-dfX"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Epa-An-fe7" firstAttribute="leading" secondItem="HrT-hv-t7h" secondAttribute="leading" id="0nn-st-sMh"/>
+                            <constraint firstItem="MWr-E7-kiV" firstAttribute="top" secondItem="HrT-hv-t7h" secondAttribute="topMargin" constant="15" id="L1w-9V-su7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MWr-E7-kiV" secondAttribute="trailing" constant="12" id="RFN-fh-XxU"/>
+                            <constraint firstAttribute="bottom" secondItem="Epa-An-fe7" secondAttribute="bottom" id="SPf-gh-US9"/>
+                            <constraint firstItem="MWr-E7-kiV" firstAttribute="leading" secondItem="HrT-hv-t7h" secondAttribute="leadingMargin" constant="12" id="TgE-ej-kgw"/>
+                            <constraint firstAttribute="trailing" secondItem="Epa-An-fe7" secondAttribute="trailing" id="WNV-5C-FMa"/>
+                            <constraint firstItem="Epa-An-fe7" firstAttribute="top" secondItem="HrT-hv-t7h" secondAttribute="top" id="dbM-2F-ZBP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="map" destination="PYD-8J-4ec" id="oao-zl-Jon"/>
+                        <outlet property="passportView" destination="MWr-E7-kiV" id="KKf-qV-CUM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cKt-AT-XRB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1880" y="90.5"/>
+        </scene>
     </scenes>
     <resources>
         <image name="action" width="30" height="30"/>
         <image name="actionIcon" width="30" height="30"/>
         <image name="dashboard" width="30" height="30"/>
         <image name="logoWithSlogan" width="1785" height="1785"/>
+        <image name="passport" width="250" height="125"/>
         <image name="profile" width="30" height="30"/>
         <image name="profileIcon" width="30" height="30"/>
-        <image name="schedule" width="30" height="30"/>
         <image name="whitepixel" width="1" height="1"/>
     </resources>
     <inferredMetricsTieBreakers>

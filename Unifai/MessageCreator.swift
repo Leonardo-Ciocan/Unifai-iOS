@@ -13,7 +13,7 @@ enum Position {
     case Bottom
 }
 
-@IBDesignable class MessageCreator: UIView , UITextFieldDelegate , UIImagePickerControllerDelegate , UINavigationControllerDelegate , ActionPickerDelegate {
+@IBDesignable class MessageCreator: UIView , UITextFieldDelegate , UIImagePickerControllerDelegate , UINavigationControllerDelegate , ActionPickerDelegate , CreatorAssistantDelegate {
     
     var suggestions : [String] = [
         "@weather what's the weather like in London?",
@@ -35,12 +35,19 @@ enum Position {
     
     @IBOutlet weak var txtMessage: MessageCreatorTextView!
     @IBOutlet weak var btnSend: UIButton!
-    
+    @IBOutlet weak var backgroundColorView: UIView!
+
     @IBInspectable var isTop : Bool = true
     let imagePicker = UIImagePickerController()
     
     let border = CALayer()
-    var assistant : UIView?
+    var assistant : CreatorAssistant? {
+        didSet {
+            guard assistant != nil else { return }
+            print("Setting delegate")
+            assistant!.delegate = self
+        }
+    }
     
     var parentViewController : UIViewController?
 
@@ -75,7 +82,7 @@ enum Position {
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(view);
         
-        view.backgroundColor = currentTheme.backgroundColor
+        //view.backgroundColor = currentTheme.backgroundColor
         self.backgroundColor = currentTheme.backgroundColor
         
        txtMessage.addTarget(
@@ -106,6 +113,33 @@ enum Position {
         txtMessage.layer.borderColor = currentTheme.foregroundColor.CGColor
         txtMessage.textColor = currentTheme.foregroundColor
         txtMessage.backgroundColor = currentTheme.shadeColor
+    }
+    
+    func selectedService(service: Service? , selectedByTapping : Bool) {
+        if let service = service {
+            self.creatorDelegate?.didSelectService(service)
+            UIView.animateWithDuration(1, animations: {
+                self.backgroundColorView.backgroundColor = service.color
+                self.btnSend.tintColor = UIColor.whiteColor()
+                self.btnImage.tintColor = UIColor.whiteColor()
+                self.btnAction.tintColor = UIColor.whiteColor()
+                self.txtMessage.textColor = UIColor.whiteColor()
+            })
+            
+            if selectedByTapping {
+                txtMessage.text = "@" + service.username + " "
+            }
+        }
+        else {
+            self.creatorDelegate?.didSelectService(service)
+            UIView.animateWithDuration(1, animations: {
+                self.backgroundColorView.backgroundColor = UIColor.whiteColor()
+                self.btnSend.tintColor = Constants.appBrandColor
+                self.btnImage.tintColor = UIColor.blackColor()
+                self.btnAction.tintColor = UIColor.blackColor()
+                self.txtMessage.textColor = UIColor.blackColor()
+            })
+        }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -158,26 +192,30 @@ enum Position {
     }
     
     @IBAction func textChanged(sender: AnyObject) {
-        var target = matchesForRegexInText("(?:^|\\s|$|[.])@[\\p{L}0-9_]*", text: txtMessage.text)
-        if(target.count > 0){
-            let name = target[0]
-            let services = Core.Services.filter({"@"+$0.username == name})
-            if(services.count > 0){
-                UIView.animateWithDuration(0.6, animations: {
-                    
-                    
-                    self.btnSend.tintColor = (services[0].color)
-                    self.btnAction.tintColor = services[0].color
-                    self.btnImage.tintColor = services[0].color
-                    
-                })
-            }
-            else{
-                btnSend.tintColor = Constants.appBrandColor
-                btnAction.tintColor = currentTheme.foregroundColor
-                btnImage.tintColor = currentTheme.foregroundColor
-            }
-        }
+        //assistant?.autocompleteFor(txtMessage.text!)
+        assistant?.autocompleteFor(txtMessage.text!)
+                
+//        
+//        var target = matchesForRegexInText("(?:^|\\s|$|[.])@[\\p{L}0-9_]*", text: txtMessage.text)
+//        if(target.count > 0){
+//            let name = target[0]
+//            let services = Core.Services.filter({"@"+$0.username == name})
+//            if(services.count > 0){
+//                UIView.animateWithDuration(0.6, animations: {
+//                    
+//                    
+//                    self.btnSend.tintColor = (services[0].color)
+//                    self.btnAction.tintColor = services[0].color
+//                    self.btnImage.tintColor = services[0].color
+//                    
+//                })
+//            }
+//            else{
+//                btnSend.tintColor = Constants.appBrandColor
+//                btnAction.tintColor = currentTheme.foregroundColor
+//                btnImage.tintColor = currentTheme.foregroundColor
+//            }
+//        }
     }
     
     @IBAction func pickImage(sender: AnyObject) {
@@ -214,6 +252,7 @@ enum Position {
     
     func textFieldDidBeginEditing(textField: UITextField) {
         self.creatorDelegate?.didStartWriting()
+        assistant?.serviceAutoCompleteView.collectionView.reloadData()
         assistant?.alpha = 0
         assistant?.hidden = false
         UIView.animateWithDuration(0.5, animations: {

@@ -32,5 +32,7 @@ class MainSplitView : UISplitViewController , UISplitViewControllerDelegate {
         return false
     }
     
-    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return currentTheme.statusBarStyle
+    }
 }

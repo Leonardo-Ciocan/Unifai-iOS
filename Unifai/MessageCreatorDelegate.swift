@@ -12,4 +12,5 @@ protocol MessageCreatorDelegate : class {
     func sendMessage(message:String)
     func didStartWriting()
     func didFinishWirting()
+    func didSelectService(service:Service?)
 }

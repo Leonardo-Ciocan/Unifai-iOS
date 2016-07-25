@@ -25,7 +25,7 @@ class CatalogViewController : UIViewController , UICollectionViewDelegate , UICo
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.collectionView.registerNib(UINib(nibName: "CatalogCell", bundle: nil), forCellWithReuseIdentifier: "CatalogCell")
         
         self.serivices = Core.Services.sort({ $0.name < $1.name }).filter({ $0.id != "1989" })

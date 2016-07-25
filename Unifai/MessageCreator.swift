@@ -52,8 +52,6 @@ enum Position {
     var parentViewController : UIViewController?
 
     override func drawRect(rect: CGRect) {
-        self.layer.backgroundColor = UIColor.whiteColor().CGColor
-        self.backgroundColor = UIColor.whiteColor()
 
         border.backgroundColor = currentTheme.shadeColor.CGColor
         border.frame = CGRect(x: 15, y: isTop ? self.frame.height - 1 : 0, width: self.frame.width-30, height: 1)
@@ -113,6 +111,9 @@ enum Position {
         txtMessage.layer.borderColor = currentTheme.foregroundColor.CGColor
         txtMessage.textColor = currentTheme.foregroundColor
         txtMessage.backgroundColor = currentTheme.shadeColor
+        
+        
+        self.backgroundColorView.backgroundColor = currentTheme.backgroundColor
     }
     
     func selectedService(service: Service? , selectedByTapping : Bool) {
@@ -133,13 +134,17 @@ enum Position {
         else {
             self.creatorDelegate?.didSelectService(service)
             UIView.animateWithDuration(1, animations: {
-                self.backgroundColorView.backgroundColor = UIColor.whiteColor()
+                self.backgroundColorView.backgroundColor = currentTheme.backgroundColor
                 self.btnSend.tintColor = Constants.appBrandColor
-                self.btnImage.tintColor = UIColor.blackColor()
-                self.btnAction.tintColor = UIColor.blackColor()
-                self.txtMessage.textColor = UIColor.blackColor()
+                self.btnImage.tintColor = currentTheme.foregroundColor
+                self.btnAction.tintColor = currentTheme.foregroundColor
+                self.txtMessage.textColor = currentTheme.foregroundColor
             })
         }
+    }
+    
+    func didSelectAutocompletion(message: String) {
+        txtMessage.text = message
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -188,6 +193,7 @@ enum Position {
         btnSend.tintColor = Constants.appBrandColor
         btnImage.tintColor = currentTheme.foregroundColor
         btnAction.tintColor = currentTheme.foregroundColor
+        selectedService(nil, selectedByTapping: false)
         setLoading(true)
     }
     

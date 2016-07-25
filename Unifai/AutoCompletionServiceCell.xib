@@ -31,7 +31,7 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Wq6-G7-xhV" firstAttribute="top" secondItem="RYz-XE-Kv0" secondAttribute="top" constant="15" id="5GU-RB-Zxb"/>
                 <constraint firstItem="loA-aM-Ak7" firstAttribute="top" secondItem="Wq6-G7-xhV" secondAttribute="bottom" constant="10" id="8Eb-H7-3tE"/>

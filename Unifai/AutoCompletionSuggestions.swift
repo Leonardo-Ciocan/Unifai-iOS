@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+protocol AutoCompletionSuggestionsDelegate {
+    func didSelectAutocompletion(message : String)
+}
 class AutoCompletionSuggestions: UIView , UITableViewDelegate , UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
@@ -16,7 +18,7 @@ class AutoCompletionSuggestions: UIView , UITableViewDelegate , UITableViewDataS
     var filteredSuggestions : [CatalogItem] = []
     
     var filterKeywords : [String] = []
-    
+    var delegate : AutoCompletionSuggestionsDelegate?
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadViewFromNib ()
@@ -58,13 +60,17 @@ class AutoCompletionSuggestions: UIView , UITableViewDelegate , UITableViewDataS
         return cell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.delegate?.didSelectAutocompletion(filteredSuggestions[indexPath.row].message)
+    }
+    
     func filterSuggestionsWithKeywords(keywords:[String]) {
         self.filterKeywords = keywords
         var filtered : [CatalogItem] = self.suggestions
         self.filterKeywords.forEach({ keyword in
             filtered = filtered.filter({
-                $0.name.containsString(keyword) ||
-                    $0.message.containsString(keyword) ||
+                    $0.name.lowercaseString.containsString(keyword.lowercaseString) ||
+                    $0.message.lowercaseString.containsString(keyword.lowercaseString) ||
                     keyword == ""
             })
         })

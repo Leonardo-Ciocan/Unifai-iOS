@@ -10,9 +10,10 @@ import UIKit
 
 protocol CreatorAssistantDelegate {
     func selectedService(service:Service?, selectedByTapping : Bool)
+    func didSelectAutocompletion(message:String)
 }
 
-class CreatorAssistant: UIView , AutoCompletionServicesDelegate {
+class CreatorAssistant: UIView , AutoCompletionServicesDelegate , AutoCompletionSuggestionsDelegate {
     @IBOutlet weak var suggestionsView: AutoCompletionSuggestions!
     @IBOutlet weak var serviceAutoCompleteView: AutoCompletionServices!
     
@@ -35,6 +36,7 @@ class CreatorAssistant: UIView , AutoCompletionServicesDelegate {
         view.frame = bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.serviceAutoCompleteView.delegate = self
+        suggestionsView.delegate = self
         self.addSubview(view);
     }
     
@@ -72,4 +74,9 @@ class CreatorAssistant: UIView , AutoCompletionServicesDelegate {
         serviceAutoCompleteView.hidden = true
         suggestionsView.hidden = false
     }
+    
+    func didSelectAutocompletion(message: String) {
+        self.delegate?.didSelectAutocompletion(message)
+    }
+    
 }

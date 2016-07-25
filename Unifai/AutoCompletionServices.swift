@@ -42,8 +42,8 @@ class AutoCompletionServices: UIView , UICollectionViewDelegateFlowLayout , UICo
         view.frame = bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         
-        view.backgroundColor = UIColor.whiteColor()
-        self.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = currentTheme.backgroundColor
+        self.backgroundColor = currentTheme.backgroundColor
         
         self.addSubview(view);
         

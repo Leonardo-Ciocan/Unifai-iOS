@@ -297,6 +297,25 @@ class MessageCell: UITableViewCell {
             progressView.barView.layer.borderColor = message.service?.color.CGColor
             progressView.barView.layer.borderWidth = 1
         }
+        else if(message.type == .ImageUpload){
+            self.payloadContainerHeight.constant = 180
+            
+            let imageView = UIImageView()
+            self.imgView = imageView
+            
+            Unifai.getDataForMessage(withID: message.id, completion: { data in
+                    imageView.image = UIImage(data: data)
+            })
+            
+            imageView.contentMode = .ScaleAspectFit
+            self.payloadContainer.addSubview(imageView)
+            imageView.snp_makeConstraints(closure: { (make)->Void in
+                make.trailing.leading.equalTo(0)
+                make.bottom.top.equalTo(0)
+            })
+            
+            
+        }
     }
     
     func onCardTapped(recon:UITapGestureRecognizer){

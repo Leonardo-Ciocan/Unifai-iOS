@@ -3,10 +3,11 @@ import UIKit
 import SwiftyJSON
 
 enum MessageType : Int{
-    case Text , Table , Image , BarChart , RequestAuth , CardList , File , Progress
+    case Text , Table , Image , BarChart , RequestAuth , CardList , File , Progress , ImageUpload
 }
 
 class Message {
+    var id = "0"
     var body : String
     var type : MessageType
     var payload : Payload?
@@ -67,8 +68,10 @@ class Message {
         let time = json["timestamp"].stringValue
         let data = json["data"].stringValue
         let type = json["type"].number
-        self.messagesInThread = String(json["numberOfMessagesInThread"].numberValue)
+        let id = json["id"].numberValue
         
+        self.id = String(id)
+        self.messagesInThread = String(json["numberOfMessagesInThread"].numberValue)
         self.body = body!
         self.service = Core.Services.filter({
             s in

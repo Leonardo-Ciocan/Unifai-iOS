@@ -23,10 +23,10 @@ enum Position {
         "@reddit front page"
     ]
     
+    @IBOutlet weak var btnCamera: UIButton!
     
     @IBOutlet weak var btnSendTrailingConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var shadowView: UIView!
     
     @IBOutlet weak var btnImage: UIButton!
@@ -41,6 +41,8 @@ enum Position {
     @IBOutlet weak var backgroundColorView: UIView!
 
     @IBInspectable var isTop : Bool = true
+    
+    var imageData : NSData?
     let imagePicker = UIImagePickerController()
     
     let border = CALayer()
@@ -73,6 +75,8 @@ enum Position {
         loadViewFromNib ()
     }
     
+    var buttons : [UIButton] = []
+    
     @IBOutlet weak var imageLeftConstraint: NSLayoutConstraint!
     @IBOutlet weak var textBoxLeftConstraint: NSLayoutConstraint!
     func loadViewFromNib() {
@@ -85,6 +89,10 @@ enum Position {
         
         //view.backgroundColor = currentTheme.backgroundColor
         self.backgroundColor = currentTheme.backgroundColor
+        
+       buttons.append(btnAction)
+       buttons.append(btnImage)
+       buttons.append(btnCamera)
         
        txtMessage.addTarget(
             self,
@@ -100,17 +108,20 @@ enum Position {
         imageView.layer.masksToBounds = true
         imageView.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).CGColor
         imageView.layer.borderWidth=0
-        imageView.hidden = true
         
+        shadowView.backgroundColor = UIColor.clearColor()
         self.shadowView.layer.shadowColor = UIColor.blackColor().CGColor
         self.shadowView.layer.shadowOffset = CGSizeMake(0.0, 0.0)
         self.shadowView.layer.shadowRadius = 5.0
         self.shadowView.layer.shadowOpacity = 0.1
-        btnAction.tintColor = currentTheme.foregroundColor
-        btnImage.tintColor = currentTheme.foregroundColor
-        btnAction.setImage(btnAction.currentImage!.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
-        btnImage.setImage(btnImage.currentImage!.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
-        
+        buttons.forEach({
+            $0.tintColor = currentTheme.foregroundColor
+            $0.imageView?.contentMode = .ScaleAspectFit
+            $0.setImage($0.currentImage!.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+            $0.backgroundColor = currentTheme.shadeColor
+            $0.layer.masksToBounds = true
+            $0.layer.cornerRadius = 12
+        })
         txtMessage.layer.borderColor = currentTheme.foregroundColor.CGColor
         txtMessage.textColor = currentTheme.foregroundColor
         txtMessage.backgroundColor = currentTheme.shadeColor
@@ -125,8 +136,9 @@ enum Position {
             UIView.animateWithDuration(1, animations: {
                 self.backgroundColorView.backgroundColor = service.color
                 self.btnSend.tintColor = UIColor.whiteColor()
-                self.btnImage.tintColor = UIColor.whiteColor()
-                self.btnAction.tintColor = UIColor.whiteColor()
+                self.buttons.forEach({
+                    $0.tintColor = UIColor.whiteColor()
+                })
                 self.txtMessage.textColor = UIColor.whiteColor()
             })
             
@@ -139,8 +151,9 @@ enum Position {
             UIView.animateWithDuration(1, animations: {
                 self.backgroundColorView.backgroundColor = currentTheme.backgroundColor
                 self.btnSend.tintColor = Constants.appBrandColor
-                self.btnImage.tintColor = currentTheme.foregroundColor
-                self.btnAction.tintColor = currentTheme.foregroundColor
+                self.buttons.forEach({
+                    $0.tintColor = currentTheme.foregroundColor
+                })
                 self.txtMessage.textColor = currentTheme.foregroundColor
             })
         }
@@ -174,64 +187,35 @@ enum Position {
         textChanged(self)
     }
     
-    func setLoading(loading:Bool){
-        if loading {
-            activityIndicator.startAnimating()
-            btnSend.hidden = true
-            activityIndicator.hidden = false
-        }
-        else{
-            activityIndicator.stopAnimating()
-            btnSend.hidden = false
-            activityIndicator.hidden = true
-        }
-    }
     
     @IBAction func send(sender: AnyObject) {
         guard creatorDelegate != nil else {return}
-        
-        creatorDelegate?.sendMessage(txtMessage.text!)
+        if let data = self.imageData {
+            creatorDelegate?.sendMessage(txtMessage.text!, imageData: data)
+        }
+        else {
+            creatorDelegate?.sendMessage(txtMessage.text!)
+        }
         txtMessage.text = ""
         txtMessage.resignFirstResponder()
         btnSend.tintColor = Constants.appBrandColor
         btnImage.tintColor = currentTheme.foregroundColor
         btnAction.tintColor = currentTheme.foregroundColor
+        btnCamera.tintColor = currentTheme.foregroundColor
         selectedService(nil, selectedByTapping: false)
-        setLoading(true)
+        
     }
     
     @IBAction func textChanged(sender: AnyObject) {
         //assistant?.autocompleteFor(txtMessage.text!)
         assistant?.autocompleteFor(txtMessage.text!)
-                
-//        
-//        var target = matchesForRegexInText("(?:^|\\s|$|[.])@[\\p{L}0-9_]*", text: txtMessage.text)
-//        if(target.count > 0){
-//            let name = target[0]
-//            let services = Core.Services.filter({"@"+$0.username == name})
-//            if(services.count > 0){
-//                UIView.animateWithDuration(0.6, animations: {
-//                    
-//                    
-//                    self.btnSend.tintColor = (services[0].color)
-//                    self.btnAction.tintColor = services[0].color
-//                    self.btnImage.tintColor = services[0].color
-//                    
-//                })
-//            }
-//            else{
-//                btnSend.tintColor = Constants.appBrandColor
-//                btnAction.tintColor = currentTheme.foregroundColor
-//                btnImage.tintColor = currentTheme.foregroundColor
-//            }
-//        }
     }
     
     @IBAction func pickImage(sender: AnyObject) {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .PhotoLibrary
 
-        self.textBoxLeftConstraint.constant = 120
+        self.textBoxLeftConstraint.constant = 135
         self.imageLeftConstraint.constant = 15
         UIView.animateWithDuration(0.7, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations:
             { [weak self] in
@@ -252,8 +236,9 @@ enum Position {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageView.contentMode = .ScaleAspectFill
             imageView.image = pickedImage
-            
-            
+            if let imageData = UIImagePNGRepresentation(pickedImage) {
+                self.imageData = imageData
+            }
         }
         
         self.parentViewController!.dismissViewControllerAnimated(true, completion: nil)
@@ -288,6 +273,19 @@ enum Position {
         UIView.animateWithDuration(0.7, animations: {
             self.layoutIfNeeded()
             self.btnSend.alpha = 0
+        })
+    }
+    
+    @IBAction func removeAction(sender: AnyObject) {
+        imageView.image = nil
+        self.textBoxLeftConstraint.constant = 52
+        self.imageLeftConstraint.constant = -110
+        UIView.animateWithDuration(0.7, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations:
+            { [weak self] in
+                self!.layoutIfNeeded()
+            }
+            , completion: { _ in
+                
         })
     }
 }

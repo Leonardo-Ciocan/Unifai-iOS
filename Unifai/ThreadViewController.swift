@@ -133,6 +133,10 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         })
     }
     
+    func sendMessage(message: String, imageData: NSData) {
+        
+    }
+    
     
     func keyboardWillShow(notification: NSNotification) {
         keyboardShowOrHide(notification)

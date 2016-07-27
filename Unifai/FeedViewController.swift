@@ -147,38 +147,32 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     }
     
     func sendMessage(message: String) {
-        
-        var target = matchesForRegexInText("(?:^|\\s|$|[.])@[\\p{L}0-9_]*", text: message)
-        if(target.count > 0){
-            let name = target[0]
-            let services = Core.Services.filter({"@"+$0.username == name})
-            if(services.count > 0){
-                Unifai.sendMessage(message, completion: { success in
+            Unifai.sendMessage(message, completion: { success in
                     self.loadData()
-                    self.creator?.setLoading(false)
                 })
-            }
-            else{
+    }
+    
+    func sendMessage(message: String, imageData: NSData) {
+            Unifai.sendMessage(message , imageData: imageData, completion: { success in
+                self.loadData()
+            })
+    }
+    
+    func showValidationMessage() {
+        let alert = UIAlertController(title: "Can't send this message", message: "You need to mention a service , for example @skyscanner", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
+            switch action.style{
+            case .Default:
+                print("default")
                 
+            case .Cancel:
+                print("cancel")
                 
+            case .Destructive:
+                print("destructive")
             }
-        }
-        else{
-            let alert = UIAlertController(title: "Can't send this message", message: "You need to mention a service , for example @skyscanner", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
-                switch action.style{
-                case .Default:
-                    print("default")
-                    
-                case .Cancel:
-                    print("cancel")
-                    
-                case .Destructive:
-                    print("destructive")
-                }
-            }))
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     
@@ -283,8 +277,6 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         self.mainSplitView.selectedMessage = messages[selectedRow]
         self.splitViewController!.performSegueWithIdentifier("toProfile", sender: self)
     }
-    
-    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count

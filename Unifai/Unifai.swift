@@ -250,6 +250,31 @@ class Unifai{
         }
     }
     
+    static func sendMessage(content : String , imageData : NSData , completion : ((Bool)->())?){
+        Alamofire.upload(.POST, Constants.urlMessage ,headers: self.headers, multipartFormData:{
+                formData in
+            formData.appendBodyPart(data: imageData, name: "file",fileName: "file.png",mimeType: "image/png")
+                formData.appendBodyPart(data: content.dataUsingEncoding(NSUTF8StringEncoding)!, name: "content")
+                formData.appendBodyPart(data: String(MessageType.ImageUpload.rawValue).dataUsingEncoding(NSUTF8StringEncoding)!, name: "type")
+            }, encodingCompletion: { result in
+                switch result {
+                case .Success(let upload, _, _):
+                    upload.responseJSON { response in
+                        completion!(true)
+                    }
+                case .Failure(let encodingError):
+                    print(encodingError)
+                }
+        })
+    }
+    
+    static func getDataForMessage(withID id:String, completion : ((NSData)->())) {
+        Alamofire.request(.GET, Constants.urlFile + id, parameters: [:], headers: self.headers)
+            .responseData(completionHandler: { result in
+                completion(result.data!)
+            })
+    }
+    
     static func deleteThread(thread:String , completion : ((Bool)->())?){
         Alamofire.request(.DELETE , Constants.urlThread + thread , headers:self.headers)
             .responseJSON{ response in

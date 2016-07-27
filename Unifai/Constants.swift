@@ -4,7 +4,7 @@ import UIKit
 class Constants{
     static let appBrandColor = UIColor(red: 0.741, green: 0.404, blue: 0.878, alpha: 1.00)
     
-    static let urlRoot           = "http://178.62.67.171:1989/"
+    static let urlRoot           = "http://127.0.0.1:8000/" // "http://178.62.67.171:1989/"
     static let urlThread         = urlRoot + "thread/"
     static let urlFeed           = urlRoot + "feed/"
     static let urlLogin          = urlRoot + "api-token-auth/"
@@ -21,4 +21,5 @@ class Constants{
     static let urlDashboardItems = urlRoot + "dashboard/items/"
     static let urlAuthCode       = urlRoot + "auth-code/"
     static let urlCatalog        = urlRoot  + "catalog/"
+    static let urlFile           = urlRoot  + "file/"
 }

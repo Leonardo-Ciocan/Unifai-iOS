@@ -70,8 +70,6 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
         activtyControl.startAnimating()
         self.tableView.alpha = 0
         
-        setNeedsStatusBarAppearanceUpdate()
-        
 //
 //        let pinnedMessageHolder = UI()
 //        pinnedMessageHolder.backgroundColor = UIColor.whiteColor()
@@ -166,6 +164,9 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
             
         })
     }
+    @IBAction func doneTapped(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     func handleRefresh(refreshControl: UIRefreshControl) {
         loadData(self.service)
@@ -174,17 +175,11 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
     var selectedRow = 0
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedRow = indexPath.row
-        self.performSegueWithIdentifier("toThread", sender: self)
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "toThread"{
-            let destination = segue.destinationViewController as! ThreadViewController
-            destination.loadData(messages[selectedRow - 1].threadID!)
-        }
-        else if segue.identifier == "toCompose"{
-            
-        }
+        
+        guard let detailVC = UIStoryboard(name: "Thread", bundle: nil).instantiateViewControllerWithIdentifier("ThreadViewController") as? ThreadViewController else { return }
+        
+        detailVC.loadData(messages[selectedRow - 1].threadID!)
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

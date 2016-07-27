@@ -90,7 +90,7 @@ enum Position {
         
         //view.backgroundColor = currentTheme.backgroundColor
         self.backgroundColor = currentTheme.backgroundColor
-        
+        view.layer.masksToBounds = true
        buttons.append(btnAction)
        buttons.append(btnImage)
        buttons.append(btnCamera)
@@ -255,6 +255,15 @@ enum Position {
     
    
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        self.textBoxLeftConstraint.constant = 52
+        self.imageLeftConstraint.constant = -110
+        UIView.animateWithDuration(0.7, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations:
+            { [weak self] in
+                self!.layoutIfNeeded()
+            }
+            , completion: { _ in
+                
+        })
         parentViewController!.dismissViewControllerAnimated(true, completion: nil)
     }
     

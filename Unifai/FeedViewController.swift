@@ -122,7 +122,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     
     override func viewDidAppear(animated: Bool) {
         //Theme setup
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.blackColor()]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : currentTheme.foregroundColor]
         self.view.backgroundColor = currentTheme.backgroundColor
         self.tableView.backgroundColor = currentTheme.backgroundColor
         self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
@@ -249,36 +249,16 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         cell.selectionStyle = .None
         cell.shouldShowText = !Settings.onlyTextOnFeed
         cell.setMessage(messages[indexPath.row] , shouldShowThreadCount: true)
-        cell.imgLogo.addTarget(self, action: #selector(imageTapped), forControlEvents: .TouchUpInside)
 
         cell.accessoryView = cell.imgLogo as UIView
         cell.imgLogo.contentMode = .ScaleAspectFit
         cell.imgLogo.userInteractionEnabled = true
-        cell.imgLogo.tag = indexPath.row
-        
-        if let imgView = cell.imgView {
-            let singleTap = UITapGestureRecognizer(target: self, action:#selector(payloadImageTapped))
-            singleTap.numberOfTapsRequired = 1
-            imgView.userInteractionEnabled = true
-            imgView.addGestureRecognizer(singleTap)
-        }
+        cell.parentViewController = self
         
         return cell
     }
     
-    func payloadImageTapped(senderA:UITapGestureRecognizer){
-        let sender = senderA.view as! UIImageView
-        let imageInfo      = GSImageInfo(image: sender.image!, imageMode: .AspectFit, imageHD: nil)
-        let transitionInfo = GSTransitionInfo(fromView: sender)
-        let imageViewer    = GSImageViewerController(imageInfo: imageInfo, transitionInfo: transitionInfo)
-        self.presentViewController(imageViewer, animated: true, completion: nil)
-    }
     
-    func imageTapped(sender: UIButton) {
-        selectedRow = sender.tag
-        self.mainSplitView.selectedMessage = messages[selectedRow]
-        self.splitViewController!.performSegueWithIdentifier("toProfile", sender: self)
-    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count

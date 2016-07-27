@@ -49,6 +49,9 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         self.messageCreator.creatorDelegate = self
         self.messageCreator.assistant = creatorAssistant
         self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 49 + 100))
+        
+        messageCreator.parentViewController = self
+        
         NSNotificationCenter.defaultCenter().addObserver(self,
                                                          selector: #selector(keyboardWillShow),
                                                          name: UIKeyboardDidShowNotification,
@@ -95,18 +98,9 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell") as! MessageCell
         cell.selectionStyle = .None
         cell.setMessage(messages[indexPath.row] , shouldShowThreadCount: false)
-        if let imgView = cell.imgView {
-            let singleTap = UITapGestureRecognizer(target: self, action:#selector(payloadImageTapped))
-            singleTap.numberOfTapsRequired = 1
-            imgView.userInteractionEnabled = true
-            imgView.addGestureRecognizer(singleTap)
-        }
         
         
-        cell.txtBody.handleURLTap({url in
-            let svc = SFSafariViewController(URL: url)
-            self.presentViewController(svc, animated: true, completion: nil)
-        })
+        cell.parentViewController = self
         
         return cell
     }

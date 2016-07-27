@@ -65,6 +65,7 @@ class MessageCell: UITableViewCell {
         txtBody.textColor = currentTheme.foregroundColor
         txtName.textColor = currentTheme.foregroundColor
         
+        payloadContainer.backgroundColor = UIColor.clearColor()
         
         
     }
@@ -136,6 +137,11 @@ class MessageCell: UITableViewCell {
         
         self.payloadContainer.backgroundColor = currentTheme.backgroundColor
         
+        txtBody.handleURLTap({url in
+            let svc = SFSafariViewController(URL: url)
+            self.parentViewController!.presentViewController(svc, animated: true, completion: nil)
+        })
+        
         if(message.type == .Text){
             self.payloadContainerHeight.constant = 0
         }
@@ -169,6 +175,11 @@ class MessageCell: UITableViewCell {
                 make.trailing.leading.equalTo(0)
                 make.bottom.top.equalTo(0)
             })
+            
+            let singleTap = UITapGestureRecognizer(target: self, action:#selector(payloadImageTapped))
+            singleTap.numberOfTapsRequired = 1
+            imageView.userInteractionEnabled = true
+            imageView.addGestureRecognizer(singleTap)
             
             
         }
@@ -318,6 +329,14 @@ class MessageCell: UITableViewCell {
         }
     }
     
+    func payloadImageTapped(senderA:UITapGestureRecognizer){
+        let sender = senderA.view as! UIImageView
+        let imageInfo      = GSImageInfo(image: sender.image!, imageMode: .AspectFit, imageHD: nil)
+        let transitionInfo = GSTransitionInfo(fromView: sender)
+        let imageViewer    = GSImageViewerController(imageInfo: imageInfo, transitionInfo: transitionInfo)
+        self.parentViewController!.presentViewController(imageViewer, animated: true, completion: nil)
+    }
+    
     func onCardTapped(recon:UITapGestureRecognizer){
         let view = recon.view as! CardView
         let svc = SFSafariViewController(URL: NSURL(string: view.navigateURL)!)
@@ -354,5 +373,23 @@ class MessageCell: UITableViewCell {
         
     }
 
+    @IBAction func profilePictureTapped(sender: AnyObject) {
+        guard self.message?.service != nil else { return }
+        let profileVC = UIStoryboard(name: "Feed", bundle: nil).instantiateViewControllerWithIdentifier("profile") as! ServiceProfileViewcontroller
+        profileVC.loadData(self.message!.service)
+        let nav = UINavigationController(rootViewController: profileVC)
+        
+        nav.modalPresentationStyle = .Popover
+        let viewForSource = sender as! UIView
+        nav.popoverPresentationController!.sourceView = viewForSource
+        
+        // the position of the popover where it's showed
+        nav.popoverPresentationController!.sourceRect = viewForSource.bounds
+        
+        // the size you want to display
+        nav.preferredContentSize = CGSizeMake(300,450)
+        
+        self.parentViewController!.presentViewController(nav, animated: true, completion: nil)
+    }
     
 }

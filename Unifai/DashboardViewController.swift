@@ -95,18 +95,12 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell") as! MessageCell
         cell.selectionStyle = .None
         cell.setMessage(messages[indexPath.row])
-        cell.imgLogo.addTarget(self, action: #selector(imageTapped), forControlEvents: .TouchUpInside)
         
-        cell.accessoryView = cell.imgLogo as UIView
         cell.imgLogo.contentMode = .ScaleAspectFit
         cell.imgLogo.userInteractionEnabled = true
         cell.hideTime = true
         cell.parentViewController = self
         return cell
-    }
-    
-    func imageTapped(sender: UITapGestureRecognizer) {
-        self.performSegueWithIdentifier("toProfile", sender: self)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

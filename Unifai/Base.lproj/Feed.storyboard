@@ -110,6 +110,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="assistantBottomConstraint" destination="3au-6j-chD" id="5TM-Wk-jw1"/>
+                        <outlet property="btnCatalog" destination="e7A-fo-b5U" id="Smd-mV-cWo"/>
                         <outlet property="creatorAssistant" destination="5Dl-9b-TOG" id="f70-H6-QTt"/>
                         <outlet property="tableView" destination="kne-SX-8Hu" id="mbl-jU-b67"/>
                         <segue destination="dAm-DF-bdC" kind="presentation" identifier="toCatalog" id="7Qq-7M-Qti"/>

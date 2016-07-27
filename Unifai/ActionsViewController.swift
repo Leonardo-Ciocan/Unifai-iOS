@@ -61,6 +61,11 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         //self.navigationController?.pushViewController(NewActionController(), animated: true)
         let creator = ActionCreatorViewController()
         creator.delegate = self
+        creator.modalPresentationStyle = .Popover
+        creator.popoverPresentationController!.barButtonItem = sender as! UIBarButtonItem
+        
+        
+        creator.preferredContentSize = CGSizeMake(300,250)
         self.presentViewController(creator, animated: true, completion: nil)
     }
     
@@ -104,10 +109,14 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         return cell
     }
     
+    func getNumberOfCollumns() -> CGFloat {
+        return UIDevice.currentDevice().userInterfaceIdiom == .Pad ? 5 : 2
+    }
+    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let screenRect = UIScreen.mainScreen().bounds
         let screenWidth = screenRect.size.width
-        let cellWidth = screenWidth / 2.0
+        let cellWidth = screenWidth / getNumberOfCollumns()
         let size = CGSizeMake(cellWidth-10, 100)
         return size
     }
@@ -255,5 +264,6 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
     override func canBecomeFirstResponder() -> Bool {
         return true
     }
+    
     
 }

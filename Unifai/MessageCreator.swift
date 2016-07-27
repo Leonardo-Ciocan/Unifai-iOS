@@ -13,7 +13,7 @@ enum Position {
     case Bottom
 }
 
-@IBDesignable class MessageCreator: UIView , UITextFieldDelegate , UIImagePickerControllerDelegate , UINavigationControllerDelegate , ActionPickerDelegate , CreatorAssistantDelegate {
+@IBDesignable class MessageCreator: UIView , UITextFieldDelegate , UIImagePickerControllerDelegate , UINavigationControllerDelegate , ActionPickerDelegate , CreatorAssistantDelegate , UIPopoverPresentationControllerDelegate {
     
     var suggestions : [String] = [
         "@weather what's the weather like in London?",
@@ -22,6 +22,7 @@ enum Position {
         "@budget all expenses",
         "@reddit front page"
     ]
+    @IBOutlet weak var btnRemove: UIButton!
     
     @IBOutlet weak var btnCamera: UIButton!
     
@@ -126,6 +127,7 @@ enum Position {
         txtMessage.textColor = currentTheme.foregroundColor
         txtMessage.backgroundColor = currentTheme.shadeColor
         
+        btnRemove.roundCorners([.BottomLeft,.BottomRight], radius: 10)
         
         self.backgroundColorView.backgroundColor = currentTheme.backgroundColor
     }
@@ -179,6 +181,16 @@ enum Position {
     @IBAction func runAction(sender: AnyObject) {
         let picker = ActionPickerViewController()
         picker.delegate = self
+        picker.modalPresentationStyle = .Popover
+        let viewForSource = sender as! UIView
+        picker.popoverPresentationController!.sourceView = viewForSource
+        
+        // the position of the popover where it's showed
+        picker.popoverPresentationController!.sourceRect = viewForSource.bounds
+        
+        // the size you want to display
+        picker.preferredContentSize = CGSizeMake(300,350)
+
         self.parentViewController?.presentViewController(picker, animated: true, completion: nil)
     }
     
@@ -203,8 +215,13 @@ enum Position {
         btnAction.tintColor = currentTheme.foregroundColor
         btnCamera.tintColor = currentTheme.foregroundColor
         selectedService(nil, selectedByTapping: false)
-        
+        if imageData != nil {
+            imageData = nil
+            removeAction(self)
+        }
+        assistant!.resetAutocompletion()
     }
+    
     
     @IBAction func textChanged(sender: AnyObject) {
         //assistant?.autocompleteFor(txtMessage.text!)
@@ -214,7 +231,8 @@ enum Position {
     @IBAction func pickImage(sender: AnyObject) {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .PhotoLibrary
-
+        imagePicker.modalPresentationStyle = .Popover
+        
         self.textBoxLeftConstraint.constant = 135
         self.imageLeftConstraint.constant = 15
         UIView.animateWithDuration(0.7, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations:
@@ -222,11 +240,19 @@ enum Position {
                 self!.layoutIfNeeded()
             }
             , completion: { _ in
+                let viewForSource = sender as! UIView
+                self.imagePicker.popoverPresentationController!.sourceView = viewForSource
+                
+                // the position of the popover where it's showed
+                self.imagePicker.popoverPresentationController!.sourceRect = viewForSource.bounds
+                
+                // the size you want to display
+                self.imagePicker.preferredContentSize = CGSizeMake(200,500)
+                self.imagePicker.popoverPresentationController!.delegate = self
                 self.parentViewController!.presentViewController(self.imagePicker, animated: true, completion: nil)
             })
-        
-        
     }
+    
    
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         parentViewController!.dismissViewControllerAnimated(true, completion: nil)

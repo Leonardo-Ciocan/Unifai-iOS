@@ -70,6 +70,8 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
         activtyControl.startAnimating()
         self.tableView.alpha = 0
         
+        setNeedsStatusBarAppearanceUpdate()
+        
 //
 //        let pinnedMessageHolder = UI()
 //        pinnedMessageHolder.backgroundColor = UIColor.whiteColor()

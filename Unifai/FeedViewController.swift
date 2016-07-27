@@ -24,6 +24,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     let doneButton = UIBarButtonItem()
     var creator : MessageCreator?
     
+    @IBOutlet weak var btnCatalog: UIBarButtonItem!
     @IBOutlet weak var assistantBottomConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         //Theme setup
@@ -121,6 +122,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     
     override func viewDidAppear(animated: Bool) {
         //Theme setup
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.blackColor()]
         self.view.backgroundColor = currentTheme.backgroundColor
         self.tableView.backgroundColor = currentTheme.backgroundColor
         self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
@@ -357,6 +359,14 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     func keyboardWillBeHidden(notification: NSNotification)
     {
         assistantBottomConstraint.constant = 0
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        segue.destinationViewController.modalPresentationStyle = .Popover
+        segue.destinationViewController.popoverPresentationController!.barButtonItem = btnCatalog
+        
+        
+        segue.destinationViewController.preferredContentSize = CGSizeMake(400,550)
     }
 
     

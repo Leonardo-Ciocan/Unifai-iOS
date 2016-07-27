@@ -49,6 +49,9 @@ class ActionPickerViewController: UIViewController , UICollectionViewDataSource 
         self.serviceOrder = []
         for action in actions {
             let service = extractService(action.message)
+            if service == nil {
+                continue
+            }
             if !serviceOrder.contains(service!) {
                 serviceOrder.append(service!)
             }
@@ -94,7 +97,7 @@ class ActionPickerViewController: UIViewController , UICollectionViewDataSource 
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let screenRect = UIScreen.mainScreen().bounds
+        let screenRect = self.collectionView.frame
         let screenWidth = screenRect.size.width
         let cellWidth = screenWidth / 2.0
         let size = CGSizeMake(cellWidth-15, 100)

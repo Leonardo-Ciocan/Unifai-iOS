@@ -80,4 +80,11 @@ class CreatorAssistant: UIView , AutoCompletionServicesDelegate , AutoCompletion
         self.delegate?.didSelectAutocompletion(message)
     }
     
+    func resetAutocompletion(){
+        serviceAutoCompleteView.hidden = false
+        suggestionsView.hidden = true
+        serviceAutoCompleteView.filterServices("")
+        suggestionsView.filterSuggestionsWithKeywords([])
+    }
+    
 }

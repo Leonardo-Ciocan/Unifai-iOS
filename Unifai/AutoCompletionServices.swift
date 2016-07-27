@@ -87,7 +87,7 @@ class AutoCompletionServices: UIView , UICollectionViewDelegateFlowLayout , UICo
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let size = UIScreen.mainScreen().bounds
+        let size = self.collectionView.frame
         return CGSize(width: size.width/4, height: size.width/4 + 25)
     }
     

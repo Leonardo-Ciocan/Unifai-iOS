@@ -17,6 +17,7 @@
                 <outlet property="btnAction" destination="sYz-XV-UGd" id="Fy2-E8-CVj"/>
                 <outlet property="btnImage" destination="WfG-SM-T08" id="miw-Sp-zDR"/>
                 <outlet property="btnSend" destination="nl8-sp-AmQ" id="qsT-sR-y2F"/>
+                <outlet property="btnSendTrailingConstraint" destination="3kf-3S-JrH" id="Dka-YP-9TI"/>
                 <outlet property="imageLeftConstraint" destination="U4h-nM-NTa" id="Hjw-0K-xnf"/>
                 <outlet property="imageView" destination="oa3-Ov-mFo" id="xwM-da-VFl"/>
                 <outlet property="shadowView" destination="qqO-Fs-gtC" id="DXy-Ys-wIl"/>
@@ -66,10 +67,10 @@
                         <action selector="pickImage:" destination="-1" eventType="touchUpInside" id="lFr-Ba-Oq3"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2s-zU-Egz">
-                    <rect key="frame" x="15" y="16" width="38" height="32"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2s-zU-Egz">
+                    <rect key="frame" x="1" y="20" width="52" height="32"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="38" id="kZH-dh-XQ3"/>
+                        <constraint firstAttribute="width" constant="52" id="kZH-dh-XQ3"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="20"/>
                     <state key="normal" title="">
@@ -106,8 +107,9 @@
                 <constraint firstItem="IKx-1q-xa8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0vE-wh-6nE"/>
                 <constraint firstItem="sYz-XV-UGd" firstAttribute="top" secondItem="NCR-md-uoR" secondAttribute="bottom" constant="8" id="1jp-4Y-F3k"/>
                 <constraint firstItem="WfG-SM-T08" firstAttribute="top" secondItem="NCR-md-uoR" secondAttribute="bottom" constant="8" id="3Az-zC-2BX"/>
-                <constraint firstAttribute="trailing" secondItem="nl8-sp-AmQ" secondAttribute="trailing" constant="15" id="3kf-3S-JrH"/>
+                <constraint firstAttribute="trailing" secondItem="nl8-sp-AmQ" secondAttribute="trailing" constant="-25" id="3kf-3S-JrH"/>
                 <constraint firstItem="NCR-md-uoR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="9Bg-vm-p7s"/>
+                <constraint firstItem="nl8-sp-AmQ" firstAttribute="leading" secondItem="NCR-md-uoR" secondAttribute="trailing" constant="15" id="9FP-xN-F4B"/>
                 <constraint firstItem="NCR-md-uoR" firstAttribute="leading" secondItem="s2s-zU-Egz" secondAttribute="trailing" constant="-1" id="CB8-EF-0RR"/>
                 <constraint firstItem="qqO-Fs-gtC" firstAttribute="width" secondItem="oa3-Ov-mFo" secondAttribute="width" id="COy-y1-GNb"/>
                 <constraint firstItem="gRz-Nj-9hP" firstAttribute="leading" secondItem="nl8-sp-AmQ" secondAttribute="leading" id="ELr-vM-R7j"/>
@@ -135,6 +137,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="FSz-Km-yoG"/>
                     <exclude reference="ELr-vM-R7j"/>
                     <exclude reference="dee-7W-lyb"/>
                 </mask>

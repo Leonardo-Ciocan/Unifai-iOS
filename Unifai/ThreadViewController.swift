@@ -13,6 +13,8 @@ import SafariServices
 import UIKit
 
 class ThreadViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , MessageCreatorDelegate  {
+    
+    
     @IBOutlet weak var creatorAssistant: CreatorAssistant!
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!

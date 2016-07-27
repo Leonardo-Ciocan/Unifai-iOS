@@ -23,6 +23,9 @@ enum Position {
         "@reddit front page"
     ]
     
+    
+    @IBOutlet weak var btnSendTrailingConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var shadowView: UIView!
     
@@ -264,6 +267,13 @@ enum Position {
         UIView.animateWithDuration(0.5, animations: {
             self.assistant?.alpha = 1
         })
+        
+        btnSend.alpha = 0
+        btnSendTrailingConstraint.constant = 15
+        UIView.animateWithDuration(0.7, animations: {
+            self.layoutIfNeeded()
+            self.btnSend.alpha = 1
+        })
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
@@ -272,6 +282,12 @@ enum Position {
                 self.assistant?.alpha = 0
             }, completion: { _ in
                 self.assistant?.hidden = true
+        })
+        
+        btnSendTrailingConstraint.constant = -25
+        UIView.animateWithDuration(0.7, animations: {
+            self.layoutIfNeeded()
+            self.btnSend.alpha = 0
         })
     }
 }

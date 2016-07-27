@@ -72,6 +72,8 @@
 		B3B0E72E1D45393200DAE0BF /* AutoCompletionSuggestions.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3B0E72D1D45393200DAE0BF /* AutoCompletionSuggestions.xib */; };
 		B3B0E7311D4544A400DAE0BF /* SuggestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B0E72F1D4544A400DAE0BF /* SuggestionCell.swift */; };
 		B3B0E7321D4544A400DAE0BF /* SuggestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3B0E7301D4544A400DAE0BF /* SuggestionCell.xib */; };
+		B3C07F861D483D5200BF2238 /* SuggestionsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C07F851D483D5200BF2238 /* SuggestionsHeader.swift */; };
+		B3C07F881D483D6000BF2238 /* SuggestionsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3C07F871D483D6000BF2238 /* SuggestionsHeader.xib */; };
 		B3C4F5DD1D441CBE00332FF9 /* AutocompletionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C4F5DC1D441CBE00332FF9 /* AutocompletionUtil.swift */; };
 		B3D6FB2F1D3ACFD70090502F /* ActionsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D6FB2E1D3ACFD70090502F /* ActionsHeader.swift */; };
 		B3D721251D00CF4700BFEEC2 /* TestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D721241D00CF4700BFEEC2 /* TestingViewController.swift */; };
@@ -205,6 +207,8 @@
 		B3B0E72D1D45393200DAE0BF /* AutoCompletionSuggestions.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutoCompletionSuggestions.xib; sourceTree = "<group>"; };
 		B3B0E72F1D4544A400DAE0BF /* SuggestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionCell.swift; sourceTree = "<group>"; };
 		B3B0E7301D4544A400DAE0BF /* SuggestionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuggestionCell.xib; sourceTree = "<group>"; };
+		B3C07F851D483D5200BF2238 /* SuggestionsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionsHeader.swift; sourceTree = "<group>"; };
+		B3C07F871D483D6000BF2238 /* SuggestionsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuggestionsHeader.xib; sourceTree = "<group>"; };
 		B3C4F5DC1D441CBE00332FF9 /* AutocompletionUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompletionUtil.swift; sourceTree = "<group>"; };
 		B3D6FB2E1D3ACFD70090502F /* ActionsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionsHeader.swift; sourceTree = "<group>"; };
 		B3D721241D00CF4700BFEEC2 /* TestingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingViewController.swift; sourceTree = "<group>"; };
@@ -326,6 +330,8 @@
 				B3B0E72D1D45393200DAE0BF /* AutoCompletionSuggestions.xib */,
 				B3B0E72F1D4544A400DAE0BF /* SuggestionCell.swift */,
 				B3B0E7301D4544A400DAE0BF /* SuggestionCell.xib */,
+				B3C07F851D483D5200BF2238 /* SuggestionsHeader.swift */,
+				B3C07F871D483D6000BF2238 /* SuggestionsHeader.xib */,
 			);
 			name = MessageCreator;
 			sourceTree = "<group>";
@@ -619,6 +625,7 @@
 				B31BD9331D003EC4001B3875 /* AuthViewController.xib in Resources */,
 				B350B92A1D3868BB00FADBB6 /* ActionCreatorViewController.xib in Resources */,
 				B3D7212C1D01987100BFEEC2 /* Settings.storyboard in Resources */,
+				B3C07F881D483D6000BF2238 /* SuggestionsHeader.xib in Resources */,
 				B3131F521D39A1EE00461C12 /* ProgressView.xib in Resources */,
 				B3D721291D00DD9F00BFEEC2 /* CardView.xib in Resources */,
 				B363CF8E1CCEEBB300B6182D /* Assets.xcassets in Resources */,
@@ -722,6 +729,7 @@
 				B363CFBE1CCEF52600B6182D /* Service.swift in Sources */,
 				B3D6FB2F1D3ACFD70090502F /* ActionsHeader.swift in Sources */,
 				B3EA79A11D387924000C40DE /* PaddedTextField.swift in Sources */,
+				B3C07F861D483D5200BF2238 /* SuggestionsHeader.swift in Sources */,
 				B32BDC9D1CFBA17900C18AFE /* DashboardEditorViewController.swift in Sources */,
 				B341EFB71D42C17E004604A7 /* AutoCompletionServices.swift in Sources */,
 				B341EFBC1D42C26F004604A7 /* AutoCompletionServiceCell.swift in Sources */,

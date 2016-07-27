@@ -293,14 +293,15 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     let spinner = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
     var barItem : UIBarButtonItem?
     @IBAction func toCatalog(sender: AnyObject) {
-        barItem = sender as! UIBarButtonItem
-        spinner.startAnimating()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: spinner)
-        Unifai.getCatalog({ catalog in
-                Core.Catalog = catalog
-                self.performSegueWithIdentifier("toCatalog", sender: self)
-                self.navigationItem.rightBarButtonItem = self.barItem
-        })
+        self.performSegueWithIdentifier("toCatalog", sender: self)
+//
+//        barItem = sender as! UIBarButtonItem
+//        spinner.startAnimating()
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: spinner)
+//        Unifai.getCatalog({ catalog in
+//                Core.Catalog = catalog
+//                self.navigationItem.rightBarButtonItem = self.barItem
+//        })
     }
     
     
@@ -317,7 +318,6 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     func didFinishWirting() {
         self.navigationItem.leftBarButtonItem = nil
     }
-    
     
     func chooseAction() {
         let menu = UIAlertController(title: "Run an action", message: "", preferredStyle: .ActionSheet)

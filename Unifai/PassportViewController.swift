@@ -31,6 +31,7 @@ class PassportViewController: UIViewController , CLLocationManagerDelegate {
         map.layer.shadowOffset = CGSizeZero
         map.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).CGColor
         map.layer.borderWidth = 1
+        self.view.backgroundColor = currentTheme.backgroundColor
         
         map.showsUserLocation = true
         if (CLLocationManager.locationServicesEnabled())

@@ -41,7 +41,7 @@ class LoginButton: UIView {
         let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
         view.frame = bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        
+        view.backgroundColor = currentTheme.backgroundColor
         
         self.addSubview(view);
     }

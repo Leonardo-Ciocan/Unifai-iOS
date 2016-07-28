@@ -69,6 +69,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RFAboutView-Swift-RFAboutView_Swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RFAboutView-Swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SlackTextViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -107,6 +117,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>0EA24BBE3FE32B2DD9961D157E730430</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>115824B7CB2E76E5ACB836A251E79404</key>
 		<dict>
 			<key>primary</key>
@@ -137,22 +152,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7C648DB717E18DE73F847771E144896D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>7E82EF3158DC7672612EFE46DB8E4C8F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>886C73F1408573C5A056EEDC90A14545</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>88E3917BCBAA74B3AF63D0A7A0434336</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -167,22 +172,37 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E214FD2B3C6FE495B0570FA6E5FD3208</key>
+		<key>C71A0645D0B5E1B02766FF7D96D5FC85</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EEB13AD04B1649492C3AC7536B01EB0D</key>
+		<key>CE9CF38BA75AFDF4E07E50428194C9AF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EFF16ECD9D00DD4AE2CE26A623914F60</key>
+		<key>DC377F09B4C45A31ECA73058DEF12889</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E47E88EA873500115D4DB44CD2F2F9EC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EBF13791B3054A837BC3072386D0EB54</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>F2329606E531AFD5FAA5E200A2533F85</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FB6250634BAC4F946FF0FF9772FC5271</key>
 		<dict>
 			<key>primary</key>
 			<true/>

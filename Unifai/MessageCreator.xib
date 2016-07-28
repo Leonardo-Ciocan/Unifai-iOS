@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="FontAwesome.otf">
@@ -45,7 +44,7 @@
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
-                                <action selector="runAction:" destination="-1" eventType="touchUpInside" id="nUu-yj-XhS"/>
+                                <action selector="takePhoto:" destination="-1" eventType="touchUpInside" id="o3x-Nw-0ci"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sYz-XV-UGd">
@@ -127,7 +126,7 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZI1-Xc-iRC">
-                    <rect key="frame" x="-110" y="62" width="70" height="28"/>
+                    <rect key="frame" x="-110" y="20" width="70" height="70"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.44178082191780821" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="remove">
@@ -153,7 +152,7 @@
                 <constraint firstItem="ZI1-Xc-iRC" firstAttribute="bottom" secondItem="oa3-Ov-mFo" secondAttribute="bottom" id="J39-13-B0e"/>
                 <constraint firstItem="oa3-Ov-mFo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="-110" id="U4h-nM-NTa"/>
                 <constraint firstItem="ZI1-Xc-iRC" firstAttribute="leading" secondItem="oa3-Ov-mFo" secondAttribute="leading" id="YHG-in-PTJ"/>
-                <constraint firstItem="ZI1-Xc-iRC" firstAttribute="height" secondItem="oa3-Ov-mFo" secondAttribute="height" multiplier="0.4" id="amF-ey-KGa"/>
+                <constraint firstItem="ZI1-Xc-iRC" firstAttribute="height" secondItem="oa3-Ov-mFo" secondAttribute="height" id="amF-ey-KGa"/>
                 <constraint firstItem="NCR-md-uoR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="52" id="b6b-z3-kls"/>
                 <constraint firstItem="IKx-1q-xa8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="d6X-wB-yOr"/>
                 <constraint firstItem="RtR-4R-Ix9" firstAttribute="top" secondItem="NCR-md-uoR" secondAttribute="bottom" constant="8" id="j7O-uv-FVZ"/>

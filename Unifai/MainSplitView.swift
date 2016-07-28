@@ -13,6 +13,7 @@ class MainSplitView : UISplitViewController , UISplitViewControllerDelegate {
     
     override func viewDidLoad() {
         self.delegate = self
+        self.view.backgroundColor = currentTheme.backgroundColor
     }
     
     var selectedMessage : Message?

@@ -220,7 +220,6 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     
     
     func loadData(){
-        //this is a feed view
         Unifai.getFeed({ threadMessages in
             self.messages = threadMessages
             self.tableView?.reloadData()

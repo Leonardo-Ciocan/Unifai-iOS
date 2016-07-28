@@ -593,14 +593,14 @@
                         <viewControllerLayoutGuide type="bottom" id="ZSW-jf-Yot"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HrT-hv-t7h">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Epa-An-fe7">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MWr-E7-kiV">
-                                        <rect key="frame" x="32" y="15" width="350" height="478"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MWr-E7-kiV">
+                                        <rect key="frame" x="32" y="15" width="350" height="563"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passport" translatesAutoresizingMaskIntoConstraints="NO" id="Nhx-4v-Jyy">
                                                 <rect key="frame" x="47" y="11" width="256" height="128"/>
@@ -609,8 +609,8 @@
                                                     <constraint firstAttribute="width" secondItem="Nhx-4v-Jyy" secondAttribute="height" multiplier="2:1" id="kdU-aJ-7gm"/>
                                                 </constraints>
                                             </imageView>
-                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PYD-8J-4ec">
-                                                <rect key="frame" x="25" y="268" width="300" height="200"/>
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PYD-8J-4ec">
+                                                <rect key="frame" x="25" y="245" width="300" height="200"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="pWS-py-lvs"/>
                                                 </constraints>
@@ -622,8 +622,20 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3t3-Fa-kj7">
-                                                <rect key="frame" x="25" y="175" width="325" height="63"/>
+                                                <rect key="frame" x="25" y="193" width="300" height="37"/>
                                                 <string key="text">Some services use your location to answer your queries without having to ask you which location you are in. This information is not shared with services outside of Unifai</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CURRENCY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GpT-3V-DNE">
+                                                <rect key="frame" x="25" y="460" width="300" height="21"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Services that deal with money will use this to convert to your local currency" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1t-h9-tw5">
+                                                <rect key="frame" x="25" y="486" width="300" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -631,21 +643,36 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="GpT-3V-DNE" firstAttribute="leading" secondItem="MWr-E7-kiV" secondAttribute="leading" constant="25" id="Ih3-3H-X9T"/>
+                                            <constraint firstItem="GpT-3V-DNE" firstAttribute="top" secondItem="PYD-8J-4ec" secondAttribute="bottom" constant="15" id="J6V-8I-WwQ"/>
+                                            <constraint firstItem="o1t-h9-tw5" firstAttribute="leading" secondItem="GpT-3V-DNE" secondAttribute="leading" id="M9J-x9-gfE"/>
                                             <constraint firstItem="3t3-Fa-kj7" firstAttribute="top" secondItem="fri-8B-70r" secondAttribute="bottom" constant="5" id="MgH-Xt-Cf4"/>
+                                            <constraint firstAttribute="bottom" secondItem="o1t-h9-tw5" secondAttribute="bottom" constant="50" id="Npt-mB-QR0"/>
                                             <constraint firstAttribute="trailing" secondItem="fri-8B-70r" secondAttribute="trailing" constant="25" id="Rnq-EC-CBD"/>
                                             <constraint firstAttribute="trailing" secondItem="PYD-8J-4ec" secondAttribute="trailing" constant="25" id="TWq-fQ-zFW"/>
+                                            <constraint firstItem="o1t-h9-tw5" firstAttribute="trailing" secondItem="GpT-3V-DNE" secondAttribute="trailing" id="UCz-Sy-2Nj"/>
                                             <constraint firstItem="Nhx-4v-Jyy" firstAttribute="centerX" secondItem="MWr-E7-kiV" secondAttribute="centerX" id="Ucs-qk-QBr"/>
                                             <constraint firstItem="PYD-8J-4ec" firstAttribute="leading" secondItem="MWr-E7-kiV" secondAttribute="leading" constant="25" id="bNW-7E-BzE"/>
                                             <constraint firstItem="Nhx-4v-Jyy" firstAttribute="top" secondItem="MWr-E7-kiV" secondAttribute="top" constant="11" id="bwv-Nm-G8l"/>
                                             <constraint firstItem="3t3-Fa-kj7" firstAttribute="trailing" secondItem="fri-8B-70r" secondAttribute="trailing" id="cEa-r3-g3T"/>
+                                            <constraint firstAttribute="trailing" secondItem="GpT-3V-DNE" secondAttribute="trailing" constant="25" id="dzY-ez-RID"/>
+                                            <constraint firstItem="o1t-h9-tw5" firstAttribute="top" secondItem="GpT-3V-DNE" secondAttribute="bottom" constant="5" id="ekw-yx-4cs"/>
                                             <constraint firstItem="PYD-8J-4ec" firstAttribute="top" secondItem="3t3-Fa-kj7" secondAttribute="bottom" constant="15" id="rcf-yr-rHj"/>
+                                            <constraint firstAttribute="trailing" secondItem="o1t-h9-tw5" secondAttribute="trailing" constant="13" id="sxu-SD-j08"/>
                                             <constraint firstItem="fri-8B-70r" firstAttribute="top" secondItem="Nhx-4v-Jyy" secondAttribute="bottom" constant="25" id="tsd-ef-4x4"/>
                                             <constraint firstItem="fri-8B-70r" firstAttribute="leading" secondItem="MWr-E7-kiV" secondAttribute="leading" constant="25" id="uGB-w9-ibx"/>
-                                            <constraint firstAttribute="bottom" secondItem="PYD-8J-4ec" secondAttribute="bottom" constant="10" id="yVX-ah-v3c"/>
                                             <constraint firstItem="3t3-Fa-kj7" firstAttribute="leading" secondItem="fri-8B-70r" secondAttribute="leading" id="ytY-tn-dfX"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="sxu-SD-j08"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="MWr-E7-kiV" secondAttribute="bottom" constant="272" id="pjP-V7-2sP"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -659,6 +686,8 @@
                             <constraint firstItem="Epa-An-fe7" firstAttribute="top" secondItem="HrT-hv-t7h" secondAttribute="top" id="dbM-2F-ZBP"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="1000"/>
                     <connections>
                         <outlet property="map" destination="PYD-8J-4ec" id="oao-zl-Jon"/>
                         <outlet property="passportView" destination="MWr-E7-kiV" id="KKf-qV-CUM"/>
@@ -666,7 +695,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cKt-AT-XRB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1880" y="90.5"/>
+            <point key="canvasLocation" x="1880" y="90"/>
         </scene>
     </scenes>
     <resources>

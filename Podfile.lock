@@ -13,6 +13,7 @@ PODS:
   - GSImageViewerController (1.1.1)
   - MaterialDesignSymbol (1.7)
   - OAuthSwift (0.5.2)
+  - RFAboutView-Swift (1.0.13)
   - SlackTextViewController (1.9.2)
   - SnapKit (0.15.0)
   - SwiftyJSON (2.3.2)
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - GSImageViewerController
   - MaterialDesignSymbol
   - OAuthSwift (~> 0.5.0)
+  - RFAboutView-Swift (~> 1.0.13)
   - SlackTextViewController
   - SnapKit (~> 0.15.0)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
@@ -58,6 +60,7 @@ SPEC CHECKSUMS:
   GSImageViewerController: 1fd7ff9210bca2eaaeb89811c55230b575377143
   MaterialDesignSymbol: 8216d8587ff04b8d0d110a9a02eb53ea94174328
   OAuthSwift: 1ef042d4362e755e24a78f158d817245641a5d24
+  RFAboutView-Swift: 744c159dfa3c59e967dc191f4de0973b131d5ff9
   SlackTextViewController: bac3350ccc639bc446bb14cbd09da238f5e01f32
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a

@@ -219,6 +219,14 @@ class Unifai{
     }
     
     
+    static func updatePassportLocation(withLatitude latitude : String , longitude : String){
+        Alamofire.request(.POST , Constants.urlPassportLocation ,
+            parameters: ["latitude":latitude , "longitude" : longitude], headers:self.headers)
+            .responseJSON{ response in
+        }
+    }
+    
+    
     static func runAction(action : Action , completion : ((Message)->())?){
         
         Alamofire.request(.POST , Constants.urlRunAction ,

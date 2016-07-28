@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'EBC0CC1DEE25C192AA4D25B4'
+               BlueprintIdentifier = '77FB79482F53EF49FB790278'
                BlueprintName = 'AlertOnboarding-AlertOnboardingXib'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'AlertOnboardingXib.bundle'>

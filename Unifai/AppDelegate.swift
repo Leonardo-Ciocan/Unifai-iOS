@@ -1,5 +1,6 @@
 import UIKit
-import OAuthSwift
+import MapKit
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,13 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Settings.setup()
         
-        
+        updateLocation()
+
         return true
     }
     
     func applicationDidFinishLaunching(application: UIApplication) {
-        //UITabBar.appearance().shadowImage = UIImage()
-        //UITabBar.appearance().backgroundImage = UIImage()
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -44,12 +44,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    let locManager = CLLocationManager()
 
-    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
-        if (url.host == "oauth-callback") {
-            OAuthSwift.handleOpenURL(url)
+    func updateLocation() {
+        locManager.requestWhenInUseAuthorization()
+        
+        if( CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse ){
+            if let currentLocation = (locManager.location?.coordinate) {
+                Unifai.updatePassportLocation(withLatitude:  String(currentLocation.latitude) , longitude: String(currentLocation.longitude))
+            }
         }
-        return true
+        
+        NSTimer.scheduledTimerWithTimeInterval(180, target: self, selector: #selector(updateLocation), userInfo: nil, repeats: true)
     }
 }
 

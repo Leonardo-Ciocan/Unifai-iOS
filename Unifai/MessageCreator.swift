@@ -127,9 +127,14 @@ enum Position {
         txtMessage.textColor = currentTheme.foregroundColor
         txtMessage.backgroundColor = currentTheme.shadeColor
         
-        btnRemove.roundCorners([.BottomLeft,.BottomRight], radius: 10)
         
         self.backgroundColorView.backgroundColor = currentTheme.backgroundColor
+    }
+    
+    override func layoutSubviews() {
+        //btnRemove.roundCorners([.BottomLeft,.BottomRight], radius: 10)
+        btnRemove.layer.cornerRadius = 5
+        btnRemove.layer.masksToBounds = true
     }
     
     func selectedService(service: Service? , selectedByTapping : Bool) {
@@ -321,6 +326,30 @@ enum Position {
             }
             , completion: { _ in
                 
+        })
+    }
+    @IBAction func takePhoto(sender: AnyObject) {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .Camera
+        imagePicker.modalPresentationStyle = .Popover
+        
+        self.textBoxLeftConstraint.constant = 135
+        self.imageLeftConstraint.constant = 15
+        UIView.animateWithDuration(0.7, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations:
+            { [weak self] in
+                self!.layoutIfNeeded()
+            }
+            , completion: { _ in
+                let viewForSource = sender as! UIView
+                self.imagePicker.popoverPresentationController!.sourceView = viewForSource
+                
+                // the position of the popover where it's showed
+                self.imagePicker.popoverPresentationController!.sourceRect = viewForSource.bounds
+                
+                // the size you want to display
+                self.imagePicker.preferredContentSize = CGSizeMake(200,500)
+                self.imagePicker.popoverPresentationController!.delegate = self
+                self.parentViewController!.presentViewController(self.imagePicker, animated: true, completion: nil)
         })
     }
 }

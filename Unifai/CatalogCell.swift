@@ -34,7 +34,7 @@ class CatalogCell: UICollectionViewCell , UITableViewDelegate , UITableViewDataS
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 350))
         
         tableView.layer.cornerRadius = 10
-        self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 50))
+        self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
         tableView.layer.masksToBounds = true
     }
     

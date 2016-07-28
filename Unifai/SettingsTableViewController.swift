@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RFAboutView_Swift
 
 class SettingsTableViewController: UITableViewController , SettingsListDelegate {
 
@@ -53,8 +54,40 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
             self.presentingViewController?.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
             return
         }
-        
-        if(id == "textSize"){
+        else if id == "deleteCache" {
+            do {
+                let paths = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(Cache.cacheFolder.path!)
+                for path in paths
+                {
+                    try NSFileManager.defaultManager().removeItemAtPath("\(Cache.cacheFolder.path!)/\(path)")
+                }
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+            self.txtCacheSize.text = "0KB"
+            return
+        }
+        else if id == "about" {
+            let aboutNav = UINavigationController()
+            
+            // Initialise the RFAboutView:
+            
+            let aboutView = RFAboutViewController(copyrightHolderName: "Unifai", contactEmail: "unifai@outlook.com", contactEmailTitle: "Contact us", websiteURL: NSURL(string: "http://unifai.xyz"), websiteURLTitle: "Our Website")
+            
+            
+            aboutView.headerBackgroundColor = Constants.appBrandColor
+            aboutView.headerTextColor = .whiteColor()
+            aboutView.blurStyle = .Dark
+            aboutView.headerBackgroundImage = UIImage(named: "unifai")
+            
+            // Add the aboutView to the NavigationController:
+            aboutNav.setViewControllers([aboutView], animated: false)
+            
+            // Present the navigation controller:
+            self.presentViewController(aboutNav, animated: true, completion: nil)
+            return
+        }
+        else if(id == "textSize"){
             items = textSizeItems
             selected = Settings.textSize
         }

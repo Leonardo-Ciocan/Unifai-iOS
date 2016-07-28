@@ -14,6 +14,7 @@
 		B30743801D2C4EFE00A9CD0E /* CatalogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B307437E1D2C4EFE00A9CD0E /* CatalogCell.xib */; };
 		B30743831D2C592400A9CD0E /* CatalogItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30743811D2C592400A9CD0E /* CatalogItemCell.swift */; };
 		B30743841D2C592400A9CD0E /* CatalogItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B30743821D2C592400A9CD0E /* CatalogItemCell.xib */; };
+		B30C03371D498A3900DE7478 /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = B30C03361D498A3900DE7478 /* Acknowledgements.plist */; };
 		B3131F4E1D395BA000461C12 /* CatalogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3131F4D1D395BA000461C12 /* CatalogItem.swift */; };
 		B3131F501D39A1D400461C12 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3131F4F1D39A1D400461C12 /* ProgressView.swift */; };
 		B3131F521D39A1EE00461C12 /* ProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3131F511D39A1EE00461C12 /* ProgressView.xib */; };
@@ -139,6 +140,7 @@
 		B307437E1D2C4EFE00A9CD0E /* CatalogCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CatalogCell.xib; sourceTree = "<group>"; };
 		B30743811D2C592400A9CD0E /* CatalogItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogItemCell.swift; sourceTree = "<group>"; };
 		B30743821D2C592400A9CD0E /* CatalogItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CatalogItemCell.xib; sourceTree = "<group>"; };
+		B30C03361D498A3900DE7478 /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Acknowledgements.plist; path = "Pods/Target Support Files/Pods-Unifai/Acknowledgements.plist"; sourceTree = "<group>"; };
 		B3131F4D1D395BA000461C12 /* CatalogItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogItem.swift; sourceTree = "<group>"; };
 		B3131F4F1D39A1D400461C12 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		B3131F511D39A1EE00461C12 /* ProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressView.xib; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 		B363CF781CCEEBB300B6182D = {
 			isa = PBXGroup;
 			children = (
+				B30C03361D498A3900DE7478 /* Acknowledgements.plist */,
 				B363CFB41CCEECA600B6182D /* Podfile */,
 				B363CF831CCEEBB300B6182D /* Unifai */,
 				B363CF9A1CCEEBB300B6182D /* UnifaiTests */,
@@ -616,6 +619,7 @@
 				B30743841D2C592400A9CD0E /* CatalogItemCell.xib in Resources */,
 				B35598751D37F5F7002F4C59 /* ActionRunnerPage.xib in Resources */,
 				B3F7B00B1CF93F0E00734F9B /* Feed.storyboard in Resources */,
+				B30C03371D498A3900DE7478 /* Acknowledgements.plist in Resources */,
 				B3D721341D01A47000BFEEC2 /* DefaultSettings.plist in Resources */,
 				B341EFB91D42C191004604A7 /* AutoCompletionServices.xib in Resources */,
 				B30743801D2C4EFE00A9CD0E /* CatalogCell.xib in Resources */,

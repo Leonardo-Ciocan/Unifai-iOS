@@ -41,7 +41,6 @@ class MessageCell: UITableViewCell {
         }
     }
     
-    
     var shouldShowText = true
     
     

@@ -15,13 +15,7 @@ enum Position {
 
 @IBDesignable class MessageCreator: UIView , UITextFieldDelegate , UIImagePickerControllerDelegate , UINavigationControllerDelegate , ActionPickerDelegate , CreatorAssistantDelegate , UIPopoverPresentationControllerDelegate {
     
-    var suggestions : [String] = [
-        "@weather what's the weather like in London?",
-        "@travel what's the cheapest flight from London to France?",
-        "@budget total for vacations",
-        "@budget all expenses",
-        "@reddit front page"
-    ]
+    @IBOutlet weak var btnGenius: UIButton!
     @IBOutlet weak var btnRemove: UIButton!
     
     @IBOutlet weak var btnCamera: UIButton!
@@ -80,6 +74,7 @@ enum Position {
     
     @IBOutlet weak var imageLeftConstraint: NSLayoutConstraint!
     @IBOutlet weak var textBoxLeftConstraint: NSLayoutConstraint!
+    
     func loadViewFromNib() {
         let bundle = NSBundle(forClass: self.dynamicType)
         let nib = UINib(nibName: "MessageCreator", bundle: bundle)
@@ -101,7 +96,7 @@ enum Position {
             forControlEvents: UIControlEvents.EditingChanged
         )
         txtMessage.delegate = self
-        txtMessage.attributedPlaceholder = NSAttributedString(string:suggestions[0],
+        txtMessage.attributedPlaceholder = NSAttributedString(string:"Ask us anything",
                                                              attributes:[NSForegroundColorAttributeName: currentTheme.secondaryForegroundColor])
         NSTimer.scheduledTimerWithTimeInterval(8, target: self, selector: #selector(nextSuggestion), userInfo: nil, repeats: true)
         imagePicker.delegate = self
@@ -127,8 +122,19 @@ enum Position {
         txtMessage.textColor = currentTheme.foregroundColor
         txtMessage.backgroundColor = currentTheme.shadeColor
         
+        btnGenius.tintColor = currentTheme.foregroundColor
+        btnGenius.imageView?.contentMode = .ScaleAspectFit
         
         self.backgroundColorView.backgroundColor = currentTheme.backgroundColor
+    }
+    
+    var suggestions : [String] = []
+    func getRandomCatalogItem() -> String {
+        if suggestions.isEmpty {
+            suggestions = Array(Core.Catalog.values).flatten().map({ $0.message}).filter({ !$0.isEmpty })
+        }
+        let n = arc4random_uniform(UInt32(suggestions.count))
+        return suggestions[Int(n)]
     }
     
     override func layoutSubviews() {
@@ -178,8 +184,8 @@ enum Position {
     
     var suggestionIndex = 0
     func nextSuggestion(){
-        suggestionIndex = (suggestionIndex + 1) % suggestions.count
-        txtMessage.attributedPlaceholder = NSAttributedString(string:suggestions[suggestionIndex],
+        //suggestionIndex = (suggestionIndex + 1) % suggestions.count
+        txtMessage.attributedPlaceholder = NSAttributedString(string:getRandomCatalogItem(),
                                                                attributes:[NSForegroundColorAttributeName: currentTheme.secondaryForegroundColor])
     }
     
@@ -352,4 +358,21 @@ enum Position {
                 self.parentViewController!.presentViewController(self.imagePicker, animated: true, completion: nil)
         })
     }
+    
+    @IBAction func geniusTapped(sender: AnyObject) {
+        let geniusVC = GeniusViewController()
+        geniusVC.groups = self.geniusSuggestions
+        
+        let rootVC = UINavigationController(rootViewController: geniusVC)
+        self.parentViewController?.presentViewController(rootVC, animated: true, completion: nil)
+    }
+    
+    var geniusSuggestions : [GeniusGroup] = []
+    func updateGeniusSuggestions(threadID : String) {
+        Unifai.getGeniusSuggestionForThreadWithID(threadID, completion: { groups in
+            self.btnGenius.setImage(UIImage(named: groups.count == 0 ? "genius" : "genius_on"), forState: .Normal)
+            self.geniusSuggestions = groups
+        })
+    }
+    
 }

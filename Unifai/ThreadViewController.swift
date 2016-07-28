@@ -49,7 +49,8 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         self.messageCreator.creatorDelegate = self
         self.messageCreator.assistant = creatorAssistant
         self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 49 + 100))
-        
+        self.messageCreator.updateGeniusSuggestions(threadID!)
+
         messageCreator.parentViewController = self
         
         NSNotificationCenter.defaultCenter().addObserver(self,
@@ -92,6 +93,7 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
                 self.tableView?.scrollToRowAtIndexPath(NSIndexPath(forRow: self.messages.count - 1,inSection:0), atScrollPosition: .Bottom, animated: true)
             })
         })
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

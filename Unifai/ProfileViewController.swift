@@ -113,8 +113,11 @@ class ProfileViewController: UIViewController , UITableViewDelegate , UITableVie
             let destination = segue.destinationViewController as! ThreadViewController
             destination.loadData(messages[selectedRow].threadID!)
         }
-        else if segue.identifier == "toCompose"{
+        else if segue.identifier == "toSettings"{
+            segue.destinationViewController.modalPresentationStyle = .Popover
+            segue.destinationViewController.popoverPresentationController!.barButtonItem = sender as! UIBarButtonItem
             
+            segue.destinationViewController.preferredContentSize = CGSizeMake(300,400)
         }
     }
     

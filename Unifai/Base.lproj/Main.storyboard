@@ -64,7 +64,7 @@
                     <navigationItem key="navigationItem" id="Sjc-TZ-rIK">
                         <barButtonItem key="rightBarButtonItem" id="Am2-Zv-paO">
                             <connections>
-                                <segue destination="Eel-ld-4l7" kind="show" id="GvM-iP-RdN"/>
+                                <segue destination="Eel-ld-4l7" kind="show" identifier="toSettings" id="GvM-iP-RdN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -609,7 +609,7 @@
                                                     <constraint firstAttribute="width" secondItem="Nhx-4v-Jyy" secondAttribute="height" multiplier="2:1" id="kdU-aJ-7gm"/>
                                                 </constraints>
                                             </imageView>
-                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PYD-8J-4ec">
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYD-8J-4ec">
                                                 <rect key="frame" x="25" y="245" width="300" height="200"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="pWS-py-lvs"/>

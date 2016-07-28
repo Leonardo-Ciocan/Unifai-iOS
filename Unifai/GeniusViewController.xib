@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="16A239j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GeniusViewController" customModule="Unifai" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="KFT-91-PK1" id="w9f-SD-5Ns"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KFT-91-PK1">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="KFT-91-PK1" secondAttribute="bottom" id="2Rg-rR-CGL"/>
+                <constraint firstAttribute="trailing" secondItem="KFT-91-PK1" secondAttribute="trailing" id="9R3-1p-6yi"/>
+                <constraint firstItem="KFT-91-PK1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Vh3-oj-h0S"/>
+                <constraint firstItem="KFT-91-PK1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qYm-d9-Ai6"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+        </view>
+        <navigationItem title="Genius" id="2fg-Sm-RO8">
+            <barButtonItem key="rightBarButtonItem" systemItem="done" id="020-UH-JKM">
+                <connections>
+                    <action selector="doneTapped:" destination="-1" id="Z5T-1b-Rdi"/>
+                </connections>
+            </barButtonItem>
+        </navigationItem>
+    </objects>
+</document>

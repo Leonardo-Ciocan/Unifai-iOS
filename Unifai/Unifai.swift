@@ -199,6 +199,22 @@ class Unifai{
         }
     }
     
+    static func getGeniusSuggestionForThreadWithID(id :String, completion : ([GeniusGroup])->()) {
+        
+        Alamofire.request(.GET , Constants.urlGenius ,parameters: ["thread_id":id] , headers:self.headers)
+            .validate()
+            .responseJSON{ response in
+                switch response.result {
+                case .Success(let data):
+                    if let json = JSON(data).array {
+                        completion(json.map({ GeniusGroup(json: $0) }))
+                    }
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                }
+        }
+    }
+    
     static func setDashboardItems(items : [String], completion : ((Bool)->())?){
         print(items)
         Alamofire.request(.POST , Constants.urlDashboardItems ,

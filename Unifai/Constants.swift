@@ -23,4 +23,5 @@ class Constants{
     static let urlCatalog        = urlRoot  + "catalog/"
     static let urlFile           = urlRoot  + "file/"
     static let urlPassportLocation = urlRoot  + "passport/location/"
+    static let urlGenius = urlRoot  + "genius/"
 }

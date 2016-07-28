@@ -13,21 +13,21 @@
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAc-qD-Txd">
-                    <rect key="frame" x="386" y="25" width="10" height="18"/>
+                    <rect key="frame" x="386" y="40" width="10" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYz-IG-yss">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYz-IG-yss">
                     <rect key="frame" x="20" y="21" width="50" height="26"/>
-                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <constraints>
                 <constraint firstItem="pAc-qD-Txd" firstAttribute="centerY" secondItem="PYz-IG-yss" secondAttribute="centerY" id="3pD-Qe-Kgk"/>
-                <constraint firstItem="PYz-IG-yss" firstAttribute="centerY" secondItem="zQh-MX-fOk" secondAttribute="centerY" id="8LP-N5-p6O"/>
+                <constraint firstItem="PYz-IG-yss" firstAttribute="centerY" secondItem="zQh-MX-fOk" secondAttribute="centerY" constant="15" id="8LP-N5-p6O"/>
                 <constraint firstAttribute="trailingMargin" secondItem="pAc-qD-Txd" secondAttribute="trailing" constant="10" id="BYv-pN-eGm"/>
                 <constraint firstItem="PYz-IG-yss" firstAttribute="leading" secondItem="zQh-MX-fOk" secondAttribute="leading" constant="20" id="muW-xf-y4x"/>
             </constraints>

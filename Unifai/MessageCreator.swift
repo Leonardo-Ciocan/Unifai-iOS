@@ -13,7 +13,7 @@ enum Position {
     case Bottom
 }
 
-@IBDesignable class MessageCreator: UIView , UITextFieldDelegate , UIImagePickerControllerDelegate , UINavigationControllerDelegate , ActionPickerDelegate , CreatorAssistantDelegate , UIPopoverPresentationControllerDelegate {
+@IBDesignable class MessageCreator: UIView , UITextFieldDelegate , UIImagePickerControllerDelegate , UINavigationControllerDelegate , ActionPickerDelegate , CreatorAssistantDelegate , UIPopoverPresentationControllerDelegate , GeniusViewControllerDelegate {
     
     @IBOutlet weak var btnGenius: UIButton!
     @IBOutlet weak var btnRemove: UIButton!
@@ -144,11 +144,14 @@ enum Position {
     }
     
     func selectedService(service: Service? , selectedByTapping : Bool) {
+        
         if let service = service {
             self.creatorDelegate?.didSelectService(service)
+            self.btnGenius.setImage(btnGenius.currentImage?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
             UIView.animateWithDuration(1, animations: {
                 self.backgroundColorView.backgroundColor = service.color
                 self.btnSend.tintColor = UIColor.whiteColor()
+                self.btnGenius.tintColor = UIColor.whiteColor()
                 self.buttons.forEach({
                     $0.tintColor = UIColor.whiteColor()
                 })
@@ -161,6 +164,7 @@ enum Position {
         }
         else {
             self.creatorDelegate?.didSelectService(service)
+            self.btnGenius.setImage(UIImage(named: geniusSuggestions.count == 0 ? "genius" : "genius_on"), forState: .Normal)
             UIView.animateWithDuration(1, animations: {
                 self.backgroundColorView.backgroundColor = currentTheme.backgroundColor
                 self.btnSend.tintColor = Constants.appBrandColor
@@ -362,9 +366,14 @@ enum Position {
     @IBAction func geniusTapped(sender: AnyObject) {
         let geniusVC = GeniusViewController()
         geniusVC.groups = self.geniusSuggestions
+        geniusVC.delegate = self
         
         let rootVC = UINavigationController(rootViewController: geniusVC)
         self.parentViewController?.presentViewController(rootVC, animated: true, completion: nil)
+    }
+    
+    func didSelectGeniusSuggestionWithMessage(message: String) {
+        self.creatorDelegate?.sendMessage(message)
     }
     
     var geniusSuggestions : [GeniusGroup] = []

@@ -18,6 +18,8 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         self.collectionView.backgroundColor = currentTheme.backgroundColor
 
         self.collectionView.registerNib(UINib(nibName: "ActionCell", bundle: nil), forCellWithReuseIdentifier: "ActionCell")
+        self.collectionView.registerNib(UINib(nibName: "ActionsHeader",bundle:nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
+
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -236,7 +238,7 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         header.txtName.textColor = service.color
         header.txtCount.textColor = currentTheme.secondaryForegroundColor
         
-        header.txtName.text = service.name
+        header.txtName.text = service.name.uppercaseString
         header.txtCount.text = String(actions[service]!.count) + " actions"
         
         return header
@@ -264,6 +266,7 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
     override func canBecomeFirstResponder() -> Bool {
         return true
     }
+    
     
     
 }

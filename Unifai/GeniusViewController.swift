@@ -7,12 +7,16 @@
 //
 
 import UIKit
+protocol GeniusViewControllerDelegate {
+    func didSelectGeniusSuggestionWithMessage(message:String)
+}
 
 class GeniusViewController: UIViewController , UITableViewDelegate , UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
     var groups : [GeniusGroup] = []
+    var delegate : GeniusViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +38,7 @@ class GeniusViewController: UIViewController , UITableViewDelegate , UITableView
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = GeniusGroupHeader(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 50))
-        view.txtName.text = groups[section].reason
+        view.txtName.text = groups[section].reason + ":"
         return view
     }
     
@@ -54,11 +58,16 @@ class GeniusViewController: UIViewController , UITableViewDelegate , UITableView
         return groups[section].suggestions.count
     }
     
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("GeniusSuggestionCell") as! GeniusSuggestionCell
         cell.loadData(groups[indexPath.section].suggestions[indexPath.row])
+        cell.selectionStyle = .None
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.delegate?.didSelectGeniusSuggestionWithMessage(groups[indexPath.section].suggestions[indexPath.row].message)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
 }

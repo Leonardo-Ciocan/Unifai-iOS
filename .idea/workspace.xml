@@ -2,56 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95baaade-00be-4e42-b914-ad2617e19dc2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Unifai/CreatorAssistant.swift" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Unifai/CreatorAssistant.xib" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Podfile" afterPath="$PROJECT_DIR$/Podfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Podfile.lock" afterPath="$PROJECT_DIR$/Podfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Manifest.lock" afterPath="$PROJECT_DIR$/Pods/Manifest.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/project.pbxproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/Alamofire.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/Alamofire.xcscheme" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/Pods-Unifai.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/Pods-Unifai.xcscheme" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/SlackTextViewController.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/SlackTextViewController.xcscheme" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/SwiftyJSON.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/SwiftyJSON.xcscheme" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Unifai.iml" afterPath="$PROJECT_DIR$/.idea/Unifai.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/xcschememanagement.plist" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/xcschememanagement.plist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai-acknowledgements.markdown" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai-acknowledgements.markdown" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai-acknowledgements.plist" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai-acknowledgements.plist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai-frameworks.sh" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai-frameworks.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai.debug.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai.debug.xcconfig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai.release.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai.release.xcconfig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/Unifai.xcodeproj/project.pbxproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai.xcworkspace/xcuserdata/leo.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" afterPath="$PROJECT_DIR$/Unifai.xcworkspace/xcuserdata/leo.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/xcschememanagement.plist" afterPath="$PROJECT_DIR$/Unifai.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/xcschememanagement.plist" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/ActionCell.swift" afterPath="$PROJECT_DIR$/Unifai/ActionCell.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/ActionCell.xib" afterPath="$PROJECT_DIR$/Unifai/ActionCell.xib" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/ActionsViewController.swift" afterPath="$PROJECT_DIR$/Unifai/ActionsViewController.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/AuthViewController.swift" afterPath="$PROJECT_DIR$/Unifai/AuthViewController.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/AuthViewController.xib" afterPath="$PROJECT_DIR$/Unifai/AuthViewController.xib" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/Base.lproj/Feed.storyboard" afterPath="$PROJECT_DIR$/Unifai/Base.lproj/Feed.storyboard" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/Base.lproj/LaunchScreen.storyboard" afterPath="$PROJECT_DIR$/Unifai/Base.lproj/LaunchScreen.storyboard" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/Base.lproj/Main.storyboard" afterPath="$PROJECT_DIR$/Unifai/Base.lproj/Main.storyboard" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/Base.lproj/Thread.storyboard" afterPath="$PROJECT_DIR$/Unifai/Base.lproj/Thread.storyboard" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/CardView.swift" afterPath="$PROJECT_DIR$/Unifai/CardView.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/CardView.xib" afterPath="$PROJECT_DIR$/Unifai/CardView.xib" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/CatalogCell.swift" afterPath="$PROJECT_DIR$/Unifai/CatalogCell.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/CatalogCell.xib" afterPath="$PROJECT_DIR$/Unifai/CatalogCell.xib" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/CatalogItemCell.swift" afterPath="$PROJECT_DIR$/Unifai/CatalogItemCell.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/CatalogItemCell.xib" afterPath="$PROJECT_DIR$/Unifai/CatalogItemCell.xib" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/CatalogViewController.swift" afterPath="$PROJECT_DIR$/Unifai/CatalogViewController.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/Constants.swift" afterPath="$PROJECT_DIR$/Unifai/Constants.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/Core.swift" afterPath="$PROJECT_DIR$/Unifai/Core.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/FeedViewController.swift" afterPath="$PROJECT_DIR$/Unifai/FeedViewController.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/Info.plist" afterPath="$PROJECT_DIR$/Unifai/Info.plist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/LoginButton.swift" afterPath="$PROJECT_DIR$/Unifai/LoginButton.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/LoginButton.xib" afterPath="$PROJECT_DIR$/Unifai/LoginButton.xib" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/Message.swift" afterPath="$PROJECT_DIR$/Unifai/Message.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/MessageCell.swift" afterPath="$PROJECT_DIR$/Unifai/MessageCell.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/MessageCell.xib" afterPath="$PROJECT_DIR$/Unifai/MessageCell.xib" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/Genius.swift" afterPath="$PROJECT_DIR$/Unifai/Genius.swift" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/MessageCreator.swift" afterPath="$PROJECT_DIR$/Unifai/MessageCreator.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/MessageCreator.xib" afterPath="$PROJECT_DIR$/Unifai/MessageCreator.xib" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/MessageCreatorDelegate.swift" afterPath="$PROJECT_DIR$/Unifai/MessageCreatorDelegate.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/ProfileViewController.swift" afterPath="$PROJECT_DIR$/Unifai/ProfileViewController.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/ServiceProfileViewcontroller.swift" afterPath="$PROJECT_DIR$/Unifai/ServiceProfileViewcontroller.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/ThreadViewController.swift" afterPath="$PROJECT_DIR$/Unifai/ThreadViewController.swift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/Unifai.swift" afterPath="$PROJECT_DIR$/Unifai/Unifai.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/Utils.swift" afterPath="$PROJECT_DIR$/Unifai/Utils.swift" />
     </list>
     <ignored path="Unifai.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,7 +19,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -71,12 +27,12 @@
     <favorites_list name="Unifai" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="FeedViewController.swift" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Unifai/FeedViewController.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="40" column="40" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
+            <state relative-caret-position="555">
+              <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -84,12 +40,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActionCell.swift" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ActionCell.swift" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Unifai/ActionCell.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="600">
+              <caret line="40" column="10" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Genius.swift" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Unifai/Genius.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="501">
+              <caret line="45" column="35" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
+              <folding>
+                <element signature="e#0#17#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MessageCreator.swift" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Unifai/MessageCreator.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1043">
+              <caret line="377" column="5" selection-start-line="377" selection-start-column="5" selection-end-line="377" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Utils.swift" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Unifai/Utils.swift">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="636">
+              <caret line="55" column="55" selection-start-line="55" selection-start-column="55" selection-end-line="55" selection-end-column="55" />
+              <folding>
+                <element signature="e#0#17#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -103,6 +93,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Unifai/ActionCell.swift" />
+        <option value="$PROJECT_DIR$/Unifai/Genius.swift" />
+        <option value="$PROJECT_DIR$/Unifai/MessageCreator.swift" />
+        <option value="$PROJECT_DIR$/Unifai/Utils.swift" />
       </list>
     </option>
   </component>
@@ -113,6 +106,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="1128" />
     <option name="y" value="22" />
     <option name="width" value="1430" />
     <option name="height" value="1418" />
@@ -142,6 +136,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Cidr.FilesView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -173,14 +168,49 @@
               <option name="myItemId" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unifai" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unifai" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Models" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unifai" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Unifai" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MessageCreator" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Cidr.FilesView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
@@ -204,6 +234,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -227,145 +263,9 @@
       </EXTENSION>
       <method />
     </configuration>
-    <configuration default="false" name="ActiveLabel" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Pods" TARGET_NAME="ActiveLabel" CONFIG_NAME="Debug" SCHEME_NAME="ActiveLabel" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
-      <envs />
-      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
-        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
-      </EXTENSION>
-      <method />
-    </configuration>
-    <configuration default="false" name="Alamofire" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Pods" TARGET_NAME="Alamofire" CONFIG_NAME="Debug" SCHEME_NAME="Alamofire" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
-      <envs />
-      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
-        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
-      </EXTENSION>
-      <method />
-    </configuration>
-    <configuration default="false" name="AlertOnboarding-AlertOnboardingXib" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Pods" TARGET_NAME="AlertOnboarding-AlertOnboardingXib" CONFIG_NAME="Debug" SCHEME_NAME="AlertOnboarding-AlertOnboardingXib" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
-      <envs />
-      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
-        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
-      </EXTENSION>
-      <method />
-    </configuration>
-    <configuration default="false" name="AlertOnboarding" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Pods" TARGET_NAME="AlertOnboarding" CONFIG_NAME="Debug" SCHEME_NAME="AlertOnboarding" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
-      <envs />
-      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
-        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
-      </EXTENSION>
-      <method />
-    </configuration>
-    <configuration default="false" name="Charts" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Pods" TARGET_NAME="Charts" CONFIG_NAME="Debug" SCHEME_NAME="Charts" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
-      <envs />
-      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
-        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
-      </EXTENSION>
-      <method />
-    </configuration>
-    <configuration default="false" name="DateTools" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Pods" TARGET_NAME="DateTools" CONFIG_NAME="Debug" SCHEME_NAME="DateTools" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
-      <envs />
-      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
-        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
-      </EXTENSION>
-      <method />
-    </configuration>
-    <configuration default="false" name="DGElasticPullToRefresh" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Pods" TARGET_NAME="DGElasticPullToRefresh" CONFIG_NAME="Debug" SCHEME_NAME="DGElasticPullToRefresh" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
-      <envs />
-      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
-        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
-      </EXTENSION>
-      <method />
-    </configuration>
-    <configuration default="false" name="DynamicColor" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Pods" TARGET_NAME="DynamicColor" CONFIG_NAME="Debug" SCHEME_NAME="DynamicColor" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
-      <envs />
-      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
-        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
-      </EXTENSION>
-      <method />
-    </configuration>
-    <configuration default="false" name="Eureka" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Pods" TARGET_NAME="Eureka" CONFIG_NAME="Debug" SCHEME_NAME="Eureka" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
-      <envs />
-      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
-        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
-      </EXTENSION>
-      <method />
-    </configuration>
-    <configuration default="false" name="expanding-collection" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Pods" TARGET_NAME="expanding-collection" CONFIG_NAME="Debug" SCHEME_NAME="expanding-collection" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
-      <envs />
-      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
-        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
-      </EXTENSION>
-      <method />
-    </configuration>
-    <configuration default="false" name="GSImageViewerController" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Pods" TARGET_NAME="GSImageViewerController" CONFIG_NAME="Debug" SCHEME_NAME="GSImageViewerController" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
-      <envs />
-      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
-        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
-      </EXTENSION>
-      <method />
-    </configuration>
-    <configuration default="false" name="MaterialDesignSymbol" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Pods" TARGET_NAME="MaterialDesignSymbol" CONFIG_NAME="Debug" SCHEME_NAME="MaterialDesignSymbol" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
-      <envs />
-      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
-        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
-      </EXTENSION>
-      <method />
-    </configuration>
-    <configuration default="false" name="OAuthSwift" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Pods" TARGET_NAME="OAuthSwift" CONFIG_NAME="Debug" SCHEME_NAME="OAuthSwift" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
-      <envs />
-      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
-        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
-      </EXTENSION>
-      <method />
-    </configuration>
-    <configuration default="false" name="Pods-Unifai" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Pods" TARGET_NAME="Pods-Unifai" CONFIG_NAME="Debug" SCHEME_NAME="Pods-Unifai" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
-      <envs />
-      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
-        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
-      </EXTENSION>
-      <method />
-    </configuration>
-    <configuration default="false" name="SlackTextViewController" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Pods" TARGET_NAME="SlackTextViewController" CONFIG_NAME="Debug" SCHEME_NAME="SlackTextViewController" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
-      <envs />
-      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
-        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
-      </EXTENSION>
-      <method />
-    </configuration>
-    <configuration default="false" name="SnapKit" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Pods" TARGET_NAME="SnapKit" CONFIG_NAME="Debug" SCHEME_NAME="SnapKit" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
-      <envs />
-      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
-        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
-      </EXTENSION>
-      <method />
-    </configuration>
-    <configuration default="false" name="SwiftyJSON" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Pods" TARGET_NAME="SwiftyJSON" CONFIG_NAME="Debug" SCHEME_NAME="SwiftyJSON" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
-      <envs />
-      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
-        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
-      </EXTENSION>
-      <method />
-    </configuration>
-    <list size="19">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Application.Unifai" />
       <item index="1" class="java.lang.String" itemvalue="Application.UnifaiWidget" />
-      <item index="2" class="java.lang.String" itemvalue="Application.ActiveLabel" />
-      <item index="3" class="java.lang.String" itemvalue="Application.Alamofire" />
-      <item index="4" class="java.lang.String" itemvalue="Application.AlertOnboarding-AlertOnboardingXib" />
-      <item index="5" class="java.lang.String" itemvalue="Application.AlertOnboarding" />
-      <item index="6" class="java.lang.String" itemvalue="Application.Charts" />
-      <item index="7" class="java.lang.String" itemvalue="Application.DateTools" />
-      <item index="8" class="java.lang.String" itemvalue="Application.DGElasticPullToRefresh" />
-      <item index="9" class="java.lang.String" itemvalue="Application.DynamicColor" />
-      <item index="10" class="java.lang.String" itemvalue="Application.Eureka" />
-      <item index="11" class="java.lang.String" itemvalue="Application.expanding-collection" />
-      <item index="12" class="java.lang.String" itemvalue="Application.GSImageViewerController" />
-      <item index="13" class="java.lang.String" itemvalue="Application.MaterialDesignSymbol" />
-      <item index="14" class="java.lang.String" itemvalue="Application.OAuthSwift" />
-      <item index="15" class="java.lang.String" itemvalue="Application.Pods-Unifai" />
-      <item index="16" class="java.lang.String" itemvalue="Application.SlackTextViewController" />
-      <item index="17" class="java.lang.String" itemvalue="Application.SnapKit" />
-      <item index="18" class="java.lang.String" itemvalue="Application.SwiftyJSON" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -378,31 +278,35 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1468428315089</updated>
+      <workItem from="1469807642835" duration="2216000" />
     </task>
     <servers />
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="2216000" />
+  </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1430" height="1418" extended-state="0" />
+    <frame x="1128" y="22" width="1430" height="1418" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2476934" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295626" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295626" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295626" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -424,8 +328,18 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Unifai/FeedViewController.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="40" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Unifai/FeedViewController.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
@@ -434,9 +348,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Unifai/ActionCell.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="600">
+          <caret line="40" column="10" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Unifai/Genius.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="45" column="35" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Unifai/MessageCreator.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1043">
+          <caret line="377" column="5" selection-start-line="377" selection-start-column="5" selection-end-line="377" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Unifai/Utils.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="636">
+          <caret line="55" column="55" selection-start-line="55" selection-start-column="55" selection-end-line="55" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

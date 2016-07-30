@@ -224,7 +224,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
             self.messages = threadMessages
             self.tableView?.reloadData()
             self.refreshControl.endRefreshing()
-            
+            self.creator?.updateGeniusSuggestionsLocally()
         })
     }
     

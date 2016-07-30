@@ -44,3 +44,12 @@ func extractService(string:String) -> Service? {
     }
     return nil
 }
+
+extension String {
+    func extractLinks() -> [String]{
+        let detector = try! NSDataDetector(types: NSTextCheckingType.Link.rawValue)
+        let matches = detector.matchesInString(self, options: [], range: NSRange(location: 0, length: self.utf16.count))
+
+        return matches.map({($0.URL?.absoluteString)!})
+    }
+}

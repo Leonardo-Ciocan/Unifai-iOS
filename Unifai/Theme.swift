@@ -32,3 +32,13 @@ class DarkTheme : Theme {
     var barStyle: UIBarStyle = .Black
     var statusBarStyle: UIStatusBarStyle = .LightContent
 }
+
+extension UIViewController {
+    func applyCurrentTheme() {
+        self.view.backgroundColor = currentTheme.backgroundColor
+        self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
+        self.navigationController?.navigationBar.barTintColor = nil
+        self.navigationController?.navigationBar.tintColor = currentTheme.foregroundColor
+        self.navigationController?.navigationBar.translucent = true
+    }
+}

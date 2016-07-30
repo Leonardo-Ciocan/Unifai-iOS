@@ -34,6 +34,7 @@ class GeniusGroupHeader: UIView {
         view.frame = bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.addSubview(view)
+        txtName.textColor = currentTheme.foregroundColor
     }
 
 }

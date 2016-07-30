@@ -66,7 +66,28 @@ class MessageCell: UITableViewCell {
         
         payloadContainer.backgroundColor = UIColor.clearColor()
         
-        
+        txtBody.handleURLTap({url in
+            let alert = UIAlertController(title: "", message: url.absoluteString, preferredStyle: .ActionSheet)
+            alert.addAction(UIAlertAction(title: "Open link", style: .Default, handler: { _ in
+                let svc = SFSafariViewController(URL: url)
+                self.parentViewController!.presentViewController(svc, animated: true, completion: nil)
+            }))
+            alert.addAction(UIAlertAction(title: "Copy link", style: .Default, handler: { _ in
+                UIPasteboard.generalPasteboard().string = url.absoluteString
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { _ in
+                alert.dismissViewControllerAnimated(true, completion: nil)
+            }))
+            
+            let popover = alert.popoverPresentationController
+            if let popover = popover {
+                popover.sourceView = self.txtBody
+                popover.sourceRect = self.txtBody.bounds
+                popover.permittedArrowDirections = .Any
+            }
+            self.parentViewController!.presentViewController(alert, animated: true, completion: nil)
+            
+        })
     }
     
     
@@ -136,10 +157,7 @@ class MessageCell: UITableViewCell {
         
         self.payloadContainer.backgroundColor = currentTheme.backgroundColor
         
-        txtBody.handleURLTap({url in
-            let svc = SFSafariViewController(URL: url)
-            self.parentViewController!.presentViewController(svc, animated: true, completion: nil)
-        })
+       
         
         if(message.type == .Text){
             self.payloadContainerHeight.constant = 0

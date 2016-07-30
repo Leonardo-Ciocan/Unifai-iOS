@@ -207,7 +207,7 @@ class Unifai{
                 switch response.result {
                 case .Success(let data):
                     if let json = JSON(data).array {
-                        completion(json.map({ GeniusGroup(json: $0) }))
+                        completion(json.map({ GeniusGroup.fromJSON($0)! }))
                     }
                 case .Failure(let error):
                     print("Request failed with error: \(error)")

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Foundation
+import SafariServices
 
 enum Position {
     case Top
@@ -338,6 +340,7 @@ enum Position {
                 
         })
     }
+    
     @IBAction func takePhoto(sender: AnyObject) {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .Camera
@@ -364,24 +367,59 @@ enum Position {
     }
     
     @IBAction func geniusTapped(sender: AnyObject) {
+        guard geniusSuggestions.count > 0 else { return }
         let geniusVC = GeniusViewController()
         geniusVC.groups = self.geniusSuggestions
         geniusVC.delegate = self
         
         let rootVC = UINavigationController(rootViewController: geniusVC)
+        rootVC.modalPresentationStyle = .Popover
+        rootVC.preferredContentSize = CGSize(width: 300, height: 400)
+        let viewForSource = sender as! UIView
+        rootVC.popoverPresentationController!.sourceView = viewForSource
+        rootVC.popoverPresentationController!.sourceRect = viewForSource.bounds
         self.parentViewController?.presentViewController(rootVC, animated: true, completion: nil)
+    }
+    
+    
+    
+    var geniusSuggestions : [GeniusGroup] = []
+    func updateGeniusSuggestions(threadID : String) {
+        Unifai.getGeniusSuggestionForThreadWithID(threadID, completion: { groups in
+            self.geniusSuggestions = groups + Genius.computeLocalGeniusSuggestions(withImageData: self.imageData)
+            self.btnGenius.setImage(UIImage(named: self.geniusSuggestions.count == 0 ? "genius" : "genius_on"), forState: .Normal)
+        })
+    }
+    
+    func updateGeniusSuggestionsLocally() {
+        self.geniusSuggestions = Genius.computeLocalGeniusSuggestions(withImageData: self.imageData)
+        self.btnGenius.setImage(UIImage(named: self.geniusSuggestions.count == 0 ? "genius" : "genius_on"), forState: .Normal)
     }
     
     func didSelectGeniusSuggestionWithMessage(message: String) {
         self.creatorDelegate?.sendMessage(message)
     }
     
-    var geniusSuggestions : [GeniusGroup] = []
-    func updateGeniusSuggestions(threadID : String) {
-        Unifai.getGeniusSuggestionForThreadWithID(threadID, completion: { groups in
-            self.btnGenius.setImage(UIImage(named: groups.count == 0 ? "genius" : "genius_on"), forState: .Normal)
-            self.geniusSuggestions = groups
-        })
+    func didSelectGeniusSuggestionWithClipboardImage() {
+        guard let image = UIPasteboard.generalPasteboard().image else { return }
+        imageView.contentMode = .ScaleAspectFill
+        imageView.image = image
+        if let imageData = UIImagePNGRepresentation(image) {
+            self.imageData = imageData
+        }
+        self.textBoxLeftConstraint.constant = 135
+        self.imageLeftConstraint.constant = 15
+        UIView.animateWithDuration(0.7, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations:
+            {
+                self.layoutIfNeeded()
+            },completion: nil)
+
+        
+    }
+    
+    func didSelectGeniusSuggestionWithLink(link: String) {
+        let svc = SFSafariViewController(URL: NSURL(string: link)!)
+        self.parentViewController!.presentViewController(svc, animated: true, completion: nil)
     }
     
 }

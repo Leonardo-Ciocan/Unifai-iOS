@@ -5,28 +5,124 @@
       <sourceFolder url="file://$MODULE_DIR$/UnifaiWidget/Base.lproj/MainInterface.storyboard" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/UnifaiWidget/TodayViewController.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/UnifaiWidget/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Podfile" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/ActionRunnerPage.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/ServiceProfileViewcontroller.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/Message.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/SettingsListTableViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/TabBarViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/SuggestionCell.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/Cache.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/SuggestionsHeader.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/NewActionController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/SuggestionsHeader.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/AutoCompletionSuggestions.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/MainSplitView.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/ActionCreatorViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/ActionsHeader.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/CatalogItem.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/MessageCell.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/CatalogItemCell.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/Action.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/DashboardEditorHeader.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/MessageCreator.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/ActionRunnerPage.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/FontAwesome.otf" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/Theme.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/GeniusGroupHeader.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/ActionsHeader.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/Unifai.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/AutoCompletionServices.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/GeniusSuggestionCell.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/PaddedTextField.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/SignupViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/SettingsTableViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/CatalogViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/AppDelegate.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/Settings.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/Base.lproj/LaunchScreen.storyboard" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/Base.lproj/Feed.storyboard" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/Base.lproj/Thread.storyboard" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/Base.lproj/Settings.storyboard" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/Base.lproj/Main.storyboard" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/AutoCompletionSuggestions.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/CreatorAssistant.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/TestingViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/ActionsViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/GeniusViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/Schedule.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/SuggestionCell.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/Service.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/AutoCompletionServiceCell.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/MessageCreator.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/AutocompletionUtil.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/ActionPickerViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/AutoCompletionServices.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/GeniusSuggestionCell.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/ActionCell.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/ThreadViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/ProfileViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/DefaultSettings.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/GeniusGroupHeader.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/Core.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/DashboardViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/Assets.xcassets" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/Payload.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/ActionCell.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/ActionPickerViewController.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/DashboardEditorViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/CardView.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/PassportViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/Constants.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/MessageCell.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/MessageCreatorTextView.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/FeedViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/MainNavigationController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/LoginButton.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/DashboardEditorHeader.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/ProgressView.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/CatalogCell.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/CatalogCell.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/TablePayloadView.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/GeniusViewController.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/ProgressView.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/AuthViewController.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/ActionCreatorViewController.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/CatalogItemCell.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/AutoCompletionServiceCell.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/CardView.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/CreatorAssistant.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/AuthViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/Genius.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/LoginButton.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/LoginViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/MessageCreatorDelegate.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Unifai/Utils.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/UnifaiUITests/UnifaiUITests.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/UnifaiUITests/Info.plist" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/SLKTypingIndicatorView.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/UnifaiTests/UnifaiTests.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/UnifaiTests/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/UIResponder+SLKAdditions.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/SLKTextView+SLKAdditions.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/SLKTextInputbar.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/UIView+SLKAdditions.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/UIResponder+SLKAdditions.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/SLKTextView.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/SLKTypingIndicatorProtocol.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/SLKInputAccessoryView.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/SLKInputAccessoryView.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/SLKTextInput+Implementation.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/SLKTextView.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/SLKTextInputbar.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/SLKTypingIndicatorView.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/SLKTextView.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/SLKTypingIndicatorView.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/UIScrollView+SLKAdditions.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/SLKTypingIndicatorProtocol.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/UIView+SLKAdditions.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/SLKUIConstants.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/SLKTextInput.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/UIScrollView+SLKAdditions.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/UIView+SLKAdditions.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/SLKTextViewController.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/UIResponder+SLKAdditions.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/SLKTextInputbar.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/SLKTextView.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/SLKTextView+SLKAdditions.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/SlackTextViewController/Source/SLKTextViewController.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/SnapKit/Source/ConstraintAttributes.swift" isTestSource="false" />
@@ -59,21 +155,15 @@
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/expanding-collection/expanding-collection-prefix.pch" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/expanding-collection/expanding-collection.xcconfig" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/expanding-collection/expanding-collection.modulemap" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/DGElasticPullToRefresh/DGElasticPullToRefresh-umbrella.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/DGElasticPullToRefresh/DGElasticPullToRefresh.xcconfig" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/DGElasticPullToRefresh/DGElasticPullToRefresh.modulemap" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/DGElasticPullToRefresh/DGElasticPullToRefresh-prefix.pch" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/DGElasticPullToRefresh/DGElasticPullToRefresh-dummy.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/DGElasticPullToRefresh/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/GSImageViewerController/GSImageViewerController-umbrella.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/GSImageViewerController/GSImageViewerController.xcconfig" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/GSImageViewerController/GSImageViewerController-prefix.pch" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/GSImageViewerController/GSImageViewerController-umbrella.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/GSImageViewerController/GSImageViewerController-dummy.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/GSImageViewerController/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/GSImageViewerController/GSImageViewerController-dummy.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/GSImageViewerController/GSImageViewerController.modulemap" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SwiftyJSON/SwiftyJSON.xcconfig" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SwiftyJSON/SwiftyJSON-umbrella.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SwiftyJSON/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SwiftyJSON/SwiftyJSON-umbrella.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SwiftyJSON/SwiftyJSON.modulemap" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/SwiftyJSON/SwiftyJSON-dummy.m" isTestSource="false" />
@@ -89,12 +179,12 @@
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/MaterialDesignSymbol/MaterialDesignSymbol.xcconfig" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/MaterialDesignSymbol/MaterialDesignSymbol-dummy.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/MaterialDesignSymbol/MaterialDesignSymbol-prefix.pch" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/DateTools/DateTools-prefix.pch" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/DateTools/DateTools.xcconfig" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/DateTools/DateTools.modulemap" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/DateTools/DateTools-dummy.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/DateTools/DateTools-umbrella.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/DateTools/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/OAuthSwift/OAuthSwift.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/OAuthSwift/OAuthSwift-umbrella.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/OAuthSwift/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/OAuthSwift/OAuthSwift-prefix.pch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/OAuthSwift/OAuthSwift-dummy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/OAuthSwift/OAuthSwift.modulemap" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Charts/Charts-umbrella.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Charts/Info.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Charts/Charts-prefix.pch" isTestSource="false" />
@@ -119,6 +209,12 @@
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/AlertOnboarding/AlertOnboarding-umbrella.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/AlertOnboarding/Info.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/AlertOnboarding/AlertOnboarding-prefix.pch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/TextFieldEffects/TextFieldEffects-prefix.pch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/TextFieldEffects/TextFieldEffects.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/TextFieldEffects/TextFieldEffects-umbrella.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/TextFieldEffects/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/TextFieldEffects/TextFieldEffects-dummy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/TextFieldEffects/TextFieldEffects.modulemap" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Eureka/Eureka.xcconfig" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Eureka/Eureka-umbrella.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Eureka/Info.plist" isTestSource="false" />
@@ -126,136 +222,116 @@
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Eureka/Eureka.modulemap" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Eureka/Eureka-prefix.pch" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai.release.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai-frameworks.sh" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai.modulemap" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai-dummy.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai-umbrella.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai-acknowledgements.markdown" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Unifai/Info.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai-resources.sh" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai.debug.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Unifai/Acknowledgements.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai-acknowledgements.plist" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai-frameworks.sh" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai.modulemap" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/OAuthSwift/OAuthSwift.xcconfig" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/OAuthSwift/OAuthSwift-umbrella.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/OAuthSwift/Info.plist" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/OAuthSwift/OAuthSwift-prefix.pch" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/OAuthSwift/OAuthSwift-dummy.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/OAuthSwift/OAuthSwift.modulemap" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai-acknowledgements.markdown" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai-umbrella.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/RFAboutView-Swift/RFAboutView-Swift.modulemap" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/RFAboutView-Swift/RFAboutView-Swift.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/RFAboutView-Swift/RFAboutView-Swift-prefix.pch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/RFAboutView-Swift/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/RFAboutView-Swift/RFAboutView-Swift-dummy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/RFAboutView-Swift/RFAboutView-Swift-umbrella.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/DGElasticPullToRefresh/DGElasticPullToRefresh-umbrella.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/DGElasticPullToRefresh/DGElasticPullToRefresh.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/DGElasticPullToRefresh/DGElasticPullToRefresh.modulemap" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/DGElasticPullToRefresh/DGElasticPullToRefresh-prefix.pch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/DGElasticPullToRefresh/DGElasticPullToRefresh-dummy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/DGElasticPullToRefresh/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/DateTools/DateTools-prefix.pch" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/DateTools/DateTools.xcconfig" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/DateTools/DateTools-dummy.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/DateTools/DateTools-umbrella.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/DateTools/DateTools.modulemap" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Target Support Files/DateTools/Info.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/expanding-collection/Source/ExpandingViewController/ExpandingViewController.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/expanding-collection/Source/ExpandingViewController/CollectionView/Cells/BasePageCollectionCell.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/expanding-collection/Source/ExpandingViewController/CollectionView/PageCollectionView.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/expanding-collection/Source/ExpandingViewController/CollectionView/Layout/PageCollectionLayout.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/expanding-collection/Source/TransitionDriver/TransitionDriver.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/expanding-collection/Source/ExpandingTableViewController/ExpandingTableViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/expanding-collection/Source/Helpers/Constraints Helpers/ConstraintsHelper.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/expanding-collection/Source/Helpers/Animations/CornerAnimatable/CornerAnimatable.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/expanding-collection/Source/Helpers/SubviewsForEach/SubviewsForEach.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/expanding-collection/Source/Helpers/ConfigurationHelper/ConfigurationHelper.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/expanding-collection/Source/Helpers/ScreenShot/ScreenShotHelper.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/expanding-collection/Source/Helpers/Animations/CornerAnimatable/CornerAnimatable.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/DGElasticPullToRefresh/DGElasticPullToRefresh/DGElasticPullToRefreshLoadingView.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/DGElasticPullToRefresh/DGElasticPullToRefresh/DGElasticPullToRefreshExtensions.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/expanding-collection/Source/Helpers/Constraints Helpers/ConstraintsHelper.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/DGElasticPullToRefresh/DGElasticPullToRefresh/DGElasticPullToRefreshConstants.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/DGElasticPullToRefresh/DGElasticPullToRefresh/DGElasticPullToRefreshLoadingViewCircle.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/DGElasticPullToRefresh/DGElasticPullToRefresh/DGElasticPullToRefreshExtensions.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/DGElasticPullToRefresh/DGElasticPullToRefresh/DGElasticPullToRefreshView.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Components/ChartComponentBase.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Components/ChartMarker.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Components/ChartYAxis.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Components/ChartLegend.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Components/ChartAxisBase.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Components/ChartXAxis.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Components/ChartLimitLine.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/BarChartRenderer.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/BubbleChartRenderer.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/CandleStickChartRenderer.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/PieChartRenderer.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/RadarChartRenderer.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/ChartLegendRenderer.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/CombinedChartRenderer.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/LineRadarChartRenderer.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/ChartXAxisRenderer.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/ChartAxisRendererBase.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/HorizontalBarChartRenderer.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/LineChartRenderer.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/ChartYAxisRendererHorizontalBarChart.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/ChartYAxisRenderer.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/ChartDataRendererBase.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/ChartXAxisRendererRadarChart.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/ChartXAxisRendererHorizontalBarChart.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/LineScatterCandleRadarChartRenderer.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/ChartXAxisRendererBarChart.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/ChartYAxisRendererRadarChart.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/ChartRendererBase.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/ScatterChartRenderer.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/ChartDataEntry.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/CandleChartDataEntry.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/PieChartData.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/CandleChartData.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/BarLineScatterCandleBubbleChartDataSet.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/ScatterChartData.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/LineChartDataSet.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/PieChartDataSet.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/BarChartData.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/BarChartDataSet.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/BarChartDataEntry.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/LineRadarChartDataSet.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/CombinedChartData.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/LineChartData.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/BubbleChartDataSet.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/ChartDataSet.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/BubbleChartData.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/BubbleChartDataEntry.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/ScatterChartDataSet.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/BarLineScatterCandleBubbleChartData.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/RadarChartData.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/CandleChartDataSet.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/LineScatterCandleRadarChartDataSet.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/ChartData.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/RadarChartDataSet.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/ChartBaseDataSet.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Interfaces/ILineChartDataSet.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Interfaces/ILineRadarChartDataSet.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Interfaces/IPieChartDataSet.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Interfaces/IBarChartDataSet.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Interfaces/IBubbleChartDataSet.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Interfaces/ILineScatterCandleRadarChartDataSet.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Interfaces/ICandleChartDataSet.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Interfaces/IRadarChartDataSet.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Interfaces/IScatterChartDataSet.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Interfaces/IChartDataSet.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Interfaces/IBarLineScatterCandleBubbleChartDataSet.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Animation/ChartAnimator.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Animation/ChartAnimationEasing.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Filters/ChartDataBaseFilter.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Filters/ChartDataApproximatorFilter.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Charts/BarLineChartViewBase.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Charts/PieChartView.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Charts/CombinedChartView.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Charts/CandleStickChartView.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Charts/BarChartView.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Charts/LineChartView.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Charts/RadarChartView.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Charts/PieRadarChartViewBase.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Charts/HorizontalBarChartView.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Charts/ChartViewBase.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Charts/BubbleChartView.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Charts/ScatterChartView.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Interfaces/ScatterChartDataProvider.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Interfaces/BarChartDataProvider.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Interfaces/BubbleChartDataProvider.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Interfaces/LineChartDataProvider.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Interfaces/CandleChartDataProvider.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Interfaces/BarLineScatterCandleBubbleChartDataProvider.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Interfaces/ChartDataProvider.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Formatters/ChartDefaultFillFormatter.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Formatters/ChartFillFormatter.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Formatters/ChartXAxisValueFormatter.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Formatters/ChartDefaultXAxisValueFormatter.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/DGElasticPullToRefresh/DGElasticPullToRefresh/DGElasticPullToRefreshLoadingViewCircle.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/DGElasticPullToRefresh/DGElasticPullToRefresh/DGElasticPullToRefreshLoadingView.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/GSImageViewerController/GSImageViewerController/GSImageViewerController.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Jobs/MoveChartViewJob.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Jobs/ZoomChartViewJob.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Jobs/AnimatedZoomViewJob.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Jobs/AnimatedViewPortJob.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Jobs/ChartViewPortJob.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Jobs/AnimatedMoveViewJob.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/PieChartRenderer.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/BarChartRenderer.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/BubbleChartRenderer.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/CandleStickChartRenderer.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/CombinedChartRenderer.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/ChartYAxisRenderer.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/ChartLegendRenderer.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/LineRadarChartRenderer.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/ChartXAxisRendererBarChart.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/ChartRendererBase.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/ChartAxisRendererBase.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/HorizontalBarChartRenderer.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/LineChartRenderer.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/ChartYAxisRendererHorizontalBarChart.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/ScatterChartRenderer.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/ChartDataRendererBase.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/ChartXAxisRendererRadarChart.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/ChartXAxisRendererHorizontalBarChart.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/ChartXAxisRenderer.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/LineScatterCandleRadarChartRenderer.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/ChartYAxisRendererRadarChart.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Renderers/RadarChartRenderer.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/ChartDataEntry.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/ChartData.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/BarChartDataEntry.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/PieChartData.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/CandleChartData.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/RadarChartData.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/BarLineScatterCandleBubbleChartDataSet.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/ScatterChartData.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/LineChartDataSet.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/PieChartDataSet.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/BarChartData.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/BarChartDataSet.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/CombinedChartData.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/LineRadarChartDataSet.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/BubbleChartData.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/LineChartData.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/BubbleChartDataSet.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/ChartDataSet.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/CandleChartDataSet.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/CandleChartDataEntry.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/ScatterChartDataSet.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/BarLineScatterCandleBubbleChartData.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/BubbleChartDataEntry.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/RadarChartDataSet.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/Standard/LineScatterCandleRadarChartDataSet.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Implementations/ChartBaseDataSet.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Interfaces/ILineChartDataSet.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Interfaces/ILineRadarChartDataSet.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Interfaces/ICandleChartDataSet.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Interfaces/IPieChartDataSet.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Interfaces/IBarChartDataSet.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Interfaces/IBubbleChartDataSet.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Interfaces/ILineScatterCandleRadarChartDataSet.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Interfaces/IChartDataSet.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Interfaces/IRadarChartDataSet.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Interfaces/IScatterChartDataSet.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Data/Interfaces/IBarLineScatterCandleBubbleChartDataSet.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Utils/ChartViewPortHandler.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Utils/ChartTransformerHorizontalBarChart.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Utils/ChartSelectionDetail.swift" isTestSource="false" />
@@ -264,17 +340,47 @@
       <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Utils/ChartTransformer.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Utils/ChartUtils.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Utils/ChartPlatform.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Highlight/ChartRange.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Charts/PieChartView.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Charts/LineChartView.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Charts/CombinedChartView.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Charts/CandleStickChartView.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Charts/BarChartView.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Charts/BarLineChartViewBase.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Charts/RadarChartView.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Charts/BubbleChartView.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Charts/HorizontalBarChartView.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Charts/PieRadarChartViewBase.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Charts/ChartViewBase.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Charts/ScatterChartView.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Interfaces/ScatterChartDataProvider.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Interfaces/BarChartDataProvider.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Interfaces/BubbleChartDataProvider.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Interfaces/LineChartDataProvider.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Interfaces/CandleChartDataProvider.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Interfaces/BarLineScatterCandleBubbleChartDataProvider.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Interfaces/ChartDataProvider.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Components/ChartComponentBase.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Components/ChartMarker.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Components/ChartYAxis.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Components/ChartLegend.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Components/ChartAxisBase.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Components/ChartXAxis.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Components/ChartLimitLine.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Animation/ChartAnimator.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Animation/ChartAnimationEasing.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Filters/ChartDataBaseFilter.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Filters/ChartDataApproximatorFilter.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Highlight/CombinedHighlighter.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Highlight/ChartHighlight.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Highlight/ChartHighlighter.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Highlight/HorizontalBarChartHighlighter.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Highlight/BarChartHighlighter.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Highlight/ChartHighlight.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Highlight/ChartRange.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Formatters/ChartFillFormatter.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Formatters/ChartDefaultFillFormatter.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Formatters/ChartXAxisValueFormatter.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Charts/Charts/Classes/Formatters/ChartDefaultXAxisValueFormatter.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/SwiftyJSON/Source/SwiftyJSON.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/AlertOnboarding/Pod/Classes/AlertChildPageViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/AlertOnboarding/Pod/Classes/AlertPageViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/AlertOnboarding/Pod/Classes/AlertOnboarding.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/AlertOnboarding/Pod/Assets/AlertChildPageViewController.xib" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/DynamicColor/Sources/DynamicColor.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/DynamicColor/Sources/HSL.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/MaterialDesignSymbol/Resources/material-design-icons.ttf" isTestSource="false" />
@@ -292,55 +398,68 @@
       <sourceFolder url="file://$MODULE_DIR$/Pods/DateTools/DateTools/DTTimePeriodChain.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/DateTools/DateTools/NSDate+DateTools.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/DateTools/DateTools/DateTools.bundle" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/DateTools/DateTools/DateTools.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/DateTools/DateTools/DTTimePeriod.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/DateTools/DateTools/DTTimePeriod.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/DateTools/DateTools/DTTimePeriod.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/DateTools/DateTools/DateTools.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ActiveLabel/ActiveLabel/ActiveType.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ActiveLabel/ActiveLabel/ActiveLabel.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/ActiveLabel/ActiveLabel/RegexParser.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Timeline.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Response.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Error.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Stream.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Validation.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/ServerTrustPolicy.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/ParameterEncoding.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Alamofire.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Result.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Upload.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Manager.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Download.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/NetworkReachabilityManager.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/ParameterEncoding.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/ResponseSerialization.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Request.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Notifications.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/MultipartFormData.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Response.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Alamofire.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/GSImageViewerController/GSImageViewerController/GSImageViewerController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Alamofire/Source/Upload.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/AlertOnboarding/Pod/Classes/AlertChildPageViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/AlertOnboarding/Pod/Classes/AlertPageViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/AlertOnboarding/Pod/Classes/AlertOnboarding.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/AlertOnboarding/Pod/Assets/AlertChildPageViewController.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/JiroTextField.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/MinoruTextField.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/YoshikoTextField.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/MadokaTextField.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/HoshiTextField.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/AkiraTextField.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/TextFieldsEffects.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/IsaoTextField.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/YokoTextField.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/KaedeTextField.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/AlertRow.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/FieldsRow.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/Controllers/MultipleSelectorViewController.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/Controllers/SelectorAlertController.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/Controllers/SelectorViewController.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/Controllers/ImagePickerController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/TextAreaRow.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/DatePickerRow.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/MultipleSelectorRow.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/PickerInlineRow.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/PopoverSelectorRow.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/MultipleSelectorRow.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/DateInlineRow.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/SwitchRow.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/StepperRow.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/SwitchRow.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/LabelRow.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/PushRow.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/SegmentedRow.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/CheckRow.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/ActionSheetRow.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/ImageRow.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/DateInlineRow.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/SliderRow.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/DateRow.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/PickerRow.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/FieldsRow.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/ButtonRowWithPresent.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/TextAreaRow.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/ImageRow.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/ButtonRow.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/ButtonRowWithPresent.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/SelectableRows/ListCheckRow.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/Common/OptionsRow.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Rows/Common/DecimalFormatter.swift" isTestSource="false" />
@@ -357,106 +476,43 @@
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Core/CellType.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Core/Core.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Core/Section.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Core/Helpers.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Core/BaseRow.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Core/Operators.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Core/HeaderFooterView.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Core/RowControllerType.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Core/InlineRowType.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Core/Cell.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Core/RowType.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Core/BaseRow.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Core/NavigationAccessoryView.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Core/Form.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Core/SelectableRowType.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Core/Helpers.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Core/Row.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/Eureka/Source/Core/Cell.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/OAuthSwift/OAuthSwift/OAuthSwiftCredential.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/RFAboutView-Swift/Pod/Classes/RFAboutView.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/RFAboutView-Swift/Pod/Classes/RFAboutViewDetailViewController.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/RFAboutView-Swift/Pod/Classes/UIViewController+sizeForPercent.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/RFAboutView-Swift/Pod/Assets/RFAboutViewCloseX@2x.png" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/RFAboutView-Swift/Pod/Assets/RFAboutViewCloseX@3x.png" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/RFAboutView-Swift/Pod/Assets/RFAboutViewCloseX.png" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/OAuthSwift/OAuthSwift/Dictionary+OAuthSwift.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/OAuthSwift/OAuthSwift/OAuth2Swift.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/OAuthSwift/OAuthSwift/NSURL+OAuthSwift.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/OAuthSwift/OAuthSwift/OAuthSwiftClient.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/OAuthSwift/OAuthSwift/OAuth1Swift.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/OAuthSwift/OAuthSwift/NSDate+OAuthSwift.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/OAuthSwift/OAuthSwift/String+OAuthSwift.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/OAuthSwift/OAuthSwift/OAuthSwiftCredential.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/OAuthSwift/OAuthSwift/OAuthSwiftURLHandlerType.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/OAuthSwift/OAuthSwift/SHA1.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/OAuthSwift/OAuthSwift/OAuthWebViewController.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/OAuthSwift/OAuthSwift/UIApplication+OAuthSwift.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/OAuthSwift/OAuthSwift/Utils.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/OAuthSwift/OAuthSwift/NSDate+OAuthSwift.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/OAuthSwift/OAuthSwift/OAuthSwiftMultipartData.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/OAuthSwift/OAuthSwift/OAuthSwiftHTTPRequest.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/OAuthSwift/OAuthSwift/HMAC.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/OAuthSwift/OAuthSwift/Int+OAuthSwift.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/OAuthSwift/OAuthSwift/NSData+OAuthSwift.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Pods/OAuthSwift/OAuthSwift/OAuthSwift.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Pods/OAuthSwift/OAuthSwift/Dictionary+OAuthSwift.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/MessageCell.xib" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/ScheduleCell.xib" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/ComposeBackground.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/ActionCell.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/FeedViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/CatalogCell.xib" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/Info.plist" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/Utils.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/CreatorAssistant.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/SettingsTableViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/Cache.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/DashboardViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/CreatorAssistant.xib" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/MessageCreator.xib" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/Schedule.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/Payload.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/Action.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/MainSplitView.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/SettingsListTableViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/ServiceProfileViewcontroller.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/NewScheduleController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/CardView.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/LoginViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/ComposeTextField.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/ThreadViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/CatalogViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/Message.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/MainNavigationController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/ScheduleCell.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/CardView.xib" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/MessageCreatorDelegate.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/Constants.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/LoginButton.xib" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/SignupViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/AppDelegate.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/AuthViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/TablePayloadView.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/Core.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/MessageCell.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/Base.lproj/Main.storyboard" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/Base.lproj/Feed.storyboard" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/Base.lproj/LaunchScreen.storyboard" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/Base.lproj/Settings.storyboard" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/Base.lproj/Thread.storyboard" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/TabBarViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/AuthViewController.xib" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/DashboardEditorViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/ComposeViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/Assets.xcassets" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/MessageCreatorTextView.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/LoginButton.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/CatalogCell.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/CatalogItemCell.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/Settings.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/Unifai.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/ProfileViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/DefaultSettings.plist" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/NewActionController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/ActionsViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/SchedulesViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/MessageCreator.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/TestingViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/CatalogItemCell.xib" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/ActionCell.xib" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/FontAwesome.otf" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Unifai/Service.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/UnifaiTests/UnifaiTests.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/UnifaiTests/Info.plist" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Podfile" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/OAuthSwift/OAuthSwift/String+OAuthSwift.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Pods/OAuthSwift/OAuthSwift/Utils.swift" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">

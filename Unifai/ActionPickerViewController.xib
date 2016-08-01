@@ -10,7 +10,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActionPickerViewController" customModule="Unifai" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="i54-VG-aBU" id="7ci-9c-UsR"/>
-                <outlet property="navigationBar" destination="Xqh-rN-y0Q" id="hNz-2g-O8e"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,21 +18,8 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xqh-rN-y0Q">
-                    <rect key="frame" x="0.0" y="18" width="600" height="44"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <items>
-                        <navigationItem title="Pick an action" id="ZHS-es-QAm">
-                            <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Ggq-Ea-jqj">
-                                <connections>
-                                    <action selector="CancelTapped:" destination="-1" id="3W3-ml-OLD"/>
-                                </connections>
-                            </barButtonItem>
-                        </navigationItem>
-                    </items>
-                </navigationBar>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="i54-VG-aBU">
-                    <rect key="frame" x="0.0" y="62" width="600" height="538"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="plN-Kj-5My">
                         <size key="itemSize" width="50" height="50"/>
@@ -46,13 +32,10 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Xqh-rN-y0Q" secondAttribute="trailing" id="5vZ-Nm-099"/>
                 <constraint firstItem="i54-VG-aBU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EHH-Um-jEi"/>
                 <constraint firstAttribute="bottom" secondItem="i54-VG-aBU" secondAttribute="bottom" id="RTe-WN-HyW"/>
-                <constraint firstItem="Xqh-rN-y0Q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="18" id="W6M-jR-jQ6"/>
-                <constraint firstItem="Xqh-rN-y0Q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="p3z-Vm-Mpr"/>
                 <constraint firstAttribute="trailing" secondItem="i54-VG-aBU" secondAttribute="trailing" id="vec-Mx-2WU"/>
-                <constraint firstItem="i54-VG-aBU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="62" id="w1v-HV-pxG"/>
+                <constraint firstItem="i54-VG-aBU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="w1v-HV-pxG"/>
             </constraints>
         </view>
         <navigationItem title="Hello world" id="MUO-Yy-3so"/>

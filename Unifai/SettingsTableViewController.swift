@@ -51,7 +51,7 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
         if id == "logout" {
             NSUserDefaults.standardUserDefaults().removeObjectForKey("token")
             NSUserDefaults.standardUserDefaults().synchronize()
-            self.presentingViewController?.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+            self.tabBarController?.dismissViewControllerAnimated(true, completion: nil)
             return
         }
         else if id == "deleteCache" {

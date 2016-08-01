@@ -2,6 +2,8 @@ PODS:
   - ActiveLabel (0.5.0)
   - Alamofire (3.3.1)
   - AlertOnboarding (1.5)
+  - Answers (1.2.1):
+    - Fabric (~> 1.6.3)
   - Charts (2.2.5):
     - Charts/Core (= 2.2.5)
   - Charts/Core (2.2.5)
@@ -10,6 +12,7 @@ PODS:
   - DynamicColor (2.4.0)
   - Eureka (1.5.0)
   - expanding-collection (0.3.2)
+  - Fabric (1.6.7)
   - GSImageViewerController (1.1.1)
   - MaterialDesignSymbol (1.7)
   - OAuthSwift (0.5.2)
@@ -23,12 +26,14 @@ DEPENDENCIES:
   - ActiveLabel
   - Alamofire (~> 3.3)
   - AlertOnboarding
+  - Answers
   - Charts
   - DateTools
   - DGElasticPullToRefresh
   - DynamicColor (~> 2.4.0)
   - Eureka (~> 1.5)
   - expanding-collection
+  - Fabric
   - GSImageViewerController
   - MaterialDesignSymbol
   - OAuthSwift (~> 0.5.0)
@@ -51,12 +56,14 @@ SPEC CHECKSUMS:
   ActiveLabel: c7b011767b5660faacf8a3629174a9a775886b8d
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
   AlertOnboarding: 4b92341965987dc9492a37d453aac7826f60f0a3
+  Answers: 57ee6bcc9bd3c6710862065c9251365a2a404920
   Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   DGElasticPullToRefresh: 040f39ae69840b3261d163fe6735c5901bf851e9
   DynamicColor: 2f3fd61053684667bad9f03045dcf9a2a5a007ea
   Eureka: 2fb37bb50569c62ee3284689d5b7aca694b040e0
   expanding-collection: 0a237d343a1d71472a312296a8e1359be01244ab
+  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   GSImageViewerController: 1fd7ff9210bca2eaaeb89811c55230b575377143
   MaterialDesignSymbol: 8216d8587ff04b8d0d110a9a02eb53ea94174328
   OAuthSwift: 1ef042d4362e755e24a78f158d817245641a5d24

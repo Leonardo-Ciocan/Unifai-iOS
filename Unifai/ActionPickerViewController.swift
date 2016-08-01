@@ -16,7 +16,6 @@ class ActionPickerViewController: UIViewController , UICollectionViewDataSource 
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBOutlet weak var navigationBar: UINavigationBar!
     var actions : [Service:[Action]] = [:]
     var serviceOrder : [Service] = []
     var delegate : ActionPickerDelegate?
@@ -38,10 +37,12 @@ class ActionPickerViewController: UIViewController , UICollectionViewDataSource 
             })
         })
 
-        self.navigationBar.barTintColor = currentTheme.backgroundColor
-        self.view.backgroundColor = currentTheme.backgroundColor
-        self.navigationBar.barStyle = currentTheme.barStyle
+
         self.collectionView.backgroundColor = currentTheme.backgroundColor
+        
+        self.navigationItem.title = "Pick an action"
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: #selector(CancelTapped))
+        self.applyCurrentTheme()
     }
     
     func setActions(actions : [Action]) {

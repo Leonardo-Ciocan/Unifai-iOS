@@ -1,5 +1,7 @@
 import UIKit
 import MapKit
+import Fabric
+import Answers
 
 
 @UIApplicationMain
@@ -16,11 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Settings.setup()
         
         updateLocation()
+        
+        //Fabric.with([Answers.self])
 
         return true
     }
     
     func applicationDidFinishLaunching(application: UIApplication) {
+    
     }
 
     func applicationWillResignActive(application: UIApplication) {

@@ -17,4 +17,6 @@ target 'Unifai' do
     pod "TextFieldEffects"
     pod 'DynamicColor', '~> 2.4.0'
     pod "RFAboutView-Swift", '~> 1.0.13'
+    pod 'Fabric'
+    pod 'Answers'
 end

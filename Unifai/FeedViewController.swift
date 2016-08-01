@@ -109,6 +109,9 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         }
         
         registerForKeyboardNotifications()
+        
+        self.navigationController?.navigationBar.tintColor = currentTheme.foregroundColor
+
     }
     
     func didSelectService(service: Service?) {
@@ -129,6 +132,8 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         self.navigationController?.navigationBar.barTintColor = nil
         self.navigationController?.navigationBar.tintColor = currentTheme.foregroundColor
         self.navigationController?.navigationBar.translucent = true
+        self.navigationController?.navigationBar.tintColor = currentTheme.foregroundColor
+
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {

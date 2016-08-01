@@ -198,22 +198,26 @@ enum Position {
     @IBAction func runAction(sender: AnyObject) {
         let picker = ActionPickerViewController()
         picker.delegate = self
-        picker.modalPresentationStyle = .Popover
+        
+        let rootVC = UINavigationController(rootViewController: picker)
+        
+        rootVC.modalPresentationStyle = .Popover
         let viewForSource = sender as! UIView
-        picker.popoverPresentationController!.sourceView = viewForSource
+        rootVC.popoverPresentationController!.sourceView = viewForSource
         
         // the position of the popover where it's showed
-        picker.popoverPresentationController!.sourceRect = viewForSource.bounds
+        rootVC.popoverPresentationController!.sourceRect = viewForSource.bounds
         
         // the size you want to display
-        picker.preferredContentSize = CGSizeMake(300,350)
+        rootVC.preferredContentSize = CGSizeMake(300,350)
 
-        self.parentViewController?.presentViewController(picker, animated: true, completion: nil)
+        self.parentViewController?.presentViewController(rootVC, animated: true, completion: nil)
     }
     
     func selectedAction(message: String) {
         txtMessage.text = message
         textChanged(self)
+        self.txtMessage.becomeFirstResponder()
     }
     
     

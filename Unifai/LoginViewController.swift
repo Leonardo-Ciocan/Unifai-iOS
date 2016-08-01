@@ -26,9 +26,9 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
     func keyboardWillShow(sender: NSNotification) {
         var info = sender.userInfo!
         //var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
-        
+        self.logoHeight.constant = 0
         UIView.animateWithDuration(0.5, animations: { () -> Void in
-            self.logoHeight.constant = 0
+            self.view.layoutIfNeeded()
         })
     }
     func keyboardWillHide(sender: NSNotification) {
@@ -74,7 +74,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
             alertView.purcentageRatioHeight = 0.9
             
             //... and show it !
-            alertView.show()
+            //alertView.show()
         }
     }
     
@@ -84,6 +84,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
         }
         else{
             txtPassword.resignFirstResponder()
+            loginClicked(self)
         }
         
         return true
@@ -95,7 +96,15 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
             NSUserDefaults.standardUserDefaults().setValue(token, forKey: "token")
             NSUserDefaults.standardUserDefaults().synchronize()
             self.performSegueWithIdentifier("auth" , sender: self)
+            } , error: {
+                let alert = UIAlertController(title: "Login error", message: "That username and password don't match", preferredStyle: .Alert)
+                let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+                alert.addAction(cancel)
+                self.presentViewController(alert, animated: true, completion: nil)
         })
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
 }

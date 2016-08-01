@@ -30,16 +30,16 @@ class ProfileViewController: UIViewController , UITableViewDelegate , UITableVie
         
 
         
-        let segment = UISegmentedControl(items: ["Passport" , "Send messages"])
-        segment.selectedSegmentIndex = 0
-        navigationItem.titleView = segment
-        self.settingsButton.title = NSString(string: "\u{2699}") as String
-        if let font = UIFont(name: "Helvetica", size: 18.0) {
-            self.settingsButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
-        }
+//        let segment = UISegmentedControl(items: ["Send messages" , "Settings"])
+//        segment.selectedSegmentIndex = 0
+//        navigationItem.titleView = segment
+//        self.settingsButton.title = NSString(string: "\u{2699}") as String
+//        if let font = UIFont(name: "Helvetica", size: 18.0) {
+//            self.settingsButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
+//        }
         
         self.tableView.addSubview(self.refreshControl)
-        //loadData()
+        loadData()
         
         
         if( traitCollection.forceTouchCapability == .Available){

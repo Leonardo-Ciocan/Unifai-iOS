@@ -48,14 +48,20 @@ class SignupViewController: UIViewController , UITextFieldDelegate {
                 NSUserDefaults.standardUserDefaults().setValue(token, forKey: "token")
                 NSUserDefaults.standardUserDefaults().synchronize()
                 self.performSegueWithIdentifier("auth" , sender: self)
-            })
+                }, error: {
+                    
+                })
+            },error: { errors in
+                let alert = UIAlertController(title: "Signup error", message: "Can't sign up with those details", preferredStyle: .Alert)
+                let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+                alert.addAction(cancel)
+                self.presentViewController(alert, animated: true, completion: nil)
         })
     }
     
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        
         return true
     }
 }

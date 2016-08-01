@@ -136,98 +136,20 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
 //    }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
-        navigationController?.navigationBar.barStyle = .Black
-        
         let action = self.actions[serviceOrder[indexPath.section]]![indexPath.row]
+        let runner = ActionRunnerViewController()
+        runner.loadAction(action)
         
-        let cell = collectionView.cellForItemAtIndexPath(indexPath)!
-        let cellFrame = collectionView.convertRect(cell.frame, toView: self.view)
-        let frame = CGRect(origin: CGPoint(x:cellFrame.origin.x ,y:cellFrame.origin.y ), size: cellFrame.size)
-        let window = UIApplication.sharedApplication().keyWindow
+        let rootVC = UINavigationController(rootViewController: runner)
         
-        let effectView = ActionRunnerPage(frame: UIScreen.mainScreen().bounds)
-        effectView.hidden = true
-        let service = serviceOrder[indexPath.section]
-        effectView.colorView.backgroundColor = service.color
-        effectView.layer.masksToBounds = true
-        window?.addSubview(effectView)
+        let cell = collectionView.cellForItemAtIndexPath(indexPath)
         
-        let effectMaskView = UIView(frame:UIScreen.mainScreen().bounds)
-        let effectMaskViewChild = UIView(frame:frame)
-        effectMaskView.addSubview(effectMaskViewChild)
-        //effectView.addSubview(effectMaskView)
-        effectMaskViewChild.backgroundColor = UIColor.whiteColor()
-        effectView.backgroundColor = service.color
-        effectView.maskView = effectMaskView
-        effectMaskViewChild.layer.cornerRadius = 300
-
-        effectView.imgLogo.image = UIImage(named: service.username)
-
-        let actionMessage = Message(body: action.message , type: .Text, payload: nil)
-        effectView.messages.append(actionMessage)
-        effectView.tableView.reloadData()
-        
-        //effectView.alpha = 0
-        effectView.tableView.alpha = 0
-        effectView.hidden = false
-        
-        effectView.tableView.transform = CGAffineTransformMakeTranslation(0, 35)
-        
-        effectView.btnKeepHandler = {
-            self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
-            let targetFrame = effectView.convertRect(effectView.btnKeep.frame, toView: nil)
-            UIView.animateWithDuration(0.35, delay: 0, options: .CurveEaseIn, animations: {
-                    effectMaskViewChild.frame = targetFrame
-                    effectView.alpha = 0
-
-                }, completion: { _ in
-                    effectView.removeFromSuperview()
-            })
-        }
-        
-        effectView.btnDiscardHandler = {
-            if effectView.message?.threadID != nil{
-                Unifai.deleteThread(effectView.message!.threadID!, completion: nil)
-            }
-            self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
-            let targetFrame = effectView.convertRect(effectView.btnDiscard.frame, toView: nil)
-            UIView.animateWithDuration(0.35, delay: 0, options: .CurveEaseIn, animations: {
-                effectMaskViewChild.frame = targetFrame
-                effectView.alpha = 0
-                }, completion: { _ in
-                    effectView.removeFromSuperview()
-            })
-        }
-        
-        effectMaskView.userInteractionEnabled = false
-        
-        UIView.animateWithDuration(0.35, delay: 0, options: .CurveEaseOut, animations: {
-                effectMaskViewChild.frame = UIScreen.mainScreen().bounds
-                //effectView.alpha = 1
-                effectMaskViewChild.layer.cornerRadius = 0
-
-            }, completion: { _ in
-                UIView.animateWithDuration(0.3, delay: 0.35, options: .CurveEaseOut, animations: {
-                    effectView.tableView.alpha = 1
-                    effectView.backgroundColor = UIColor.whiteColor()
-                    effectView.tableView.transform = CGAffineTransformMakeTranslation(0, 0)
-                    }, completion: { _ in
-                        
-                })
-        })
-        
-        Unifai.runAction(action, completion: { msg in
-            effectView.message = msg
-            effectView.messages.append(msg)
-            effectView.tableView.reloadData()
-            effectView.activityIndicator.stopAnimating()
-        })
-        
-//        Unifai.sendMessage(actions[indexPath.row].message, completion: { _ in
-//                //((self.tabBarController?.viewControllers?.first as! MainSplitView).viewControllers.first as! FeedViewController).loadData()
-//                self.tabBarController?.selectedIndex = 0
-//        })
+        rootVC.modalPresentationStyle = .Popover
+        let viewForSource = cell
+        rootVC.popoverPresentationController!.sourceView = viewForSource
+        rootVC.popoverPresentationController!.sourceRect = viewForSource!.bounds
+        rootVC.preferredContentSize = CGSizeMake(350,500)
+        self.presentViewController(rootVC, animated: true, completion: nil)
     }
     
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {

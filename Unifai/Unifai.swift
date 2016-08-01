@@ -21,14 +21,21 @@ class Unifai{
      
         - Returns: A token
     */
-    static func login(username : String , password :String , completion : (String)->() ) {
+    static func login(username : String , password :String , completion : (String)->() , error : ()-> () ) {
         Alamofire.request(.POST , Constants.urlLogin ,
             parameters: ["username":username , "password":password])
+            .validate()
             .responseJSON{ response in
-               let json = JSON(response.result.value!)
-                if let token = json["token"].string{
-                    completion(token)
+                switch response.result {
+                case .Success:
+                    let json = JSON(response.result.value!)
+                    if let token = json["token"].string{
+                        completion(token)
+                    }
+                case .Failure:
+                    error()
                 }
+              
         }
     }
     
@@ -216,7 +223,6 @@ class Unifai{
     }
     
     static func setDashboardItems(items : [String], completion : ((Bool)->())?){
-        print(items)
         Alamofire.request(.POST , Constants.urlDashboardItems ,
                           parameters: ["queries": items], headers:self.headers)
             .responseJSON{ response in
@@ -358,7 +364,6 @@ class Unifai{
                 switch response.result {
                 case .Success(let data):
                     let json = JSON(data).dictionaryValue
-                    print(JSON(data))
                     var result : [String:[CatalogItem]] = [:]
                     for (service,examples) in json {
                         var items : [CatalogItem] = []
@@ -398,13 +403,17 @@ class Unifai{
         }
     }
     
-    static func signup(username:String,email:String , password:String , completion : ((Bool)->())?){
+    static func signup(username:String,email:String , password:String , completion : ()->() , error : () -> ()) {
         Alamofire.request(.POST , Constants.urlSignup ,
             parameters: ["username":username , "email":email , "password":password])
             .validate()
-            .response{ response in
-                completion!(true)
-
+            .responseJSON{ response in
+                switch response.result {
+                case .Success:
+                    completion()
+                case .Failure:
+                    error()
+                }
         }
     }
     

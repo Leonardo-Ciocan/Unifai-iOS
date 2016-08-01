@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="16A239j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActionRunnerViewController" customModule="Unifai" customModuleProvider="target">
+            <connections>
+                <outlet property="activityIndicator" destination="baC-o0-NTF" id="nhx-Rh-YVD"/>
+                <outlet property="headerBackground" destination="4wl-CV-Ba7" id="Zfg-1H-gbz"/>
+                <outlet property="imgLogo" destination="Hfj-tC-hJd" id="vAP-YU-p9e"/>
+                <outlet property="tableView" destination="k3V-nP-K64" id="eK4-ca-gWg"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4wl-CV-Ba7">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="310"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="310" id="RAo-96-Bu7"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hfj-tC-hJd">
+                    <rect key="frame" x="107" y="60" width="200" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Hfj-tC-hJd" secondAttribute="height" multiplier="1:1" id="NYP-8d-WKz"/>
+                        <constraint firstAttribute="width" constant="200" id="zpK-Bx-7ey"/>
+                    </constraints>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="k3V-nP-K64">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="baC-o0-NTF">
+                    <rect key="frame" x="0.0" y="240" width="20" height="20"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="baC-o0-NTF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1vE-Qi-XBW"/>
+                <constraint firstItem="k3V-nP-K64" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BKB-tw-MMg"/>
+                <constraint firstItem="k3V-nP-K64" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="R9Y-Zh-gPD"/>
+                <constraint firstAttribute="trailing" secondItem="4wl-CV-Ba7" secondAttribute="trailing" id="VSJ-Iu-YIx"/>
+                <constraint firstAttribute="trailing" secondItem="k3V-nP-K64" secondAttribute="trailing" id="bAy-gw-xKl"/>
+                <constraint firstItem="Hfj-tC-hJd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="cKe-Pd-SEl"/>
+                <constraint firstItem="Hfj-tC-hJd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="ct6-xp-T1O"/>
+                <constraint firstItem="Hfj-tC-hJd" firstAttribute="width" secondItem="Hfj-tC-hJd" secondAttribute="height" multiplier="1:1" id="f0e-aR-xU8"/>
+                <constraint firstAttribute="bottom" secondItem="k3V-nP-K64" secondAttribute="bottom" id="fhh-yp-JFT"/>
+                <constraint firstItem="4wl-CV-Ba7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="pWM-3L-bvS"/>
+                <constraint firstItem="4wl-CV-Ba7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="t9z-ph-TKp"/>
+                <constraint firstItem="baC-o0-NTF" firstAttribute="top" secondItem="Hfj-tC-hJd" secondAttribute="bottom" constant="20" id="vn9-jT-eTb"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+        </view>
+    </objects>
+</document>

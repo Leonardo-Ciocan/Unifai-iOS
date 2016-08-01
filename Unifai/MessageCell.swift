@@ -86,7 +86,6 @@ class MessageCell: UITableViewCell {
                 popover.permittedArrowDirections = .Any
             }
             self.parentViewController!.presentViewController(alert, animated: true, completion: nil)
-            
         })
     }
     
@@ -362,7 +361,6 @@ class MessageCell: UITableViewCell {
     
     func onTap(recon:UITapGestureRecognizer){
         var payload = message?.payload as! RequestAuthPayload
-        print("logging in")
 //        let oauthswift = OAuth2Swift(
 //            consumerKey:   payload.clientID,
 //            consumerSecret: payload.secret,

@@ -14,7 +14,6 @@
 		B30743801D2C4EFE00A9CD0E /* CatalogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B307437E1D2C4EFE00A9CD0E /* CatalogCell.xib */; };
 		B30743831D2C592400A9CD0E /* CatalogItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30743811D2C592400A9CD0E /* CatalogItemCell.swift */; };
 		B30743841D2C592400A9CD0E /* CatalogItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B30743821D2C592400A9CD0E /* CatalogItemCell.xib */; };
-		B30C03371D498A3900DE7478 /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = B30C03361D498A3900DE7478 /* Acknowledgements.plist */; };
 		B3131F4E1D395BA000461C12 /* CatalogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3131F4D1D395BA000461C12 /* CatalogItem.swift */; };
 		B3131F501D39A1D400461C12 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3131F4F1D39A1D400461C12 /* ProgressView.swift */; };
 		B3131F521D39A1EE00461C12 /* ProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3131F511D39A1EE00461C12 /* ProgressView.xib */; };
@@ -43,8 +42,6 @@
 		B350B9261D381B3A00FADBB6 /* ActionPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350B9241D381B3A00FADBB6 /* ActionPickerViewController.xib */; };
 		B350B9291D3868BB00FADBB6 /* ActionCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350B9271D3868BB00FADBB6 /* ActionCreatorViewController.swift */; };
 		B350B92A1D3868BB00FADBB6 /* ActionCreatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350B9281D3868BB00FADBB6 /* ActionCreatorViewController.xib */; };
-		B35598751D37F5F7002F4C59 /* ActionRunnerPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = B35598741D37F5F7002F4C59 /* ActionRunnerPage.xib */; };
-		B35598771D37F626002F4C59 /* ActionRunnerPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35598761D37F626002F4C59 /* ActionRunnerPage.swift */; };
 		B363CF851CCEEBB300B6182D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363CF841CCEEBB300B6182D /* AppDelegate.swift */; };
 		B363CF8C1CCEEBB300B6182D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B363CF8A1CCEEBB300B6182D /* Main.storyboard */; };
 		B363CF8E1CCEEBB300B6182D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B363CF8D1CCEEBB300B6182D /* Assets.xcassets */; };
@@ -63,6 +60,7 @@
 		B363CFCC1CCF205700B6182D /* Unifai.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363CFCB1CCF205700B6182D /* Unifai.swift */; };
 		B363CFD01CCF4D9600B6182D /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363CFCF1CCF4D9600B6182D /* MainNavigationController.swift */; };
 		B363CFD21CCF502A00B6182D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363CFD11CCF502A00B6182D /* LoginViewController.swift */; };
+		B37FB8641D4D7A51004F6653 /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = B37FB8631D4D7A51004F6653 /* Acknowledgements.plist */; };
 		B390068B1CD35D7F00F472AC /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B390068A1CD35D7F00F472AC /* Schedule.swift */; };
 		B39006951CD661C600F472AC /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39006941CD661C600F472AC /* SignupViewController.swift */; };
 		B39006971CD66ED600F472AC /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39006961CD66ED600F472AC /* Action.swift */; };
@@ -76,6 +74,8 @@
 		B3C07F861D483D5200BF2238 /* SuggestionsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C07F851D483D5200BF2238 /* SuggestionsHeader.swift */; };
 		B3C07F881D483D6000BF2238 /* SuggestionsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3C07F871D483D6000BF2238 /* SuggestionsHeader.xib */; };
 		B3C4F5DD1D441CBE00332FF9 /* AutocompletionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C4F5DC1D441CBE00332FF9 /* AutocompletionUtil.swift */; };
+		B3CEC7AA1D4EC37E00FFBB7A /* ActionRunnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CEC7A81D4EC37E00FFBB7A /* ActionRunnerViewController.swift */; };
+		B3CEC7AB1D4EC37E00FFBB7A /* ActionRunnerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3CEC7A91D4EC37E00FFBB7A /* ActionRunnerViewController.xib */; };
 		B3D6FB2F1D3ACFD70090502F /* ActionsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D6FB2E1D3ACFD70090502F /* ActionsHeader.swift */; };
 		B3D721251D00CF4700BFEEC2 /* TestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D721241D00CF4700BFEEC2 /* TestingViewController.swift */; };
 		B3D721271D00DD8B00BFEEC2 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D721261D00DD8B00BFEEC2 /* CardView.swift */; };
@@ -147,7 +147,6 @@
 		B307437E1D2C4EFE00A9CD0E /* CatalogCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CatalogCell.xib; sourceTree = "<group>"; };
 		B30743811D2C592400A9CD0E /* CatalogItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogItemCell.swift; sourceTree = "<group>"; };
 		B30743821D2C592400A9CD0E /* CatalogItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CatalogItemCell.xib; sourceTree = "<group>"; };
-		B30C03361D498A3900DE7478 /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Acknowledgements.plist; path = "Pods/Target Support Files/Pods-Unifai/Acknowledgements.plist"; sourceTree = "<group>"; };
 		B3131F4D1D395BA000461C12 /* CatalogItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogItem.swift; sourceTree = "<group>"; };
 		B3131F4F1D39A1D400461C12 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		B3131F511D39A1EE00461C12 /* ProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressView.xib; sourceTree = "<group>"; };
@@ -176,8 +175,6 @@
 		B350B9241D381B3A00FADBB6 /* ActionPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionPickerViewController.xib; sourceTree = "<group>"; };
 		B350B9271D3868BB00FADBB6 /* ActionCreatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCreatorViewController.swift; sourceTree = "<group>"; };
 		B350B9281D3868BB00FADBB6 /* ActionCreatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionCreatorViewController.xib; sourceTree = "<group>"; };
-		B35598741D37F5F7002F4C59 /* ActionRunnerPage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionRunnerPage.xib; sourceTree = "<group>"; };
-		B35598761D37F626002F4C59 /* ActionRunnerPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionRunnerPage.swift; sourceTree = "<group>"; };
 		B363CF811CCEEBB300B6182D /* Unifai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unifai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B363CF841CCEEBB300B6182D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B363CF8B1CCEEBB300B6182D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -202,6 +199,7 @@
 		B363CFCB1CCF205700B6182D /* Unifai.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unifai.swift; sourceTree = "<group>"; };
 		B363CFCF1CCF4D9600B6182D /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		B363CFD11CCF502A00B6182D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B37FB8631D4D7A51004F6653 /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Acknowledgements.plist; path = "Pods/Target Support Files/Pods-Unifai/Acknowledgements.plist"; sourceTree = "<group>"; };
 		B390068A1CD35D7F00F472AC /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		B39006941CD661C600F472AC /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		B39006961CD66ED600F472AC /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
@@ -219,6 +217,8 @@
 		B3C07F851D483D5200BF2238 /* SuggestionsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionsHeader.swift; sourceTree = "<group>"; };
 		B3C07F871D483D6000BF2238 /* SuggestionsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuggestionsHeader.xib; sourceTree = "<group>"; };
 		B3C4F5DC1D441CBE00332FF9 /* AutocompletionUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompletionUtil.swift; sourceTree = "<group>"; };
+		B3CEC7A81D4EC37E00FFBB7A /* ActionRunnerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionRunnerViewController.swift; sourceTree = "<group>"; };
+		B3CEC7A91D4EC37E00FFBB7A /* ActionRunnerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionRunnerViewController.xib; sourceTree = "<group>"; };
 		B3D6FB2E1D3ACFD70090502F /* ActionsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionsHeader.swift; sourceTree = "<group>"; };
 		B3D721241D00CF4700BFEEC2 /* TestingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingViewController.swift; sourceTree = "<group>"; };
 		B3D721261D00DD8B00BFEEC2 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -305,12 +305,12 @@
 				B390069A1CD679D700F472AC /* ActionCell.swift */,
 				B3D7213D1D03A8B300BFEEC2 /* ActionCell.xib */,
 				B390069E1CD67C2200F472AC /* NewActionController.swift */,
-				B35598741D37F5F7002F4C59 /* ActionRunnerPage.xib */,
-				B35598761D37F626002F4C59 /* ActionRunnerPage.swift */,
 				B350B9231D381B3A00FADBB6 /* ActionPickerViewController.swift */,
 				B350B9241D381B3A00FADBB6 /* ActionPickerViewController.xib */,
 				B350B9271D3868BB00FADBB6 /* ActionCreatorViewController.swift */,
 				B350B9281D3868BB00FADBB6 /* ActionCreatorViewController.xib */,
+				B3CEC7A81D4EC37E00FFBB7A /* ActionRunnerViewController.swift */,
+				B3CEC7A91D4EC37E00FFBB7A /* ActionRunnerViewController.xib */,
 			);
 			name = Actions;
 			sourceTree = "<group>";
@@ -390,7 +390,7 @@
 		B363CF781CCEEBB300B6182D = {
 			isa = PBXGroup;
 			children = (
-				B30C03361D498A3900DE7478 /* Acknowledgements.plist */,
+				B37FB8631D4D7A51004F6653 /* Acknowledgements.plist */,
 				B363CFB41CCEECA600B6182D /* Podfile */,
 				B363CF831CCEEBB300B6182D /* Unifai */,
 				B363CF9A1CCEEBB300B6182D /* UnifaiTests */,
@@ -535,6 +535,7 @@
 				F9B83672CF0722E3BAB3ED7E /* Embed Pods Frameworks */,
 				B9E744749A4B9F18D8176132 /* Copy Pods Resources */,
 				B39006B41CD6853400F472AC /* Embed App Extensions */,
+				B37FB8621D4D7989004F6653 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -642,15 +643,15 @@
 				B3D761FF1D35B7060088877A /* CreatorAssistant.xib in Resources */,
 				B31BD92F1CFF93EF001B3875 /* LoginButton.xib in Resources */,
 				B31BD92B1CFF33CC001B3875 /* FontAwesome.otf in Resources */,
+				B37FB8641D4D7A51004F6653 /* Acknowledgements.plist in Resources */,
 				B3B0E72E1D45393200DAE0BF /* AutoCompletionSuggestions.xib in Resources */,
 				B3449FF01D3ADFAB00811E6C /* ActionsHeader.xib in Resources */,
 				B363CFC81CCEF9BB00B6182D /* MessageCell.xib in Resources */,
 				B30743841D2C592400A9CD0E /* CatalogItemCell.xib in Resources */,
-				B35598751D37F5F7002F4C59 /* ActionRunnerPage.xib in Resources */,
 				B3F7B00B1CF93F0E00734F9B /* Feed.storyboard in Resources */,
-				B30C03371D498A3900DE7478 /* Acknowledgements.plist in Resources */,
 				B3D721341D01A47000BFEEC2 /* DefaultSettings.plist in Resources */,
 				B341EFB91D42C191004604A7 /* AutoCompletionServices.xib in Resources */,
+				B3CEC7AB1D4EC37E00FFBB7A /* ActionRunnerViewController.xib in Resources */,
 				B30743801D2C4EFE00A9CD0E /* CatalogCell.xib in Resources */,
 				B3E5DF501D4AB17400E18199 /* GeniusViewController.xib in Resources */,
 				B363CF911CCEEBB300B6182D /* LaunchScreen.storyboard in Resources */,
@@ -705,6 +706,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		B37FB8621D4D7989004F6653 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" e36fda02eda41a3af1dfa65487c8d565a76c6633 e6c5c11a117d10d15aeb1ef9f16a3273826bf5844a3ee583d46fa4afb5640859";
+		};
 		B9E744749A4B9F18D8176132 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -751,13 +765,13 @@
 				B335AC1E1CD0ACC100B85781 /* Utils.swift in Sources */,
 				B3C4F5DD1D441CBE00332FF9 /* AutocompletionUtil.swift in Sources */,
 				B3F7B0131CF94AD000734F9B /* MessageCreatorTextView.swift in Sources */,
-				B35598771D37F626002F4C59 /* ActionRunnerPage.swift in Sources */,
 				B307437F1D2C4EFE00A9CD0E /* CatalogCell.swift in Sources */,
 				B363CFC61CCEF9A800B6182D /* MessageCell.swift in Sources */,
 				B3E5DF561D4ABB0200E18199 /* GeniusGroupHeader.swift in Sources */,
 				B350B9291D3868BB00FADBB6 /* ActionCreatorViewController.swift in Sources */,
 				B3D721301D01996000BFEEC2 /* SettingsListTableViewController.swift in Sources */,
 				B3D761FD1D35B6F50088877A /* CreatorAssistant.swift in Sources */,
+				B3CEC7AA1D4EC37E00FFBB7A /* ActionRunnerViewController.swift in Sources */,
 				B3F7B0151CF94F5800734F9B /* MessageCreatorDelegate.swift in Sources */,
 				B3D7213A1D01C5AE00BFEEC2 /* Cache.swift in Sources */,
 				B335AC2B1CD3336F00B85781 /* TablePayloadView.swift in Sources */,

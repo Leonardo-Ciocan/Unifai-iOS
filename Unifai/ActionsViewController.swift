@@ -54,6 +54,13 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         }
     }
     
+    func didCreateAction() {
+        Unifai.getActions({ actions in
+            self.setActions(actions)
+            self.collectionView.reloadData()
+        })
+    }
+    
     func deleteAction(){
         print("deleting")
     }
@@ -64,20 +71,11 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         let creator = ActionCreatorViewController()
         creator.delegate = self
         creator.modalPresentationStyle = .Popover
-        creator.popoverPresentationController!.barButtonItem = sender as! UIBarButtonItem
+        creator.popoverPresentationController!.barButtonItem = sender as? UIBarButtonItem
         
         
         creator.preferredContentSize = CGSizeMake(300,250)
         self.presentViewController(creator, animated: true, completion: nil)
-    }
-    
-    func createAction(name: String, message: String) {
-        Unifai.createAction(message, name: name, completion: { _ in
-            Unifai.getActions({ actions in
-                self.setActions(actions)
-                self.collectionView.reloadData()
-            })
-        })
     }
     
     func getServicesAndUser(callback: ([Service]) -> () ){

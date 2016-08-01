@@ -1,14 +1,7 @@
-//
-//  ActionCreatorViewController.swift
-//  Unifai
-//
-//  Created by Leonardo Ciocan on 15/07/2016.
-//  Copyright © 2016 Unifai. All rights reserved.
-//
-
 import UIKit
+
 protocol ActionCreatorDelegate {
-    func createAction( name : String , message : String)
+    func didCreateAction()
 }
 
 class ActionCreatorViewController: UIViewController {
@@ -41,7 +34,6 @@ class ActionCreatorViewController: UIViewController {
     }
 
     @IBAction func textChanged(sender: AnyObject) {
-        print("changing")
         let color = extractServiceColorFrom(txtMessage.text!)
         UIView.animateWithDuration(0.6, animations: {
             self.view.backgroundColor = color ?? UIColor.blackColor()
@@ -49,8 +41,16 @@ class ActionCreatorViewController: UIViewController {
     }
     
     @IBAction func createTapped(sender: AnyObject) {
-        delegate?.createAction(txtName.text!, message: txtMessage.text!)
-        self.dismissViewControllerAnimated(true, completion: nil)
+        Unifai.createAction(txtMessage.text! , name: txtName.text! , completion: {
+            self.delegate?.didCreateAction()
+            self.dismissViewControllerAnimated(true, completion: nil)
+            },error: {
+                let dialog = UIAlertController(title: "Can't create action", message: "You need to enter a valid message and name", preferredStyle: .Alert)
+                let cancel = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                dialog.addAction(cancel)
+                self.presentViewController(dialog, animated: true, completion: nil)
+        })
+        
     }
     
     @IBAction func cancelTapped(sender: AnyObject) {

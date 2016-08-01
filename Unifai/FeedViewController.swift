@@ -156,7 +156,11 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     func sendMessage(message: String) {
             Unifai.sendMessage(message, completion: { success in
                     self.loadData()
-                })
+                },error: {
+                    let alert = UIAlertController(title: "Can't send this message", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+            })
     }
     
     func sendMessage(message: String, imageData: NSData) {

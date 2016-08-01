@@ -22,6 +22,5 @@ class NewActionController : FormViewController{
         let message = self.form.values(includeHidden: true)["message"] as! String
         let name = self.form.values(includeHidden: true)["name"] as! String
         
-        Unifai.createAction(message, name: name, completion:{_ in self.dismissViewControllerAnimated(true, completion: nil)})
     }
 }

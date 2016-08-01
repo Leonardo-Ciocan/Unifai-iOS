@@ -231,12 +231,18 @@ class Unifai{
     }
     
     
-    static func sendMessage(content : String , completion : ((Bool)->())?){
+    static func sendMessage(content : String , completion : (()->())? , error : () -> ()){
 
         Alamofire.request(.POST , Constants.urlMessage ,
             parameters: ["content":content], headers:self.headers)
+            .validate()
             .responseJSON{ response in
-                completion!(true)
+                switch response.result {
+                case .Success:
+                    completion!()
+                case .Failure:
+                    error()
+                }
         }
     }
     
@@ -264,11 +270,17 @@ class Unifai{
         }
     }
     
-    static func createAction(message : String ,name:String, completion : ((Bool)->())?){
+    static func createAction(message : String ,name:String, completion : (()->())? , error : (()->())?){
         Alamofire.request(.POST , Constants.urlAction ,
             parameters: ["message":message,"name":name], headers:self.headers)
+            .validate()
             .responseJSON{ response in
-                completion!(true)
+                switch response.result {
+                case .Success:
+                    completion!()
+                case .Failure:
+                    error!()
+                }
         }
     }
     

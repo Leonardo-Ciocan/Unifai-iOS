@@ -3,7 +3,7 @@ import UIKit
 import SwiftyJSON
 
 enum MessageType : Int{
-    case Text , Table , Image , BarChart , RequestAuth , CardList , File , Progress , ImageUpload
+    case Text , Table , Image , BarChart , RequestAuth , CardList , File , Progress , ImageUpload, Prompt
 }
 
 class Message {
@@ -85,23 +85,26 @@ class Message {
         }
         
         self.type = MessageType(rawValue:Int(type!))!
-        if(type == 1){
+        if(type == MessageType.Text.rawValue){
             self.payload = TablePayload(data: data)
         }
-        else if(type == 2){
+        else if(type == MessageType.Image.rawValue){
             self.payload = ImagePayload(data: data)
         }
-        else if(type == 3){
+        else if(type == MessageType.BarChart.rawValue){
             self.payload = BarChartPayload(data: data)
         }
-        else if(type == 4){
+        else if(type == MessageType.RequestAuth.rawValue){
             self.payload = RequestAuthPayload(data: data)
         }
-        else if(type == 5){
+        else if(type == MessageType.CardList.rawValue){
             self.payload = CardListPayload(data: data)
         }
-        else if(type == 7){
+        else if(type == MessageType.Progress.rawValue){
             self.payload = ProgressPayload(data: data)
+        }
+        else if(type == MessageType.Prompt.rawValue){
+            self.payload = PromptPayload(data: data)
         }
         
     }

@@ -113,3 +113,17 @@ class ProgressPayload : Payload {
         }
     }
 }
+
+class PromptPayload : Payload {
+    var suggestions : [String] = []
+    
+    init(data : String ) {
+        let dt = data.dataUsingEncoding(NSUTF8StringEncoding , allowLossyConversion: true)
+        //print(JSON(data:dt!))
+        let items = JSON(data:dt!)
+        if let suggestions = items["suggestions"].array {
+            self.suggestions = suggestions.map({ $0.stringValue })
+        }
+    }
+}
+

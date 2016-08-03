@@ -53,7 +53,7 @@ class SettingsListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("DefaultCell", forIndexPath: indexPath)
 
-        cell.textLabel?.text = items[indexPath.row] as! String
+        cell.textLabel?.text = items[indexPath.row] as? String
         cell.accessoryType = indexPath.row == selected ? .Checkmark : .None
         
         return cell

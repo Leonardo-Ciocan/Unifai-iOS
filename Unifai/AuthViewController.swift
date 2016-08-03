@@ -22,7 +22,7 @@ class AuthViewController: UIViewController  , UIWebViewDelegate{
         super.viewDidLoad()
         header.backgroundColor = service?.color
         titleLabel.text = service?.name
-        var urlComponents = NSURLComponents(string: payload!.url)
+        let urlComponents = NSURLComponents(string: payload!.url)
         urlComponents?.queryItems = [
             NSURLQueryItem(name: "redirect_uri", value: "http://127.0.0.1:1989/callback"),
             NSURLQueryItem(name: "client_id", value: payload?.clientID),
@@ -31,8 +31,8 @@ class AuthViewController: UIViewController  , UIWebViewDelegate{
             NSURLQueryItem(name: "scope", value: payload?.scope),
             NSURLQueryItem(name: "duration", value: "permanent"),
         ]
-        var url = urlComponents?.URL
-        var request = NSURLRequest(URL:url!)
+        let url = urlComponents?.URL
+        let request = NSURLRequest(URL:url!)
         print(url?.absoluteString)
         webView.delegate = self
         webView.scrollView.contentInset = UIEdgeInsetsMake(70, 0,0, 0)
@@ -43,7 +43,7 @@ class AuthViewController: UIViewController  , UIWebViewDelegate{
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         if let url : String = request.URL?.absoluteString{
             if(url.containsString("code=")){
-                var urlComponents = NSURLComponents(string:url)
+                let urlComponents = NSURLComponents(string:url)
                 let code = urlComponents?.queryItems?.filter({ $0.name == "code"}).first?.value
                 print(code)
                 Unifai.updateAuthCode((service?.id)!, code: code!, completion: {

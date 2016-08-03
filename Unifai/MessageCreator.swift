@@ -19,24 +19,17 @@ enum Position {
     
     @IBOutlet weak var btnGenius: UIButton!
     @IBOutlet weak var btnRemove: UIButton!
-    
     @IBOutlet weak var btnCamera: UIButton!
-    
     @IBOutlet weak var btnSendTrailingConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var shadowView: UIView!
-    
     @IBOutlet weak var btnImage: UIButton!
-    
     @IBOutlet weak var btnAction: UIButton!
     @IBOutlet weak var imageView: UIImageView!
-    
-    var creatorDelegate : MessageCreatorDelegate?
-    
     @IBOutlet weak var txtMessage: MessageCreatorTextView!
     @IBOutlet weak var btnSend: UIButton!
     @IBOutlet weak var backgroundColorView: UIView!
-
+    
+    var creatorDelegate : MessageCreatorDelegate?
     @IBInspectable var isTop : Bool = true
     
     var imageData : NSData?
@@ -46,7 +39,6 @@ enum Position {
     var assistant : CreatorAssistant? {
         didSet {
             guard assistant != nil else { return }
-            print("Setting delegate")
             assistant!.delegate = self
         }
     }
@@ -61,6 +53,8 @@ enum Position {
         super.drawRect(rect)
     }
 
+    var promptMode = false
+    var promptSuggestions : [String] = []
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -76,7 +70,8 @@ enum Position {
     
     @IBOutlet weak var imageLeftConstraint: NSLayoutConstraint!
     @IBOutlet weak var textBoxLeftConstraint: NSLayoutConstraint!
-    
+    var suggestions : [String] = []
+
     func loadViewFromNib() {
         let bundle = NSBundle(forClass: self.dynamicType)
         let nib = UINib(nibName: "MessageCreator", bundle: bundle)
@@ -130,13 +125,28 @@ enum Position {
         self.backgroundColorView.backgroundColor = currentTheme.backgroundColor
     }
     
-    var suggestions : [String] = []
+    func sendMessage(message: String) {
+        Unifai.sendMessage(message, completion: { success in
+            self.creatorDelegate?.shouldRefreshData()
+            },error: {
+                let alert = UIAlertController(title: "Can't send this message", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+                self.parentViewController!.presentViewController(alert, animated: true, completion: nil)
+        })
+    }
+    
+    func sendMessage(message: String, imageData: NSData) {
+        Unifai.sendMessage(message , imageData: imageData, completion: { success in
+            self.creatorDelegate?.shouldRefreshData()
+        })
+    }
+    
     func getRandomCatalogItem() -> String {
         if suggestions.isEmpty {
             suggestions = Array(Core.Catalog.values).flatten().map({ $0.message}).filter({ !$0.isEmpty })
         }
-        let n = arc4random_uniform(UInt32(suggestions.count))
-        return suggestions[Int(n)]
+        let n = Int(arc4random_uniform(UInt32(suggestions.count)))
+        return n < suggestions.count ? suggestions[n] : ""
     }
     
     override func layoutSubviews() {
@@ -224,10 +234,10 @@ enum Position {
     @IBAction func send(sender: AnyObject) {
         guard creatorDelegate != nil else {return}
         if let data = self.imageData {
-            creatorDelegate?.sendMessage(txtMessage.text!, imageData: data)
+            self.sendMessage(txtMessage.text!, imageData: data)
         }
         else {
-            creatorDelegate?.sendMessage(txtMessage.text!)
+            self.sendMessage(txtMessage.text!)
         }
         txtMessage.text = ""
         txtMessage.resignFirstResponder()
@@ -401,7 +411,7 @@ enum Position {
     }
     
     func didSelectGeniusSuggestionWithMessage(message: String) {
-        self.creatorDelegate?.sendMessage(message)
+        self.sendMessage(message)
     }
     
     func didSelectGeniusSuggestionWithClipboardImage() {

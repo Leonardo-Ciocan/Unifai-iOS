@@ -44,7 +44,7 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
             if !serviceOrder.contains(service) {
                 serviceOrder.append(service)
             }
-            if let serviceSlot = self.actions[service] {
+            if let _ = self.actions[service] {
                 self.actions[service]!.append(action)
             }
             else{

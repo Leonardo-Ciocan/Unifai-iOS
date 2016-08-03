@@ -25,7 +25,7 @@ class SignupViewController: UIViewController , UITextFieldDelegate {
     
     @IBOutlet weak var logoHeight: NSLayoutConstraint!
     func keyboardWillShow(sender: NSNotification) {
-        var info = sender.userInfo!
+        _ = sender.userInfo!
         //var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         
         UIView.animateWithDuration(0.5, animations: { () -> Void in
@@ -33,7 +33,7 @@ class SignupViewController: UIViewController , UITextFieldDelegate {
         })
     }
     func keyboardWillHide(sender: NSNotification) {
-        var info = sender.userInfo!
+        _ = sender.userInfo!
         //var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         
         UIView.animateWithDuration(0.5, animations: { () -> Void in

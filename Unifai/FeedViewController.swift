@@ -114,12 +114,19 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
 
     }
     
+    func shouldRefreshData() {
+        self.tableView.reloadData()
+    }
+    
+    var serviceSelectedInAutocompletion : Service?
     func didSelectService(service: Service?) {
         UIView.animateWithDuration(1, animations: {
             },completion: { _ in
+                self.serviceSelectedInAutocompletion = service
                 self.navigationController?.navigationBar.barStyle = service == nil ? currentTheme.barStyle : .Black
                 self.navigationController?.navigationBar.barTintColor = service == nil ? nil : service!.color
                 self.navigationController?.navigationBar.tintColor = service == nil ? currentTheme.foregroundColor : UIColor.whiteColor()
+                self.setNeedsStatusBarAppearanceUpdate()
         })
     }
     
@@ -137,7 +144,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return currentTheme.statusBarStyle
+        return serviceSelectedInAutocompletion == nil ? currentTheme.statusBarStyle : .LightContent
     }
     
     func getServicesAndUser(callback: ([Service]) -> () ){
@@ -151,22 +158,6 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
                 callback(services)
             })
         })
-    }
-    
-    func sendMessage(message: String) {
-            Unifai.sendMessage(message, completion: { success in
-                    self.loadData()
-                },error: {
-                    let alert = UIAlertController(title: "Can't send this message", message: "", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
-                    self.presentViewController(alert, animated: true, completion: nil)
-            })
-    }
-    
-    func sendMessage(message: String, imageData: NSData) {
-            Unifai.sendMessage(message , imageData: imageData, completion: { success in
-                self.loadData()
-            })
     }
     
     func showValidationMessage() {
@@ -300,30 +291,13 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     func didFinishWirting() {
         self.navigationItem.leftBarButtonItem = nil
     }
-    
-    func chooseAction() {
-        let menu = UIAlertController(title: "Run an action", message: "", preferredStyle: .ActionSheet)
-        
-        Unifai.getActions({ actions in
-            for action in actions{
-                let item = UIAlertAction(title: action.name, style: .Default, handler: { (alert:UIAlertAction!) -> Void in
-                    if let selected = actions.filter({$0.name == alert.title}).first{
-                        self.sendMessage(selected.message)
-                    }
-                })
-                menu.addAction(item)
-            }
-            menu.addAction(UIAlertAction(title: "Cancel" , style: .Cancel , handler: nil))
-            self.presentViewController(menu, animated: true, completion: nil)
-        })
-    }
 
     
     func registerForKeyboardNotifications()
     {
         //Adding notifies on keyboard appearing
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(FeedViewController.keyboardWasShown(_:)), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillBeHidden:"), name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(FeedViewController.keyboardWillBeHidden(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
     
     
@@ -336,9 +310,8 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     
     func keyboardWasShown(notification: NSNotification)
     {
-        var info : NSDictionary = notification.userInfo!
-        var keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue().size
-        var contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
+        let info : NSDictionary = notification.userInfo!
+        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue().size
         
         assistantBottomConstraint.constant = (keyboardSize?.height)! - (tabBarController?.tabBar.frame.height)!
     }

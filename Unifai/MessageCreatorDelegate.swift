@@ -9,8 +9,7 @@
 import Foundation
 
 protocol MessageCreatorDelegate : class {
-    func sendMessage(message:String)
-    func sendMessage(message:String, imageData:NSData)
+    func shouldRefreshData()
     func didStartWriting()
     func didFinishWirting()
     func didSelectService(service:Service?)

@@ -175,9 +175,9 @@ class MessageCell: UITableViewCell {
         }
         else if(message.type == .Image){
             self.payloadContainerHeight.constant = 180
-            var url:NSURL? = NSURL(string: (message.payload as! ImagePayload).URL)
-            var data:NSData? = NSData(contentsOfURL : url!)
-            var image = UIImage(data : data!)
+            let url:NSURL? = NSURL(string: (message.payload as! ImagePayload).URL)
+            let data:NSData? = NSData(contentsOfURL : url!)
+            let image = UIImage(data : data!)
             
             self.img = image
             
@@ -219,7 +219,7 @@ class MessageCell: UITableViewCell {
             view.data = data
             view.tintColor = serviceColor
             view.rightAxis.labelTextColor = UIColor.clearColor()
-            view.leftAxis.startAtZeroEnabled = true
+            view.leftAxis.axisMinValue = 0
             view.borderColor = UIColor.clearColor()
             view.drawGridBackgroundEnabled = false
             view.legend.enabled = false
@@ -343,6 +343,62 @@ class MessageCell: UITableViewCell {
             
             
         }
+        else if message.type == .Prompt {
+            self.payloadContainerHeight.constant = CGFloat(220)
+            let payload = message.payload as! PromptPayload
+            
+            let scrollView = UIScrollView()
+            payloadContainer.addSubview(scrollView)
+            scrollView.snp_makeConstraints(closure: { make in
+                make.leading.equalTo(0)
+                make.trailing.equalTo(0)
+                make.bottom.equalTo(30)
+                make.top.equalTo(0)
+            })
+            scrollView.pagingEnabled = true
+          
+            let numberOfPages = Int(ceil(Double(payload.suggestions.count) / 5.0))
+              scrollView.contentSize = CGSize(width: payloadContainer.frame.width * CGFloat(numberOfPages), height: payloadContainer.frame.height)
+            for i in 0..<numberOfPages {
+                var items : [String] = []
+                for n in numberOfPages * i..<numberOfPages * i + 5  {
+                    if n < payload.suggestions.count {
+                        items.append(payload.suggestions[n])
+                    }
+                }
+                var buttons : [UIButton] = []
+                for item in items {
+                    let btn = UIButton()
+                    btn.setTitle(item, forState: .Normal)
+                    btn.setTitleColor(serviceColor, forState: .Normal)
+                    btn.layer.borderColor = serviceColor.CGColor
+                    btn.layer.borderWidth = 1
+                    btn.layer.cornerRadius = 5
+                    btn.layer.masksToBounds = true
+                    buttons.append(btn)
+                }
+                let stack = UIStackView(arrangedSubviews:
+                    buttons
+                )
+                stack.axis = .Vertical
+                stack.backgroundColor = UIColor.blackColor()
+                stack.distribution = .EqualSpacing
+                stack.frame = CGRect(x: CGFloat(i) * payloadContainer.frame.width, y: 0, width: payloadContainer.frame.width, height: payloadContainer.frame.height - 30)
+                scrollView.addSubview(stack)
+            }
+            
+            let pageControl = UIPageControl()
+            pageControl.numberOfPages = numberOfPages
+            payloadContainer.addSubview(pageControl)
+            pageControl.currentPageIndicatorTintColor = serviceColor
+            pageControl.snp_makeConstraints(closure:  { make in
+                make.leading.equalTo(0)
+                make.trailing.equalTo(0)
+                make.bottom.equalTo(0)
+                make.height.equalTo(30)
+            })
+        }
+
     }
     
     func payloadImageTapped(senderA:UITapGestureRecognizer){
@@ -360,26 +416,7 @@ class MessageCell: UITableViewCell {
     }
     
     func onTap(recon:UITapGestureRecognizer){
-        var payload = message?.payload as! RequestAuthPayload
-//        let oauthswift = OAuth2Swift(
-//            consumerKey:   payload.clientID,
-//            consumerSecret: payload.secret,
-//            authorizeUrl:   payload.url,
-//            responseType:   "code"
-//        )
-//        oauthswift.authorize_url_handler = SafariURLHandler(viewController: parentViewController!)
-//        oauthswift.allowMissingStateCheck = true
-//        oauthswift.authorizeWithCallbackURL(
-//            NSURL(string: "http://127.0.0.1:8000/callback" )!,
-//            scope: payload.scope, state:"",
-//            success: { credential, response, parameters in
-//                print(credential)
-//                print(response)
-//            },
-//            failure: { error in
-//                print(error.localizedDescription)
-//            }
-//        )
+        let payload = message?.payload as! RequestAuthPayload
         
         let vc = AuthViewController()
         vc.payload = payload

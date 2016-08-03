@@ -19,8 +19,8 @@ class NewActionController : FormViewController{
     }
     
     func doneClick(sender:UIBarButtonItem){
-        let message = self.form.values(includeHidden: true)["message"] as! String
-        let name = self.form.values(includeHidden: true)["name"] as! String
+        _ = self.form.values(includeHidden: true)["message"] as! String
+        _ = self.form.values(includeHidden: true)["name"] as! String
         
     }
 }

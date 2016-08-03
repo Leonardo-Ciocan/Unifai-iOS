@@ -80,8 +80,6 @@ class GeniusViewController: UIViewController , UITableViewDelegate , UITableView
             self.delegate?.didSelectGeniusSuggestionWithClipboardImage()
         case .OpenLink:
             self.delegate?.didSelectGeniusSuggestionWithLink(groups[indexPath.section].suggestions[indexPath.row].message)
-        default:
-            self.dismissViewControllerAnimated(true, completion: nil)
         }
         self.dismissViewControllerAnimated(true, completion: nil)
     }

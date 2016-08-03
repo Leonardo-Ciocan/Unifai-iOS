@@ -68,6 +68,10 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
+    
+    func shouldRefreshData() {
+        self.tableView.reloadData()
+    }
 
     func didSelectService(service: Service?) {
         UIView.animateWithDuration(1, animations: {

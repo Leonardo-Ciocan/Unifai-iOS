@@ -162,7 +162,8 @@ class MessageCell: UITableViewCell {
             self.payloadContainerHeight.constant = 0
         }
         else if(message.type == .Table){
-            self.payloadContainerHeight.constant = CGFloat((message.payload as! TablePayload).rows.count) * 50 + 50
+            if let payload = message.payload  as? TablePayload {
+            self.payloadContainerHeight.constant = CGFloat(payload.rows.count) * 50 + 50
             let tableView = TablePayloadView()
             self.payloadContainer.addSubview(tableView)
             tableView.snp_makeConstraints(closure: { (make)->Void in
@@ -171,7 +172,7 @@ class MessageCell: UITableViewCell {
             })
             tableView.loadData(message.payload as! TablePayload)
             
-           
+            }
         }
         else if(message.type == .Image){
             self.payloadContainerHeight.constant = 180
@@ -339,63 +340,6 @@ class MessageCell: UITableViewCell {
             imageView.snp_makeConstraints(closure: { (make)->Void in
                 make.trailing.leading.equalTo(0)
                 make.bottom.top.equalTo(0)
-            })
-            
-            
-        }
-        else if message.type == .Prompt {
-            self.payloadContainerHeight.constant = CGFloat(220)
-            let payload = message.payload as! PromptPayload
-            
-            let scrollView = UIScrollView()
-            payloadContainer.addSubview(scrollView)
-            scrollView.snp_makeConstraints(closure: { make in
-                make.leading.equalTo(0)
-                make.trailing.equalTo(0)
-                make.bottom.equalTo(30)
-                make.top.equalTo(0)
-            })
-            scrollView.pagingEnabled = true
-          
-            let numberOfPages = Int(ceil(Double(payload.suggestions.count) / 5.0))
-              scrollView.contentSize = CGSize(width: payloadContainer.frame.width * CGFloat(numberOfPages), height: payloadContainer.frame.height)
-            for i in 0..<numberOfPages {
-                var items : [String] = []
-                for n in numberOfPages * i..<numberOfPages * i + 5  {
-                    if n < payload.suggestions.count {
-                        items.append(payload.suggestions[n])
-                    }
-                }
-                var buttons : [UIButton] = []
-                for item in items {
-                    let btn = UIButton()
-                    btn.setTitle(item, forState: .Normal)
-                    btn.setTitleColor(serviceColor, forState: .Normal)
-                    btn.layer.borderColor = serviceColor.CGColor
-                    btn.layer.borderWidth = 1
-                    btn.layer.cornerRadius = 5
-                    btn.layer.masksToBounds = true
-                    buttons.append(btn)
-                }
-                let stack = UIStackView(arrangedSubviews:
-                    buttons
-                )
-                stack.axis = .Vertical
-                stack.backgroundColor = UIColor.blackColor()
-                stack.distribution = .EqualSpacing
-                stack.frame = CGRect(x: CGFloat(i) * payloadContainer.frame.width, y: 0, width: payloadContainer.frame.width, height: payloadContainer.frame.height - 30)
-                scrollView.addSubview(stack)
-            }
-            
-            let pageControl = UIPageControl()
-            pageControl.numberOfPages = numberOfPages
-            payloadContainer.addSubview(pageControl)
-            pageControl.currentPageIndicatorTintColor = serviceColor
-            pageControl.snp_makeConstraints(closure:  { make in
-                make.leading.equalTo(0)
-                make.trailing.equalTo(0)
-                make.bottom.equalTo(0)
-                make.height.equalTo(30)
             })
         }
 

@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreatorAssistant" customModule="Unifai" customModuleProvider="target">
             <connections>
+                <outlet property="promptView" destination="tpj-SC-j4l" id="YJp-Ld-f3e"/>
                 <outlet property="serviceAutoCompleteView" destination="HBE-3B-QFG" id="5ic-J1-rT8"/>
                 <outlet property="suggestionsView" destination="9gW-TZ-ozD" id="1fv-ZB-IEw"/>
             </connections>
@@ -16,6 +17,10 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tpj-SC-j4l" customClass="PromptView" customModule="Unifai" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9gW-TZ-ozD" customClass="AutoCompletionSuggestions" customModule="Unifai" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -29,11 +34,15 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="HBE-3B-QFG" secondAttribute="bottom" id="2Ro-Li-hqc"/>
                 <constraint firstItem="9gW-TZ-ozD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="390-Lr-tIp"/>
+                <constraint firstItem="tpj-SC-j4l" firstAttribute="top" secondItem="9gW-TZ-ozD" secondAttribute="top" id="D7T-1L-5h4"/>
+                <constraint firstItem="tpj-SC-j4l" firstAttribute="trailing" secondItem="HBE-3B-QFG" secondAttribute="trailing" id="Jdh-f9-7ue"/>
                 <constraint firstItem="HBE-3B-QFG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="L26-9X-Q0q"/>
                 <constraint firstAttribute="bottom" secondItem="9gW-TZ-ozD" secondAttribute="bottom" id="Mof-H5-aHb"/>
                 <constraint firstItem="9gW-TZ-ozD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Q24-uI-qyu"/>
                 <constraint firstAttribute="trailing" secondItem="HBE-3B-QFG" secondAttribute="trailing" id="SgC-yb-cfv"/>
+                <constraint firstItem="tpj-SC-j4l" firstAttribute="leading" secondItem="HBE-3B-QFG" secondAttribute="leading" id="fdo-uo-TpQ"/>
                 <constraint firstAttribute="trailing" secondItem="9gW-TZ-ozD" secondAttribute="trailing" id="hqt-tk-xhA"/>
+                <constraint firstItem="tpj-SC-j4l" firstAttribute="bottom" secondItem="9gW-TZ-ozD" secondAttribute="bottom" id="xdb-K6-rEi"/>
                 <constraint firstItem="HBE-3B-QFG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yxH-vO-aRB"/>
             </constraints>
         </view>

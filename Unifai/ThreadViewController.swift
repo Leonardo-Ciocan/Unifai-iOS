@@ -11,7 +11,13 @@ import SlackTextViewController
 import GSImageViewerController
 import SafariServices
 import UIKit
-
+extension UITableView {
+    func scrollToBottom(animated animated: Bool) {
+        if self.contentSize.height < self.bounds.size.height { return }
+        let bottomOffset = CGPoint(x: 0, y: self.contentSize.height - self.bounds.size.height)
+        self.setContentOffset(bottomOffset, animated: animated)
+    }
+}
 class ThreadViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , MessageCreatorDelegate  {
     
     
@@ -19,7 +25,11 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet var rootView: UIView!
-    @IBOutlet weak var messageCreator: MessageCreator!
+    @IBOutlet weak var messageCreator: MessageCreator! {
+        didSet {
+            self.messageCreator.threadID = threadID
+        }
+    }
     var threadID : String?
     
     var messages : [Message] = [
@@ -70,7 +80,7 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     }
     
     func shouldRefreshData() {
-        self.tableView.reloadData()
+        loadData(threadID!)
     }
 
     func didSelectService(service: Service?) {
@@ -79,12 +89,12 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
                 self.navigationController?.navigationBar.barStyle = service == nil ? currentTheme.barStyle : .Black
                 self.navigationController?.navigationBar.barTintColor = service == nil ? nil : service!.color
                 self.navigationController?.navigationBar.tintColor = service == nil ? currentTheme.foregroundColor : UIColor.whiteColor()
+                self.setNeedsStatusBarAppearanceUpdate()
         })
     }
     
     func loadData(thread : String){
         self.threadID = thread
-        //this is a thread view
         Unifai.getServices({ services in
             Core.Services = services
             Unifai.getThread(thread , completion:{ threadMessages in
@@ -94,10 +104,22 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
                 }
                 self.messages = threadMessages
                 self.tableView?.reloadData()
-                self.tableView?.scrollToRowAtIndexPath(NSIndexPath(forRow: self.messages.count - 1,inSection:0), atScrollPosition: .Bottom, animated: true)
+                let delay = 1 * Double(NSEC_PER_SEC)
+                let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                dispatch_after(time, dispatch_get_main_queue()) {
+                    self.tableView.scrollToBottom(animated: true)
+                }
+                if let lastMessage = threadMessages.last {
+                    if lastMessage.type == .Prompt {
+                        self.messageCreator.enablePromptModeWithSuggestions(lastMessage.service!, suggestions: (lastMessage.payload as! PromptPayload).suggestions.map( {SuggestionItem(title: $0, subtitle: "Repository")}))
+                    }
+                    else if self.messageCreator.isInPromptMode {
+                        self.messageCreator.disablePromptMode()
+                    }
+                }
+                
             })
         })
-        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -123,20 +145,6 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         return messages.count
     }
     
-    func sendMessage(message: String) {
-        self.messages.append(Message(body: message, type: .Text, payload: nil))
-        self.tableView?.reloadData()
-        self.tableView?.scrollToRowAtIndexPath(NSIndexPath(forRow: self.messages.count - 1,inSection:0), atScrollPosition: .Bottom, animated: true)
-        
-        Unifai.sendMessage( message, thread: self.threadID!, completion: { (success) in
-                self.loadData(self.threadID!)
-        })
-    }
-    
-    func sendMessage(message: String, imageData: NSData) {
-        
-    }
-    
     
     func keyboardWillShow(notification: NSNotification) {
         keyboardShowOrHide(notification)
@@ -154,10 +162,10 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         
         let curveOption = UIViewAnimationOptions(rawValue: UInt(curve.integerValue << 16))
         let keyboardFrameEndRectFromView = view.convertRect(keyboardFrameEnd.CGRectValue, fromView: nil)
-        UIView.animateWithDuration(duration.doubleValue ?? 1.0,
+        UIView.animateWithDuration(1.0,
                                    delay: 0,
-                                   options: [curveOption, .BeginFromCurrentState],
-                                   animations: { () -> Void in
+                                   options:[],
+                                   animations: {
                                        self.rootView.frame = CGRectMake(0, 0, keyboardFrameEndRectFromView.size.width, keyboardFrameEndRectFromView.origin.y);
 
             }, completion: nil)
@@ -174,23 +182,4 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     func didFinishWirting() {
         self.navigationItem.leftBarButtonItem = nil
     }
-    
-    
-    func chooseAction() {
-        let menu = UIAlertController(title: "Run an action", message: "", preferredStyle: .ActionSheet)
-        
-        Unifai.getActions({ actions in
-            for action in actions{
-                let item = UIAlertAction(title: action.name, style: .Default, handler: { (alert:UIAlertAction!) -> Void in
-                    if let selected = actions.filter({$0.name == alert.title}).first{
-                        self.sendMessage(selected.message)
-                    }
-                })
-                menu.addAction(item)
-            }
-            menu.addAction(UIAlertAction(title: "Cancel" , style: .Cancel , handler: nil))
-            self.presentViewController(menu, animated: true, completion: nil)
-        })
-    }
-
 }

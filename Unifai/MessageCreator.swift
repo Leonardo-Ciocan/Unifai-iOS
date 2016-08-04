@@ -43,18 +43,30 @@ enum Position {
         }
     }
     
+    var threadID : String?
+    
     var parentViewController : UIViewController?
 
     override func drawRect(rect: CGRect) {
-
         border.backgroundColor = currentTheme.shadeColor.CGColor
         border.frame = CGRect(x: 15, y: isTop ? self.frame.height - 1 : 0, width: self.frame.width-30, height: 1)
         self.layer.addSublayer(border)
         super.drawRect(rect)
     }
 
-    var promptMode = false
-    var promptSuggestions : [String] = []
+    var isInPromptMode = false
+    
+    func enablePromptModeWithSuggestions(service:Service, suggestions:[SuggestionItem]) {
+        self.isInPromptMode = true
+        self.assistant?.enablePromptModeWithSuggestions(service,suggestions:  suggestions)
+        selectedService(service, selectedByTapping: true)
+    }
+    
+    func disablePromptMode() {
+        self.isInPromptMode = false
+        selectedService(nil, selectedByTapping: false)
+        self.assistant?.disablePromptMode()
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -126,13 +138,22 @@ enum Position {
     }
     
     func sendMessage(message: String) {
-        Unifai.sendMessage(message, completion: { success in
-            self.creatorDelegate?.shouldRefreshData()
-            },error: {
-                let alert = UIAlertController(title: "Can't send this message", message: "", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
-                self.parentViewController!.presentViewController(alert, animated: true, completion: nil)
-        })
+        if threadID == nil {
+            Unifai.sendMessage(message, completion: { success in
+                self.creatorDelegate?.shouldRefreshData()
+                },error: {
+                    let alert = UIAlertController(title: "Can't send this message", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+                    self.parentViewController!.presentViewController(alert, animated: true, completion: nil)
+            })
+        }
+        else {
+            Unifai.sendMessage(message,thread:threadID!, completion: { success in
+                self.creatorDelegate?.shouldRefreshData()
+            })
+        }
+        
+        
     }
     
     func sendMessage(message: String, imageData: NSData) {
@@ -156,7 +177,6 @@ enum Position {
     }
     
     func selectedService(service: Service? , selectedByTapping : Bool) {
-        
         if let service = service {
             self.creatorDelegate?.didSelectService(service)
             self.btnGenius.setImage(btnGenius.currentImage?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
@@ -312,7 +332,8 @@ enum Position {
     
     func textFieldDidBeginEditing(textField: UITextField) {
         self.creatorDelegate?.didStartWriting()
-        assistant?.serviceAutoCompleteView.collectionView.reloadData()
+        textChanged(txtMessage)
+        //assistant?.serviceAutoCompleteView.collectionView.reloadData()
         assistant?.alpha = 0
         assistant?.hidden = false
         UIView.animateWithDuration(0.5, animations: {

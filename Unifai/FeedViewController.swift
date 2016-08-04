@@ -115,7 +115,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     }
     
     func shouldRefreshData() {
-        self.tableView.reloadData()
+        loadData()
     }
     
     var serviceSelectedInAutocompletion : Service?

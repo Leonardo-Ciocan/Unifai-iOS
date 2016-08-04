@@ -1,5 +1,6 @@
 import UIKit
 
+
 class ProgressView: UIView {
     
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!

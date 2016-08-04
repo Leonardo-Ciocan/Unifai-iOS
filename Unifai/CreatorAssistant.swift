@@ -13,9 +13,10 @@ protocol CreatorAssistantDelegate {
     func didSelectAutocompletion(message:String)
 }
 
-class CreatorAssistant: UIView , AutoCompletionServicesDelegate , AutoCompletionSuggestionsDelegate {
+class CreatorAssistant: UIView , AutoCompletionServicesDelegate , AutoCompletionSuggestionsDelegate , PromptViewDelegate {
     @IBOutlet weak var suggestionsView: AutoCompletionSuggestions!
     @IBOutlet weak var serviceAutoCompleteView: AutoCompletionServices!
+    @IBOutlet weak var promptView: PromptView!
     
     var delegate : CreatorAssistantDelegate?
     
@@ -37,11 +38,33 @@ class CreatorAssistant: UIView , AutoCompletionServicesDelegate , AutoCompletion
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         self.serviceAutoCompleteView.delegate = self
         suggestionsView.delegate = self
+        promptView.delegate = self
         self.addSubview(view);
+    }
+    
+    var isInPromptMode = false
+    
+    func enablePromptModeWithSuggestions(service : Service, suggestions:[SuggestionItem]) {
+        self.isInPromptMode = true
+        promptView.service = service
+        promptView.suggestions = suggestions
+    }
+    
+    func disablePromptMode() {
+        self.isInPromptMode = false
+        promptView.service = nil
+        promptView.suggestions = []
     }
     
     func autocompleteFor(query:String) {
         let autocompletionState = Autocomplete.computeState(fromText: query)
+        if isInPromptMode {
+            suggestionsView.hidden = true
+            serviceAutoCompleteView.hidden = true
+            promptView.hidden = false
+            promptView.filterPromptsWithKeywords(autocompletionState.keywords)
+            return
+        }
         serviceAutoCompleteView.filterServices(autocompletionState.service)
         suggestionsView.filterSuggestionsWithKeywords(autocompletionState.keywords)
         
@@ -85,6 +108,10 @@ class CreatorAssistant: UIView , AutoCompletionServicesDelegate , AutoCompletion
         suggestionsView.hidden = true
         serviceAutoCompleteView.filterServices("")
         suggestionsView.filterSuggestionsWithKeywords([])
+    }
+    
+    func didSelectPromptSuggestionWithName(name: String) {
+        self.delegate?.didSelectAutocompletion(name)
     }
     
 }

@@ -115,14 +115,25 @@ class ProgressPayload : Payload {
 }
 
 class PromptPayload : Payload {
-    var suggestions : [String] = []
+    var suggestions : [SuggestionItem] = []
+    var questionText : String = ""
     
     init(data : String ) {
         let dt = data.dataUsingEncoding(NSUTF8StringEncoding , allowLossyConversion: true)
-        //print(JSON(data:dt!))
         let items = JSON(data:dt!)
+        if let question = items["question_text"].string {
+            self.questionText = question
+        }
         if let suggestions = items["suggestions"].array {
-            self.suggestions = suggestions.map({ $0.stringValue })
+            for item in suggestions {
+                if let title = item["title"].string {
+                    if let subtitle = item["subtitle"].string {
+                        if let value = item["value"].string {
+                            self.suggestions.append(SuggestionItem(title: title, subtitle: subtitle,value:value))
+                        }
+                    }
+                }
+            }
         }
     }
 }

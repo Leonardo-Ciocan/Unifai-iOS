@@ -11,4 +11,5 @@ import Foundation
 struct SuggestionItem {
     let title : String
     let subtitle : String
+    let value : String
 }

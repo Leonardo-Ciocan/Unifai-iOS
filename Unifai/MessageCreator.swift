@@ -47,6 +47,7 @@ enum Position {
     
     var parentViewController : UIViewController?
 
+    @IBOutlet weak var txtMessageTopConstraint: NSLayoutConstraint!
     override func drawRect(rect: CGRect) {
         border.backgroundColor = currentTheme.shadeColor.CGColor
         border.frame = CGRect(x: 15, y: isTop ? self.frame.height - 1 : 0, width: self.frame.width-30, height: 1)
@@ -56,16 +57,53 @@ enum Position {
 
     var isInPromptMode = false
     
-    func enablePromptModeWithSuggestions(service:Service, suggestions:[SuggestionItem]) {
+    @IBOutlet weak var txtPromptMessage: UILabel!
+    func enablePromptModeWithSuggestions(service:Service, suggestions:[SuggestionItem] , questionText:String) {
         self.isInPromptMode = true
         self.assistant?.enablePromptModeWithSuggestions(service,suggestions:  suggestions)
         selectedService(service, selectedByTapping: true)
+        txtPromptMessage.text = questionText
+        [btnAction,btnImage,btnCamera,btnGenius].forEach({ btn in
+            
+            UIView.animateWithDuration(0.5, animations: {
+                btn.alpha = 0
+                }, completion : { _ in
+                    btn.hidden = true
+            })
+        })
+        txtMessageTopConstraint.constant = 40
+        textBoxLeftConstraint.constant = 20
+        txtPromptMessage.alpha = 0
+        txtPromptMessage.hidden = false
+        UIView.animateWithDuration(1, animations: {
+            self.txtPromptMessage.alpha = 1
+            self.layoutIfNeeded()
+        })
+        
+        
     }
     
     func disablePromptMode() {
         self.isInPromptMode = false
         selectedService(nil, selectedByTapping: false)
         self.assistant?.disablePromptMode()
+        [btnAction,btnImage,btnCamera,btnGenius].forEach({ btn in
+            btn.hidden = false
+            UIView.animateWithDuration(0.5, animations: {
+                btn.alpha = 1
+                })
+        })
+        txtMessageTopConstraint.constant = 18
+        textBoxLeftConstraint.constant = 52
+        txtPromptMessage.alpha = 0
+        txtPromptMessage.hidden = false
+        UIView.animateWithDuration(1, animations: {
+            self.txtPromptMessage.alpha = 0
+            self.layoutIfNeeded()
+            },completion: {
+                _ in
+                self.txtPromptMessage.hidden = true
+        })
     }
     
     override init(frame: CGRect) {

@@ -267,14 +267,6 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     var barItem : UIBarButtonItem?
     @IBAction func toCatalog(sender: AnyObject) {
         self.performSegueWithIdentifier("toCatalog", sender: self)
-//
-//        barItem = sender as! UIBarButtonItem
-//        spinner.startAnimating()
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: spinner)
-//        Unifai.getCatalog({ catalog in
-//                Core.Catalog = catalog
-//                self.navigationItem.rightBarButtonItem = self.barItem
-//        })
     }
     
     

@@ -111,7 +111,7 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
                 }
                 if let lastMessage = threadMessages.last {
                     if lastMessage.type == .Prompt {
-                        self.messageCreator.enablePromptModeWithSuggestions(lastMessage.service!, suggestions: (lastMessage.payload as! PromptPayload).suggestions.map( {SuggestionItem(title: $0, subtitle: "Repository")}))
+                        self.messageCreator.enablePromptModeWithSuggestions(lastMessage.service!, suggestions: (lastMessage.payload as! PromptPayload).suggestions, ((lastMessage.payload as! PromptPayload)).questionText)
                     }
                     else if self.messageCreator.isInPromptMode {
                         self.messageCreator.disablePromptMode()

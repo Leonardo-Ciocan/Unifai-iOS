@@ -20,6 +20,8 @@
                 <outlet property="shadowView" destination="qqO-Fs-gtC" id="DXy-Ys-wIl"/>
                 <outlet property="textBoxLeftConstraint" destination="b6b-z3-kls" id="SKo-Ly-VRV"/>
                 <outlet property="txtMessage" destination="NCR-md-uoR" id="QqH-Ct-ALk"/>
+                <outlet property="txtMessageTopConstraint" destination="9Bg-vm-p7s" id="Uqc-e5-Tdf"/>
+                <outlet property="txtPromptMessage" destination="6XE-j0-qmB" id="rBx-48-dRG"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -134,12 +136,21 @@
                         <action selector="removeAction:" destination="-1" eventType="touchUpInside" id="TaF-CW-Lph"/>
                     </connections>
                 </button>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="What is your prefrred currency?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6XE-j0-qmB">
+                    <rect key="frame" x="50" y="-10" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <constraints>
                 <constraint firstItem="oa3-Ov-mFo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="0D7-1s-JZk"/>
                 <constraint firstItem="IKx-1q-xa8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0vE-wh-6nE"/>
                 <constraint firstItem="WfG-SM-T08" firstAttribute="top" secondItem="NCR-md-uoR" secondAttribute="bottom" constant="8" id="3Az-zC-2BX"/>
+                <constraint firstItem="NCR-md-uoR" firstAttribute="top" secondItem="6XE-j0-qmB" secondAttribute="bottom" constant="5" id="3So-YF-9LC"/>
+                <constraint firstItem="nl8-sp-AmQ" firstAttribute="top" secondItem="NCR-md-uoR" secondAttribute="bottom" constant="-30" id="3VQ-Pl-yP7"/>
                 <constraint firstAttribute="trailing" secondItem="nl8-sp-AmQ" secondAttribute="trailing" constant="-25" id="3kf-3S-JrH"/>
+                <constraint firstItem="6XE-j0-qmB" firstAttribute="leading" secondItem="NCR-md-uoR" secondAttribute="leading" id="6qi-RD-AYP"/>
                 <constraint firstItem="RtR-4R-Ix9" firstAttribute="leading" secondItem="WfG-SM-T08" secondAttribute="trailing" constant="8" id="8Z1-pK-h6m"/>
                 <constraint firstItem="NCR-md-uoR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="9Bg-vm-p7s"/>
                 <constraint firstItem="nl8-sp-AmQ" firstAttribute="leading" secondItem="NCR-md-uoR" secondAttribute="trailing" constant="15" id="9FP-xN-F4B"/>
@@ -157,7 +168,6 @@
                 <constraint firstAttribute="bottom" secondItem="IKx-1q-xa8" secondAttribute="bottom" id="jOG-Va-YdT"/>
                 <constraint firstItem="nl8-sp-AmQ" firstAttribute="bottom" secondItem="NCR-md-uoR" secondAttribute="bottom" id="mSS-07-PiJ"/>
                 <constraint firstItem="sYz-XV-UGd" firstAttribute="top" secondItem="NCR-md-uoR" secondAttribute="bottom" constant="8" id="nz8-OE-hCb"/>
-                <constraint firstItem="nl8-sp-AmQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="18" id="obc-ps-WdQ"/>
                 <constraint firstItem="ZI1-Xc-iRC" firstAttribute="width" secondItem="oa3-Ov-mFo" secondAttribute="width" id="rXS-w8-rB7"/>
                 <constraint firstItem="WfG-SM-T08" firstAttribute="leading" secondItem="NCR-md-uoR" secondAttribute="leading" id="rvT-Mm-teC"/>
                 <constraint firstItem="qqO-Fs-gtC" firstAttribute="top" secondItem="oa3-Ov-mFo" secondAttribute="top" id="sqT-xc-30C"/>

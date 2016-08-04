@@ -79,7 +79,7 @@ class PromptView: UIView , UITableViewDataSource , UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.delegate?.didSelectPromptSuggestionWithName("@" + (service?.username)! + " " + filteredSuggestions[indexPath.row].title)
+        self.delegate?.didSelectPromptSuggestionWithName("@" + (service?.username)! + " " + filteredSuggestions[indexPath.row].value)
     }
     
     func filterPromptsWithKeywords(keywords:[String]) {
@@ -87,6 +87,7 @@ class PromptView: UIView , UITableViewDataSource , UITableViewDelegate {
         keywords.forEach({ keyword in
             filtered = filtered.filter({
                 $0.title.lowercaseString.containsString(keyword.lowercaseString) ||
+                     $0.subtitle.lowercaseString.containsString(keyword.lowercaseString) ||
                     keyword == ""
             })
         })

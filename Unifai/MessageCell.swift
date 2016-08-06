@@ -14,7 +14,11 @@ import SafariServices
 import Charts
 import OAuthSwift
 
-class MessageCell: UITableViewCell {
+protocol MessageCellDelegate {
+    func shouldSendMessageWithText(text:String, sourceRect:CGRect, sourceView:UIView)
+}
+
+class MessageCell: UITableViewCell, SheetsViewDelegate {
     
     @IBOutlet weak var txtName: UILabel!
     @IBOutlet weak var txtUsername: UILabel!
@@ -31,6 +35,7 @@ class MessageCell: UITableViewCell {
     
     var img : UIImage?
     var imgView : UIImageView?
+    var delegate : MessageCellDelegate?
     
     var hideTime : Bool{
         set(hide){
@@ -348,7 +353,7 @@ class MessageCell: UITableViewCell {
             self.payloadContainerHeight.constant = CGFloat(height)
             
             let sheetsView = SheetsView()
-            
+            sheetsView.delegate = self
             sheetsView.loadSheets(payload.sheets, color: serviceColor)
             self.payloadContainer.addSubview(sheetsView)
             sheetsView.snp_makeConstraints(closure: { (make)->Void in
@@ -357,7 +362,14 @@ class MessageCell: UITableViewCell {
                 make.top.bottom.equalTo(0)
             })
         }
-
+    }
+    func shouldSendMessageWithText(text: String, sourceRect: CGRect, sourceView: UIView) {
+        delegate?.shouldSendMessageWithText(text, sourceRect: sourceRect, sourceView: sourceView)
+    }
+    
+    func shouldOpenLinkWithURL(url: String) {
+        let svc = SFSafariViewController(URL: NSURL(string: url)!)
+        self.parentViewController!.presentViewController(svc, animated: true, completion: nil)
     }
     
     func payloadImageTapped(senderA:UITapGestureRecognizer){

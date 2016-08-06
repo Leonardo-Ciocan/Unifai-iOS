@@ -1,7 +1,7 @@
 import UIKit
 import DGElasticPullToRefresh
 
-class DashboardViewController : UIViewController , UITableViewDelegate , UITableViewDataSource {
+class DashboardViewController : UIViewController , UITableViewDelegate , UITableViewDataSource, MessageCellDelegate{
     
     var messages : [Message] = []
     @IBOutlet weak var tableView: UITableView!
@@ -61,6 +61,17 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         self.navigationItem.rightBarButtonItem = button
         activityControl!.startAnimating()
     }
+    func shouldSendMessageWithText(text: String, sourceRect: CGRect, sourceView: UIView) {
+        let runner = ActionRunnerViewController()
+        runner.loadAction(Action(message: text, name: ""))
+        
+        let rootVC = UINavigationController(rootViewController: runner)
+        rootVC.modalPresentationStyle = .Popover
+        rootVC.popoverPresentationController!.sourceView = sourceView
+        rootVC.popoverPresentationController!.sourceRect = sourceRect
+        rootVC.preferredContentSize = CGSizeMake(350,500)
+        self.presentViewController(rootVC, animated: true, completion: nil)
+    }
     
     
     func getServicesAndUser(callback: ([Service]) -> () ){
@@ -100,6 +111,7 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         cell.imgLogo.userInteractionEnabled = true
         cell.hideTime = true
         cell.parentViewController = self
+        cell.delegate = self
         return cell
     }
     

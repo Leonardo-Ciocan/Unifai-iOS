@@ -20,4 +20,9 @@ class Action{
         }
     }
     
+    init(message:String,name:String){
+        self.message = message
+        self.name = name
+    }
+    
 }

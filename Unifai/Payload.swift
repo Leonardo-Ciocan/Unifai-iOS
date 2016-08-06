@@ -153,7 +153,7 @@ class SheetsPayload : Payload {
                     case 1:
                         sheet.entries.append(TitledSheetEntry(title: entry["title"].stringValue, subtitle: entry["subtitle"].stringValue))
                     case 2:
-                        sheet.entries.append(ActionSheetEntry(label: entry["label"].stringValue,action: entry["action"].stringValue))
+                        sheet.entries.append(ActionSheetEntry(label: entry["label"].stringValue,action: entry["action"].stringValue, value: entry["value"].stringValue))
                     default:
                         continue
                     }

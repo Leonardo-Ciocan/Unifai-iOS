@@ -18,9 +18,11 @@ class SheetEntry{
 class ActionSheetEntry : SheetEntry {
     var label = ""
     var action = ""
-    init(label:String, action:String){
+    var value = ""
+    init(label:String, action:String, value:String){
         self.label = label
         self.action = action
+        self.value = value
     }
 }
 class TextSheetEntry : SheetEntry {

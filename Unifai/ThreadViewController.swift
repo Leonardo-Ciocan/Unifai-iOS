@@ -18,7 +18,7 @@ extension UITableView {
         self.setContentOffset(bottomOffset, animated: animated)
     }
 }
-class ThreadViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , MessageCreatorDelegate  {
+class ThreadViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , MessageCreatorDelegate, MessageCellDelegate  {
     
     
     @IBOutlet weak var creatorAssistant: CreatorAssistant!
@@ -77,6 +77,12 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
+    func shouldSendMessageWithText(text: String, sourceRect: CGRect, sourceView: UIView) {
+        messages.append(Message(body: text, type: .Text, payload: nil))
+        Unifai.sendMessage(text,thread: threadID!, completion: { _ in
+            self.shouldRefreshData()
+        })
+    }
     
     func shouldRefreshData() {
         loadData(threadID!)
@@ -134,7 +140,7 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         cell.selectionStyle = .None
         cell.setMessage(messages[indexPath.row] , shouldShowThreadCount: false)
         
-        
+        cell.delegate = self
         cell.parentViewController = self
         
         return cell
@@ -153,7 +159,6 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     }
     
     override func viewDidAppear(animated: Bool) {
-        //Theme setup
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : currentTheme.foregroundColor , NSFontAttributeName : UIFont(name:"Helvetica",size:15)! ]
         self.view.backgroundColor = currentTheme.backgroundColor
         self.tableView.backgroundColor = currentTheme.backgroundColor

@@ -114,6 +114,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
 
     }
     
+    
     func shouldRefreshData() {
         loadData()
     }

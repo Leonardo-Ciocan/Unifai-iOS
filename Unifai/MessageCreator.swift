@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 import SafariServices
 
+
 enum Position {
     case Top
     case Bottom
@@ -56,9 +57,11 @@ enum Position {
     }
 
     var isInPromptMode = false
+    var promptService : Service?
     
     @IBOutlet weak var txtPromptMessage: UILabel!
     func enablePromptModeWithSuggestions(service:Service, suggestions:[SuggestionItem] , questionText:String) {
+        self.promptService = service
         self.isInPromptMode = true
         self.assistant?.enablePromptModeWithSuggestions(service,suggestions:  suggestions)
         selectedService(service, selectedByTapping: true)
@@ -216,7 +219,7 @@ enum Position {
     
     func selectedService(service: Service? , selectedByTapping : Bool) {
         if let service = service {
-            self.creatorDelegate?.didSelectService(service)
+            self.creatorDelegate?.shouldThemeHostWithColor(service.color)
             self.btnGenius.setImage(btnGenius.currentImage?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
             UIView.animateWithDuration(1, animations: {
                 self.backgroundColorView.backgroundColor = service.color
@@ -233,7 +236,7 @@ enum Position {
             }
         }
         else {
-            self.creatorDelegate?.didSelectService(service)
+            self.creatorDelegate?.shouldRemoveThemeFromHost()
             self.btnGenius.setImage(UIImage(named: geniusSuggestions.count == 0 ? "genius" : "genius_on"), forState: .Normal)
             UIView.animateWithDuration(1, animations: {
                 self.backgroundColorView.backgroundColor = currentTheme.backgroundColor
@@ -369,9 +372,11 @@ enum Position {
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
+        if isInPromptMode &&  promptService != nil {
+            creatorDelegate?.shouldThemeHostWithColor((promptService?.color)!)
+        }
         self.creatorDelegate?.didStartWriting()
         textChanged(txtMessage)
-        //assistant?.serviceAutoCompleteView.collectionView.reloadData()
         assistant?.alpha = 0
         assistant?.hidden = false
         UIView.animateWithDuration(0.5, animations: {

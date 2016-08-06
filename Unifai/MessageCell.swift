@@ -158,7 +158,7 @@ class MessageCell: UITableViewCell {
         
        
         
-        if(message.type == .Text){
+        if(message.type == .Text || message.type == .Prompt){
             self.payloadContainerHeight.constant = 0
         }
         else if(message.type == .Table){
@@ -340,6 +340,21 @@ class MessageCell: UITableViewCell {
             imageView.snp_makeConstraints(closure: { (make)->Void in
                 make.trailing.leading.equalTo(0)
                 make.bottom.top.equalTo(0)
+            })
+        }
+        else if(message.type == .Sheets){
+            let payload = message.payload as! SheetsPayload
+            let height = payload.sheets[0].entries.reduce(0){$0 + $1.size()} + 10
+            self.payloadContainerHeight.constant = CGFloat(height)
+            
+            let sheetsView = SheetsView()
+            
+            sheetsView.loadSheets(payload.sheets, color: serviceColor)
+            self.payloadContainer.addSubview(sheetsView)
+            sheetsView.snp_makeConstraints(closure: { (make)->Void in
+                make.leading.equalTo(-67)
+                make.trailing.equalTo(19)
+                make.top.bottom.equalTo(0)
             })
         }
 

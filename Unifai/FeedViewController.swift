@@ -118,33 +118,26 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         loadData()
     }
     
-    var serviceSelectedInAutocompletion : Service?
-    func didSelectService(service: Service?) {
+    func shouldThemeHostWithColor(color: UIColor) {
         UIView.animateWithDuration(1, animations: {
             },completion: { _ in
-                self.serviceSelectedInAutocompletion = service
-                self.navigationController?.navigationBar.barStyle = service == nil ? currentTheme.barStyle : .Black
-                self.navigationController?.navigationBar.barTintColor = service == nil ? nil : service!.color
-                self.navigationController?.navigationBar.tintColor = service == nil ? currentTheme.foregroundColor : UIColor.whiteColor()
-                self.setNeedsStatusBarAppearanceUpdate()
+                self.navigationController?.navigationBar.barStyle =  .Black
+                self.navigationController?.navigationBar.barTintColor =  color
+                self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         })
     }
     
-    override func viewDidAppear(animated: Bool) {
-        //Theme setup
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : currentTheme.foregroundColor]
-        self.view.backgroundColor = currentTheme.backgroundColor
-        self.tableView.backgroundColor = currentTheme.backgroundColor
-        self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
-        self.navigationController?.navigationBar.barTintColor = nil
-        self.navigationController?.navigationBar.tintColor = currentTheme.foregroundColor
-        self.navigationController?.navigationBar.translucent = true
-        self.navigationController?.navigationBar.tintColor = currentTheme.foregroundColor
-
+    func shouldRemoveThemeFromHost() {
+        UIView.animateWithDuration(1, animations: {
+            },completion: { _ in
+                self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
+                self.navigationController?.navigationBar.barTintColor = nil
+                self.navigationController?.navigationBar.tintColor = currentTheme.foregroundColor
+        })
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return serviceSelectedInAutocompletion == nil ? currentTheme.statusBarStyle : .LightContent
+        return currentTheme.statusBarStyle
     }
     
     func getServicesAndUser(callback: ([Service]) -> () ){
@@ -179,7 +172,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     
     
     override func viewWillAppear(animated: Bool) {
-        UIApplication.sharedApplication().statusBarStyle = currentTheme.statusBarStyle
+        //UIApplication.sharedApplication().statusBarStyle = currentTheme.statusBarStyle
     }
     
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
@@ -272,7 +265,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     
     
     func doneClicked(){
-        self.didSelectService(nil)
+        shouldRemoveThemeFromHost()
         creator?.txtMessage.resignFirstResponder()
     }
     

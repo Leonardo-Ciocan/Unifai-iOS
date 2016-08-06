@@ -38,6 +38,13 @@
 		B3449FF01D3ADFAB00811E6C /* ActionsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3449FEF1D3ADFAB00811E6C /* ActionsHeader.xib */; };
 		B3449FF21D3B165D00811E6C /* DashboardEditorHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3449FF11D3B165D00811E6C /* DashboardEditorHeader.swift */; };
 		B3449FF41D3B167200811E6C /* DashboardEditorHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3449FF31D3B167200811E6C /* DashboardEditorHeader.xib */; };
+		B347B7FB1D552AC200965FD6 /* SheetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B347B7FA1D552AC200965FD6 /* SheetsView.swift */; };
+		B347B7FD1D552AD100965FD6 /* SheetsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B347B7FC1D552AD100965FD6 /* SheetsView.xib */; };
+		B347B8001D5557A400965FD6 /* SheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B347B7FE1D5557A400965FD6 /* SheetCell.swift */; };
+		B347B8011D5557A400965FD6 /* SheetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B347B7FF1D5557A400965FD6 /* SheetCell.xib */; };
+		B347B8031D555B8800965FD6 /* Sheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B347B8021D555B8800965FD6 /* Sheet.swift */; };
+		B347B8051D55603C00965FD6 /* TitledSheetItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B347B8041D55603C00965FD6 /* TitledSheetItemView.swift */; };
+		B347B8071D55606500965FD6 /* TitledSheetItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B347B8061D55606500965FD6 /* TitledSheetItemView.xib */; };
 		B350B9251D381B3A00FADBB6 /* ActionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350B9231D381B3A00FADBB6 /* ActionPickerViewController.swift */; };
 		B350B9261D381B3A00FADBB6 /* ActionPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350B9241D381B3A00FADBB6 /* ActionPickerViewController.xib */; };
 		B350B9291D3868BB00FADBB6 /* ActionCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350B9271D3868BB00FADBB6 /* ActionCreatorViewController.swift */; };
@@ -174,6 +181,13 @@
 		B3449FEF1D3ADFAB00811E6C /* ActionsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionsHeader.xib; sourceTree = "<group>"; };
 		B3449FF11D3B165D00811E6C /* DashboardEditorHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardEditorHeader.swift; sourceTree = "<group>"; };
 		B3449FF31D3B167200811E6C /* DashboardEditorHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardEditorHeader.xib; sourceTree = "<group>"; };
+		B347B7FA1D552AC200965FD6 /* SheetsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetsView.swift; sourceTree = "<group>"; };
+		B347B7FC1D552AD100965FD6 /* SheetsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SheetsView.xib; sourceTree = "<group>"; };
+		B347B7FE1D5557A400965FD6 /* SheetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetCell.swift; sourceTree = "<group>"; };
+		B347B7FF1D5557A400965FD6 /* SheetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SheetCell.xib; sourceTree = "<group>"; };
+		B347B8021D555B8800965FD6 /* Sheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sheet.swift; sourceTree = "<group>"; };
+		B347B8041D55603C00965FD6 /* TitledSheetItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitledSheetItemView.swift; sourceTree = "<group>"; };
+		B347B8061D55606500965FD6 /* TitledSheetItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitledSheetItemView.xib; sourceTree = "<group>"; };
 		B350B9231D381B3A00FADBB6 /* ActionPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionPickerViewController.swift; sourceTree = "<group>"; };
 		B350B9241D381B3A00FADBB6 /* ActionPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionPickerViewController.xib; sourceTree = "<group>"; };
 		B350B9271D3868BB00FADBB6 /* ActionCreatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCreatorViewController.swift; sourceTree = "<group>"; };
@@ -370,6 +384,12 @@
 				B31BD92E1CFF93EF001B3875 /* LoginButton.xib */,
 				B3131F4F1D39A1D400461C12 /* ProgressView.swift */,
 				B3131F511D39A1EE00461C12 /* ProgressView.xib */,
+				B347B7FA1D552AC200965FD6 /* SheetsView.swift */,
+				B347B7FC1D552AD100965FD6 /* SheetsView.xib */,
+				B347B7FE1D5557A400965FD6 /* SheetCell.swift */,
+				B347B7FF1D5557A400965FD6 /* SheetCell.xib */,
+				B347B8041D55603C00965FD6 /* TitledSheetItemView.swift */,
+				B347B8061D55606500965FD6 /* TitledSheetItemView.xib */,
 			);
 			name = MessageCell;
 			sourceTree = "<group>";
@@ -495,6 +515,7 @@
 				B3131F531D39CCCA00461C12 /* Theme.swift */,
 				B3E5DF4A1D4AAA6700E18199 /* Genius.swift */,
 				B3F1FFE71D531E6200E678E9 /* SuggestionItem.swift */,
+				B347B8021D555B8800965FD6 /* Sheet.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -662,6 +683,7 @@
 				B341EFB91D42C191004604A7 /* AutoCompletionServices.xib in Resources */,
 				B3CEC7AB1D4EC37E00FFBB7A /* ActionRunnerViewController.xib in Resources */,
 				B30743801D2C4EFE00A9CD0E /* CatalogCell.xib in Resources */,
+				B347B8011D5557A400965FD6 /* SheetCell.xib in Resources */,
 				B3E5DF501D4AB17400E18199 /* GeniusViewController.xib in Resources */,
 				B363CF911CCEEBB300B6182D /* LaunchScreen.storyboard in Resources */,
 				B3B0E7321D4544A400DAE0BF /* SuggestionCell.xib in Resources */,
@@ -669,6 +691,7 @@
 				B31BD9331D003EC4001B3875 /* AuthViewController.xib in Resources */,
 				B3E5DF581D4ABB0E00E18199 /* GeniusGroupHeader.xib in Resources */,
 				B350B92A1D3868BB00FADBB6 /* ActionCreatorViewController.xib in Resources */,
+				B347B7FD1D552AD100965FD6 /* SheetsView.xib in Resources */,
 				B3D7212C1D01987100BFEEC2 /* Settings.storyboard in Resources */,
 				B3C07F881D483D6000BF2238 /* SuggestionsHeader.xib in Resources */,
 				B3131F521D39A1EE00461C12 /* ProgressView.xib in Resources */,
@@ -677,6 +700,7 @@
 				B350B9261D381B3A00FADBB6 /* ActionPickerViewController.xib in Resources */,
 				B3F1FFE61D531C8B00E678E9 /* PromptView.xib in Resources */,
 				B341EFBD1D42C26F004604A7 /* AutoCompletionServiceCell.xib in Resources */,
+				B347B8071D55606500965FD6 /* TitledSheetItemView.xib in Resources */,
 				B3E5DF541D4AB27E00E18199 /* GeniusSuggestionCell.xib in Resources */,
 				B3D7213E1D03A8B300BFEEC2 /* ActionCell.xib in Resources */,
 				B363CFB51CCEECA600B6182D /* Podfile in Resources */,
@@ -776,6 +800,7 @@
 				B3C4F5DD1D441CBE00332FF9 /* AutocompletionUtil.swift in Sources */,
 				B3F7B0131CF94AD000734F9B /* MessageCreatorTextView.swift in Sources */,
 				B307437F1D2C4EFE00A9CD0E /* CatalogCell.swift in Sources */,
+				B347B8001D5557A400965FD6 /* SheetCell.swift in Sources */,
 				B363CFC61CCEF9A800B6182D /* MessageCell.swift in Sources */,
 				B3E5DF561D4ABB0200E18199 /* GeniusGroupHeader.swift in Sources */,
 				B350B9291D3868BB00FADBB6 /* ActionCreatorViewController.swift in Sources */,
@@ -804,6 +829,7 @@
 				B3131F541D39CCCA00461C12 /* Theme.swift in Sources */,
 				B30663F51CCF9D2E00F3CC92 /* FeedViewController.swift in Sources */,
 				B32BDC9B1CFB9D2800C18AFE /* DashboardViewController.swift in Sources */,
+				B347B8031D555B8800965FD6 /* Sheet.swift in Sources */,
 				B363CFBA1CCEF32A00B6182D /* Message.swift in Sources */,
 				B363CFC01CCEF74100B6182D /* Core.swift in Sources */,
 				B39006991CD6701C00F472AC /* ActionsViewController.swift in Sources */,
@@ -816,8 +842,10 @@
 				B3131F501D39A1D400461C12 /* ProgressView.swift in Sources */,
 				B3E5DF4F1D4AB17400E18199 /* GeniusViewController.swift in Sources */,
 				B3F1FFE41D531C7F00E678E9 /* PromptView.swift in Sources */,
+				B347B7FB1D552AC200965FD6 /* SheetsView.swift in Sources */,
 				B3D721361D01AFC300BFEEC2 /* TabBarViewController.swift in Sources */,
 				B350B9251D381B3A00FADBB6 /* ActionPickerViewController.swift in Sources */,
+				B347B8051D55603C00965FD6 /* TitledSheetItemView.swift in Sources */,
 				B363CFC21CCEF78E00B6182D /* ThreadViewController.swift in Sources */,
 				B3E5DF4B1D4AAA6700E18199 /* Genius.swift in Sources */,
 				B363CFD01CCF4D9600B6182D /* MainNavigationController.swift in Sources */,

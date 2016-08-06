@@ -138,3 +138,31 @@ class PromptPayload : Payload {
     }
 }
 
+class SheetsPayload : Payload {
+    var sheets : [Sheet] = []
+    init(data:String) {
+        let dt = data.dataUsingEncoding(NSUTF8StringEncoding , allowLossyConversion: true)
+        if let json = JSON(data:dt!).array{
+            for item in json {
+                let sheet = Sheet()
+                for entry in item["entries"].arrayValue {
+                    let type = entry["type"].intValue
+                    switch type{
+                    case 0:
+                        sheet.entries.append(TextSheetEntry(text: entry["text"].stringValue))
+                    case 1:
+                        sheet.entries.append(TitledSheetEntry(title: entry["title"].stringValue, subtitle: entry["subtitle"].stringValue))
+                    case 2:
+                        sheet.entries.append(ActionSheetEntry(label: entry["label"].stringValue,action: entry["action"].stringValue))
+                    default:
+                        continue
+                    }
+                }
+                sheets.append(sheet)
+                
+            }
+            
+        }
+    }
+}
+

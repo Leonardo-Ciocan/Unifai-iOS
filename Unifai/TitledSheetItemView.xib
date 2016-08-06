@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="16A239j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TitledSheetItemView" customModule="Unifai" customModuleProvider="target">
+            <connections>
+                <outlet property="txtName" destination="O3C-X2-jPs" id="owd-81-vmp"/>
+                <outlet property="txtSubtitle" destination="a8D-M5-JYE" id="zHb-eT-3xZ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="308" height="54"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3C-X2-jPs">
+                    <rect key="frame" x="8" y="8" width="292" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="a8D-M5-JYE">
+                    <rect key="frame" x="8" y="29" width="292" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="a8D-M5-JYE" firstAttribute="top" secondItem="O3C-X2-jPs" secondAttribute="bottom" constant="5" id="Sby-5a-h1g"/>
+                <constraint firstItem="a8D-M5-JYE" firstAttribute="leading" secondItem="O3C-X2-jPs" secondAttribute="leading" id="XRk-gf-uhH"/>
+                <constraint firstAttribute="trailing" secondItem="a8D-M5-JYE" secondAttribute="trailing" constant="8" id="Y6e-7G-YRf"/>
+                <constraint firstItem="O3C-X2-jPs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="ddF-7i-eao"/>
+                <constraint firstItem="O3C-X2-jPs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="qfq-Rq-Qd4"/>
+                <constraint firstAttribute="trailing" secondItem="O3C-X2-jPs" secondAttribute="trailing" constant="8" id="xEc-MY-V88"/>
+                <constraint firstAttribute="trailing" secondItem="O3C-X2-jPs" secondAttribute="trailing" constant="258" id="zU5-Jc-8dC"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="zU5-Jc-8dC"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="-6" y="-131"/>
+        </view>
+    </objects>
+</document>

@@ -274,11 +274,11 @@ class Unifai{
         Alamofire.request(.POST , Constants.urlAction ,
             parameters: ["message":message,"name":name], headers:self.headers)
             .validate()
-            .responseJSON{ response in
-                switch response.result {
-                case .Success:
+            .response{ _,_,response_error,_ in
+                if response_error == nil {
                     completion!()
-                case .Failure:
+                }
+                else {
                     error!()
                 }
         }

@@ -72,7 +72,6 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
                                                          name: UIKeyboardDidHideNotification,
                                                          object: nil)
         
-        navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)! ]
     }
     
     deinit {
@@ -82,14 +81,22 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     func shouldRefreshData() {
         loadData(threadID!)
     }
-
-    func didSelectService(service: Service?) {
+    
+    func shouldThemeHostWithColor(color: UIColor) {
         UIView.animateWithDuration(1, animations: {
             },completion: { _ in
-                self.navigationController?.navigationBar.barStyle = service == nil ? currentTheme.barStyle : .Black
-                self.navigationController?.navigationBar.barTintColor = service == nil ? nil : service!.color
-                self.navigationController?.navigationBar.tintColor = service == nil ? currentTheme.foregroundColor : UIColor.whiteColor()
-                self.setNeedsStatusBarAppearanceUpdate()
+                self.navigationController?.navigationBar.barStyle =  .Black
+                self.navigationController?.navigationBar.barTintColor =  color
+                self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        })
+    }
+    
+    func shouldRemoveThemeFromHost() {
+        UIView.animateWithDuration(1, animations: {
+            },completion: { _ in
+                self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
+                self.navigationController?.navigationBar.barTintColor = nil
+                self.navigationController?.navigationBar.tintColor = currentTheme.foregroundColor
         })
     }
     
@@ -111,7 +118,7 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
                 }
                 if let lastMessage = threadMessages.last {
                     if lastMessage.type == .Prompt {
-                        self.messageCreator.enablePromptModeWithSuggestions(lastMessage.service!, suggestions: (lastMessage.payload as! PromptPayload).suggestions, ((lastMessage.payload as! PromptPayload)).questionText)
+                        self.messageCreator.enablePromptModeWithSuggestions(lastMessage.service!, suggestions: (lastMessage.payload as! PromptPayload).suggestions, questionText: ((lastMessage.payload as! PromptPayload)).questionText)
                     }
                     else if self.messageCreator.isInPromptMode {
                         self.messageCreator.disablePromptMode()
@@ -145,6 +152,19 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         return messages.count
     }
     
+    override func viewDidAppear(animated: Bool) {
+        //Theme setup
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : currentTheme.foregroundColor , NSFontAttributeName : UIFont(name:"Helvetica",size:15)! ]
+        self.view.backgroundColor = currentTheme.backgroundColor
+        self.tableView.backgroundColor = currentTheme.backgroundColor
+        self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
+        self.navigationController?.navigationBar.barTintColor = nil
+        self.navigationController?.navigationBar.tintColor = currentTheme.foregroundColor
+        self.navigationController?.navigationBar.translucent = true
+        self.navigationController?.navigationBar.tintColor = currentTheme.foregroundColor
+        
+    }
+    
     
     func keyboardWillShow(notification: NSNotification) {
         keyboardShowOrHide(notification)
@@ -171,7 +191,9 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
             }, completion: nil)
     }
     
+    
     func doneClicked(){
+        shouldRemoveThemeFromHost()
         messageCreator?.txtMessage.resignFirstResponder()
     }
     

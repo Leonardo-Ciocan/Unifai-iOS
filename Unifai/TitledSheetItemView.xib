@@ -18,19 +18,19 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3C-X2-jPs">
                     <rect key="frame" x="8" y="8" width="292" height="16"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="a8D-M5-JYE">
                     <rect key="frame" x="8" y="29" width="292" height="16"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <constraints>
-                <constraint firstItem="a8D-M5-JYE" firstAttribute="top" secondItem="O3C-X2-jPs" secondAttribute="bottom" constant="5" id="Sby-5a-h1g"/>
+                <constraint firstItem="a8D-M5-JYE" firstAttribute="top" secondItem="O3C-X2-jPs" secondAttribute="bottom" constant="1" id="Sby-5a-h1g"/>
                 <constraint firstItem="a8D-M5-JYE" firstAttribute="leading" secondItem="O3C-X2-jPs" secondAttribute="leading" id="XRk-gf-uhH"/>
                 <constraint firstAttribute="trailing" secondItem="a8D-M5-JYE" secondAttribute="trailing" constant="8" id="Y6e-7G-YRf"/>
                 <constraint firstItem="O3C-X2-jPs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="ddF-7i-eao"/>

@@ -34,19 +34,25 @@ class SheetCell: UICollectionViewCell {
                 let label = UILabel()
                 label.text = entry.text
                 label.textColor = UIColor.whiteColor()
-                label.font = label.font.fontWithSize(11)
+                label.font = label.font.fontWithSize(13)
+                label.adjustsFontSizeToFitWidth = true
+                label.textAlignment = .Center
                 item.addSubview(label)
                 label.snp_makeConstraints(closure: { make in
                     make.center.equalTo(item)
+                    make.width.equalTo(item).offset(-20)
+                    make.height.equalTo(item)
                 })
                 addSubview(item)
             case let entry as ActionSheetEntry:
                 let item = UIButton(frame: CGRect(x: CGFloat(15), y: y+5, width: frame.width - 30, height: height - 10))
-                item.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.03)
+                item.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.03)
                 item.setTitle(entry.label, forState: .Normal)
                 item.setTitleColor(UIColor.whiteColor(), forState: .Normal)
                 item.layer.cornerRadius = 5
                 item.layer.masksToBounds = true
+                item.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.08).CGColor
+                item.layer.borderWidth = 1
                 item.titleLabel!.font = item.titleLabel!.font.fontWithSize(12)
                 item.tag = index
                 item.addTarget(self, action: #selector(tappedButton), forControlEvents: .TouchUpInside)

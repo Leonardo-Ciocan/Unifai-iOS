@@ -22,6 +22,8 @@ class TablePayload : Payload {
         let json_columns = json["headings"].arrayValue
         let json_rows = json["rows"].arrayValue
         
+        print(json)
+        
         for column in 0..<json_columns.count {
             self.columns.append((json_columns[column]).stringValue)
         }

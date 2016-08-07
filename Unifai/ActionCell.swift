@@ -18,7 +18,7 @@ class ActionCell: UICollectionViewCell {
     var action : Action?
     func loadData(action:Action){
         self.action = action
-        txtName.text = action.name.uppercaseString
+        txtName.text = action.name
         let service = extractService(action.message)!
         self.backgroundColor = service.color
         txtName.textColor = UIColor.whiteColor()

@@ -59,7 +59,7 @@ class SheetsView: UIView, UICollectionViewDelegate , UICollectionViewDataSource 
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width: 180, height: collectionView.frame.height)
+        return CGSize(width: 200, height: collectionView.frame.height)
     }
     
     func loadSheets(sheets:[Sheet],color:UIColor) {

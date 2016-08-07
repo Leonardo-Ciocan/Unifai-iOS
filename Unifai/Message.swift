@@ -85,7 +85,7 @@ class Message {
         }
         
         self.type = MessageType(rawValue:Int(type!))!
-        if(type == MessageType.Text.rawValue){
+        if(type == MessageType.Table.rawValue){
             self.payload = TablePayload(data: data)
         }
         else if(type == MessageType.Image.rawValue){

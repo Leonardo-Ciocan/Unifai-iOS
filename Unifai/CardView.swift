@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AlamofireImage
+import Alamofire
 
 class CardView: UIView {
     
@@ -17,9 +19,12 @@ class CardView: UIView {
     
     func loadData(payload : CardListPayloadItem , service:Service){
         if !(payload.imageURL?.isEmpty)!{
-        let imageURL = NSURL(string: payload.imageURL!)
-        let imagedData = NSData(contentsOfURL: imageURL!)!
-        imageView?.image = UIImage(data: imagedData)
+            Alamofire.request(.GET, payload.imageURL!)
+                .responseImage { response in
+                    if let image = response.result.value {
+                        self.imageView.image = image.af_imageAspectScaledToFillSize(CGSize(width: 150, height: 150))
+                    }
+            }
         }
         else{
             imageView.image = UIImage(named: service.username)

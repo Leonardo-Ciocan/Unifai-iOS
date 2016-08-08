@@ -19,4 +19,5 @@ target 'Unifai' do
     pod "RFAboutView-Swift", '~> 1.0.13'
     pod 'Fabric'
     pod 'Answers'
+    pod 'AlamofireImage', '~> 2.0'
 end

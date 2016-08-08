@@ -13,6 +13,8 @@ import GSImageViewerController
 import SafariServices
 import Charts
 import OAuthSwift
+import Alamofire
+import AlamofireImage
 
 protocol MessageCellDelegate {
     func shouldSendMessageWithText(text:String, sourceRect:CGRect, sourceView:UIView)
@@ -181,13 +183,22 @@ class MessageCell: UITableViewCell, SheetsViewDelegate {
         }
         else if(message.type == .Image){
             self.payloadContainerHeight.constant = 180
-            let url:NSURL? = NSURL(string: (message.payload as! ImagePayload).URL)
-            let data:NSData? = NSData(contentsOfURL : url!)
-            let image = UIImage(data : data!)
+            if (message.payload as! ImagePayload).URL.isEmpty {
+                return
+            }
             
-            self.img = image
+            let imageView = UIImageView()
+
+            Alamofire.request(.GET, (message.payload as! ImagePayload).URL)
+                .responseImage { response in
+                    debugPrint(response.result)
+                    
+                    if let image = response.result.value {
+                        self.img = image
+                        imageView.image = image.af_imageAspectScaledToFillSize(CGSize(width: 200, height: 150))
+                    }
+            }
             
-            let imageView = UIImageView(image: image)
             
             self.imgView = imageView
             
@@ -349,6 +360,9 @@ class MessageCell: UITableViewCell, SheetsViewDelegate {
         }
         else if(message.type == .Sheets){
             let payload = message.payload as! SheetsPayload
+            if payload.sheets.count == 0 {
+                return
+            }
             let height = payload.sheets[0].entries.reduce(0){$0 + $1.size()} + 10
             self.payloadContainerHeight.constant = CGFloat(height)
             

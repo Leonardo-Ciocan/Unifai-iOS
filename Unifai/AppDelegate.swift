@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         updateLocation()
         
         //Fabric.with([Answers.self])
-
+NSTimer.scheduledTimerWithTimeInterval(180, target: self, selector: #selector(updateLocation), userInfo: nil, repeats: true)
         return true
     }
     
@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        NSTimer.scheduledTimerWithTimeInterval(180, target: self, selector: #selector(updateLocation), userInfo: nil, repeats: true)
+        
     }
 }
 

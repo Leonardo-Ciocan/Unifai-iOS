@@ -45,8 +45,8 @@ class SheetCell: UICollectionViewCell {
                 })
                 addSubview(item)
             case let entry as ActionSheetEntry:
-                let item = UIButton(frame: CGRect(x: CGFloat(15), y: y+5, width: frame.width - 30, height: height - 10))
-                item.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.03)
+                let item = UIButton(frame: CGRect(x: CGFloat(15), y: y+10, width: frame.width - 30, height: height - 10))
+                item.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.04)
                 item.setTitle(entry.label, forState: .Normal)
                 item.setTitleColor(UIColor.whiteColor(), forState: .Normal)
                 item.layer.cornerRadius = 5

@@ -86,6 +86,7 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Unifai/ActiveLabel.framework"
   install_framework "Pods-Unifai/Alamofire.framework"
+  install_framework "Pods-Unifai/AlamofireImage.framework"
   install_framework "Pods-Unifai/AlertOnboarding.framework"
   install_framework "Pods-Unifai/Charts.framework"
   install_framework "Pods-Unifai/DGElasticPullToRefresh.framework"
@@ -105,6 +106,7 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Unifai/ActiveLabel.framework"
   install_framework "Pods-Unifai/Alamofire.framework"
+  install_framework "Pods-Unifai/AlamofireImage.framework"
   install_framework "Pods-Unifai/AlertOnboarding.framework"
   install_framework "Pods-Unifai/Charts.framework"
   install_framework "Pods-Unifai/DGElasticPullToRefresh.framework"

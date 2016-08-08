@@ -1,6 +1,8 @@
 PODS:
   - ActiveLabel (0.5.0)
   - Alamofire (3.3.1)
+  - AlamofireImage (2.4.1):
+    - Alamofire (~> 3.3)
   - AlertOnboarding (1.5)
   - Answers (1.2.1):
     - Fabric (~> 1.6.3)
@@ -25,6 +27,7 @@ PODS:
 DEPENDENCIES:
   - ActiveLabel
   - Alamofire (~> 3.3)
+  - AlamofireImage (~> 2.0)
   - AlertOnboarding
   - Answers
   - Charts
@@ -55,6 +58,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   ActiveLabel: c7b011767b5660faacf8a3629174a9a775886b8d
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  AlamofireImage: 3ccf3347d9ea24580dc11fb892770a0be6a29826
   AlertOnboarding: 4b92341965987dc9492a37d453aac7826f60f0a3
   Answers: 57ee6bcc9bd3c6710862065c9251365a2a404920
   Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5

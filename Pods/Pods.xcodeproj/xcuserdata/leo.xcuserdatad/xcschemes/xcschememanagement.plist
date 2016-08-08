@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>AlamofireImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>AlertOnboarding-AlertOnboardingXib.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -112,12 +117,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>08F6A5AF8E89681F880EB03F167AACB7</key>
+		<key>05094CC4A047119F7ADC14EE74C4881C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0EA24BBE3FE32B2DD9961D157E730430</key>
+		<key>06C2B3C732298F84F60B0E38686998E1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>08F6A5AF8E89681F880EB03F167AACB7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -147,6 +157,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>4989450C7C53749D357C31F589033A83</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>53472238044F18E625343D8BA3583E72</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
 		<dict>
 			<key>primary</key>
@@ -162,7 +182,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>938E3333539136D32C8337174B8FE27D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9E44300F8900E54F4336B026CB9D1EBF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>AFEDA8059B169E4068B6DCC4D2F0B0E9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B0682125F0666306E5FF90D392DBC6EA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -172,37 +207,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C71A0645D0B5E1B02766FF7D96D5FC85</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CE9CF38BA75AFDF4E07E50428194C9AF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DC377F09B4C45A31ECA73058DEF12889</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E47E88EA873500115D4DB44CD2F2F9EC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EBF13791B3054A837BC3072386D0EB54</key>
+		<key>CAFD525F97DC0B1DF82EFF2852E1B80D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>F2329606E531AFD5FAA5E200A2533F85</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FB6250634BAC4F946FF0FF9772FC5271</key>
 		<dict>
 			<key>primary</key>
 			<true/>

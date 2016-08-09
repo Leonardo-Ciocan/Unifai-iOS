@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol MessageCreatorDelegate : class {
-    func shouldRefreshData()
+    func shouldAppendMessage(message:Message)
     func didStartWriting()
     func didFinishWirting()
     func shouldThemeHostWithColor(color:UIColor)

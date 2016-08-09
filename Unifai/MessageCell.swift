@@ -190,12 +190,10 @@ class MessageCell: UITableViewCell, SheetsViewDelegate {
             let imageView = UIImageView()
 
             Alamofire.request(.GET, (message.payload as! ImagePayload).URL)
-                .responseImage { response in
-                    debugPrint(response.result)
-                    
+                .responseImage { response in                    
                     if let image = response.result.value {
                         self.img = image
-                        imageView.image = image.af_imageAspectScaledToFillSize(CGSize(width: 200, height: 150))
+                        imageView.image = image.af_imageAspectScaledToFillSize(CGSize(width: 250, height: 150))
                     }
             }
             

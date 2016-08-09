@@ -212,11 +212,23 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         }
     }
     
+    func shouldAppendMessage(message: Message) {
+        guard message.service != nil else { return }
+        self.messages.insert(message, atIndex: 0)
+        self.tableView.beginUpdates()
+        self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow:0,inSection:0)], withRowAnimation: .Automatic)
+        self.tableView.endUpdates()
+    }
     
     func loadData(){
         Unifai.getFeed({ threadMessages in
+            let diff = threadMessages.count - self.messages.count
             self.messages = threadMessages
-            self.tableView?.reloadData()
+            self.tableView.beginUpdates()
+            self.tableView.insertRowsAtIndexPaths((0..<diff).map{ NSIndexPath(forRow:$0,inSection: 0)}, withRowAnimation: .Automatic)
+            self.tableView.endUpdates()
+            //self.messages = threadMessages
+            //self.tableView?.reloadData()
             self.refreshControl.endRefreshing()
             self.creator?.updateGeniusSuggestionsLocally()
         })

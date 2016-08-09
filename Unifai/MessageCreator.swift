@@ -180,8 +180,8 @@ enum Position {
     
     func sendMessage(message: String) {
         if threadID == nil {
-            Unifai.sendMessage(message, completion: { success in
-                self.creatorDelegate?.shouldRefreshData()
+            Unifai.sendMessage(message, completion: { msg in
+                self.creatorDelegate?.shouldAppendMessage(msg)
                 },error: {
                     let alert = UIAlertController(title: "Can't send this message", message: "", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
@@ -189,8 +189,8 @@ enum Position {
             })
         }
         else {
-            Unifai.sendMessage(message,thread:threadID!, completion: { success in
-                self.creatorDelegate?.shouldRefreshData()
+            Unifai.sendMessage(message,thread:threadID!, completion: { msg in
+                self.creatorDelegate?.shouldAppendMessage(msg)
             })
         }
         
@@ -198,8 +198,8 @@ enum Position {
     }
     
     func sendMessage(message: String, imageData: NSData) {
-        Unifai.sendMessage(message , imageData: imageData, completion: { success in
-            self.creatorDelegate?.shouldRefreshData()
+        Unifai.sendMessage(message , imageData: imageData, completion: { msg in
+           self.creatorDelegate?.shouldAppendMessage(msg)
         })
     }
     
@@ -300,6 +300,7 @@ enum Position {
         else {
             self.sendMessage(txtMessage.text!)
         }
+        self.creatorDelegate?.shouldAppendMessage(Message(body: txtMessage.text!, type: .Text, payload: nil))
         txtMessage.text = ""
         txtMessage.resignFirstResponder()
         btnSend.tintColor = Constants.appBrandColor

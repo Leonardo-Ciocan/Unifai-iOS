@@ -417,7 +417,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit dashboard" id="KNO-cl-s2k">
-                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="qfk-Ku-WM4">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="cim-Cv-Pcw">
+                            <connections>
+                                <action selector="cancelTapped:" destination="Re7-Md-hbd" id="e6D-nO-f5e"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="qfk-Ku-WM4">
                             <connections>
                                 <action selector="done:" destination="Re7-Md-hbd" id="rm3-p1-ofc"/>
                             </connections>
@@ -727,7 +732,7 @@
         <image name="passport" width="250" height="125"/>
         <image name="profile" width="30" height="30"/>
         <image name="profileIcon" width="30" height="30"/>
-        <image name="unifai" width="100" height="100"/>
+        <image name="unifai" width="200" height="200"/>
         <image name="whitepixel" width="1" height="1"/>
     </resources>
     <inferredMetricsTieBreakers>

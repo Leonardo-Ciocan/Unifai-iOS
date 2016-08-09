@@ -78,14 +78,21 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     func shouldSendMessageWithText(text: String, sourceRect: CGRect, sourceView: UIView) {
-        messages.append(Message(body: text, type: .Text, payload: nil))
-        Unifai.sendMessage(text,thread: threadID!, completion: { _ in
-            self.shouldRefreshData()
+        Unifai.sendMessage(text,thread: threadID!, completion: { msg in
+            self.shouldAppendMessage(msg)
         })
     }
     
-    func shouldRefreshData() {
-        loadData(threadID!)
+    func shouldAppendMessage(message: Message) {
+        self.messages.append(message)
+        self.tableView.beginUpdates()
+        self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow:messages.count-1,inSection:0)], withRowAnimation: .Automatic)
+        self.tableView.endUpdates()
+        let delay = 0.4 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue()) {
+            self.tableView.scrollToBottom(animated: true)
+        }
     }
     
     func shouldThemeHostWithColor(color: UIColor) {
@@ -117,7 +124,7 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
                 }
                 self.messages = threadMessages
                 self.tableView?.reloadData()
-                let delay = 1 * Double(NSEC_PER_SEC)
+                let delay = 0.4 * Double(NSEC_PER_SEC)
                 let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
                 dispatch_after(time, dispatch_get_main_queue()) {
                     self.tableView.scrollToBottom(animated: true)

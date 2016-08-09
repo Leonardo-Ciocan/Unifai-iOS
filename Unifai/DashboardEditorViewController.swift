@@ -62,6 +62,10 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
         return self.items.count
     }
     
+    @IBAction func cancelTapped(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
         
@@ -86,8 +90,13 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
         
         alert.addAction(UIAlertAction(title: "OK", style: .Default , handler: { (action) -> Void in
             let textField = alert.textFields![0] as UITextField
+            
+//            self.tableView.reloadData()
+            self.tableView.beginUpdates()
             self.items.append(textField.text!)
-            self.tableView.reloadData()
+
+            self.tableView.insertRowsAtIndexPaths([ NSIndexPath(forRow: self.items.count - 1, inSection: 0)], withRowAnimation: .Fade)
+            self.tableView.endUpdates()
         }))
         
         self.presentViewController(alert, animated: true, completion: nil)

@@ -231,15 +231,15 @@ class Unifai{
     }
     
     
-    static func sendMessage(content : String , completion : (()->())? , error : () -> ()){
-
+    static func sendMessage(content : String , completion : ((Message)->())? , error : () -> ()){
         Alamofire.request(.POST , Constants.urlMessage ,
             parameters: ["content":content], headers:self.headers)
             .validate()
             .responseJSON{ response in
                 switch response.result {
-                case .Success:
-                    completion!()
+                case .Success(let data):
+                    let json = JSON(data)
+                    completion!(Message(json: json))
                 case .Failure:
                     error()
                 }
@@ -284,15 +284,21 @@ class Unifai{
         }
     }
     
-    static func sendMessage(content : String , thread : String , completion : ((Bool)->())?){
+    static func sendMessage(content : String , thread : String , completion : ((Message)->())?){
         Alamofire.request(.POST , Constants.urlMessage ,
             parameters: ["content":content , "thread_id" : thread], headers:self.headers)
             .responseJSON{ response in
-                completion!(true)
+                switch response.result {
+                case .Success(let data):
+                    let json = JSON(data)
+                    completion!(Message(json: json))
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                }
         }
     }
     
-    static func sendMessage(content : String , imageData : NSData , completion : ((Bool)->())?){
+    static func sendMessage(content : String , imageData : NSData , completion : ((Message)->())?){
         Alamofire.upload(.POST, Constants.urlMessage ,headers: self.headers, multipartFormData:{
                 formData in
             formData.appendBodyPart(data: imageData, name: "file",fileName: "file.png",mimeType: "image/png")
@@ -302,7 +308,8 @@ class Unifai{
                 switch result {
                 case .Success(let upload, _, _):
                     upload.responseJSON { response in
-                        completion!(true)
+                        let json = JSON(response.result.value!)
+                        completion!(Message(json: json))
                     }
                 case .Failure(let encodingError):
                     print(encodingError)

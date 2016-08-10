@@ -51,7 +51,6 @@ class LoginButton: UIView {
 
     override func drawRect(rect: CGRect) {
         //guard service != nil else { return }
-        print("draw")
         newLayer.borderColor = service?.color.CGColor
         newLayer.borderWidth = 1
         newLayer.cornerRadius = 2

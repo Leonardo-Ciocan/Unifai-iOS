@@ -5,7 +5,7 @@ import DGElasticPullToRefresh
 extension UIScrollView {
     func dg_stopScrollingAnimation() {}
 }
-class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UIViewControllerPreviewingDelegate , MessageCreatorDelegate {
+class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UIViewControllerPreviewingDelegate , MessageCreatorDelegate, AuthViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var creatorAssistant: CreatorAssistant!
@@ -116,6 +116,10 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     
     
     func shouldRefreshData() {
+        loadData()
+    }
+    
+    func didFinishAuthentication() {
         loadData()
     }
     
@@ -237,6 +241,8 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     func handleRefresh(refreshControl: UIRefreshControl) {
         loadData()
     }
+    
+    
     
     
     

@@ -5,6 +5,8 @@ class SheetEntry{
         switch self{
         case _ as TextSheetEntry:
             return 40
+        case _ as ImageSheetEntry:
+            return 70
         case _ as TitledSheetEntry:
             return 50
         case _ as ActionSheetEntry:
@@ -29,6 +31,12 @@ class TextSheetEntry : SheetEntry {
     var text = ""
     init(text:String) {
         self.text = text
+    }
+}
+class ImageSheetEntry : SheetEntry {
+    var url = ""
+    init(url:String) {
+        self.url = url
     }
 }
 class TitledSheetEntry : SheetEntry {

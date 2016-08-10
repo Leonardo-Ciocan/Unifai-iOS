@@ -156,6 +156,8 @@ class SheetsPayload : Payload {
                         sheet.entries.append(TitledSheetEntry(title: entry["title"].stringValue, subtitle: entry["subtitle"].stringValue))
                     case 2:
                         sheet.entries.append(ActionSheetEntry(label: entry["label"].stringValue,action: entry["action"].stringValue, value: entry["value"].stringValue))
+                    case 3:
+                        sheet.entries.append(ImageSheetEntry(url: entry["url"].stringValue))
                     default:
                         continue
                     }

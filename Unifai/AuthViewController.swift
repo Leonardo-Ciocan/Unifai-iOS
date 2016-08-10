@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AuthViewDelegate {
+    func didFinishAuthentication()
+}
+
 class AuthViewController: UIViewController  , UIWebViewDelegate{
 
     @IBOutlet weak var webView: UIWebView!
@@ -16,6 +20,7 @@ class AuthViewController: UIViewController  , UIWebViewDelegate{
     
     var service : Service?
     var payload : RequestAuthPayload?
+    var delegate : AuthViewDelegate?
     
     override func viewDidLoad() {
         self.automaticallyAdjustsScrollViewInsets = true
@@ -49,6 +54,7 @@ class AuthViewController: UIViewController  , UIWebViewDelegate{
                 Unifai.updateAuthCode((service?.id)!, code: code!, completion: {
                     _ in
                     self.dismissViewControllerAnimated(true, completion: nil)
+                    self.delegate?.didFinishAuthentication()
                 })
                 return false
             }
@@ -66,19 +72,7 @@ class AuthViewController: UIViewController  , UIWebViewDelegate{
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent

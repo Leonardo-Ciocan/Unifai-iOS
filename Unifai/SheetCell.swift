@@ -1,4 +1,6 @@
 import UIKit
+import AlamofireImage
+import Alamofire
 
 protocol SheetCellDelegate {
     func shouldOpenLinkWithURL(url:String)
@@ -57,6 +59,22 @@ class SheetCell: UICollectionViewCell {
                 item.tag = index
                 item.addTarget(self, action: #selector(tappedButton), forControlEvents: .TouchUpInside)
                 addSubview(item)
+            case let entry as ImageSheetEntry:
+                let imageview = UIImageView(frame: CGRect(x: CGFloat(200 / 2 - 25), y: y + 5, width: 60, height: 60))
+                imageview.layer.cornerRadius = 5
+                imageview.layer.masksToBounds = true
+                imageview.layer.shadowColor = UIColor.blackColor().CGColor
+                imageview.layer.shadowOffset = CGSizeZero
+                imageview.layer.shadowRadius = 5
+                imageview.layer.shadowOpacity = 0.1
+                Alamofire.request(.GET, entry.url)
+                    .responseImage { response in
+                        if let image = response.result.value {
+                                imageview.image = image.af_imageAspectScaledToFillSize(CGSize(width: 50, height: 50))
+                        }
+                }
+                addSubview(imageview)
+                
             default:
                 continue
             }

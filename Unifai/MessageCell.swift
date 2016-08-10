@@ -18,9 +18,10 @@ import AlamofireImage
 
 protocol MessageCellDelegate {
     func shouldSendMessageWithText(text:String, sourceRect:CGRect, sourceView:UIView)
+    func didFinishAuthentication()
 }
 
-class MessageCell: UITableViewCell, SheetsViewDelegate {
+class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
     
     @IBOutlet weak var txtName: UILabel!
     @IBOutlet weak var txtUsername: UILabel!
@@ -402,10 +403,14 @@ class MessageCell: UITableViewCell, SheetsViewDelegate {
         let payload = message?.payload as! RequestAuthPayload
         
         let vc = AuthViewController()
+        vc.delegate = self
         vc.payload = payload
         vc.service = message?.service
         self.parentViewController?.presentViewController(vc, animated: true, completion: nil)
-        
+    }
+
+    func didFinishAuthentication() {
+        self.delegate?.didFinishAuthentication()
     }
 
     @IBAction func profilePictureTapped(sender: AnyObject) {

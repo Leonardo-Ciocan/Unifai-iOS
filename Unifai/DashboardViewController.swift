@@ -96,6 +96,10 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         })
     }
     
+    func didFinishAuthentication() {
+        self.loadData()
+    }
+    
     func handleRefresh(refreshControl: UIRefreshControl) {
         loadData()
     }

@@ -18,7 +18,7 @@ extension UITableView {
         self.setContentOffset(bottomOffset, animated: animated)
     }
 }
-class ThreadViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , MessageCreatorDelegate, MessageCellDelegate  {
+class ThreadViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , MessageCreatorDelegate, MessageCellDelegate, AuthViewDelegate  {
     
     
     @IBOutlet weak var creatorAssistant: CreatorAssistant!
@@ -86,7 +86,7 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     func shouldAppendMessage(message: Message) {
         self.messages.append(message)
         self.tableView.beginUpdates()
-        self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow:messages.count-1,inSection:0)], withRowAnimation: .Automatic)
+        self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow:messages.count-1,inSection:0)], withRowAnimation: .Bottom)
         self.tableView.endUpdates()
         let delay = 0.4 * Double(NSEC_PER_SEC)
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
@@ -140,6 +140,10 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
                 
             })
         })
+    }
+    
+    func didFinishAuthentication() {
+        self.loadData(self.threadID!)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

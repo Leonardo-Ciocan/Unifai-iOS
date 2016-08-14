@@ -178,29 +178,61 @@ enum Position {
         self.backgroundColorView.backgroundColor = currentTheme.backgroundColor
     }
     
+    
+    
     func sendMessage(message: String) {
-        if threadID == nil {
-            Unifai.sendMessage(message, completion: { msg in
-                self.creatorDelegate?.shouldAppendMessage(msg)
-                },error: {
-                    let alert = UIAlertController(title: "Can't send this message", message: "", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
-                    self.parentViewController!.presentViewController(alert, animated: true, completion: nil)
-            })
-        }
-        else {
-            Unifai.sendMessage(message,thread:threadID!, completion: { msg in
-                self.creatorDelegate?.shouldAppendMessage(msg)
-            })
-        }
-        
-        
+            if threadID == nil {
+                Unifai.sendMessage(message, completion: { msg in
+                    self.creatorDelegate?.shouldAppendMessage(msg)
+                    },error: {
+                        let alert = UIAlertController(title: "Can't send this message", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
+                        self.parentViewController!.presentViewController(alert, animated: true, completion: nil)
+                })
+            }
+            else {
+                Unifai.sendMessage(message,thread:threadID!, completion: { msg in
+                    self.creatorDelegate?.shouldAppendMessage(msg)
+                })
+            }
     }
     
     func sendMessage(message: String, imageData: NSData) {
         Unifai.sendMessage(message , imageData: imageData, completion: { msg in
            self.creatorDelegate?.shouldAppendMessage(msg)
         })
+    }
+    
+    func sendMessageOrSelectPlaceholder(message:String , imageData: NSData?) {
+        let placeholderRanges = TextUtils.getPlaceholderPositionsInMessage(message)
+        if placeholderRanges.count > 0 {
+            let range = placeholderRanges[0]
+            let start = txtMessage.positionFromPosition(txtMessage.beginningOfDocument, offset: range.location)
+            let end = txtMessage.positionFromPosition(start!, offset: range.length)
+            txtMessage.selectedTextRange = txtMessage.textRangeFromPosition(start!, toPosition: end!)
+        }
+        else{
+            self.creatorDelegate?.shouldAppendMessage(Message(body: txtMessage.text!, type: .Text, payload: nil))
+            txtMessage.text = ""
+            txtMessage.resignFirstResponder()
+            btnSend.tintColor = Constants.appBrandColor
+            btnImage.tintColor = currentTheme.foregroundColor
+            btnAction.tintColor = currentTheme.foregroundColor
+            btnCamera.tintColor = currentTheme.foregroundColor
+            txtMessage.tintColor = Constants.appBrandColor
+            selectedService(nil, selectedByTapping: false)
+            if self.imageData != nil {
+                self.imageData = nil
+                removeAction(self)
+            }
+            assistant!.resetAutocompletion()
+            if imageData == nil {
+                self.sendMessage(message)
+            }
+            else {
+                self.sendMessage(message, imageData: imageData!)
+            }
+        }
     }
     
     func getRandomCatalogItem() -> String {
@@ -212,13 +244,13 @@ enum Position {
     }
     
     override func layoutSubviews() {
-        //btnRemove.roundCorners([.BottomLeft,.BottomRight], radius: 10)
         btnRemove.layer.cornerRadius = 5
         btnRemove.layer.masksToBounds = true
     }
     
     func selectedService(service: Service? , selectedByTapping : Bool) {
         if let service = service {
+            txtMessage.tintColor = UIColor.whiteColor()
             self.creatorDelegate?.shouldThemeHostWithColor(service.color)
             self.btnGenius.setImage(btnGenius.currentImage?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
             UIView.animateWithDuration(1, animations: {
@@ -236,6 +268,7 @@ enum Position {
             }
         }
         else {
+            txtMessage.tintColor = Constants.appBrandColor
             self.creatorDelegate?.shouldRemoveThemeFromHost()
             self.btnGenius.setImage(UIImage(named: geniusSuggestions.count == 0 ? "genius" : "genius_on"), forState: .Normal)
             UIView.animateWithDuration(1, animations: {
@@ -251,6 +284,13 @@ enum Position {
     
     func didSelectAutocompletion(message: String) {
         txtMessage.text = message
+        let placeholderRanges = TextUtils.getPlaceholderPositionsInMessage(message)
+        if placeholderRanges.count > 0 {
+            let range = placeholderRanges[0]
+            let start = txtMessage.positionFromPosition(txtMessage.beginningOfDocument, offset: range.location)
+            let end = txtMessage.positionFromPosition(start!, offset: range.length)
+            txtMessage.selectedTextRange = txtMessage.textRangeFromPosition(start!, toPosition: end!)
+        }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -294,30 +334,11 @@ enum Position {
     
     @IBAction func send(sender: AnyObject) {
         guard creatorDelegate != nil else {return}
-        if let data = self.imageData {
-            self.sendMessage(txtMessage.text!, imageData: data)
-        }
-        else {
-            self.sendMessage(txtMessage.text!)
-        }
-        self.creatorDelegate?.shouldAppendMessage(Message(body: txtMessage.text!, type: .Text, payload: nil))
-        txtMessage.text = ""
-        txtMessage.resignFirstResponder()
-        btnSend.tintColor = Constants.appBrandColor
-        btnImage.tintColor = currentTheme.foregroundColor
-        btnAction.tintColor = currentTheme.foregroundColor
-        btnCamera.tintColor = currentTheme.foregroundColor
-        selectedService(nil, selectedByTapping: false)
-        if imageData != nil {
-            imageData = nil
-            removeAction(self)
-        }
-        assistant!.resetAutocompletion()
+        self.sendMessageOrSelectPlaceholder(txtMessage.text!, imageData: self.imageData)
     }
     
     
     @IBAction func textChanged(sender: AnyObject) {
-        //assistant?.autocompleteFor(txtMessage.text!)
         assistant?.autocompleteFor(txtMessage.text!)
     }
     

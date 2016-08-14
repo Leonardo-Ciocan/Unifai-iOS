@@ -49,7 +49,7 @@ class ActionPickerViewController: UIViewController , UICollectionViewDataSource 
         self.actions = [:]
         self.serviceOrder = []
         for action in actions {
-            let service = extractService(action.message)
+            let service = TextUtils.extractService(action.message)
             if service == nil {
                 continue
             }

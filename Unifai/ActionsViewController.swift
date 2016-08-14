@@ -40,7 +40,7 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         self.actions = [:]
         self.serviceOrder = []
         for action in actions {
-            if let service = extractService(action.message) {
+            if let service = TextUtils.extractService(action.message) {
             if !serviceOrder.contains(service) {
                 serviceOrder.append(service)
             }

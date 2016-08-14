@@ -1,19 +1,18 @@
 import UIKit
 import DGElasticPullToRefresh
+import DateTools
 
-class DashboardViewController : UIViewController , UITableViewDelegate , UITableViewDataSource, MessageCellDelegate{
+class DashboardViewController : UIViewController , UITableViewDelegate , UITableViewDataSource, MessageCellDelegate, DashboardEditorViewControllerDelegate{
     
     var messages : [Message] = []
     @IBOutlet weak var tableView: UITableView!
-    
-    lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(handleRefresh), forControlEvents: UIControlEvents.ValueChanged)
-        
-        return refreshControl
-    }()
+   
     
     var activityControl : UIActivityIndicatorView?
+    
+    let txtTitle = UILabel()
+    let txtSubtitle = UILabel()
+    var timeUpdatingTimer : NSTimer?
     override func viewDidLoad() {
         self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
         self.view.backgroundColor = currentTheme.backgroundColor
@@ -29,10 +28,20 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)! ]
-
-        self.tabBarController?.title = "Dashboard"
         
+        txtTitle.text = "Dashboard"
+        txtTitle.font = txtTitle.font.fontWithSize(13)
+        txtSubtitle.text = "Updated 2 min ago"
+        txtTitle.textColor = currentTheme.foregroundColor
+        txtSubtitle.textColor = currentTheme.secondaryForegroundColor
+        txtSubtitle.font = txtSubtitle.font.fontWithSize(13)
+        txtTitle.textAlignment = .Center
+        txtSubtitle.textAlignment = .Center
+        
+        let titleContainer = UIStackView(arrangedSubviews: [txtTitle, txtSubtitle])
+        titleContainer.axis = .Vertical
+        titleContainer.frame = CGRect(x: 0, y: 0, width: 200, height: 33)
+        navigationItem.titleView = titleContainer
         
         let loadingView = DGElasticPullToRefreshLoadingViewCircle()
         loadingView.tintColor = UIColor.whiteColor()
@@ -45,6 +54,7 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
 
         
         self.tableView!.separatorStyle = .None
+
         
         getServicesAndUser({ _ in
             Cache.getDashboard({ messages in
@@ -60,7 +70,27 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         let button = UIBarButtonItem(customView: activityControl!)
         self.navigationItem.rightBarButtonItem = button
         activityControl!.startAnimating()
+        
+        updateTimeLabel()
+        self.timeUpdatingTimer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: #selector(updateTimeLabel), userInfo: nil, repeats: true)
     }
+    
+    var lastUpdatedDate : NSDate?
+    
+    func updateTimeLabel() {
+        if lastUpdatedDate == nil {
+            self.txtSubtitle.text = "Loading..."
+        }
+        else {
+            if NSDate().timeIntervalSinceDate(lastUpdatedDate!) < 60 {
+                self.txtSubtitle.text = "Updated just now"
+            }
+            else {
+                self.txtSubtitle.text = "Updated " + (lastUpdatedDate?.shortTimeAgoSinceNow())! + " ago"
+            }
+        }
+    }
+    
     func shouldSendMessageWithText(text: String, sourceRect: CGRect, sourceView: UIView) {
         let runner = ActionRunnerViewController()
         runner.loadAction(Action(message: text, name: ""))
@@ -88,10 +118,18 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
     }
     
     func loadData(){
-        Unifai.getDashboard({ threadMessages in
-            self.messages = threadMessages
+        lastUpdatedDate = nil
+        updateTimeLabel()
+        Unifai.getDashboard({ dashboardMessages in
+            if dashboardMessages.count == 0 {
+                self.txtSubtitle.text = "Your dashboard is empty"
+            }
+            else {
+                self.lastUpdatedDate = NSDate()
+                self.updateTimeLabel()
+            }
+            self.messages = dashboardMessages
             self.tableView?.reloadData()
-            self.refreshControl.endRefreshing()
             self.activityControl?.stopAnimating()
         })
     }
@@ -100,9 +138,6 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         self.loadData()
     }
     
-    func handleRefresh(refreshControl: UIRefreshControl) {
-        loadData()
-    }
     
     var selectedRow = 0
     
@@ -127,5 +162,17 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         NSUserDefaults.standardUserDefaults().removeObjectForKey("token")
         NSUserDefaults.standardUserDefaults().synchronize()
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "dashboardEdit" {
+            guard let navigationController = segue.destinationViewController as? UINavigationController else { return }
+            guard let editor = navigationController.viewControllers[0] as? DashboardEditorViewController else { return }
+            editor.delegate = self
+        }
+    }
+    
+    func didUpdateDashboardItems() {
+        self.loadData()
     }
 }

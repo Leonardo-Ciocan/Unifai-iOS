@@ -8,13 +8,21 @@
 
 import UIKit
 
-class DashboardEditorViewController: UIViewController , UITableViewDataSource , UITableViewDelegate{
+protocol DashboardEditorViewControllerDelegate {
+    func didUpdateDashboardItems()
+}
+
+class DashboardEditorViewController: UIViewController , UITableViewDataSource , UITableViewDelegate, UITextFieldDelegate{
 
     @IBOutlet
     var tableView: UITableView!
     
     var items : [String] = []
     var header : DashboardEditorHeader?
+    var delegate : DashboardEditorViewControllerDelegate?
+    
+    let txtTitle = UILabel()
+    let txtSubtitle = UILabel()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,28 +30,48 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
         self.tableView.backgroundColor = currentTheme.backgroundColor
         self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
         
-        
+        self.tableView!.rowHeight = UITableViewAutomaticDimension
+        self.tableView!.estimatedRowHeight = 64.0
+
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.allowsSelection = false
         self.tableView.editing = true
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.tableView.registerNib(UINib(nibName: "DashboardEditorCell", bundle: nil), forCellReuseIdentifier: "DashboardEditorCell")
         self.tableView.tableFooterView = UIView()
         header = DashboardEditorHeader(frame:CGRect(x: 0, y: 0, width: self.view.frame.width, height: 70))
-        header!.btnCreate.addTarget(self, action: #selector(create), forControlEvents: .TouchUpInside)
         self.tableView.tableHeaderView = header
+        self.header?.txtMessage.delegate = self
+        
+        txtTitle.text = "Editing dashboard"
+        txtTitle.font = txtTitle.font.fontWithSize(13)
+        txtSubtitle.text = "Loading..."
+        txtTitle.textColor = currentTheme.foregroundColor
+        txtSubtitle.textColor = currentTheme.secondaryForegroundColor
+        txtSubtitle.font = txtSubtitle.font.fontWithSize(13)
+        txtTitle.textAlignment = .Center
+        txtSubtitle.textAlignment = .Center
+        
+        let titleContainer = UIStackView(arrangedSubviews: [txtTitle, txtSubtitle])
+        titleContainer.axis = .Vertical
+        titleContainer.frame = CGRect(x: 0, y: 0, width: 200, height: 33)
+        navigationItem.titleView = titleContainer
+        
         loadData()
     }
     
-    func create() {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.items.append((header?.txtMessage.text)!)
-        self.tableView.reloadData()
+        tableView.insertRowsAtIndexPaths([NSIndexPath(forRow:self.items.count - 1 , inSection:0)], withRowAnimation: .Automatic)
         header?.txtMessage.text = ""
+        textField.resignFirstResponder()
+        return false
     }
     
     func loadData(){
         Unifai.getDashboardItems({ items in
             self.items = items
+            self.txtSubtitle.text = "\(items.count) items"
             self.tableView.reloadData()
         })
     }
@@ -67,10 +95,8 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
-        
-        cell.textLabel?.text = self.items[indexPath.row]
-        cell.textLabel?.textColor = currentTheme.foregroundColor
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("DashboardEditorCell")! as! DashboardEditorCell
+        cell.setMessage(self.items[indexPath.row])
         cell.backgroundColor = currentTheme.backgroundColor
         return cell
     }
@@ -78,6 +104,8 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("You selected cell #\(indexPath.row)!")
     }
+    
+    
     
     @IBAction func newItem(sender: AnyObject) {
         let alert = UIAlertController(title: "New item", message: "Enter a query to be answered", preferredStyle: .Alert)
@@ -98,7 +126,8 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
             self.tableView.insertRowsAtIndexPaths([ NSIndexPath(forRow: self.items.count - 1, inSection: 0)], withRowAnimation: .Fade)
             self.tableView.endUpdates()
         }))
-        
+        self.txtSubtitle.text = "\(items.count) items"
+
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
@@ -111,12 +140,15 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
         if editingStyle == .Delete {
             items.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            self.txtSubtitle.text = "\(items.count) items"
         }
     }
     
     @IBAction func done(sender: AnyObject) {
         Unifai.setDashboardItems(self.items, completion: { s in
-                self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismissViewControllerAnimated(true, completion: {
+                self.delegate?.didUpdateDashboardItems()
+            })
         })
     }
     

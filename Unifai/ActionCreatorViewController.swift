@@ -27,14 +27,14 @@ class ActionCreatorViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        let color = extractServiceColorFrom(txtMessage.text!)
+        let color = TextUtils.extractServiceColorFrom(txtMessage.text!)
         UIView.animateWithDuration(0.6, animations: {
             self.view.backgroundColor = color ?? UIColor.blackColor()
         })
     }
 
     @IBAction func textChanged(sender: AnyObject) {
-        let color = extractServiceColorFrom(txtMessage.text!)
+        let color = TextUtils.extractServiceColorFrom(txtMessage.text!)
         UIView.animateWithDuration(0.6, animations: {
             self.view.backgroundColor = color ?? UIColor.blackColor()
         })

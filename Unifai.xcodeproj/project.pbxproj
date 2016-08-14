@@ -29,6 +29,7 @@
 		B32BDC9D1CFBA17900C18AFE /* DashboardEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BDC9C1CFBA17900C18AFE /* DashboardEditorViewController.swift */; };
 		B331C5231D5FF63B0019FCE6 /* DashboardEditorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B331C5211D5FF63B0019FCE6 /* DashboardEditorCell.swift */; };
 		B331C5241D5FF63B0019FCE6 /* DashboardEditorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B331C5221D5FF63B0019FCE6 /* DashboardEditorCell.xib */; };
+		B331C5261D6025A10019FCE6 /* TextUtilTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B331C5251D6025A10019FCE6 /* TextUtilTest.swift */; };
 		B335AC1E1CD0ACC100B85781 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC1D1CD0ACC100B85781 /* Utils.swift */; };
 		B335AC271CD1127C00B85781 /* ServiceProfileViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC261CD1127C00B85781 /* ServiceProfileViewcontroller.swift */; };
 		B335AC291CD177C400B85781 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC281CD177C400B85781 /* ProfileViewController.swift */; };
@@ -174,6 +175,7 @@
 		B32BDC9C1CFBA17900C18AFE /* DashboardEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardEditorViewController.swift; sourceTree = "<group>"; };
 		B331C5211D5FF63B0019FCE6 /* DashboardEditorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardEditorCell.swift; sourceTree = "<group>"; };
 		B331C5221D5FF63B0019FCE6 /* DashboardEditorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardEditorCell.xib; sourceTree = "<group>"; };
+		B331C5251D6025A10019FCE6 /* TextUtilTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextUtilTest.swift; sourceTree = "<group>"; };
 		B335AC1D1CD0ACC100B85781 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		B335AC261CD1127C00B85781 /* ServiceProfileViewcontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceProfileViewcontroller.swift; sourceTree = "<group>"; };
 		B335AC281CD177C400B85781 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -490,6 +492,7 @@
 			children = (
 				B363CF9B1CCEEBB300B6182D /* UnifaiTests.swift */,
 				B363CF9D1CCEEBB300B6182D /* Info.plist */,
+				B331C5251D6025A10019FCE6 /* TextUtilTest.swift */,
 			);
 			path = UnifaiTests;
 			sourceTree = "<group>";
@@ -872,6 +875,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B331C5261D6025A10019FCE6 /* TextUtilTest.swift in Sources */,
 				B363CF9C1CCEEBB300B6182D /* UnifaiTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

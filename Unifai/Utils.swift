@@ -1,48 +1,57 @@
 import Foundation
 import UIKit
 
-func matchesForRegexInText(regex: String!, text: String!) -> [String] {
-    do {
-        let regex = try NSRegularExpression(pattern: regex, options: [])
-        let nsString = text as NSString
-        let results = regex.matchesInString(text,
-                                            options: [], range: NSMakeRange(0, nsString.length))
-        return results.map { nsString.substringWithRange($0.range)}
-    } catch let error as NSError {
-        print("invalid regex: \(error.localizedDescription)")
-        return []
-    }
-}
-
-func extractServiceColorFrom(string:String) -> UIColor? {
-    var target = matchesForRegexInText("(?:^|\\s|$|[.])@[\\p{L}0-9_]*", text: string)
-    if(target.count > 0){
-        let name = target[0]
-        let services = Core.Services.filter({"@"+$0.username == name})
-        if(services.count > 0){
-            return services[0].color
+class TextUtils {
+    
+    class func getPlaceholderPositionsInMessage(text:String) -> [NSRange] {
+        do {
+            let regex = try NSRegularExpression(pattern: "<[^<>]+>", options: [])
+            let nsString = text as NSString
+            let results = regex.matchesInString(text,
+                                                options: [], range: NSMakeRange(0, nsString.length))
+            return results.map { $0.range }
+        } catch _ as NSError {
+            return []
         }
-        else{
+    }
+    
+    class func matchesForRegexInText(regex: String!, text: String!) -> [String] {
+        do {
+            let regex = try NSRegularExpression(pattern: regex, options: [])
+            let nsString = text as NSString
+            let results = regex.matchesInString(text,
+                                                options: [], range: NSMakeRange(0, nsString.length))
+            return results.map { nsString.substringWithRange($0.range)}
+        } catch let error as NSError {
+            print("invalid regex: \(error.localizedDescription)")
+            return []
+        }
+    }
+    
+    class func extractServiceColorFrom(string:String) -> UIColor? {
+        if let service = TextUtils.extractService(string) {
+            return service.color
+        }
+        else {
             return nil
         }
     }
-    return nil
-}
-
-
-func extractService(string:String) -> Service? {
-    var target = matchesForRegexInText("(?:^|\\s|$|[.])@[\\p{L}0-9_]*", text: string)
-    if(target.count > 0){
-        let name = target[0]
-        let services = Core.Services.filter({"@"+$0.username == name})
-        if(services.count > 0){
-            return services[0]
+    
+    
+    class func extractService(string:String) -> Service? {
+        var target = matchesForRegexInText("(?:^|\\s|$|[.])@[\\p{L}0-9_]*", text: string)
+        if(target.count > 0){
+            let name = target[0]
+            let services = Core.Services.filter({"@"+$0.username == name})
+            if(services.count > 0){
+                return services[0]
+            }
+            else{
+                return nil
+            }
         }
-        else{
-            return nil
-        }
+        return nil
     }
-    return nil
 }
 
 extension String {

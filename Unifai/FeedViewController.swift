@@ -101,7 +101,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         
         
         self.navigationItem.title = "Feed"
-        navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)! ]
+        navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)!, NSForegroundColorAttributeName: currentTheme.foregroundColor]
         
         if( traitCollection.forceTouchCapability == .Available){
             
@@ -129,6 +129,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
                 self.navigationController?.navigationBar.barStyle =  .Black
                 self.navigationController?.navigationBar.barTintColor =  color
                 self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+                self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
         })
     }
     
@@ -138,6 +139,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
                 self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
                 self.navigationController?.navigationBar.barTintColor = nil
                 self.navigationController?.navigationBar.tintColor = currentTheme.foregroundColor
+                self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)!, NSForegroundColorAttributeName: currentTheme.foregroundColor]
         })
     }
     

@@ -130,21 +130,15 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
         if(message.isFromUser){
             //self.txtUsername.text = "@" + Core.Username
             self.txtName.text = Core.Username
-            
-            var target = matchesForRegexInText("(?:^|\\s|$|[.])@[\\p{L}0-9_]*", text: message.body)
-            if(target.count > 0){
-                let name = target[0]
-                let services = Core.Services.filter({"@"+$0.username == name})
-                if(services.count > 0){
-                    txtBody.mentionColor = (services[0].color)
-                    txtBody.URLColor = (services[0].color)
-                    serviceColor = services[0].color
-                }
-                else{
+            let service = TextUtils.extractService(message.body)
+            if let service = service {
+                txtBody.mentionColor = (service.color)
+                txtBody.URLColor = (service.color)
+                serviceColor = service.color
+            }
+            else {
                     txtBody.mentionColor = Constants.appBrandColor
                     txtBody.URLColor = Constants.appBrandColor
-                    
-                }
             }
         }
         else{

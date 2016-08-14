@@ -46,6 +46,8 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         doneButton.style = .Done
 
         super.viewDidLoad()
+        
+        
         self.tableView!.registerNib(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
         
         self.tableView!.rowHeight = UITableViewAutomaticDimension
@@ -71,7 +73,6 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
                                                          selector: #selector(keyboardWillHide),
                                                          name: UIKeyboardDidHideNotification,
                                                          object: nil)
-        
     }
     
     deinit {

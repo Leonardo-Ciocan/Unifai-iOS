@@ -7,18 +7,26 @@
 //
 
 import UIKit
+import ActiveLabel
 
 class DashboardEditorCell: UITableViewCell {
 
+    @IBOutlet weak var txtMessage: ActiveLabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.txtMessage.textColor = currentTheme.foregroundColor
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    }
+    
+    func setMessage(msg : String) {
+        self.txtMessage.text = msg
+        if let color = TextUtils.extractServiceColorFrom(msg) {
+            txtMessage.mentionColor = color
+        }
     }
     
 }

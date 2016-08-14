@@ -72,7 +72,7 @@ class CreatorAssistant: UIView , AutoCompletionServicesDelegate , AutoCompletion
             serviceAutoCompleteView.hidden = true
             suggestionsView.hidden = false
             if query.hasSuffix(" ") && query.characters.filter({ $0 == " " }).count == 1 {
-                if let service = extractService(query) {
+                if let service = TextUtils.extractService(query) {
                     self.selectedService(service , selectedByTapping: false)
                 }
             }
@@ -89,7 +89,7 @@ class CreatorAssistant: UIView , AutoCompletionServicesDelegate , AutoCompletion
         delegate?.selectedService(service , selectedByTapping: selectedByTapping)
         suggestionsView.serviceColor = service.color
         suggestionsView.suggestions = Core.Catalog[service.username]!
-        suggestionsView.actions = Core.Actions.filter({ extractService($0.message) == service })
+        suggestionsView.actions = Core.Actions.filter({ TextUtils.extractService($0.message) == service })
         suggestionsView.filterSuggestionsWithKeywords([])
         suggestionsView.tableView.reloadData()
     }

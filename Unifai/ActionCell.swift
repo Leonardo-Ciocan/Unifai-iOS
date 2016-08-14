@@ -19,7 +19,7 @@ class ActionCell: UICollectionViewCell {
     func loadData(action:Action){
         self.action = action
         txtName.text = action.name
-        let service = extractService(action.message)!
+        let service = TextUtils.extractService(action.message)!
         self.backgroundColor = service.color
         txtName.textColor = UIColor.whiteColor()
     }
@@ -35,7 +35,7 @@ class ActionCell: UICollectionViewCell {
     
     func deleteAction(){
         Unifai.deleteAction(action!.id, completion: { _ in
-            let service = extractService((self.action?.message)!)
+            let service = TextUtils.extractService((self.action?.message)!)
             self.actionsViewController?.actions[service!]  = (self.actionsViewController?.actions[service!]!.filter{ $0.id != self.action!.id })!
             self.actionsViewController?.collectionView.reloadData()
         })

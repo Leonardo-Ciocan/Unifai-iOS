@@ -42,7 +42,7 @@ class ActionRunnerViewController: UIViewController , UITableViewDataSource , UIT
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Discard", style: .Plain, target: self, action: #selector(discard))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Keep", style: .Plain, target: self, action: #selector(keep))
         
-        let service = extractService(action!.message)
+        let service = TextUtils.extractService(action!.message)
         imgLogo.image = UIImage(named: (service?.username)!)
         self.headerBackground.backgroundColor = service?.color
         self.navigationController?.navigationBar.barTintColor = service?.color

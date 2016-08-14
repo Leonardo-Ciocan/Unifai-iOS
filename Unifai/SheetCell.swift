@@ -37,7 +37,6 @@ class SheetCell: UICollectionViewCell {
                 label.text = entry.text
                 label.textColor = UIColor.whiteColor()
                 label.font = label.font.fontWithSize(13)
-                label.adjustsFontSizeToFitWidth = true
                 label.textAlignment = .Center
                 item.addSubview(label)
                 label.snp_makeConstraints(closure: { make in

@@ -44,6 +44,7 @@ class SheetsView: UIView, UICollectionViewDelegate , UICollectionViewDataSource 
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 77, bottom: 0, right: 10)
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.backgroundView = currentTheme.backgroundColor
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

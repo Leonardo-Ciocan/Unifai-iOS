@@ -26,7 +26,7 @@ class GeniusSuggestionCell: UITableViewCell {
     func loadData(data:GeniusSuggestion) {
         txtName.text = data.name.uppercaseString
         txtMessage.text = data.message
-        if let service = extractService(data.message) {
+        if let service = TextUtils.extractService(data.message) {
             innerView.backgroundColor = service.color
         }
         else {

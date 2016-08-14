@@ -406,6 +406,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lYQ-X9-Zfp">
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="scrollIndicatorInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -422,7 +423,7 @@
                                 <action selector="cancelTapped:" destination="Re7-Md-hbd" id="e6D-nO-f5e"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="qfk-Ku-WM4">
+                        <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="qfk-Ku-WM4">
                             <connections>
                                 <action selector="done:" destination="Re7-Md-hbd" id="rm3-p1-ofc"/>
                             </connections>
@@ -440,7 +441,7 @@
         <!--Dashboard-->
         <scene sceneID="avy-1d-XdJ">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="dCm-fc-oL0" customClass="DashboardViewController" customModule="Unifai" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dCm-fc-oL0" customClass="DashboardViewController" customModule="Unifai" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZoF-Ag-gta"/>
                         <viewControllerLayoutGuide type="bottom" id="y1C-Qf-Ecd"/>
@@ -450,7 +451,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Ib-IS-hze">
-                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -459,13 +460,13 @@
                             <constraint firstItem="2Ib-IS-hze" firstAttribute="leading" secondItem="ocC-iN-dGh" secondAttribute="leadingMargin" constant="-20" id="AiX-nb-pie"/>
                             <constraint firstItem="y1C-Qf-Ecd" firstAttribute="top" secondItem="2Ib-IS-hze" secondAttribute="bottom" id="H7Y-BI-uNi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2Ib-IS-hze" secondAttribute="trailing" constant="-20" id="Wxu-YZ-lVz"/>
-                            <constraint firstItem="2Ib-IS-hze" firstAttribute="top" secondItem="ZoF-Ag-gta" secondAttribute="bottom" id="Y2a-0S-Eev"/>
+                            <constraint firstItem="2Ib-IS-hze" firstAttribute="top" secondItem="ZoF-Ag-gta" secondAttribute="bottom" constant="-64" id="Y2a-0S-Eev"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Dashboard" id="iXA-0w-B4y">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="yYI-cT-58H">
                             <connections>
-                                <segue destination="5zv-lC-1Fh" kind="popoverPresentation" popoverAnchorBarButtonItem="yYI-cT-58H" id="v4a-nU-Xrx">
+                                <segue destination="5zv-lC-1Fh" kind="popoverPresentation" identifier="dashboardEdit" popoverAnchorBarButtonItem="yYI-cT-58H" id="v4a-nU-Xrx">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
                             </connections>

@@ -27,6 +27,8 @@
 		B32040B31D3F7B580062686F /* PassportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32040B21D3F7B580062686F /* PassportViewController.swift */; };
 		B32BDC9B1CFB9D2800C18AFE /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BDC9A1CFB9D2800C18AFE /* DashboardViewController.swift */; };
 		B32BDC9D1CFBA17900C18AFE /* DashboardEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BDC9C1CFBA17900C18AFE /* DashboardEditorViewController.swift */; };
+		B331C5231D5FF63B0019FCE6 /* DashboardEditorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B331C5211D5FF63B0019FCE6 /* DashboardEditorCell.swift */; };
+		B331C5241D5FF63B0019FCE6 /* DashboardEditorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B331C5221D5FF63B0019FCE6 /* DashboardEditorCell.xib */; };
 		B335AC1E1CD0ACC100B85781 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC1D1CD0ACC100B85781 /* Utils.swift */; };
 		B335AC271CD1127C00B85781 /* ServiceProfileViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC261CD1127C00B85781 /* ServiceProfileViewcontroller.swift */; };
 		B335AC291CD177C400B85781 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC281CD177C400B85781 /* ProfileViewController.swift */; };
@@ -170,6 +172,8 @@
 		B32040B21D3F7B580062686F /* PassportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassportViewController.swift; sourceTree = "<group>"; };
 		B32BDC9A1CFB9D2800C18AFE /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		B32BDC9C1CFBA17900C18AFE /* DashboardEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardEditorViewController.swift; sourceTree = "<group>"; };
+		B331C5211D5FF63B0019FCE6 /* DashboardEditorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardEditorCell.swift; sourceTree = "<group>"; };
+		B331C5221D5FF63B0019FCE6 /* DashboardEditorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardEditorCell.xib; sourceTree = "<group>"; };
 		B335AC1D1CD0ACC100B85781 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		B335AC261CD1127C00B85781 /* ServiceProfileViewcontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceProfileViewcontroller.swift; sourceTree = "<group>"; };
 		B335AC281CD177C400B85781 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -342,6 +346,8 @@
 				B3449FF31D3B167200811E6C /* DashboardEditorHeader.xib */,
 				B32BDC9A1CFB9D2800C18AFE /* DashboardViewController.swift */,
 				B32BDC9C1CFBA17900C18AFE /* DashboardEditorViewController.swift */,
+				B331C5211D5FF63B0019FCE6 /* DashboardEditorCell.swift */,
+				B331C5221D5FF63B0019FCE6 /* DashboardEditorCell.xib */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -689,6 +695,7 @@
 				B3F7B00E1CF93FA800734F9B /* Thread.storyboard in Resources */,
 				B31BD9331D003EC4001B3875 /* AuthViewController.xib in Resources */,
 				B3E5DF581D4ABB0E00E18199 /* GeniusGroupHeader.xib in Resources */,
+				B331C5241D5FF63B0019FCE6 /* DashboardEditorCell.xib in Resources */,
 				B350B92A1D3868BB00FADBB6 /* ActionCreatorViewController.xib in Resources */,
 				B347B7FD1D552AD100965FD6 /* SheetsView.xib in Resources */,
 				B3D7212C1D01987100BFEEC2 /* Settings.storyboard in Resources */,
@@ -793,6 +800,7 @@
 				B390069F1CD67C2200F472AC /* NewActionController.swift in Sources */,
 				B363CFD21CCF502A00B6182D /* LoginViewController.swift in Sources */,
 				B3B0E72C1D45392000DAE0BF /* AutoCompletionSuggestions.swift in Sources */,
+				B331C5231D5FF63B0019FCE6 /* DashboardEditorCell.swift in Sources */,
 				B363CFBC1CCEF49800B6182D /* Payload.swift in Sources */,
 				B32040B31D3F7B580062686F /* PassportViewController.swift in Sources */,
 				B363CFCA1CCF090700B6182D /* Constants.swift in Sources */,

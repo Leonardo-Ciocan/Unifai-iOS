@@ -21,7 +21,6 @@ class AutoCompletionServiceCell: UICollectionViewCell {
         txtName.text = service.name
         imgLogo.image = UIImage(named: service.username)
         imgLogo.layer.masksToBounds = true
-        imgLogo.layer.cornerRadius = (UIScreen.mainScreen().bounds.width / 4 - 30)/2
         imgLogo.backgroundColor = service.color
         txtName.textColor = service.color
     }

@@ -71,6 +71,7 @@ class AutoCompletionServices: UIView , UICollectionViewDelegateFlowLayout , UICo
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ServiceCell", forIndexPath: indexPath) as! AutoCompletionServiceCell
         cell.loadService(getServices()[indexPath.row])
+        cell.imgLogo.layer.cornerRadius = (self.collectionView.frame.width / 4 - 30) / 2
         return cell
     }
     

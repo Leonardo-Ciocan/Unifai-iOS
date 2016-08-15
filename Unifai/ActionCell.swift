@@ -9,6 +9,12 @@ class ActionCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        layer.masksToBounds = false
+        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowOpacity = 0.12
+        layer.shadowOffset = CGSizeZero
+        layer.shadowRadius = 5
     }
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
 
@@ -28,8 +34,6 @@ class ActionCell: UICollectionViewCell {
     
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
-        self.layer.cornerRadius = 5
-        self.layer.masksToBounds = true
     }
     
     

@@ -14,7 +14,7 @@ class Message {
     var service : Service?
     var threadID : String?
     var timestamp : NSDate = NSDate()
-    var messagesInThread = "0"
+    var messagesInThread = "1"
     
     
     var isFromUser : Bool {

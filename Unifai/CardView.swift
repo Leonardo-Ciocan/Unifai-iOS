@@ -58,12 +58,11 @@ class CardView: UIView {
     }
     
     override func drawRect(rect: CGRect) {
-        self.layer.cornerRadius = 5
-        self.layer.shadowColor = UIColor.blackColor().CGColor
-        self.layer.shadowOffset = CGSizeMake(0.0, 0.0)
-        self.layer.shadowRadius = 5.0
-        self.layer.shadowOpacity = 0.0
-        self.layer.masksToBounds = true
+        layer.masksToBounds = false
+        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowOpacity = 0.12
+        layer.shadowOffset = CGSizeZero
+        layer.shadowRadius = 5
         
     }
 

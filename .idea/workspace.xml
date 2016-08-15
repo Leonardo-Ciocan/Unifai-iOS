@@ -2,9 +2,203 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95baaade-00be-4e42-b914-ad2617e19dc2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Unifai.iml" afterPath="$PROJECT_DIR$/.idea/Unifai.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Core/BaseRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Core/Cell.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Core/CellType.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Core/Core.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Core/Form.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Core/HeaderFooterView.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Core/Helpers.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Core/InlineRowType.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Core/NavigationAccessoryView.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Core/Operators.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Core/PresenterRowType.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Core/Row.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Core/RowControllerType.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Core/RowProtocols.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Core/RowType.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Core/Section.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Core/SelectableRowType.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Core/SelectableSection.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/ActionSheetRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/AlertRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/ButtonRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/ButtonRowWithPresent.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/CheckRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/Common/DateFieldRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/Common/DateInlineFieldRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/Common/DecimalFormatter.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/Common/FieldRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/Common/FormatterConformance.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/Common/GenericMultipleSelectorRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/Common/OptionsRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/Common/SelectorRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/Controllers/ImagePickerController.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/Controllers/MultipleSelectorViewController.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/Controllers/SelectorAlertController.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/Controllers/SelectorViewController.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/DateInlineRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/DatePickerRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/DateRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/FieldsRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/ImageRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/LabelRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/MultipleSelectorRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/PickerInlineRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/PickerRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/PopoverSelectorRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/PostalAddressRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/PushRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/SegmentedRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/SelectableRows/ListCheckRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/SliderRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/StepperRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/SwitchRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Eureka/Source/Rows/TextAreaRow.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Private/SlackTextViewController/SLKInputAccessoryView.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Private/SlackTextViewController/SLKTextInput.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Private/SlackTextViewController/SLKTextInputbar.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Private/SlackTextViewController/SLKTextView+SLKAdditions.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Private/SlackTextViewController/SLKTextView.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Private/SlackTextViewController/SLKTextViewController.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Private/SlackTextViewController/SLKTypingIndicatorProtocol.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Private/SlackTextViewController/SLKTypingIndicatorView.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Private/SlackTextViewController/SLKUIConstants.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Private/SlackTextViewController/UIResponder+SLKAdditions.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Private/SlackTextViewController/UIScrollView+SLKAdditions.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Headers/Private/SlackTextViewController/UIView+SLKAdditions.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/OAuthSwift/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/OAuthSwift/OAuthSwift/Dictionary+OAuthSwift.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/OAuthSwift/OAuthSwift/HMAC.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/OAuthSwift/OAuthSwift/Int+OAuthSwift.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/OAuthSwift/OAuthSwift/NSData+OAuthSwift.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/OAuthSwift/OAuthSwift/NSDate+OAuthSwift.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/OAuthSwift/OAuthSwift/NSURL+OAuthSwift.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/OAuthSwift/OAuthSwift/OAuth1Swift.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/OAuthSwift/OAuthSwift/OAuth2Swift.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/OAuthSwift/OAuthSwift/OAuthSwift.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/OAuthSwift/OAuthSwift/OAuthSwiftClient.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/OAuthSwift/OAuthSwift/OAuthSwiftCredential.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/OAuthSwift/OAuthSwift/OAuthSwiftHTTPRequest.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/OAuthSwift/OAuthSwift/OAuthSwiftMultipartData.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/OAuthSwift/OAuthSwift/OAuthSwiftURLHandlerType.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/OAuthSwift/OAuthSwift/OAuthWebViewController.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/OAuthSwift/OAuthSwift/SHA1.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/OAuthSwift/OAuthSwift/String+OAuthSwift.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/OAuthSwift/OAuthSwift/UIApplication+OAuthSwift.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/OAuthSwift/OAuthSwift/Utils.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/OAuthSwift/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/Eureka.xcscheme" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/OAuthSwift.xcscheme" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/SlackTextViewController.xcscheme" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/TextFieldEffects.xcscheme" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/SlackTextViewController/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/SlackTextViewController/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/SlackTextViewController/Source/SLKInputAccessoryView.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/SlackTextViewController/Source/SLKInputAccessoryView.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/SlackTextViewController/Source/SLKTextInput+Implementation.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/SlackTextViewController/Source/SLKTextInput.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/SlackTextViewController/Source/SLKTextInputbar.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/SlackTextViewController/Source/SLKTextInputbar.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/SlackTextViewController/Source/SLKTextView+SLKAdditions.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/SlackTextViewController/Source/SLKTextView+SLKAdditions.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/SlackTextViewController/Source/SLKTextView.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/SlackTextViewController/Source/SLKTextView.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/SlackTextViewController/Source/SLKTextViewController.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/SlackTextViewController/Source/SLKTextViewController.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/SlackTextViewController/Source/SLKTypingIndicatorProtocol.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/SlackTextViewController/Source/SLKTypingIndicatorView.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/SlackTextViewController/Source/SLKTypingIndicatorView.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/SlackTextViewController/Source/SLKUIConstants.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/SlackTextViewController/Source/UIResponder+SLKAdditions.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/SlackTextViewController/Source/UIResponder+SLKAdditions.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/SlackTextViewController/Source/UIScrollView+SLKAdditions.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/SlackTextViewController/Source/UIScrollView+SLKAdditions.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/SlackTextViewController/Source/UIView+SLKAdditions.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/SlackTextViewController/Source/UIView+SLKAdditions.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Eureka/Eureka-dummy.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Eureka/Eureka-prefix.pch" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Eureka/Eureka-umbrella.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Eureka/Eureka.modulemap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Eureka/Eureka.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Eureka/Info.plist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/OAuthSwift/Info.plist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/OAuthSwift/OAuthSwift-dummy.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/OAuthSwift/OAuthSwift-prefix.pch" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/OAuthSwift/OAuthSwift-umbrella.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/OAuthSwift/OAuthSwift.modulemap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/OAuthSwift/OAuthSwift.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/SlackTextViewController/Info.plist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/SlackTextViewController/SlackTextViewController-dummy.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/SlackTextViewController/SlackTextViewController-prefix.pch" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/SlackTextViewController/SlackTextViewController-umbrella.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/SlackTextViewController/SlackTextViewController.modulemap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/SlackTextViewController/SlackTextViewController.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/TextFieldEffects/Info.plist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/TextFieldEffects/TextFieldEffects-dummy.m" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/TextFieldEffects/TextFieldEffects-prefix.pch" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/TextFieldEffects/TextFieldEffects-umbrella.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/TextFieldEffects/TextFieldEffects.modulemap" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/Target Support Files/TextFieldEffects/TextFieldEffects.xcconfig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/TextFieldEffects/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/TextFieldEffects/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/AkiraTextField.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/HoshiTextField.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/IsaoTextField.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/JiroTextField.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/KaedeTextField.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/MadokaTextField.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/MinoruTextField.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/TextFieldsEffects.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/YokoTextField.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/YoshikoTextField.swift" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Unifai/NewActionController.swift" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Podfile" afterPath="$PROJECT_DIR$/Podfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Podfile.lock" afterPath="$PROJECT_DIR$/Podfile.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Manifest.lock" afterPath="$PROJECT_DIR$/Pods/Manifest.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/project.pbxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/ActiveLabel.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/ActiveLabel.xcscheme" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/Alamofire.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/Alamofire.xcscheme" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/AlamofireImage.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/AlamofireImage.xcscheme" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/AlertOnboarding-AlertOnboardingXib.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/AlertOnboarding-AlertOnboardingXib.xcscheme" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/AlertOnboarding.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/AlertOnboarding.xcscheme" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/Charts.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/Charts.xcscheme" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/DGElasticPullToRefresh.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/DGElasticPullToRefresh.xcscheme" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/DateTools.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/DateTools.xcscheme" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/DynamicColor.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/DynamicColor.xcscheme" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/GSImageViewerController.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/GSImageViewerController.xcscheme" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/MaterialDesignSymbol.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/MaterialDesignSymbol.xcscheme" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/Pods-Unifai.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/Pods-Unifai.xcscheme" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/RFAboutView-Swift-RFAboutView_Swift.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/RFAboutView-Swift-RFAboutView_Swift.xcscheme" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/RFAboutView-Swift.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/RFAboutView-Swift.xcscheme" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/SnapKit.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/SnapKit.xcscheme" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/SwiftyJSON.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/SwiftyJSON.xcscheme" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/expanding-collection.xcscheme" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/expanding-collection.xcscheme" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/xcschememanagement.plist" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/xcuserdata/leo.xcuserdatad/xcschemes/xcschememanagement.plist" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-Unifai/Acknowledgements.plist" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-Unifai/Acknowledgements.plist" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai-acknowledgements.markdown" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai-acknowledgements.markdown" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai-frameworks.sh" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai-frameworks.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai.debug.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai.debug.xcconfig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai.release.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-Unifai/Pods-Unifai.release.xcconfig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/Unifai.xcodeproj/project.pbxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai.xcworkspace/xcuserdata/leo.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" afterPath="$PROJECT_DIR$/Unifai.xcworkspace/xcuserdata/leo.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/ActionCell.xib" afterPath="$PROJECT_DIR$/Unifai/ActionCell.xib" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/ActionsHeader.xib" afterPath="$PROJECT_DIR$/Unifai/ActionsHeader.xib" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/ActionsViewController.swift" afterPath="$PROJECT_DIR$/Unifai/ActionsViewController.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/Base.lproj/Feed.storyboard" afterPath="$PROJECT_DIR$/Unifai/Base.lproj/Feed.storyboard" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/Base.lproj/Main.storyboard" afterPath="$PROJECT_DIR$/Unifai/Base.lproj/Main.storyboard" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/CardView.swift" afterPath="$PROJECT_DIR$/Unifai/CardView.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/Constants.swift" afterPath="$PROJECT_DIR$/Unifai/Constants.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/LoginButton.swift" afterPath="$PROJECT_DIR$/Unifai/LoginButton.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/MessageCell.swift" afterPath="$PROJECT_DIR$/Unifai/MessageCell.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/MessageCreator.swift" afterPath="$PROJECT_DIR$/Unifai/MessageCreator.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/ServiceProfileViewcontroller.swift" afterPath="$PROJECT_DIR$/Unifai/ServiceProfileViewcontroller.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/Sheet.swift" afterPath="$PROJECT_DIR$/Unifai/Sheet.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/SheetCell.swift" afterPath="$PROJECT_DIR$/Unifai/SheetCell.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/SheetsView.swift" afterPath="$PROJECT_DIR$/Unifai/SheetsView.swift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Unifai/ThreadViewController.swift" afterPath="$PROJECT_DIR$/Unifai/ThreadViewController.swift" />
     </list>
     <ignored path="Unifai.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,13 +221,11 @@
       <file leaf-file-name="FeedViewController.swift" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Unifai/FeedViewController.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
+            <state relative-caret-position="630">
               <caret line="45" column="8" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
-                <marker date="1470452928000" expanded="true" signature="776:841" ph="{...}" />
-                <marker date="1470452928000" expanded="true" signature="1074:4465" ph="{...}" />
-                <marker date="1470452928000" expanded="true" signature="11348:11475" ph="{...}" />
+                <marker date="1471265078000" expanded="true" signature="12570:12697" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -44,13 +236,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="585">
               <caret line="39" column="10" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
-              <folding>
-                <marker date="1470524818000" expanded="true" signature="53:1341" ph="{...}" />
-                <marker date="1470524818000" expanded="true" signature="334:370" ph="{...}" />
-                <marker date="1470524818000" expanded="true" signature="555:774" ph="{...}" />
-                <marker date="1470524818000" expanded="true" signature="831:943" ph="{...}" />
-                <marker date="1470524818000" expanded="true" signature="977:1334" ph="{...}" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -71,12 +257,17 @@
       <file leaf-file-name="MessageCreator.swift" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Unifai/MessageCreator.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7380">
-              <caret line="492" column="5" selection-start-line="492" selection-start-column="5" selection-end-line="492" selection-end-column="5" />
+            <state relative-caret-position="7350">
+              <caret line="520" column="5" selection-start-line="520" selection-start-column="5" selection-end-line="520" selection-end-column="5" />
               <folding>
-                <marker date="1470362544000" expanded="true" signature="0:140" ph="//..." />
-                <marker date="1470362544000" expanded="true" signature="19926:19933" ph="{...}" />
-                <marker date="1470362544000" expanded="true" signature="19926:19940" ph="{...}" />
+                <marker date="1471265542000" expanded="true" signature="1288:1412" ph="{...}" />
+                <marker date="1471265542000" expanded="true" signature="1305:1406" ph="{...}" />
+                <marker date="1471265542000" expanded="true" signature="1609:1863" ph="{...}" />
+                <marker date="1471265542000" expanded="true" signature="2094:2961" ph="{...}" />
+                <marker date="1471265542000" expanded="true" signature="2996:3760" ph="{...}" />
+                <marker date="1471265542000" expanded="true" signature="3799:3866" ph="{...}" />
+                <marker date="1471265542000" expanded="true" signature="17255:17444" ph="{...}" />
+                <marker date="1471265542000" expanded="true" signature="21555:21562" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -85,8 +276,8 @@
       <file leaf-file-name="Utils.swift" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Unifai/Utils.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="711">
-              <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+            <state relative-caret-position="900">
+              <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -119,7 +310,7 @@
     <option name="x" value="1128" />
     <option name="y" value="22" />
     <option name="width" value="1430" />
-    <option name="height" value="1418" />
+    <option name="height" value="1361" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -334,9 +525,14 @@
       </EXTENSION>
       <method />
     </configuration>
-    <list size="2">
+    <configuration default="false" name="UnifaiTests" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Unifai" TARGET_NAME="UnifaiTests" CONFIG_NAME="Debug" SCHEME_NAME="UnifaiTests" TEST_MODE="SUITE_TEST" XCODE_SKIPPED_TESTS_HASH_CODE="0">
+      <envs />
+      <method />
+    </configuration>
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Application.Unifai" />
       <item index="1" class="java.lang.String" itemvalue="Application.UnifaiWidget" />
+      <item index="2" class="java.lang.String" itemvalue="XCTest/Kiwi.UnifaiTests" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -351,21 +547,22 @@
       <updated>1468428315089</updated>
       <workItem from="1469807642835" duration="2216000" />
       <workItem from="1470584362607" duration="338000" />
+      <workItem from="1471269613437" duration="567000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2554000" />
+    <option name="totallyTimeSpent" value="3121000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1128" y="22" width="1430" height="1418" extended-state="0" />
-    <editor active="true" />
+    <frame x="1128" y="22" width="1430" height="1361" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2476934" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295626" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32939324" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -400,13 +597,58 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Unifai/FeedViewController.swift">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+            <marker date="1471265078000" expanded="true" signature="12570:12697" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Unifai/ActionCell.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" column="10" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Unifai/Genius.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+            <marker date="1469895016000" expanded="true" signature="69:151" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Unifai/MessageCreator.swift">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7380">
+          <caret line="492" column="5" selection-start-line="492" selection-start-column="5" selection-end-line="492" selection-end-column="5" />
+          <folding>
+            <marker date="1471265542000" expanded="true" signature="1288:1412" ph="{...}" />
+            <marker date="1471265542000" expanded="true" signature="1305:1406" ph="{...}" />
+            <marker date="1471265542000" expanded="true" signature="1609:1863" ph="{...}" />
+            <marker date="1471265542000" expanded="true" signature="2094:2961" ph="{...}" />
+            <marker date="1471265542000" expanded="true" signature="2996:3760" ph="{...}" />
+            <marker date="1471265542000" expanded="true" signature="3799:3866" ph="{...}" />
+            <marker date="1471265542000" expanded="true" signature="17255:17444" ph="{...}" />
+            <marker date="1471265542000" expanded="true" signature="21555:21562" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Unifai/FeedViewController.swift">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
-            <marker date="1470452928000" expanded="true" signature="776:841" ph="{...}" />
-            <marker date="1470452928000" expanded="true" signature="1074:4465" ph="{...}" />
-            <marker date="1470452928000" expanded="true" signature="11348:11475" ph="{...}" />
+            <marker date="1471265078000" expanded="true" signature="12570:12697" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -415,13 +657,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="40" column="10" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
-          <folding>
-            <marker date="1470524818000" expanded="true" signature="53:1341" ph="{...}" />
-            <marker date="1470524818000" expanded="true" signature="334:370" ph="{...}" />
-            <marker date="1470524818000" expanded="true" signature="555:774" ph="{...}" />
-            <marker date="1470524818000" expanded="true" signature="831:943" ph="{...}" />
-            <marker date="1470524818000" expanded="true" signature="977:1334" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -442,22 +678,18 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
-            <marker date="1470452928000" expanded="true" signature="776:841" ph="{...}" />
-            <marker date="1470452928000" expanded="true" signature="1074:4465" ph="{...}" />
-            <marker date="1470452928000" expanded="true" signature="11348:11475" ph="{...}" />
+            <marker date="1471265078000" expanded="true" signature="12570:12697" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Unifai/FeedViewController.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
+        <state relative-caret-position="630">
           <caret line="45" column="8" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
-            <marker date="1470452928000" expanded="true" signature="776:841" ph="{...}" />
-            <marker date="1470452928000" expanded="true" signature="1074:4465" ph="{...}" />
-            <marker date="1470452928000" expanded="true" signature="11348:11475" ph="{...}" />
+            <marker date="1471265078000" expanded="true" signature="12570:12697" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -466,13 +698,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
           <caret line="39" column="10" selection-start-line="39" selection-start-column="10" selection-end-line="39" selection-end-column="10" />
-          <folding>
-            <marker date="1470524818000" expanded="true" signature="53:1341" ph="{...}" />
-            <marker date="1470524818000" expanded="true" signature="334:370" ph="{...}" />
-            <marker date="1470524818000" expanded="true" signature="555:774" ph="{...}" />
-            <marker date="1470524818000" expanded="true" signature="831:943" ph="{...}" />
-            <marker date="1470524818000" expanded="true" signature="977:1334" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -489,20 +715,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Unifai/MessageCreator.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7380">
-          <caret line="492" column="5" selection-start-line="492" selection-start-column="5" selection-end-line="492" selection-end-column="5" />
+        <state relative-caret-position="7350">
+          <caret line="520" column="5" selection-start-line="520" selection-start-column="5" selection-end-line="520" selection-end-column="5" />
           <folding>
-            <marker date="1470362544000" expanded="true" signature="0:140" ph="//..." />
-            <marker date="1470362544000" expanded="true" signature="19926:19933" ph="{...}" />
-            <marker date="1470362544000" expanded="true" signature="19926:19940" ph="{...}" />
+            <marker date="1471265542000" expanded="true" signature="1288:1412" ph="{...}" />
+            <marker date="1471265542000" expanded="true" signature="1305:1406" ph="{...}" />
+            <marker date="1471265542000" expanded="true" signature="1609:1863" ph="{...}" />
+            <marker date="1471265542000" expanded="true" signature="2094:2961" ph="{...}" />
+            <marker date="1471265542000" expanded="true" signature="2996:3760" ph="{...}" />
+            <marker date="1471265542000" expanded="true" signature="3799:3866" ph="{...}" />
+            <marker date="1471265542000" expanded="true" signature="17255:17444" ph="{...}" />
+            <marker date="1471265542000" expanded="true" signature="21555:21562" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Unifai/Utils.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="711">
-          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        <state relative-caret-position="900">
+          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>

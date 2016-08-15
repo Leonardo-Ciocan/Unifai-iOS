@@ -194,7 +194,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
                     if let image = response.result.value {
                         self.img = image
                         imageView.transform = CGAffineTransformMakeTranslation(0, 15)
-                        imageView.image = image.af_imageAspectScaledToFillSize(CGSize(width: 250, height: 150))
+                        imageView.image = image.af_imageAspectScaledToFitSize(CGSize(width: 250, height: 150))
                         UIView.animateWithDuration(1, animations: {
                             imageView.alpha = 1
                         })

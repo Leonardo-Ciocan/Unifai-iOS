@@ -15,8 +15,6 @@ class TablePayloadView: UIView {
         self.layer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.02).CGColor
         self.layer.borderColor = UIColor.greenColor().CGColor
         self.layer.borderWidth = 0
-        self.layer.cornerRadius = 8
-        self.layer.masksToBounds = true
     }
     
     
@@ -40,7 +38,23 @@ class TablePayloadView: UIView {
     override func layoutSubviews() {
         guard payload != nil else {return}
         
+        
+        
+        
+        
         self.subviews.forEach({ $0.removeFromSuperview()})
+        
+        let shadowView = UIView()
+        shadowView.backgroundColor = UIColor.clearColor()
+        shadowView.layer.shadowColor = UIColor.blackColor().CGColor
+        shadowView.layer.shadowOpacity = 1
+        shadowView.layer.shadowOffset = CGSizeZero
+        shadowView.layer.shadowRadius = 10
+        shadowView.layer.masksToBounds = false
+        addSubview(shadowView)
+        shadowView.snp_makeConstraints(closure: { make in
+                make.left.right.top.bottom.equalTo(0)
+        })
         
         let cols = payload!.columns;
         let rows = payload!.rows;
@@ -48,7 +62,6 @@ class TablePayloadView: UIView {
         self.hidden = true
         let colWidth = Int(self.superview!.frame.width / CGFloat(cols.count))
         for col in 0..<cols.count{
-            print(col)
             let colLabel = UILabel()
             colLabel.textColor = currentTheme.foregroundColor
             colLabel.textAlignment = .Center

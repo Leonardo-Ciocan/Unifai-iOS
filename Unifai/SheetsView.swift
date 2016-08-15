@@ -12,7 +12,7 @@ protocol SheetsViewDelegate {
     func shouldOpenLinkWithURL(url:String)
     func shouldSendMessageWithText(text:String, sourceRect:CGRect, sourceView:UIView)
 }
-class SheetsView: UIView, UICollectionViewDelegate , UICollectionViewDataSource , SheetCellDelegate {
+class SheetsView: UIView, UICollectionViewDelegate , UICollectionViewDataSource , SheetCellDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionView: UICollectionView!
     var sheets : [Sheet] = []
@@ -39,12 +39,17 @@ class SheetsView: UIView, UICollectionViewDelegate , UICollectionViewDataSource 
         
         self.addSubview(view);
         collectionView.backgroundColor = UIColor.clearColor()
-        
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumInteritemSpacing = 60
+        layout.minimumLineSpacing = 35
+        layout.scrollDirection = .Horizontal
+        collectionView.collectionViewLayout = layout
+
         collectionView.registerNib(UINib(nibName:"SheetCell",bundle: nil), forCellWithReuseIdentifier: "SheetCell")
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 77, bottom: 0, right: 10)
+        collectionView.contentInset = UIEdgeInsets(top: 10, left: 77, bottom: 0, right: 10)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundView = currentTheme.backgroundColor
+        collectionView.backgroundColor = currentTheme.backgroundColor
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -60,7 +65,7 @@ class SheetsView: UIView, UICollectionViewDelegate , UICollectionViewDataSource 
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width: 200, height: collectionView.frame.height)
+        return CGSize(width: 200, height: collectionView.frame.height - 40)
     }
     
     func loadSheets(sheets:[Sheet],color:UIColor) {

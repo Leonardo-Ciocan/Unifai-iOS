@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SlackTextViewController
 import GSImageViewerController
 import SafariServices
 import UIKit

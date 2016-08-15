@@ -12,7 +12,6 @@ import ActiveLabel
 import GSImageViewerController
 import SafariServices
 import Charts
-import OAuthSwift
 import Alamofire
 import AlamofireImage
 
@@ -177,18 +176,31 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
             }
         }
         else if(message.type == .Image){
-            self.payloadContainerHeight.constant = 180
             if (message.payload as! ImagePayload).URL.isEmpty {
+                self.payloadContainerHeight.constant = 0
                 return
             }
-            
-            let imageView = UIImageView()
+            self.payloadContainerHeight.constant = 180
 
+            let imageView = UIImageView()
+            imageView.layer.cornerRadius = 5
+            imageView.layer.shadowColor = UIColor.blackColor().CGColor
+            imageView.layer.shadowOpacity = 0.15
+            imageView.layer.shadowOffset = CGSizeZero
+            imageView.layer.shadowRadius = 10
+            imageView.alpha = 0
             Alamofire.request(.GET, (message.payload as! ImagePayload).URL)
                 .responseImage { response in                    
                     if let image = response.result.value {
                         self.img = image
+                        imageView.transform = CGAffineTransformMakeTranslation(0, 15)
                         imageView.image = image.af_imageAspectScaledToFillSize(CGSize(width: 250, height: 150))
+                        UIView.animateWithDuration(1, animations: {
+                            imageView.alpha = 1
+                        })
+                        UIView.animateWithDuration(0.5, animations: {
+                            imageView.transform = CGAffineTransformMakeTranslation(0, 0)
+                        })
                     }
             }
             
@@ -357,7 +369,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
                 return
             }
             let height = payload.sheets[0].entries.reduce(0){$0 + $1.size()} + 10
-            self.payloadContainerHeight.constant = CGFloat(height)
+            self.payloadContainerHeight.constant = CGFloat(height) + 40
             
             let sheetsView = SheetsView()
             sheetsView.delegate = self

@@ -51,6 +51,7 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
         let header = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 220))
+        header.userInteractionEnabled = false
         let pinnedText = UILabel()
         pinnedText.textColor = currentTheme.foregroundColor
         pinnedText.text = "Pinned message"

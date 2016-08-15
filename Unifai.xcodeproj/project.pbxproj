@@ -30,6 +30,7 @@
 		B331C5231D5FF63B0019FCE6 /* DashboardEditorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B331C5211D5FF63B0019FCE6 /* DashboardEditorCell.swift */; };
 		B331C5241D5FF63B0019FCE6 /* DashboardEditorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B331C5221D5FF63B0019FCE6 /* DashboardEditorCell.xib */; };
 		B331C5261D6025A10019FCE6 /* TextUtilTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B331C5251D6025A10019FCE6 /* TextUtilTest.swift */; };
+		B331C5281D6048C20019FCE6 /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = B331C5271D6048C20019FCE6 /* Acknowledgements.plist */; };
 		B335AC1E1CD0ACC100B85781 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC1D1CD0ACC100B85781 /* Utils.swift */; };
 		B335AC271CD1127C00B85781 /* ServiceProfileViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC261CD1127C00B85781 /* ServiceProfileViewcontroller.swift */; };
 		B335AC291CD177C400B85781 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC281CD177C400B85781 /* ProfileViewController.swift */; };
@@ -52,7 +53,6 @@
 		B350B9261D381B3A00FADBB6 /* ActionPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350B9241D381B3A00FADBB6 /* ActionPickerViewController.xib */; };
 		B350B9291D3868BB00FADBB6 /* ActionCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B350B9271D3868BB00FADBB6 /* ActionCreatorViewController.swift */; };
 		B350B92A1D3868BB00FADBB6 /* ActionCreatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350B9281D3868BB00FADBB6 /* ActionCreatorViewController.xib */; };
-		B3614FCD1D586F8700665DFD /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3614FCC1D586F8700665DFD /* Acknowledgements.plist */; };
 		B363CF851CCEEBB300B6182D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363CF841CCEEBB300B6182D /* AppDelegate.swift */; };
 		B363CF8C1CCEEBB300B6182D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B363CF8A1CCEEBB300B6182D /* Main.storyboard */; };
 		B363CF8E1CCEEBB300B6182D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B363CF8D1CCEEBB300B6182D /* Assets.xcassets */; };
@@ -76,7 +76,6 @@
 		B39006971CD66ED600F472AC /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39006961CD66ED600F472AC /* Action.swift */; };
 		B39006991CD6701C00F472AC /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39006981CD6701C00F472AC /* ActionsViewController.swift */; };
 		B390069C1CD679D700F472AC /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B390069A1CD679D700F472AC /* ActionCell.swift */; };
-		B390069F1CD67C2200F472AC /* NewActionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B390069E1CD67C2200F472AC /* NewActionController.swift */; };
 		B3B0E72C1D45392000DAE0BF /* AutoCompletionSuggestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B0E72B1D45392000DAE0BF /* AutoCompletionSuggestions.swift */; };
 		B3B0E72E1D45393200DAE0BF /* AutoCompletionSuggestions.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3B0E72D1D45393200DAE0BF /* AutoCompletionSuggestions.xib */; };
 		B3B0E7311D4544A400DAE0BF /* SuggestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B0E72F1D4544A400DAE0BF /* SuggestionCell.swift */; };
@@ -176,6 +175,7 @@
 		B331C5211D5FF63B0019FCE6 /* DashboardEditorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardEditorCell.swift; sourceTree = "<group>"; };
 		B331C5221D5FF63B0019FCE6 /* DashboardEditorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardEditorCell.xib; sourceTree = "<group>"; };
 		B331C5251D6025A10019FCE6 /* TextUtilTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextUtilTest.swift; sourceTree = "<group>"; };
+		B331C5271D6048C20019FCE6 /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Acknowledgements.plist; path = "Pods/Target Support Files/Pods-Unifai/Acknowledgements.plist"; sourceTree = "<group>"; };
 		B335AC1D1CD0ACC100B85781 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		B335AC261CD1127C00B85781 /* ServiceProfileViewcontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceProfileViewcontroller.swift; sourceTree = "<group>"; };
 		B335AC281CD177C400B85781 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -198,7 +198,6 @@
 		B350B9241D381B3A00FADBB6 /* ActionPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionPickerViewController.xib; sourceTree = "<group>"; };
 		B350B9271D3868BB00FADBB6 /* ActionCreatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCreatorViewController.swift; sourceTree = "<group>"; };
 		B350B9281D3868BB00FADBB6 /* ActionCreatorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionCreatorViewController.xib; sourceTree = "<group>"; };
-		B3614FCC1D586F8700665DFD /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Acknowledgements.plist; path = "Pods/Target Support Files/Pods-Unifai/Acknowledgements.plist"; sourceTree = "<group>"; };
 		B363CF811CCEEBB300B6182D /* Unifai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unifai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B363CF841CCEEBB300B6182D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B363CF8B1CCEEBB300B6182D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -228,7 +227,6 @@
 		B39006961CD66ED600F472AC /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		B39006981CD6701C00F472AC /* ActionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionsViewController.swift; sourceTree = "<group>"; };
 		B390069A1CD679D700F472AC /* ActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
-		B390069E1CD67C2200F472AC /* NewActionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewActionController.swift; sourceTree = "<group>"; };
 		B39006A51CD6853400F472AC /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		B39006A81CD6853400F472AC /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		B39006AB1CD6853400F472AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -330,7 +328,6 @@
 				B39006981CD6701C00F472AC /* ActionsViewController.swift */,
 				B390069A1CD679D700F472AC /* ActionCell.swift */,
 				B3D7213D1D03A8B300BFEEC2 /* ActionCell.xib */,
-				B390069E1CD67C2200F472AC /* NewActionController.swift */,
 				B350B9231D381B3A00FADBB6 /* ActionPickerViewController.swift */,
 				B350B9241D381B3A00FADBB6 /* ActionPickerViewController.xib */,
 				B350B9271D3868BB00FADBB6 /* ActionCreatorViewController.swift */,
@@ -426,7 +423,7 @@
 		B363CF781CCEEBB300B6182D = {
 			isa = PBXGroup;
 			children = (
-				B3614FCC1D586F8700665DFD /* Acknowledgements.plist */,
+				B331C5271D6048C20019FCE6 /* Acknowledgements.plist */,
 				B363CFB41CCEECA600B6182D /* Podfile */,
 				B363CF831CCEEBB300B6182D /* Unifai */,
 				B363CF9A1CCEEBB300B6182D /* UnifaiTests */,
@@ -633,7 +630,7 @@
 				TargetAttributes = {
 					B363CF801CCEEBB300B6182D = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 4FLSWMW6LR;
+						DevelopmentTeam = C777FZ7828;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -694,6 +691,7 @@
 				B347B8011D5557A400965FD6 /* SheetCell.xib in Resources */,
 				B3E5DF501D4AB17400E18199 /* GeniusViewController.xib in Resources */,
 				B363CF911CCEEBB300B6182D /* LaunchScreen.storyboard in Resources */,
+				B331C5281D6048C20019FCE6 /* Acknowledgements.plist in Resources */,
 				B3B0E7321D4544A400DAE0BF /* SuggestionCell.xib in Resources */,
 				B3F7B00E1CF93FA800734F9B /* Thread.storyboard in Resources */,
 				B31BD9331D003EC4001B3875 /* AuthViewController.xib in Resources */,
@@ -705,7 +703,6 @@
 				B3C07F881D483D6000BF2238 /* SuggestionsHeader.xib in Resources */,
 				B3131F521D39A1EE00461C12 /* ProgressView.xib in Resources */,
 				B3D721291D00DD9F00BFEEC2 /* CardView.xib in Resources */,
-				B3614FCD1D586F8700665DFD /* Acknowledgements.plist in Resources */,
 				B363CF8E1CCEEBB300B6182D /* Assets.xcassets in Resources */,
 				B350B9261D381B3A00FADBB6 /* ActionPickerViewController.xib in Resources */,
 				B3F1FFE61D531C8B00E678E9 /* PromptView.xib in Resources */,
@@ -800,7 +797,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B390069F1CD67C2200F472AC /* NewActionController.swift in Sources */,
 				B363CFD21CCF502A00B6182D /* LoginViewController.swift in Sources */,
 				B3B0E72C1D45392000DAE0BF /* AutoCompletionSuggestions.swift in Sources */,
 				B331C5231D5FF63B0019FCE6 /* DashboardEditorCell.swift in Sources */,
@@ -1041,10 +1037,11 @@
 			baseConfigurationReference = AF737EEAD9673B524EA2C60B /* Pods-Unifai.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Unifai/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = unifai.Unifai;
+				PRODUCT_BUNDLE_IDENTIFIER = com.unifai;
 				PRODUCT_NAME = Unifai;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1055,10 +1052,11 @@
 			baseConfigurationReference = 610AC2CFFAE76B26B6619070 /* Pods-Unifai.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Unifai/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = unifai.Unifai;
+				PRODUCT_BUNDLE_IDENTIFIER = com.unifai;
 				PRODUCT_NAME = Unifai;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

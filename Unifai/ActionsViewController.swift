@@ -117,7 +117,7 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         let screenRect = UIScreen.mainScreen().bounds
         let screenWidth = screenRect.size.width
         let cellWidth = screenWidth / getNumberOfCollumns()
-        let size = CGSizeMake(cellWidth-10, 100)
+        let size = CGSizeMake(cellWidth-10, 70)
         return size
     }
     
@@ -128,10 +128,7 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
         return 10.0
     }
-//
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-//        return 10.0
-//    }
+    
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let action = self.actions[serviceOrder[indexPath.section]]![indexPath.row]

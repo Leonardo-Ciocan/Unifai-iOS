@@ -22,7 +22,7 @@ class CardView: UIView {
             Alamofire.request(.GET, payload.imageURL!)
                 .responseImage { response in
                     if let image = response.result.value {
-                        self.imageView.image = image.af_imageAspectScaledToFillSize(CGSize(width: 150, height: 150))
+                        self.imageView.image = image.af_imageAspectScaledToFillSize(CGSize(width: 200, height: 200))
                     }
             }
         }

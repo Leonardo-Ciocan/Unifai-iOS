@@ -12,8 +12,12 @@ class SheetCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         //backgroundColor = currentTheme.shadeColor
-        self.layer.cornerRadius = 5
-        self.layer.masksToBounds = true
+        layer.masksToBounds = false
+        
+        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowOpacity = 0.15
+        layer.shadowOffset = CGSizeZero
+        layer.shadowRadius = 10
     }
     var entries : [SheetEntry] = []
     var delegate : SheetCellDelegate?
@@ -50,8 +54,6 @@ class SheetCell: UICollectionViewCell {
                 item.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.04)
                 item.setTitle(entry.label, forState: .Normal)
                 item.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-                item.layer.cornerRadius = 5
-                item.layer.masksToBounds = true
                 item.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.08).CGColor
                 item.layer.borderWidth = 1
                 item.titleLabel!.font = item.titleLabel!.font.fontWithSize(12)

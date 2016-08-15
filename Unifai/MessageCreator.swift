@@ -208,6 +208,7 @@ enum Position {
         if placeholderRanges.count > 0 {
             let range = placeholderRanges[0]
             let start = txtMessage.positionFromPosition(txtMessage.beginningOfDocument, offset: range.location)
+            guard start != nil else { return }
             let end = txtMessage.positionFromPosition(start!, offset: range.length)
             txtMessage.selectedTextRange = txtMessage.textRangeFromPosition(start!, toPosition: end!)
         }
@@ -294,7 +295,6 @@ enum Position {
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        txtMessage.resignFirstResponder()
         self.send(self)
         return false
     }
@@ -406,7 +406,11 @@ enum Position {
         })
         
         btnSend.alpha = 0
+        
         btnSendTrailingConstraint.constant = 15
+        UIView.performWithoutAnimation({
+            self.txtMessage.layoutIfNeeded()
+        })
         UIView.animateWithDuration(0.7, animations: {
             self.layoutIfNeeded()
             self.btnSend.alpha = 1
@@ -420,7 +424,9 @@ enum Position {
             }, completion: { _ in
                 self.assistant?.hidden = true
         })
-        
+        UIView.performWithoutAnimation({
+            self.txtMessage.layoutIfNeeded()
+        })
         btnSendTrailingConstraint.constant = -25
         UIView.animateWithDuration(0.7, animations: {
             self.layoutIfNeeded()

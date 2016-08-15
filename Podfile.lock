@@ -12,17 +12,13 @@ PODS:
   - DateTools (1.7.0)
   - DGElasticPullToRefresh (1.0.3)
   - DynamicColor (2.4.0)
-  - Eureka (1.5.0)
   - expanding-collection (0.3.2)
   - Fabric (1.6.7)
   - GSImageViewerController (1.1.1)
   - MaterialDesignSymbol (1.7)
-  - OAuthSwift (0.5.2)
   - RFAboutView-Swift (1.0.13)
-  - SlackTextViewController (1.9.2)
   - SnapKit (0.15.0)
   - SwiftyJSON (2.3.2)
-  - TextFieldEffects (1.2.0)
 
 DEPENDENCIES:
   - ActiveLabel
@@ -34,17 +30,13 @@ DEPENDENCIES:
   - DateTools
   - DGElasticPullToRefresh
   - DynamicColor (~> 2.4.0)
-  - Eureka (~> 1.5)
   - expanding-collection
   - Fabric
   - GSImageViewerController
   - MaterialDesignSymbol
-  - OAuthSwift (~> 0.5.0)
   - RFAboutView-Swift (~> 1.0.13)
-  - SlackTextViewController
   - SnapKit (~> 0.15.0)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
-  - TextFieldEffects
 
 EXTERNAL SOURCES:
   SwiftyJSON:
@@ -65,16 +57,12 @@ SPEC CHECKSUMS:
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   DGElasticPullToRefresh: 040f39ae69840b3261d163fe6735c5901bf851e9
   DynamicColor: 2f3fd61053684667bad9f03045dcf9a2a5a007ea
-  Eureka: 2fb37bb50569c62ee3284689d5b7aca694b040e0
   expanding-collection: 0a237d343a1d71472a312296a8e1359be01244ab
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   GSImageViewerController: 1fd7ff9210bca2eaaeb89811c55230b575377143
   MaterialDesignSymbol: 8216d8587ff04b8d0d110a9a02eb53ea94174328
-  OAuthSwift: 1ef042d4362e755e24a78f158d817245641a5d24
   RFAboutView-Swift: 744c159dfa3c59e967dc191f4de0973b131d5ff9
-  SlackTextViewController: bac3350ccc639bc446bb14cbd09da238f5e01f32
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
-  TextFieldEffects: bc4fd3bd557321bd61a0762f3f50965477a36f62
 
 COCOAPODS: 0.39.0

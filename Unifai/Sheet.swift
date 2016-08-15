@@ -8,7 +8,7 @@ class SheetEntry{
         case _ as ImageSheetEntry:
             return 70
         case _ as TitledSheetEntry:
-            return 50
+            return 60
         case _ as ActionSheetEntry:
             return 40
         default:

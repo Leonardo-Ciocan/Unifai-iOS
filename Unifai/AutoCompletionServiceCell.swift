@@ -18,7 +18,7 @@ class AutoCompletionServiceCell: UICollectionViewCell {
     }
     
     func loadService(service : Service) {
-        txtName.text = service.name
+        txtName.text = service.name.uppercaseString
         imgLogo.image = UIImage(named: service.username)
         imgLogo.layer.masksToBounds = true
         imgLogo.backgroundColor = service.color

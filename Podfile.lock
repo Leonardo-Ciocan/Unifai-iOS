@@ -16,6 +16,7 @@ PODS:
   - Fabric (1.6.7)
   - GSImageViewerController (1.1.1)
   - MaterialDesignSymbol (1.7)
+  - PKHUD (3.2.1)
   - RFAboutView-Swift (1.0.13)
   - SnapKit (0.15.0)
   - SwiftyJSON (2.3.2)
@@ -34,6 +35,7 @@ DEPENDENCIES:
   - Fabric
   - GSImageViewerController
   - MaterialDesignSymbol
+  - PKHUD
   - RFAboutView-Swift (~> 1.0.13)
   - SnapKit (~> 0.15.0)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
@@ -61,6 +63,7 @@ SPEC CHECKSUMS:
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   GSImageViewerController: 1fd7ff9210bca2eaaeb89811c55230b575377143
   MaterialDesignSymbol: 8216d8587ff04b8d0d110a9a02eb53ea94174328
+  PKHUD: 001c11518f125a273ddf026bcc64918423744ea2
   RFAboutView-Swift: 744c159dfa3c59e967dc191f4de0973b131d5ff9
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a

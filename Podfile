@@ -16,4 +16,5 @@ target 'Unifai' do
     pod 'Fabric'
     pod 'Answers'
     pod 'AlamofireImage', '~> 2.0'
+    pod "PKHUD"
 end

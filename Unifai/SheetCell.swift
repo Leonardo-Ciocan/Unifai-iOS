@@ -1,6 +1,7 @@
 import UIKit
 import AlamofireImage
 import Alamofire
+import PKHUD
 
 protocol SheetCellDelegate {
     func shouldOpenLinkWithURL(url:String)
@@ -92,6 +93,11 @@ class SheetCell: UICollectionViewCell {
         }
         else if actionEntry.action == "send" {
             delegate?.shouldSendMessageWithText(actionEntry.value,sourceRect:  sender.bounds ,sourceView:  sender)
+        }
+        else if actionEntry.action == "copy" {
+            UIPasteboard.generalPasteboard().string = actionEntry.value
+            PKHUD.sharedHUD.dimsBackground = false
+            HUD.flash(.Success, delay: 0.75)
         }
     }
 }

@@ -30,7 +30,6 @@
 		B331C5231D5FF63B0019FCE6 /* DashboardEditorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B331C5211D5FF63B0019FCE6 /* DashboardEditorCell.swift */; };
 		B331C5241D5FF63B0019FCE6 /* DashboardEditorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B331C5221D5FF63B0019FCE6 /* DashboardEditorCell.xib */; };
 		B331C5261D6025A10019FCE6 /* TextUtilTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B331C5251D6025A10019FCE6 /* TextUtilTest.swift */; };
-		B331C5281D6048C20019FCE6 /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = B331C5271D6048C20019FCE6 /* Acknowledgements.plist */; };
 		B335AC1E1CD0ACC100B85781 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC1D1CD0ACC100B85781 /* Utils.swift */; };
 		B335AC271CD1127C00B85781 /* ServiceProfileViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC261CD1127C00B85781 /* ServiceProfileViewcontroller.swift */; };
 		B335AC291CD177C400B85781 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335AC281CD177C400B85781 /* ProfileViewController.swift */; };
@@ -42,6 +41,7 @@
 		B3449FF01D3ADFAB00811E6C /* ActionsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3449FEF1D3ADFAB00811E6C /* ActionsHeader.xib */; };
 		B3449FF21D3B165D00811E6C /* DashboardEditorHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3449FF11D3B165D00811E6C /* DashboardEditorHeader.swift */; };
 		B3449FF41D3B167200811E6C /* DashboardEditorHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3449FF31D3B167200811E6C /* DashboardEditorHeader.xib */; };
+		B346218B1D6335180089EB06 /* Acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = B346218A1D6335180089EB06 /* Acknowledgements.plist */; };
 		B347B7FB1D552AC200965FD6 /* SheetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B347B7FA1D552AC200965FD6 /* SheetsView.swift */; };
 		B347B7FD1D552AD100965FD6 /* SheetsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B347B7FC1D552AD100965FD6 /* SheetsView.xib */; };
 		B347B8001D5557A400965FD6 /* SheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B347B7FE1D5557A400965FD6 /* SheetCell.swift */; };
@@ -175,7 +175,6 @@
 		B331C5211D5FF63B0019FCE6 /* DashboardEditorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardEditorCell.swift; sourceTree = "<group>"; };
 		B331C5221D5FF63B0019FCE6 /* DashboardEditorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardEditorCell.xib; sourceTree = "<group>"; };
 		B331C5251D6025A10019FCE6 /* TextUtilTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextUtilTest.swift; sourceTree = "<group>"; };
-		B331C5271D6048C20019FCE6 /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Acknowledgements.plist; path = "Pods/Target Support Files/Pods-Unifai/Acknowledgements.plist"; sourceTree = "<group>"; };
 		B335AC1D1CD0ACC100B85781 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		B335AC261CD1127C00B85781 /* ServiceProfileViewcontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceProfileViewcontroller.swift; sourceTree = "<group>"; };
 		B335AC281CD177C400B85781 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +186,7 @@
 		B3449FEF1D3ADFAB00811E6C /* ActionsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionsHeader.xib; sourceTree = "<group>"; };
 		B3449FF11D3B165D00811E6C /* DashboardEditorHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardEditorHeader.swift; sourceTree = "<group>"; };
 		B3449FF31D3B167200811E6C /* DashboardEditorHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardEditorHeader.xib; sourceTree = "<group>"; };
+		B346218A1D6335180089EB06 /* Acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Acknowledgements.plist; sourceTree = "<group>"; };
 		B347B7FA1D552AC200965FD6 /* SheetsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetsView.swift; sourceTree = "<group>"; };
 		B347B7FC1D552AD100965FD6 /* SheetsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SheetsView.xib; sourceTree = "<group>"; };
 		B347B7FE1D5557A400965FD6 /* SheetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetCell.swift; sourceTree = "<group>"; };
@@ -423,7 +423,7 @@
 		B363CF781CCEEBB300B6182D = {
 			isa = PBXGroup;
 			children = (
-				B331C5271D6048C20019FCE6 /* Acknowledgements.plist */,
+				B346218A1D6335180089EB06 /* Acknowledgements.plist */,
 				B363CFB41CCEECA600B6182D /* Podfile */,
 				B363CF831CCEEBB300B6182D /* Unifai */,
 				B363CF9A1CCEEBB300B6182D /* UnifaiTests */,
@@ -691,13 +691,13 @@
 				B347B8011D5557A400965FD6 /* SheetCell.xib in Resources */,
 				B3E5DF501D4AB17400E18199 /* GeniusViewController.xib in Resources */,
 				B363CF911CCEEBB300B6182D /* LaunchScreen.storyboard in Resources */,
-				B331C5281D6048C20019FCE6 /* Acknowledgements.plist in Resources */,
 				B3B0E7321D4544A400DAE0BF /* SuggestionCell.xib in Resources */,
 				B3F7B00E1CF93FA800734F9B /* Thread.storyboard in Resources */,
 				B31BD9331D003EC4001B3875 /* AuthViewController.xib in Resources */,
 				B3E5DF581D4ABB0E00E18199 /* GeniusGroupHeader.xib in Resources */,
 				B331C5241D5FF63B0019FCE6 /* DashboardEditorCell.xib in Resources */,
 				B350B92A1D3868BB00FADBB6 /* ActionCreatorViewController.xib in Resources */,
+				B346218B1D6335180089EB06 /* Acknowledgements.plist in Resources */,
 				B347B7FD1D552AD100965FD6 /* SheetsView.xib in Resources */,
 				B3D7212C1D01987100BFEEC2 /* Settings.storyboard in Resources */,
 				B3C07F881D483D6000BF2238 /* SuggestionsHeader.xib in Resources */,
@@ -971,6 +971,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1015,6 +1016,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1043,7 +1045,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.unifai;
 				PRODUCT_NAME = Unifai;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1058,7 +1060,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.unifai;
 				PRODUCT_NAME = Unifai;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

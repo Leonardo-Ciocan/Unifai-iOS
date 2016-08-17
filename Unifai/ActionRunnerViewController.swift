@@ -53,7 +53,6 @@ class ActionRunnerViewController: UIViewController , UITableViewDataSource , UIT
         
         let message = Message(body: action!.message, type: .Text, payload: nil)
         messages = [message]
-        
     }
     
     override func viewDidAppear(animated: Bool) {

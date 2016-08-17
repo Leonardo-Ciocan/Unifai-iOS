@@ -129,6 +129,7 @@ class Unifai{
                     Cache.saveJSON("dashboard", data: json_data)
                     
                     let json = json_data.array
+                    print(json)
                     var messages : [Message] = []
                     for message in json!{
                         messages.append(Message(json: message))
@@ -151,7 +152,7 @@ class Unifai{
                 switch response.result {
                 case .Success(let data):
                     let json = JSON(data)
-                    
+                    print(json["pinnedMessage"])
                     let pinnedMessage = Message(json: json["pinnedMessage"])
                     
                     let array = json["messages"].array
@@ -274,7 +275,7 @@ class Unifai{
         Alamofire.request(.POST , Constants.urlAction ,
             parameters: ["message":message,"name":name], headers:self.headers)
             .validate()
-            .response{ _,_,response_error,_ in
+            .response{ _,_,_,response_error in
                 if response_error == nil {
                     completion!()
                 }
@@ -426,11 +427,12 @@ class Unifai{
         Alamofire.request(.POST , Constants.urlSignup ,
             parameters: ["username":username , "email":email , "password":password])
             .validate()
-            .responseJSON{ response in
-                switch response.result {
-                case .Success:
+            .response{ _,_,_,response_error in
+                if response_error == nil {
                     completion()
-                case .Failure:
+                }
+                else {
+                    print(response_error)
                     error()
                 }
         }

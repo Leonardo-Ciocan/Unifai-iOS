@@ -2,9 +2,10 @@ import Foundation
 import UIKit
 
 class Constants{
+    static let DEBUG = true
     static let appBrandColor = UIColor(red: 0.741, green: 0.404, blue: 0.878, alpha: 1.00)
     
-    static let urlRoot           = "http://178.62.67.171:8000/"
+    static let urlRoot           = "http://\(Constants.DEBUG ? "0.0.0.0" : "178.62.67.171"):8000/"
     static let urlThread         = urlRoot + "thread/"
     static let urlFeed           = urlRoot + "feed/"
     static let urlLogin          = urlRoot + "api-token-auth/"

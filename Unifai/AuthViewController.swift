@@ -26,7 +26,7 @@ class AuthViewController: UIViewController  , UIWebViewDelegate{
         self.automaticallyAdjustsScrollViewInsets = true
         super.viewDidLoad()
         header.backgroundColor = service?.color
-        titleLabel.text = service?.name
+        titleLabel.text = service?.name.uppercaseString
         let urlComponents = NSURLComponents(string: payload!.url)
         urlComponents?.queryItems = [
             NSURLQueryItem(name: "redirect_uri", value: "http://127.0.0.1:1989/callback"),

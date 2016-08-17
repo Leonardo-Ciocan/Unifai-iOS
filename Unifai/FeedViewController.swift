@@ -5,7 +5,7 @@ import DGElasticPullToRefresh
 extension UIScrollView {
     func dg_stopScrollingAnimation() {}
 }
-class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UIViewControllerPreviewingDelegate , MessageCreatorDelegate, AuthViewDelegate {
+class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDataSource  , MessageCreatorDelegate, AuthViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var creatorAssistant: CreatorAssistant!
@@ -78,36 +78,10 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         creator!.backgroundColor = UIColor.whiteColor()
         tableView.tableHeaderView = creator
         
-//        let imageView = UIImageView(frame: CGRect(x: 5, y: 5, width: 66, height: 33))
-//        imageView.contentMode = .ScaleAspectFit
-//
-//        let image = UIImage(named: "ai")
-//        imageView.image = image?.imageWithRenderingMode(.AlwaysTemplate)
-//        //imageView.image = image
-//        imageView.tintColor = currentTheme.secondaryForegroundColor
-//        
-//        
-//        
-//        navigationItem.titleView = imageView
-
-        
-//        let txtTile = UILabel(frame:CGRect(x:0,y:0,width:150,height:33))
-//        txtTile.text = "UNIFAI"
-//        txtTile.textAlignment = .Center
-//        txtTile.textColor = currentTheme.foregroundColor
-//        txtTile.font = UIFont(name: "AmericanTypewriter", size: 18)
-//
-//        navigationItem.titleView = txtTile
-        
-        
         self.navigationItem.title = "Feed"
         navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)!, NSForegroundColorAttributeName: currentTheme.foregroundColor]
         
-        if( traitCollection.forceTouchCapability == .Available){
-            
-            registerForPreviewingWithDelegate(self, sourceView: view)
-        }
-        
+               
         registerForKeyboardNotifications()
         
         self.navigationController?.navigationBar.tintColor = currentTheme.foregroundColor
@@ -179,32 +153,8 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     
     
     override func viewWillAppear(animated: Bool) {
-        //UIApplication.sharedApplication().statusBarStyle = currentTheme.statusBarStyle
+
     }
-    
-    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        guard let indexPath = self.tableView.indexPathForRowAtPoint(location) else { return nil }
-        
-        guard let cell = tableView?.cellForRowAtIndexPath(indexPath) else { return nil }
-        
-        guard let detailVC = storyboard?.instantiateViewControllerWithIdentifier("ThreadViewController") as? ThreadViewController else { return nil }
-        
-        detailVC.loadData(messages[indexPath.row].threadID!)
-        
-        detailVC.preferredContentSize = CGSize(width: 0.0, height: 300)
-        
-        previewingContext.sourceRect = cell.frame
-        
-        return detailVC
-    }
-    
-    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
-        
-        showViewController(viewControllerToCommit, sender: self)
-        
-    }
-    
-    
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
@@ -229,10 +179,16 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     func loadData(){
         Unifai.getFeed({ threadMessages in
             let diff = threadMessages.count - self.messages.count
-            self.messages = threadMessages
-            self.tableView.beginUpdates()
-            self.tableView.insertRowsAtIndexPaths((0..<diff).map{ NSIndexPath(forRow:$0,inSection: 0)}, withRowAnimation: .Automatic)
-            self.tableView.endUpdates()
+            if diff > 0 {
+                self.messages = threadMessages
+                self.tableView.beginUpdates()
+                self.tableView.insertRowsAtIndexPaths((0..<diff).map{ NSIndexPath(forRow:$0,inSection: 0)}, withRowAnimation: .Automatic)
+                self.tableView.endUpdates()
+            }
+            else {
+                self.messages = threadMessages
+                self.tableView.reloadData()
+            }
             //self.messages = threadMessages
             //self.tableView?.reloadData()
             self.refreshControl.endRefreshing()

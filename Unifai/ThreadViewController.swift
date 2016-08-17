@@ -78,9 +78,35 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     func shouldSendMessageWithText(text: String, sourceRect: CGRect, sourceView: UIView) {
-        Unifai.sendMessage(text,thread: threadID!, completion: { msg in
-            self.shouldAppendMessage(msg)
-        })
+//        let message = Message(body: text, type: .Text, payload: nil)
+//        self.messages.append(message)
+//        self.tableView.beginUpdates()
+//        self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow:messages.count-1,inSection:0)], withRowAnimation: .Bottom)
+//        self.tableView.endUpdates()
+//        Unifai.sendMessage(text,thread: threadID!, completion: { msg in
+//            self.shouldAppendMessage(msg)
+//        })
+        
+        messageCreator.txtMessage.becomeFirstResponder()
+        animateAddingCharacter(text)
+    }
+    
+    func animateAddingCharacter(consumableString:String) {
+        messageCreator.txtMessage.text = messageCreator.txtMessage.text! + String(consumableString.characters.first!)
+        messageCreator.textChanged(messageCreator)
+        guard consumableString.characters.count > 1 else {
+            let delay = 0.3 * Double(NSEC_PER_SEC)
+            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+            dispatch_after(time, dispatch_get_main_queue()) {
+                self.messageCreator.sendMessageOrSelectPlaceholder(self.messageCreator.txtMessage.text!, imageData: nil)
+            }
+            return
+        }
+        let delay = 0.015 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue()) {
+            self.animateAddingCharacter(consumableString.substringFromIndex(consumableString.startIndex.advancedBy(1)))
+        }
     }
     
     func shouldAppendMessage(message: Message) {

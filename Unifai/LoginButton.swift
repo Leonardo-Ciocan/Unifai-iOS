@@ -16,7 +16,7 @@ class LoginButton: UIView {
     
     func setService(s : Service){
         service = s
-        loginText.text = "Login to " + s.name
+        loginText.text = "Login to " + s.name.uppercaseString
         loginText.textColor = service?.color
 
         //self.backgroundColor = s.color

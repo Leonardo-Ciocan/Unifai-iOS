@@ -53,15 +53,16 @@ class ActionRunnerViewController: UIViewController , UITableViewDataSource , UIT
         
         let message = Message(body: action!.message, type: .Text, payload: nil)
         messages = [message]
-    }
-    
-    override func viewDidAppear(animated: Bool) {
         Unifai.runAction(action!, completion: { msg in
             self.resultMessage = msg
             self.messages.append(msg)
             self.tableView.reloadData()
             self.activityIndicator.stopAnimating()
         })
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+       
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,6 +80,7 @@ class ActionRunnerViewController: UIViewController , UITableViewDataSource , UIT
         cell.selectionStyle = .None
         cell.setMessage(messages[indexPath.row] , shouldShowThreadCount: false)
         cell.hideTime = true
+        cell.parentViewController = self
         return cell
     }
     

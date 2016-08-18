@@ -175,6 +175,7 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
     
     var selectedRow = 0
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        guard indexPath.row != 0 else { return }
         selectedRow = indexPath.row
         
         guard let detailVC = UIStoryboard(name: "Thread", bundle: nil).instantiateViewControllerWithIdentifier("ThreadViewController") as? ThreadViewController else { return }

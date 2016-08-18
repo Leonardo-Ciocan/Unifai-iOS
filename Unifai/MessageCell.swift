@@ -14,6 +14,7 @@ import SafariServices
 import Charts
 import Alamofire
 import AlamofireImage
+import PKHUD
 
 protocol MessageCellDelegate {
     func shouldSendMessageWithText(text:String, sourceRect:CGRect, sourceView:UIView)
@@ -99,8 +100,80 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
             }
             self.parentViewController!.presentViewController(alert, animated: true, completion: nil)
         })
+        
+        let longTapRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longTappedMessage))
+        txtBody.addGestureRecognizer(longTapRecognizer)
     }
     
+    func longTappedMessage() {
+        guard let message = self.message else { return }
+        guard message.isFromUser else { return }
+        guard let serviceColor = TextUtils.extractServiceColorFrom(txtBody.text!) else { return }
+        HUD.dimsBackground = false
+
+        let actionPicker = UIAlertController(title: "What do you want to do with this message?", message: txtBody.text , preferredStyle: .ActionSheet)
+        actionPicker.addAction(UIAlertAction(title: "Add to the top of my dashboard", style: .Default, handler: {
+             _ in
+            Unifai.getDashboardItems({ items in
+                let newItems = [self.txtBody.text!] + items
+                Unifai.setDashboardItems(newItems, completion: { _ in
+                    HUD.dimsBackground = false
+                    HUD.flash(.Success, delay: 1)
+                })
+            })
+        }))
+        
+        actionPicker.addAction(UIAlertAction(title: "Add to the bottom of my dashboard", style: .Default, handler: {
+            _ in
+            Unifai.getDashboardItems({ items in
+                let newItems = items + [self.txtBody.text!]
+                Unifai.setDashboardItems(newItems, completion: { _ in
+                    HUD.flash(.Success, delay: 1)
+                })
+            })
+        }))
+        
+        actionPicker.addAction(UIAlertAction(title: "Save as action", style: .Default, handler: {
+            _ in
+            let namePrompt = UIAlertController(title: "How do you want to call this?", message: "", preferredStyle: .Alert)
+            namePrompt.addTextFieldWithConfigurationHandler({ textField in
+                textField.placeholder = "Enter a name for this action"
+                textField.clearButtonMode = .WhileEditing
+            })
+            
+            namePrompt.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+            namePrompt.addAction(UIAlertAction(title: "Create action", style: .Default, handler: { _ in
+                guard let name = namePrompt.textFields![0].text else { return }
+                let action = Action(message: self.txtBody.text!, name: name)
+                Core.Actions.append(action)
+                Unifai.createAction(self.txtBody.text!, name: name, completion: {
+                        HUD.flash(.Success, delay: 1)
+                    }, error: {
+                        HUD.flash(.Error,delay: 1)
+                })
+            }))
+            self.parentViewController!.presentViewController(namePrompt, animated: true, completion: {
+                UIView.animateWithDuration(0.5, animations: {
+                    namePrompt.view.tintColor = serviceColor
+                })
+            })
+        }))
+        
+        actionPicker.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        
+        let popover = actionPicker.popoverPresentationController
+        if let popover = popover {
+            popover.sourceView = self.txtBody
+            popover.sourceRect = self.txtBody.bounds
+            popover.permittedArrowDirections = .Any
+        }
+        self.parentViewController!.presentViewController(actionPicker, animated: true, completion: {
+            UIView.animateWithDuration(0.5, animations: {
+                actionPicker.view.tintColor = serviceColor
+            })
+        })
+        
+    }
     
     func handleMessage() {
         guard let message = self.message else { return }
@@ -364,6 +437,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
         self.payloadContainerHeight.constant = CGFloat(height) + 40
         
         let sheetsView = SheetsView()
+        sheetsView.backgroundColor = UIColor.clearColor()
         sheetsView.delegate = self
         sheetsView.loadSheets(payload.sheets, color: message.color)
         self.payloadContainer.addSubview(sheetsView)
@@ -383,9 +457,6 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
             return
         }
         
-        self.payloadContainer.backgroundColor = currentTheme.backgroundColor
-        
-        
         switch message.type {
         case .Text , .Prompt:
             self.payloadContainerHeight.constant = 0
@@ -402,7 +473,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
         case .Progress:
             handleProgressPayload()
         case .ImageUpload:
-            handleImagePayload()
+            handleImageUploadPayload()
         case .Sheets:
             handleSheetsPayload()
         default:

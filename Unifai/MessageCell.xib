@@ -62,7 +62,6 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Plt-Xd-OrE">
                     <rect key="frame" x="67" y="584" width="514" height="6"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="6" id="6jU-cM-5m1"/>
                     </constraints>

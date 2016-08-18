@@ -35,7 +35,7 @@ class SheetsView: UIView, UICollectionViewDelegate , UICollectionViewDataSource 
         let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
         view.frame = bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        view.backgroundColor = currentTheme.backgroundColor
+        view.backgroundColor = UIColor.clearColor()
         
         self.addSubview(view);
         collectionView.backgroundColor = UIColor.clearColor()
@@ -49,7 +49,6 @@ class SheetsView: UIView, UICollectionViewDelegate , UICollectionViewDataSource 
         collectionView.contentInset = UIEdgeInsets(top: 10, left: 77, bottom: 0, right: 10)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = currentTheme.backgroundColor
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -8,61 +8,40 @@
 
 import UIKit
 
-class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UITableViewDataSource ,UIViewControllerPreviewingDelegate{
+class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UITableViewDataSource ,UIViewControllerPreviewingDelegate, MessageCellDelegate {
+    @IBOutlet weak var tabs: UISegmentedControl!
+    
     @IBOutlet weak var tableView: UITableView!
-    
-    
     @IBOutlet weak var headerBackground: UIView!
-    @IBOutlet weak var headerImage: UIImageView!
     var messages : [Message] = []
-    var pinnedMessage : Message?
+    var homepage : [Message] = []
     
-    lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(handleRefresh), forControlEvents: UIControlEvents.ValueChanged)
-        
-        return refreshControl
-    }()
-    
+    @IBOutlet weak var homepageTableView: UITableView!
     let activtyControl = UIActivityIndicatorView(activityIndicatorStyle: .White)
     
     override func viewDidLoad() {
         self.tableView!.registerNib(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
+        self.homepageTableView!.registerNib(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
 
         self.tableView!.rowHeight = UITableViewAutomaticDimension
         self.tableView!.estimatedRowHeight = 64.0
         self.tableView!.tableFooterView = UIView()
         self.tableView!.separatorStyle = .None
-        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        
-        
-        self.tableView.addSubview(self.refreshControl)
-        //loadData()
+        self.homepageTableView!.rowHeight = UITableViewAutomaticDimension
+        self.homepageTableView!.estimatedRowHeight = 64.0
+        self.homepageTableView.delegate = self
+        self.homepageTableView.dataSource = self
         
         navigationController?.navigationBar.barStyle = .Black
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         
         self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        self.navigationController?.navigationBar.backIndicatorImage = UIImage()
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        
-        let header = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 220))
-        header.userInteractionEnabled = false
-        let pinnedText = UILabel()
-        pinnedText.textColor = currentTheme.foregroundColor
-        pinnedText.text = "Pinned message"
-        header.addSubview(pinnedText)
-        pinnedText.snp_makeConstraints(closure: { make in
-                make.bottomMargin.leftMargin.rightMargin.equalTo(0)
-                make.height.equalTo(30)
-        })
-        pinnedText.backgroundColor = currentTheme.secondaryBackgroundColor
-        pinnedText.textAlignment = .Center
-        pinnedText.font = pinnedText.font.fontWithSize(14)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        self.navigationController?.navigationBar.shadowImage =  UIImage(named:"transparent")
         
         headerBackground.addSubview(activtyControl)
         activtyControl.snp_makeConstraints(closure: { make in
@@ -70,54 +49,41 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
         })
         activtyControl.startAnimating()
         self.tableView.alpha = 0
-        
-//
-//        let pinnedMessageHolder = UI()
-//        pinnedMessageHolder.backgroundColor = UIColor.whiteColor()
-//        header.addSubview(pinnedMessageHolder)
-//        pinnedMessageHolder.snp_makeConstraints(closure:  { make in
-//                make.bottomMargin.equalTo(-10)
-//                make.topMargin.equalTo(200)
-//                make.leftMargin.equalTo(20)
-//                make.rightMargin.equalTo(-20)
-//                make.height.equalTo(110)
-//            })
-//        pinnedMessageHolder.layer.shadowColor = UIColor.blackColor().CGColor
-//        pinnedMessageHolder.layer.shadowOffset = CGSizeZero
-//        pinnedMessageHolder.layer.shadowRadius = 5
-//        pinnedMessageHolder.layer.shadowOpacity = 0.1
-//        
-//        pinnedMessageHolder.addSubview(messageControl)
-//        messageControl.snp_makeConstraints(closure: {make in
-//         make.leftMargin.topMargin.rightMargin.bottomMargin.equalTo(0)
-//        })
-        
         self.view.backgroundColor = currentTheme.backgroundColor
         
-        self.tableView.tableHeaderView = header
-        
-        
-        
-        if( traitCollection.forceTouchCapability == .Available){
-            
-            registerForPreviewingWithDelegate(self, sourceView: view)
-            
-        }
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
     }
     
     
+    @IBAction func tabChanged(sender: AnyObject) {
+        let index = tabs.selectedSegmentIndex
+        if index == 1 {
+            UIView.animateWithDuration(0.5, animations: {
+                self.homepageTableView.alpha = 0
+                },completion: { _ in
+                    self.homepageTableView.hidden = true
+                    self.tableView.hidden = false
+                    UIView.animateWithDuration(0.5, animations: {
+                        self.tableView.alpha = 1
+                    })
+            })
+        }
+        else {
+            UIView.animateWithDuration(0.5, animations: {
+                self.tableView.alpha = 0
+                },completion: { _ in
+                    self.tableView.hidden = true
+                    self.homepageTableView.hidden = false
+                    UIView.animateWithDuration(0.5, animations: {
+                        self.homepageTableView.alpha = 1
+                    })
+            })
+        }
+    }
     
     override func viewWillAppear(animated: Bool) {
-        self.headerImage.image = UIImage(named: (service?.username)!)
-        
-        headerImage.layer.shadowColor = UIColor.blackColor().CGColor
-        headerImage.layer.shadowOffset = CGSizeZero
-        headerImage.layer.shadowOpacity = 0.35
-        headerImage.layer.shadowRadius = 15
         self.headerBackground.backgroundColor = service?.color
-        
         self.navigationController?.navigationBar.barTintColor = service!.color
-
     }
     
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
@@ -150,21 +116,25 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
     func loadData(service:Service?){
         guard service != nil else{ return }
         self.service = service
-        self.navigationItem.title = service?.name
+        self.navigationItem.title = service?.name.uppercaseString
         
-        Unifai.getProfile(service!.username , completion: { pinnedMessage , threadMessages in
+//        let titleImageView = UIImageView(frame:CGRect(x: 0, y: 0, width: 50, height: 50))
+//        titleImageView.image = UIImage(named: (service?.username)!)
+//        titleImageView.contentMode = .ScaleAspectFit
+//        self.navigationItem.titleView = titleImageView
+//        
+        Unifai.getProfile(service!.username , completion: { homepage , threadMessages in
             self.messages = threadMessages
-            self.pinnedMessage = pinnedMessage
+            self.homepage = homepage
+            self.homepageTableView.reloadData()
             self.tableView?.reloadData()
-            self.refreshControl.endRefreshing()
             self.activtyControl.stopAnimating()
             UIView.animateWithDuration(0.5, animations: {
                 self.tableView.alpha = 1
             })
-            
-            
         })
     }
+    
     @IBAction func doneTapped(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -187,18 +157,30 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell") as! MessageCell
         cell.selectionStyle = .None
-        cell.setMessage(indexPath.row == 0 ? pinnedMessage! : messages[indexPath.row - 1])
-        cell.hideTime = indexPath.row == 0
-        if indexPath.row == 0 {
-            cell.backgroundColor = currentTheme.secondaryBackgroundColor
-        }
         cell.parentViewController = self
-        
+        cell.setMessage(tableView == self.tableView ? messages[indexPath.row] : homepage[indexPath.row])
+        cell.delegate = self
         return cell
     }
     
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return messages.count + (pinnedMessage == nil ? 0 : 1)
+        return tableView == self.tableView ? messages.count : homepage.count
     }
+    
+    func shouldSendMessageWithText(text: String, sourceRect: CGRect, sourceView: UIView) {
+        let runner = ActionRunnerViewController()
+        runner.loadAction(Action(message: text, name: ""))
+        
+        let rootVC = UINavigationController(rootViewController: runner)
+        rootVC.modalPresentationStyle = .Popover
+        rootVC.popoverPresentationController!.sourceView = sourceView
+        rootVC.popoverPresentationController!.sourceRect = sourceRect
+        rootVC.preferredContentSize = CGSizeMake(350,500)
+        self.presentViewController(rootVC, animated: true, completion: nil)
+    }
+    
+    func didFinishAuthentication() {
+        loadData(self.service)
+    }
+    
 }

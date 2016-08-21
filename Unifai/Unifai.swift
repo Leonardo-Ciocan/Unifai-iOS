@@ -143,8 +143,8 @@ class Unifai{
     
     /// - parameters:
     ///     - String : The ID of the service
-    ///     - (Message,[Message]) -> () : Returns the pinned message and a list of messages
-    static func getProfile(serviceID : String , completion : (Message,[Message])->()) {
+    ///     - ([Message],[Message]) -> () : Returns the homepage messages and a list of recent messages from the feed
+    static func getProfile(serviceID : String , completion : ([Message],[Message])->()) {
         
         Alamofire.request(.GET , Constants.urlServiceProfile + serviceID , headers:self.headers)
             .validate()
@@ -152,15 +152,17 @@ class Unifai{
                 switch response.result {
                 case .Success(let data):
                     let json = JSON(data)
-                    print(json["pinnedMessage"])
-                    let pinnedMessage = Message(json: json["pinnedMessage"])
                     
                     let array = json["messages"].array
                     var messages : [Message] = []
                     for message in array!{
                         messages.append(Message(json: message))
                     }
-                    completion(pinnedMessage,messages)
+                    
+                    let homepageArray = json["homepage"].array
+                    var homepage : [Message] = []
+                    homepage.appendContentsOf(homepageArray!.map{Message(json:$0)})
+                    completion(homepage,messages)
                 case .Failure(let error):
                     print("Request failed with error: \(error)")
                 }

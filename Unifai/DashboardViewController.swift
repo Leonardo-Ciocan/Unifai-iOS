@@ -103,6 +103,9 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         self.presentViewController(rootVC, animated: true, completion: nil)
     }
     
+    func didFinishAuthentication() {
+        self.loadData()
+    }
     
     func getServicesAndUser(callback: ([Service]) -> () ){
         if Core.Services.count > 0 {
@@ -134,9 +137,7 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         })
     }
     
-    func didFinishAuthentication() {
-        self.loadData()
-    }
+   
     
     
     var selectedRow = 0

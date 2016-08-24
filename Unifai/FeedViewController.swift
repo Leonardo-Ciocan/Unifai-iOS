@@ -81,6 +81,12 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         self.navigationItem.title = "Feed"
         navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)!, NSForegroundColorAttributeName: currentTheme.foregroundColor]
         
+        let imageView = UIImageView(frame: CGRect(x: 5, y: 5, width: 45, height: 45))
+        imageView.contentMode = .ScaleAspectFit
+        
+        let image = UIImage(named: "unifai")
+        imageView.image = image
+        navigationItem.titleView = imageView
                
         registerForKeyboardNotifications()
         

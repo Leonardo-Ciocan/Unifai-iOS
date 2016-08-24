@@ -37,9 +37,9 @@ class CatalogCell: UICollectionViewCell , UITableViewDelegate , UITableViewDataS
         header = CatalogCellHeader(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 120))
         tableView.tableHeaderView = header
         
-        tableView.layer.cornerRadius = 10
+        //tableView.layer.cornerRadius = 10
         self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
-        tableView.layer.masksToBounds = true
+        //tableView.layer.masksToBounds = true
     }
     
     var items : [CatalogItem] = []
@@ -78,9 +78,9 @@ class CatalogCell: UICollectionViewCell , UITableViewDelegate , UITableViewDataS
     func loadData(service:Service) {
         self.serviceColor = service.color
         
-        self.tableView.separatorStyle = .SingleLine
-        self.tableView.separatorInset = UIEdgeInsetsZero
-        self.tableView.separatorColor = serviceColor?.darkenColor(0.05)
+//        self.tableView.separatorStyle = .SingleLine
+//        self.tableView.separatorInset = UIEdgeInsetsZero
+//        self.tableView.separatorColor = serviceColor?.darkenColor(0.05)
         self.header?.loadData(service)
         
         items = Core.Catalog[service.name.lowercaseString] ?? []

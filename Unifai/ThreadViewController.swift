@@ -169,7 +169,9 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     }
     
     func didFinishAuthentication() {
-        self.loadData(self.threadID!)
+        let msg = messages[messages.count-2].body
+        messageCreator.txtMessage.becomeFirstResponder()
+        animateAddingCharacter(msg)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

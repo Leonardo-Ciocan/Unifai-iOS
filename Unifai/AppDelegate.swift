@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         updateLocation()
         
         //Fabric.with([Answers.self])
-NSTimer.scheduledTimerWithTimeInterval(180, target: self, selector: #selector(updateLocation), userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(180, target: self, selector: #selector(updateLocation), userInfo: nil, repeats: true)
         return true
     }
     
@@ -52,6 +52,7 @@ NSTimer.scheduledTimerWithTimeInterval(180, target: self, selector: #selector(up
     let locManager = CLLocationManager()
 
     func updateLocation() {
+        guard Unifai.isUserLoggedIn() else { return }
         locManager.requestWhenInUseAuthorization()
         
         if( CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse ){

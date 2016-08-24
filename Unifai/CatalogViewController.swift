@@ -28,7 +28,7 @@ class CatalogViewController : UIViewController , UICollectionViewDelegate , UICo
         
         self.collectionView.registerNib(UINib(nibName: "CatalogCell", bundle: nil), forCellWithReuseIdentifier: "CatalogCell")
         
-        self.serivices = Core.Services.sort({ $0.name < $1.name }).filter({ $0.id != "1989" })
+        self.serivices = Core.Services.sort({ $0.name < $1.name }) //.filter({ $0.id != "1989" })
         pageControl.numberOfPages = self.serivices.count - 1
         
         
@@ -38,7 +38,6 @@ class CatalogViewController : UIViewController , UICollectionViewDelegate , UICo
         self.tabBarController?.tabBar.tintColor  = serivices[0].color
         self.navigationController?.navigationBar.barTintColor = serivices[0].color
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        self.collectionView.backgroundColor = serivices[0].color
         lastColor = serivices[0].color
         collectionView.allowsSelection = false
         navigationController?.navigationBar.barStyle = .Black
@@ -47,9 +46,8 @@ class CatalogViewController : UIViewController , UICollectionViewDelegate , UICo
         (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).itemSize = UIScreen.mainScreen().bounds.size
         
         
-        self.tabBarController?.tabBar.tintColor  = serivices[0].color
         self.navigationController?.navigationBar.barTintColor = serivices[0].color
-        self.collectionView.backgroundColor = serivices[0].color
+        self.collectionView.backgroundColor = UIColor.whiteColor()
     }
 
     
@@ -101,7 +99,7 @@ class CatalogViewController : UIViewController , UICollectionViewDelegate , UICo
         lastColor = c.color
         self.navigationController?.navigationBar.barTintColor = c.color
         self.tabBarController?.tabBar.tintColor  = c.color
-        self.collectionView.backgroundColor = c.color
+        //self.collectionView.backgroundColor = c.color
         
     }
     
@@ -120,7 +118,7 @@ class CatalogViewController : UIViewController , UICollectionViewDelegate , UICo
         
         self.navigationController?.navigationBar.barTintColor = col
         self.tabBarController?.tabBar.tintColor = col
-        self.collectionView.backgroundColor = col
+        //self.collectionView.backgroundColor = col
     }
     
     func fadeFromColor(fromColor: UIColor, toColor: UIColor, withPercentage: CGFloat) -> UIColor {

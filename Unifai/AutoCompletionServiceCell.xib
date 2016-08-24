@@ -21,9 +21,15 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ci1-TP-Tvl">
+                        <rect key="frame" x="14" y="15" width="279" height="279"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="ci1-TP-Tvl" secondAttribute="height" multiplier="1:1" id="Pbw-de-u5v"/>
+                        </constraints>
+                    </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wq6-G7-xhV">
                         <rect key="frame" x="15" y="15" width="278" height="278"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Wq6-G7-xhV" secondAttribute="height" multiplier="1:1" id="OwN-rQ-UcG"/>
                         </constraints>
@@ -37,11 +43,15 @@
                 <constraint firstItem="loA-aM-Ak7" firstAttribute="top" secondItem="Wq6-G7-xhV" secondAttribute="bottom" constant="10" id="8Eb-H7-3tE"/>
                 <constraint firstAttribute="trailing" secondItem="Wq6-G7-xhV" secondAttribute="trailing" constant="15" id="FV8-Ob-b0k"/>
                 <constraint firstItem="Wq6-G7-xhV" firstAttribute="width" secondItem="Wq6-G7-xhV" secondAttribute="height" multiplier="1:1" id="Ldn-uu-uTT"/>
+                <constraint firstItem="ci1-TP-Tvl" firstAttribute="leading" secondItem="RYz-XE-Kv0" secondAttribute="leading" constant="14" id="TL5-tC-ZDy"/>
+                <constraint firstItem="ci1-TP-Tvl" firstAttribute="top" secondItem="RYz-XE-Kv0" secondAttribute="top" constant="15" id="gW3-89-pLc"/>
+                <constraint firstAttribute="trailing" secondItem="ci1-TP-Tvl" secondAttribute="trailing" constant="15" id="gfr-Aj-SJ1"/>
                 <constraint firstItem="Wq6-G7-xhV" firstAttribute="leading" secondItem="RYz-XE-Kv0" secondAttribute="leading" constant="15" id="xdu-jI-KbE"/>
                 <constraint firstItem="loA-aM-Ak7" firstAttribute="centerX" secondItem="RYz-XE-Kv0" secondAttribute="centerX" id="yfT-u9-eLe"/>
             </constraints>
             <size key="customSize" width="308" height="412"/>
             <connections>
+                <outlet property="backgroundColorView" destination="ci1-TP-Tvl" id="VBV-19-stx"/>
                 <outlet property="imgLogo" destination="Wq6-G7-xhV" id="w7v-eM-wjz"/>
                 <outlet property="txtName" destination="loA-aM-Ak7" id="3cd-3U-vAj"/>
             </connections>

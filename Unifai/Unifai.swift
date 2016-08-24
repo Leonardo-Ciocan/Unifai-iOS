@@ -14,6 +14,10 @@ class Unifai{
     static func getThreads() -> [Message] {
         return []
     }
+    
+    static func isUserLoggedIn() -> Bool {
+        return NSUserDefaults.standardUserDefaults().stringForKey("token") != nil
+    }
         
     
     /**

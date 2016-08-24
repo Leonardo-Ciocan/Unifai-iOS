@@ -130,15 +130,19 @@ class SheetCell: UICollectionViewCell {
                     blurView.effect = UIBlurEffect(style: .Light)
                     label.layer.shadowOffset = CGSizeZero
                     label.layer.shadowColor = UIColor.blackColor().CGColor
-                    label.layer.shadowOpacity = 0.25
-                    label.layer.shadowRadius = 5
+                    label.layer.shadowOpacity = 0.35
+                    label.layer.shadowRadius = 3
                     label.textColor = UIColor.whiteColor()
                     label.font = label.font.fontWithSize(13)
                     label.textAlignment = .Center
                     
+                    imageview.userInteractionEnabled = true
+                    imageview.tag = index
+                    let tapRecon = UITapGestureRecognizer(target: self, action: #selector(tappedImage))
+                    imageview.addGestureRecognizer(tapRecon)
+                    
                     addSubview(imageview)
                     addSubview(blurView)
-                    addSubview(indicator)
                     blurView.addSubview(label)
                     label.snp_makeConstraints(closure: { make in
                         make.center.equalTo(blurView)
@@ -153,7 +157,13 @@ class SheetCell: UICollectionViewCell {
            
         }
         cellWasInitialized = true
-
+    }
+    
+    func tappedImage(sender:UITapGestureRecognizer) {
+        let index = sender.view!.tag
+        let actionEntry = (entries[index] as! ImageSheetEntry)
+        guard !actionEntry.link.isEmpty else { return }
+        delegate?.shouldOpenLinkWithURL(actionEntry.link)
     }
     
     func tappedButton(sender:UIButton) {

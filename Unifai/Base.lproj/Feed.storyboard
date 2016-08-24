@@ -10,7 +10,7 @@
         <scene sceneID="dtg-T1-m1Z">
             <objects>
                 <splitViewController id="tlR-Rw-ebq" customClass="MainSplitView" customModule="Unifai" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Feed" image="feed" id="YL9-p1-CRb"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="feed" selectedImage="feed_selected" id="YL9-p1-CRb"/>
                     <navigationItem key="navigationItem" id="Puy-Hp-xsA"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
@@ -99,7 +99,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Feed" image="feed" id="3du-nQ-6Sk"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="feed" selectedImage="feed_selected" id="3du-nQ-6Sk"/>
                     <navigationItem key="navigationItem" title="Feed" id="G0v-Hc-lyc">
                         <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="e7A-fo-b5U">
                             <connections>
@@ -226,6 +226,7 @@
                                         <segments>
                                             <segment title="Homepage"/>
                                             <segment title="Messages"/>
+                                            <segment title="Settings"/>
                                         </segments>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
@@ -285,8 +286,9 @@
     </scenes>
     <resources>
         <image name="feed" width="30" height="30"/>
+        <image name="feed_selected" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EDk-Fs-wBx"/>
+        <segue reference="OuX-8E-Hqg"/>
     </inferredMetricsTieBreakers>
 </document>

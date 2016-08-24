@@ -36,9 +36,11 @@ class TextSheetEntry : SheetEntry {
 class ImageSheetEntry : SheetEntry {
     var url = ""
     var title = ""
-    init(url:String, title:String) {
+    var link = ""
+    init(url:String, title:String, link:String) {
         self.url = url
         self.title = title
+        self.link = link
     }
 }
 class TitledSheetEntry : SheetEntry {

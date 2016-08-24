@@ -9,17 +9,44 @@
 import UIKit
 import AlertOnboarding
 class LoginViewController: UIViewController , UITextFieldDelegate{
+    @IBOutlet weak var btnSignup: UIButton!
 
+    @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var txtLogin: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     
     override func viewDidLoad() {
         
+        self.view.tintColor = UIColor.whiteColor()
         self.view.hidden = true
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillShow), name:UIKeyboardWillShowNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector:  #selector(keyboardWillHide), name:UIKeyboardWillHideNotification, object: nil);
         
+        btnLogin.layer.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.15).CGColor
+        btnLogin.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.45).CGColor
+        btnLogin.layer.borderWidth = 0
+        btnLogin.layer.cornerRadius = 5
+        btnLogin.layer.masksToBounds = true
         
+        btnSignup.layer.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.15).CGColor
+        btnSignup.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.35).CGColor
+        btnSignup.layer.borderWidth = 1
+
+        txtLogin.leftView = UIView(frame:CGRect(x: 0, y: 0, width: 10, height: 0))
+        txtLogin.leftView?.backgroundColor = UIColor.clearColor()
+        txtLogin.layer.cornerRadius = 5
+        txtLogin.layer.masksToBounds = true
+        txtLogin.leftViewMode = .Always
+        txtLogin.attributedPlaceholder = NSAttributedString(string:"Username",
+                                                              attributes:[NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(0.8)])
+        
+
+        txtPassword.leftViewMode = .Always
+        txtPassword.leftView = UIView(frame:CGRect(x: 0, y: 0, width: 10, height: 0))
+        txtPassword.layer.cornerRadius = 5
+        txtPassword.layer.masksToBounds = true
+        txtPassword.attributedPlaceholder = NSAttributedString(string:"Password",
+                                                              attributes:[NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(0.8)])
     }
     
     @IBOutlet weak var logoHeight: NSLayoutConstraint!

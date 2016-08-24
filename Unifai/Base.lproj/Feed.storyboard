@@ -149,7 +149,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RqH-Ga-5vk">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZsS-VZ-OOt">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -179,7 +179,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="RqH-Ga-5vk" secondAttribute="trailing" constant="-20" id="7A2-rA-FhG"/>
                             <constraint firstItem="Npb-0e-I4z" firstAttribute="top" secondItem="RqH-Ga-5vk" secondAttribute="bottom" id="8Ll-ZR-boC"/>
                             <constraint firstItem="UWm-86-QYj" firstAttribute="leading" secondItem="2pW-vR-WNs" secondAttribute="leadingMargin" constant="-20" id="JUq-SR-XT2"/>
-                            <constraint firstItem="RqH-Ga-5vk" firstAttribute="top" secondItem="ov0-D9-faa" secondAttribute="bottom" constant="-64" id="a17-0x-dja"/>
+                            <constraint firstItem="RqH-Ga-5vk" firstAttribute="top" secondItem="ov0-D9-faa" secondAttribute="bottom" id="a17-0x-dja"/>
                             <constraint firstAttribute="trailingMargin" secondItem="UWm-86-QYj" secondAttribute="trailing" constant="-20" id="oCE-ZN-KJe"/>
                             <constraint firstItem="Npb-0e-I4z" firstAttribute="top" secondItem="UWm-86-QYj" secondAttribute="bottom" constant="10" id="p3b-C6-U80"/>
                             <constraint firstItem="RqH-Ga-5vk" firstAttribute="leading" secondItem="2pW-vR-WNs" secondAttribute="leadingMargin" constant="-20" id="t8x-op-7Dw"/>

@@ -92,6 +92,7 @@
                 <outlet property="threadCount" destination="K5f-kX-3vB" id="Uhq-eb-OvA"/>
                 <outlet property="threadCountView" destination="HIq-Dn-oQM" id="qXG-QU-ClI"/>
                 <outlet property="txtBody" destination="sov-qI-dkS" id="jyU-7r-F2I"/>
+                <outlet property="txtBodyLeadingConstraint" destination="PgW-jb-Ke1" id="dwQ-CN-QL8"/>
                 <outlet property="txtName" destination="rMW-pm-lz3" id="cpu-bs-M50"/>
                 <outlet property="txtTime" destination="KOf-Lw-XjJ" id="fUk-EF-Zq1"/>
             </connections>

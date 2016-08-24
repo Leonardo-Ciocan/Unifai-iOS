@@ -10,17 +10,55 @@ import UIKit
 
 class SignupViewController: UIViewController , UITextFieldDelegate {
 
+    @IBOutlet weak var btnSignup: UIButton!
+    @IBOutlet weak var btnLogin: UIButton!
    
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtUsername: UITextField!
     
     override func viewDidLoad() {
+        self.view.tintColor = UIColor.whiteColor()
+        
         txtPassword.delegate = self
         txtEmail.delegate = self
         txtUsername.delegate = self
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillShow), name:UIKeyboardWillShowNotification, object: nil);
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:  #selector(keyboardWillHide), name:UIKeyboardWillHideNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillShow), name:UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:  #selector(keyboardWillHide), name:UIKeyboardWillHideNotification, object: nil)
+        
+        btnSignup.layer.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.15).CGColor
+        btnSignup.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.45).CGColor
+        btnSignup.layer.borderWidth = 0
+        btnSignup.layer.cornerRadius = 5
+        btnSignup.layer.masksToBounds = true
+        
+        btnLogin.layer.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.15).CGColor
+        btnLogin.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.35).CGColor
+        btnLogin.layer.borderWidth = 1
+        
+        txtUsername.leftView = UIView(frame:CGRect(x: 0, y: 0, width: 10, height: 0))
+        txtUsername.leftView?.backgroundColor = UIColor.clearColor()
+        txtUsername.layer.cornerRadius = 5
+        txtUsername.layer.masksToBounds = true
+        txtUsername.leftViewMode = .Always
+        txtUsername.attributedPlaceholder = NSAttributedString(string:"Username",
+                                                            attributes:[NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(0.8)])
+        
+        
+        txtEmail.leftViewMode = .Always
+        txtEmail.leftView = UIView(frame:CGRect(x: 0, y: 0, width: 10, height: 0))
+        txtEmail.layer.cornerRadius = 5
+        txtEmail.layer.masksToBounds = true
+        txtEmail.attributedPlaceholder = NSAttributedString(string:"Email",
+                                                               attributes:[NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(0.8)])
+        
+        txtPassword.leftViewMode = .Always
+        txtPassword.leftView = UIView(frame:CGRect(x: 0, y: 0, width: 10, height: 0))
+        txtPassword.layer.cornerRadius = 5
+        txtPassword.layer.masksToBounds = true
+        txtPassword.attributedPlaceholder = NSAttributedString(string:"Password",
+                                                            attributes:[NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(0.8)])
+
     }
     
     @IBOutlet weak var logoHeight: NSLayoutConstraint!
@@ -63,5 +101,9 @@ class SignupViewController: UIViewController , UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
     }
 }

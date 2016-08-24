@@ -6,11 +6,11 @@ class SheetEntry{
         case _ as TextSheetEntry:
             return 40
         case _ as ImageSheetEntry:
-            return 70
+            return 200
         case _ as TitledSheetEntry:
             return 60
         case _ as ActionSheetEntry:
-            return 40
+            return 50
         default:
             return 0
         }
@@ -35,8 +35,10 @@ class TextSheetEntry : SheetEntry {
 }
 class ImageSheetEntry : SheetEntry {
     var url = ""
-    init(url:String) {
+    var title = ""
+    init(url:String, title:String) {
         self.url = url
+        self.title = title
     }
 }
 class TitledSheetEntry : SheetEntry {

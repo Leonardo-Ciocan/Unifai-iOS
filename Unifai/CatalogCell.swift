@@ -19,10 +19,13 @@ extension UIView {
 }
 class CatalogCell: UICollectionViewCell , UITableViewDelegate , UITableViewDataSource {
 
-    @IBOutlet weak var imgIcon: UIImageView!
-    @IBOutlet weak var txtTitle: UILabel!
     
-    var parentViewController : UIViewController?
+    var parentViewController : UIViewController? {
+        didSet {
+            self.header?.parentViewController = parentViewController
+        }
+    }
+    var header : CatalogCellHeader?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,7 +34,8 @@ class CatalogCell: UICollectionViewCell , UITableViewDelegate , UITableViewDataS
         self.tableView!.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 100
         
-        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 350))
+        header = CatalogCellHeader(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 120))
+        tableView.tableHeaderView = header
         
         tableView.layer.cornerRadius = 10
         self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
@@ -40,6 +44,9 @@ class CatalogCell: UICollectionViewCell , UITableViewDelegate , UITableViewDataS
     
     var items : [CatalogItem] = []
     
+    @IBAction func visit(sender: AnyObject) {
+        print("ayuyyy")
+    }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -69,25 +76,12 @@ class CatalogCell: UICollectionViewCell , UITableViewDelegate , UITableViewDataS
     var serviceColor : UIColor?
     @IBOutlet weak var tableView: UITableView!
     func loadData(service:Service) {
-        txtTitle.text = service.name
-        imgIcon.image = UIImage(named: NSString(string: service.name).lowercaseString)
-        //imgIcon.layer.cornerRadius = imgIcon.frame.width / 2
-        //imgIcon.layer.borderColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5).CGColor
-        //imgIcon.layer.borderWidth = 1
-        //imgIcon.layer.masksToBounds = true
-        
-        imgIcon.layer.shadowColor = UIColor.blackColor().CGColor
-        imgIcon.layer.shadowOffset = CGSizeZero
-        imgIcon.layer.shadowOpacity = 0.35
-        imgIcon.layer.shadowRadius = 15
-        
-        
         self.serviceColor = service.color
         
         self.tableView.separatorStyle = .SingleLine
         self.tableView.separatorInset = UIEdgeInsetsZero
-        self.tableView.separatorColor = serviceColor?.lightenColor(0.2)
-        
+        self.tableView.separatorColor = serviceColor?.darkenColor(0.05)
+        self.header?.loadData(service)
         
         items = Core.Catalog[service.name.lowercaseString] ?? []
         

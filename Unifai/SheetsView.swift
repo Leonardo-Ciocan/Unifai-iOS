@@ -46,7 +46,7 @@ class SheetsView: UIView, UICollectionViewDelegate , UICollectionViewDataSource 
         collectionView.collectionViewLayout = layout
 
         collectionView.registerNib(UINib(nibName:"SheetCell",bundle: nil), forCellWithReuseIdentifier: "SheetCell")
-        collectionView.contentInset = UIEdgeInsets(top: 10, left: 77, bottom: 0, right: 10)
+        
         collectionView.delegate = self
         collectionView.dataSource = self
     }

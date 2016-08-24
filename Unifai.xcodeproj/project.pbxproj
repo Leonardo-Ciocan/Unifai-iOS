@@ -80,6 +80,8 @@
 		B3B0E72E1D45393200DAE0BF /* AutoCompletionSuggestions.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3B0E72D1D45393200DAE0BF /* AutoCompletionSuggestions.xib */; };
 		B3B0E7311D4544A400DAE0BF /* SuggestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B0E72F1D4544A400DAE0BF /* SuggestionCell.swift */; };
 		B3B0E7321D4544A400DAE0BF /* SuggestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3B0E7301D4544A400DAE0BF /* SuggestionCell.xib */; };
+		B3B182F71D6AF16B0045EB3B /* CatalogCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B182F61D6AF16B0045EB3B /* CatalogCellHeader.swift */; };
+		B3B182F91D6AF1870045EB3B /* CatalogCellHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3B182F81D6AF1860045EB3B /* CatalogCellHeader.xib */; };
 		B3C07F861D483D5200BF2238 /* SuggestionsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C07F851D483D5200BF2238 /* SuggestionsHeader.swift */; };
 		B3C07F881D483D6000BF2238 /* SuggestionsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3C07F871D483D6000BF2238 /* SuggestionsHeader.xib */; };
 		B3C4F5DD1D441CBE00332FF9 /* AutocompletionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C4F5DC1D441CBE00332FF9 /* AutocompletionUtil.swift */; };
@@ -235,6 +237,8 @@
 		B3B0E72D1D45393200DAE0BF /* AutoCompletionSuggestions.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutoCompletionSuggestions.xib; sourceTree = "<group>"; };
 		B3B0E72F1D4544A400DAE0BF /* SuggestionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionCell.swift; sourceTree = "<group>"; };
 		B3B0E7301D4544A400DAE0BF /* SuggestionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuggestionCell.xib; sourceTree = "<group>"; };
+		B3B182F61D6AF16B0045EB3B /* CatalogCellHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogCellHeader.swift; sourceTree = "<group>"; };
+		B3B182F81D6AF1860045EB3B /* CatalogCellHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CatalogCellHeader.xib; sourceTree = "<group>"; };
 		B3C07F851D483D5200BF2238 /* SuggestionsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionsHeader.swift; sourceTree = "<group>"; };
 		B3C07F871D483D6000BF2238 /* SuggestionsHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuggestionsHeader.xib; sourceTree = "<group>"; };
 		B3C4F5DC1D441CBE00332FF9 /* AutocompletionUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompletionUtil.swift; sourceTree = "<group>"; };
@@ -416,6 +420,8 @@
 				B307437E1D2C4EFE00A9CD0E /* CatalogCell.xib */,
 				B30743811D2C592400A9CD0E /* CatalogItemCell.swift */,
 				B30743821D2C592400A9CD0E /* CatalogItemCell.xib */,
+				B3B182F61D6AF16B0045EB3B /* CatalogCellHeader.swift */,
+				B3B182F81D6AF1860045EB3B /* CatalogCellHeader.xib */,
 			);
 			name = Catalog;
 			sourceTree = "<group>";
@@ -706,6 +712,7 @@
 				B363CF8E1CCEEBB300B6182D /* Assets.xcassets in Resources */,
 				B350B9261D381B3A00FADBB6 /* ActionPickerViewController.xib in Resources */,
 				B3F1FFE61D531C8B00E678E9 /* PromptView.xib in Resources */,
+				B3B182F91D6AF1870045EB3B /* CatalogCellHeader.xib in Resources */,
 				B341EFBD1D42C26F004604A7 /* AutoCompletionServiceCell.xib in Resources */,
 				B347B8071D55606500965FD6 /* TitledSheetItemView.xib in Resources */,
 				B3E5DF541D4AB27E00E18199 /* GeniusSuggestionCell.xib in Resources */,
@@ -803,6 +810,7 @@
 				B363CFBC1CCEF49800B6182D /* Payload.swift in Sources */,
 				B32040B31D3F7B580062686F /* PassportViewController.swift in Sources */,
 				B363CFCA1CCF090700B6182D /* Constants.swift in Sources */,
+				B3B182F71D6AF16B0045EB3B /* CatalogCellHeader.swift in Sources */,
 				B335AC1E1CD0ACC100B85781 /* Utils.swift in Sources */,
 				B3C4F5DD1D441CBE00332FF9 /* AutocompletionUtil.swift in Sources */,
 				B3F7B0131CF94AD000734F9B /* MessageCreatorTextView.swift in Sources */,

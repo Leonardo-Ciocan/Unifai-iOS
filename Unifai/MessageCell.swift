@@ -40,12 +40,22 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
     var imgView : UIImageView?
     var delegate : MessageCellDelegate?
     
+    @IBOutlet weak var txtBodyLeadingConstraint: NSLayoutConstraint!
     var hideTime : Bool{
         set(hide){
             txtTime.hidden = hide
         }
         get{
             return txtTime.hidden
+        }
+    }
+    
+    var hideServiceMarkings : Bool? {
+        didSet {
+            txtName.hidden = hideServiceMarkings!
+            imgLogo.hidden = hideServiceMarkings!
+            txtBodyLeadingConstraint.constant = hideServiceMarkings! ? 20 : 73
+            layoutIfNeeded()
         }
     }
     
@@ -238,19 +248,11 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
         imageView.layer.shadowOpacity = 0.15
         imageView.layer.shadowOffset = CGSizeZero
         imageView.layer.shadowRadius = 10
-        imageView.alpha = 0
         Alamofire.request(.GET, (message.payload as! ImagePayload).URL)
             .responseImage { response in
                 if let image = response.result.value {
                     self.img = image
-                    imageView.transform = CGAffineTransformMakeTranslation(0, 15)
                     imageView.image = image.af_imageAspectScaledToFitSize(CGSize(width: 250, height: 150))
-                    UIView.animateWithDuration(1, animations: {
-                        imageView.alpha = 1
-                    })
-                    UIView.animateWithDuration(0.5, animations: {
-                        imageView.transform = CGAffineTransformMakeTranslation(0, 0)
-                    })
                 }
         }
         
@@ -368,7 +370,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
                 make.top.equalTo(0)
                 make.width.equalTo(cardSize)
                 if index == 0 {
-                    make.leading.equalTo(77)
+                    make.leading.equalTo(self.hideServiceMarkings != true ? 77 : 20)
                 }
                 else{
                     make.left.equalTo((lastCard?.snp_right)!).offset(10)
@@ -396,7 +398,8 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
         let payload = message.payload as! ProgressPayload
         
         progressView.snp_makeConstraints(closure: { make in
-            make.leading.trailing.top.bottom.equalTo(0)
+            make.trailing.top.bottom.equalTo(0)
+            make.leading.equalTo(self.hideServiceMarkings != true ? 0 : -47)
         })
         
         progressView.setProgressValues(payload.min, max: payload.max, value: payload.value)
@@ -433,13 +436,14 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
         if payload.sheets.count == 0 {
             return
         }
-        let height = payload.sheets[0].entries.reduce(0){$0 + $1.size()} + 10
+        let height = payload.sheets[0].entries.reduce(0){$0 + $1.size()}
         self.payloadContainerHeight.constant = CGFloat(height) + 40
         
         let sheetsView = SheetsView()
         sheetsView.backgroundColor = UIColor.clearColor()
         sheetsView.delegate = self
         sheetsView.loadSheets(payload.sheets, color: message.color)
+        sheetsView.collectionView.contentInset = UIEdgeInsets(top: 10, left: self.hideServiceMarkings != true ? 77 : 20, bottom: 0, right: 10)
         self.payloadContainer.addSubview(sheetsView)
         sheetsView.snp_makeConstraints(closure: { (make)->Void in
             make.leading.equalTo(-67)

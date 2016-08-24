@@ -43,10 +43,7 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         self.navigationController?.navigationBar.shadowImage =  UIImage(named:"transparent")
         
-        headerBackground.addSubview(activtyControl)
-        activtyControl.snp_makeConstraints(closure: { make in
-                make.center.equalTo(headerBackground)
-        })
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: activtyControl)
         activtyControl.startAnimating()
         self.tableView.alpha = 0
         self.view.backgroundColor = currentTheme.backgroundColor
@@ -156,6 +153,8 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell") as! MessageCell
+        cell.hideServiceMarkings = true
+        cell.hideTime = true
         cell.selectionStyle = .None
         cell.parentViewController = self
         cell.setMessage(tableView == self.tableView ? messages[indexPath.row] : homepage[indexPath.row])

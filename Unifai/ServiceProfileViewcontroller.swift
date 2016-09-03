@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import PKHUD
 
 class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UITableViewDataSource ,UIViewControllerPreviewingDelegate, MessageCellDelegate {
     @IBOutlet weak var tabs: UISegmentedControl!
     
+    @IBOutlet weak var btnLogout: UIButton!
+    @IBOutlet weak var settingsTab: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerBackground: UIView!
     var messages : [Message] = []
@@ -18,6 +21,14 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
     
     @IBOutlet weak var homepageTableView: UITableView!
     let activtyControl = UIActivityIndicatorView(activityIndicatorStyle: .White)
+    
+    @IBAction func logout(sender: AnyObject) {
+        Unifai.logoutFromService((service?.username)!)
+        settingsTab.hidden = true
+        tabs.removeSegmentAtIndex(2, animated: true)
+        homepageTableView.hidden = false
+        HUD.flash(.Success, delay: 1)
+    }
     
     override func viewDidLoad() {
         self.tableView!.registerNib(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
@@ -49,33 +60,35 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
         self.view.backgroundColor = currentTheme.backgroundColor
         
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        self.settingsTab.hidden = true
+        Unifai.isUserLoggedInToService((self.service?.username)!, completion: { loggedIn in
+            if loggedIn {
+                self.tabs.insertSegmentWithTitle("Account", atIndex: 2, animated: true)
+            }
+        })
     }
     
     
     @IBAction func tabChanged(sender: AnyObject) {
         let index = tabs.selectedSegmentIndex
         if index == 1 {
-            UIView.animateWithDuration(0.5, animations: {
-                self.homepageTableView.alpha = 0
-                },completion: { _ in
-                    self.homepageTableView.hidden = true
-                    self.tableView.hidden = false
-                    UIView.animateWithDuration(0.5, animations: {
-                        self.tableView.alpha = 1
-                    })
-            })
+            self.homepageTableView.hidden = true
+            self.tableView.hidden = false
+            self.settingsTab.hidden = true
         }
-        else {
-            UIView.animateWithDuration(0.5, animations: {
-                self.tableView.alpha = 0
-                },completion: { _ in
-                    self.tableView.hidden = true
-                    self.homepageTableView.hidden = false
-                    UIView.animateWithDuration(0.5, animations: {
-                        self.homepageTableView.alpha = 1
-                    })
-            })
+        else if index == 0 {
+            self.tableView.hidden = true
+            self.homepageTableView.hidden = false
+            self.settingsTab.hidden = true
+
         }
+        else if index == 2 {
+            self.tableView.hidden = true
+            self.homepageTableView.hidden = true
+            self.settingsTab.hidden = false
+        }
+        
     }
     
     override func viewWillAppear(animated: Bool) {

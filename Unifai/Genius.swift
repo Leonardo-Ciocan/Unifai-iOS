@@ -18,6 +18,7 @@ enum GeniusTriggerType {
     case PasteImage
     case OpenLink
 }
+
 struct GeniusSuggestion {
     var name : String = ""
     var message : String = ""
@@ -57,7 +58,7 @@ class Genius {
             let group = GeniusGroup(
                 reason : "Because you copied an image",
                 suggestions : [
-                    GeniusSuggestion(name: "Use image as attachment", message: "\(clipboardImage.size.width)x\(clipboardImage.size.height)" , trigger: .PasteImage)
+                    GeniusSuggestion(name: "Use image as attachment", message: "\(Int(clipboardImage.size.width))x\(Int(clipboardImage.size.height))" , trigger: .PasteImage)
                 ])
             groups.append(group)
         }

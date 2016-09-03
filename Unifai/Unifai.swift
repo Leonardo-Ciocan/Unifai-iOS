@@ -444,4 +444,17 @@ class Unifai{
         }
     }
     
+    static func isUserLoggedInToService(serviceName:String , completion : ((Bool)->())?){
+        Alamofire.request(.GET , Constants.urlAuthStatus ,parameters: ["service_name":serviceName] , headers:self.headers)
+            .responseString(completionHandler: { response in
+                guard completion != nil else{return}
+                print(response.result.value)
+                completion!(response.result.value == "True")
+        })
+    }
+    
+    static func logoutFromService(serviceName:String){
+        Alamofire.request(.POST , Constants.urlLogoutService ,parameters: ["service_name":serviceName] , headers:self.headers)
+    }
+    
 }

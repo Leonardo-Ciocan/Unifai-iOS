@@ -14,17 +14,17 @@
                 <rect key="frame" x="0.0" y="0.0" width="328" height="546"/>
                 <subviews>
                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rG0-xd-Xuz">
-                        <rect key="frame" x="20" y="0.0" width="288" height="546"/>
+                        <rect key="frame" x="0.0" y="0.0" width="328" height="546"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tableView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
-                <constraint firstItem="rG0-xd-Xuz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="UYR-Xj-FlW"/>
+                <constraint firstItem="rG0-xd-Xuz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="UYR-Xj-FlW"/>
                 <constraint firstAttribute="bottom" secondItem="rG0-xd-Xuz" secondAttribute="bottom" id="Ucs-hb-NCr"/>
                 <constraint firstItem="rG0-xd-Xuz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="cgF-mz-AhR"/>
-                <constraint firstAttribute="trailing" secondItem="rG0-xd-Xuz" secondAttribute="trailing" constant="20" id="df8-6B-7cU"/>
+                <constraint firstAttribute="trailing" secondItem="rG0-xd-Xuz" secondAttribute="trailing" id="df8-6B-7cU"/>
             </constraints>
             <size key="customSize" width="328" height="546"/>
             <connections>

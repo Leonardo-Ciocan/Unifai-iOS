@@ -53,15 +53,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func updateLocation() {
         guard Unifai.isUserLoggedIn() else { return }
-        locManager.requestWhenInUseAuthorization()
         
-        if( CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse ){
-            if let currentLocation = (locManager.location?.coordinate) {
-                Unifai.updatePassportLocation(withLatitude:  String(currentLocation.latitude) , longitude: String(currentLocation.longitude))
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), {
+            self.locManager.requestWhenInUseAuthorization()
+            
+            if( CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse ){
+                if let currentLocation = (self.locManager.location?.coordinate) {
+                    Unifai.updatePassportLocation(withLatitude:  String(currentLocation.latitude) , longitude: String(currentLocation.longitude))
+                }
             }
-        }
-        
-        
+        })
     }
 }
 

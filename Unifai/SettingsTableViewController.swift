@@ -15,7 +15,6 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
     @IBOutlet weak var switchTextOnFeed: UISwitch!
     @IBOutlet weak var txtTextSizePreview: UILabel!
     
-    @IBOutlet weak var txtCardSizePreview: UILabel!
     @IBOutlet weak var txtStartingPagePreview: UILabel!
     @IBOutlet weak var txtCacheSize: UILabel!
     let textSizeItems = ["Small" , "Medium" , "Large"]
@@ -26,9 +25,9 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
 
         self.navigationController?.navigationBar.barStyle = .Default
         self.tabBarController?.tabBar.barStyle = .Default
-        
-        txtTextSizePreview.text = textSizeItems[ Settings.textSize ]
-        txtCardSizePreview.text = textSizeItems[ Settings.cardSize ]
+//        
+//        txtTextSizePreview.text = textSizeItems[ Settings.textSize ]
+//        txtCardSizePreview.text = textSizeItems[ Settings.cardSize ]
         switchTextOnFeed.on = Settings.onlyTextOnFeed
         switchDarkTheme.on = Settings.darkTheme
         
@@ -95,10 +94,10 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
             items = startingPageItems
             selected = Settings.startingPage
         }
-        else if(id == "cardSize"){
-            items = textSizeItems
-            selected = Settings.cardSize
-        }
+//        else if(id == "cardSize"){
+//            items = textSizeItems
+//            selected = Settings.cardSize
+//        }
         
         let selection = SettingsListTableViewController()
         selection.items = items
@@ -119,11 +118,11 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
             NSUserDefaults.standardUserDefaults().setInteger(index, forKey: "startingPage")
             Settings.startingPage = index
         }
-        else if(id == "cardSize"){
-            self.txtCardSizePreview.text = label
-            NSUserDefaults.standardUserDefaults().setInteger(index, forKey: "cardSize")
-            Settings.cardSize = index
-        }
+//        else if(id == "cardSize"){
+//            self.txtCardSizePreview.text = label
+//            NSUserDefaults.standardUserDefaults().setInteger(index, forKey: "cardSize")
+//            Settings.cardSize = index
+//        }
         
     }
     

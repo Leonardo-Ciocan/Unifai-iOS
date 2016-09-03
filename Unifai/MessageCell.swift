@@ -69,10 +69,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
         imgLogo.layer.masksToBounds = true
         
         
-//        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(imageTapped))
-//        tapGestureRecognizer.numberOfTouchesRequired = 1
-//        imgLogo.addGestureRecognizer(tapGestureRecognizer)
-//        imgLogo.userInteractionEnabled = true
+        
         contentView.userInteractionEnabled = false
         threadCountView.layer.masksToBounds = true
         threadCountView.layer.cornerRadius = 10
@@ -189,6 +186,9 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
         guard let message = self.message else { return }
         self.txtBody.text = message.body
         imgLogo.backgroundColor = message.service?.color
+//        backgroundShadowView.layer.borderColor = message.service?.color.CGColor
+//        backgroundShadowView.layer.borderWidth = 0
+//        backgroundShadowView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.02)
         
         imgLogo.setImage(message.logo, forState: .Normal)
         txtName.textColor = message.color

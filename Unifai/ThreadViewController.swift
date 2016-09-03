@@ -17,8 +17,14 @@ extension UITableView {
         self.setContentOffset(bottomOffset, animated: animated)
     }
 }
+
+protocol ThreadVCDelegate {
+    func threadShouldUpdateWithMessage(message:Message)
+}
+
 class ThreadViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , MessageCreatorDelegate, MessageCellDelegate, AuthViewDelegate  {
     
+    var threadDelegate : ThreadVCDelegate?
     
     @IBOutlet weak var creatorAssistant: CreatorAssistant!
     

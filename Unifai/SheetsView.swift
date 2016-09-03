@@ -41,7 +41,7 @@ class SheetsView: UIView, UICollectionViewDelegate , UICollectionViewDataSource 
         collectionView.backgroundColor = UIColor.clearColor()
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 60
-        layout.minimumLineSpacing = 35
+        layout.minimumLineSpacing = 15
         layout.scrollDirection = .Horizontal
         collectionView.collectionViewLayout = layout
 

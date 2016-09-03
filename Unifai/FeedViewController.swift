@@ -51,8 +51,6 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         guard NSUserDefaults.standardUserDefaults().stringForKey("token") != nil else{return}
         
         self.tabBarController?.title = "Feed"
-        //self.tableView.addSubview(self.refreshControl)
-        
         let loadingView = DGElasticPullToRefreshLoadingViewCircle()
         loadingView.tintColor = UIColor.whiteColor()
         tableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
@@ -81,13 +79,13 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         self.navigationItem.title = "Feed"
         navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)!, NSForegroundColorAttributeName: currentTheme.foregroundColor]
         
-        let imageView = UIImageView(frame: CGRect(x: 5, y: 5, width: 45, height: 45))
-        imageView.contentMode = .ScaleAspectFit
+//        let imageView = UIImageView(frame: CGRect(x: 5, y: 5, width: 45, height: 45))
+//        imageView.contentMode = .ScaleAspectFit
+//        
+//        let image = UIImage(named: "unifai")
+//        imageView.image = image
+//        navigationItem.titleView = imageView
         
-        let image = UIImage(named: "unifai")
-        imageView.image = image
-        navigationItem.titleView = imageView
-               
         registerForKeyboardNotifications()
         
         self.navigationController?.navigationBar.tintColor = currentTheme.foregroundColor
@@ -139,24 +137,6 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
             })
         })
     }
-    
-    func showValidationMessage() {
-        let alert = UIAlertController(title: "Can't send this message", message: "You need to mention a service , for example @skyscanner", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { action in
-            switch action.style{
-            case .Default:
-                print("default")
-                
-            case .Cancel:
-                print("cancel")
-                
-            case .Destructive:
-                print("destructive")
-            }
-        }))
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
-    
     
     override func viewWillAppear(animated: Bool) {
 
@@ -259,7 +239,6 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     func didFinishWirting() {
         self.navigationItem.leftBarButtonItem = nil
     }
-
     
     func registerForKeyboardNotifications()
     {
@@ -297,6 +276,4 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         
         segue.destinationViewController.preferredContentSize = CGSizeMake(400,550)
     }
-
-    
 }

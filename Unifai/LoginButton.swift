@@ -56,7 +56,7 @@ class LoginButton: UIView {
         newLayer.backgroundColor = UIColor.clearColor().CGColor
         //newLayer.frame = CGRect(x: 10, y: 0, width: self.frame.width-10, height: self.frame.height)
         
-        newLayer.cornerRadius = 10
+        newLayer.cornerRadius = 5
         newLayer.masksToBounds = true
         self.layer.addSublayer(newLayer)
 

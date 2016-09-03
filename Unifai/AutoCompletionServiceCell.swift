@@ -15,10 +15,10 @@ class AutoCompletionServiceCell: UICollectionViewCell {
     @IBOutlet weak var txtName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        imgLogo.layer.shadowColor = UIColor.blackColor().CGColor
-        imgLogo.layer.shadowOffset = CGSizeZero
-        imgLogo.layer.shadowOpacity = 0.25
-        imgLogo.layer.shadowRadius = 2.5
+//        imgLogo.layer.shadowColor = UIColor.blackColor().CGColor
+//        imgLogo.layer.shadowOffset = CGSizeZero
+//        imgLogo.layer.shadowOpacity = 0.25
+//        imgLogo.layer.shadowRadius = 5
     }
     
     func loadService(service : Service) {

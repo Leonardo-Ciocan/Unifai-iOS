@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tlR-Rw-ebq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="16A286a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tlR-Rw-ebq">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -149,7 +149,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RqH-Ga-5vk">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="24" width="414" height="712"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZsS-VZ-OOt">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -179,7 +179,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="RqH-Ga-5vk" secondAttribute="trailing" constant="-20" id="7A2-rA-FhG"/>
                             <constraint firstItem="Npb-0e-I4z" firstAttribute="top" secondItem="RqH-Ga-5vk" secondAttribute="bottom" id="8Ll-ZR-boC"/>
                             <constraint firstItem="UWm-86-QYj" firstAttribute="leading" secondItem="2pW-vR-WNs" secondAttribute="leadingMargin" constant="-20" id="JUq-SR-XT2"/>
-                            <constraint firstItem="RqH-Ga-5vk" firstAttribute="top" secondItem="ov0-D9-faa" secondAttribute="bottom" id="a17-0x-dja"/>
+                            <constraint firstItem="RqH-Ga-5vk" firstAttribute="top" secondItem="ov0-D9-faa" secondAttribute="bottom" constant="-40" id="a17-0x-dja"/>
                             <constraint firstAttribute="trailingMargin" secondItem="UWm-86-QYj" secondAttribute="trailing" constant="-20" id="oCE-ZN-KJe"/>
                             <constraint firstItem="Npb-0e-I4z" firstAttribute="top" secondItem="UWm-86-QYj" secondAttribute="bottom" constant="10" id="p3b-C6-U80"/>
                             <constraint firstItem="RqH-Ga-5vk" firstAttribute="leading" secondItem="2pW-vR-WNs" secondAttribute="leadingMargin" constant="-20" id="t8x-op-7Dw"/>
@@ -226,7 +226,6 @@
                                         <segments>
                                             <segment title="Homepage"/>
                                             <segment title="Messages"/>
-                                            <segment title="Settings"/>
                                         </segments>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
@@ -244,13 +243,39 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rbj-9g-YPq">
                                 <rect key="frame" x="0.0" y="114" width="414" height="622"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dw8-Ei-dNZ">
+                                <rect key="frame" x="0.0" y="114" width="414" height="622"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You are currently logged in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9e6-zT-DiU">
+                                        <rect key="frame" x="71.5" y="59" width="272.5" height="27.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="23"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S57-od-7Fa">
+                                        <rect key="frame" x="183" y="111" width="48" height="30"/>
+                                        <state key="normal" title="Logout"/>
+                                        <connections>
+                                            <action selector="logout:" destination="NWj-a1-126" eventType="touchUpInside" id="4E2-WZ-kag"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="9e6-zT-DiU" firstAttribute="centerX" secondItem="dw8-Ei-dNZ" secondAttribute="centerX" id="2lX-VC-0sD"/>
+                                    <constraint firstItem="S57-od-7Fa" firstAttribute="centerX" secondItem="dw8-Ei-dNZ" secondAttribute="centerX" id="6Gb-sf-uOI"/>
+                                    <constraint firstItem="9e6-zT-DiU" firstAttribute="top" secondItem="dw8-Ei-dNZ" secondAttribute="top" constant="59" id="Nat-pb-RYd"/>
+                                    <constraint firstItem="S57-od-7Fa" firstAttribute="top" secondItem="9e6-zT-DiU" secondAttribute="bottom" constant="24.5" id="XVA-Y6-PwC"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="aiZ-eA-YaX" firstAttribute="leading" secondItem="EjE-ys-XVf" secondAttribute="leadingMargin" constant="-20" id="Eh4-2b-3MG"/>
                             <constraint firstItem="rbj-9g-YPq" firstAttribute="leading" secondItem="EjE-ys-XVf" secondAttribute="leadingMargin" constant="-20" id="FAa-sC-moi"/>
+                            <constraint firstItem="dw8-Ei-dNZ" firstAttribute="leading" secondItem="aiZ-eA-YaX" secondAttribute="leading" id="GWh-dJ-kZS"/>
                             <constraint firstItem="CNb-op-zfH" firstAttribute="top" secondItem="aiZ-eA-YaX" secondAttribute="bottom" id="Hgl-bb-aTb"/>
                             <constraint firstItem="qgt-zM-9W5" firstAttribute="top" secondItem="MRE-aE-2eK" secondAttribute="bottom" id="IgA-e3-lgv"/>
                             <constraint firstItem="CNb-op-zfH" firstAttribute="top" secondItem="rbj-9g-YPq" secondAttribute="bottom" id="JdT-cD-Q1J"/>
@@ -258,6 +283,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="rbj-9g-YPq" secondAttribute="trailing" constant="-20" id="K5F-dU-GNx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qgt-zM-9W5" secondAttribute="trailing" constant="-20" id="L8D-xm-NOE"/>
                             <constraint firstItem="aiZ-eA-YaX" firstAttribute="top" secondItem="MRE-aE-2eK" secondAttribute="bottom" constant="50" id="RW3-fC-AiV"/>
+                            <constraint firstItem="dw8-Ei-dNZ" firstAttribute="trailing" secondItem="rbj-9g-YPq" secondAttribute="trailing" id="Szc-Bw-cFL"/>
+                            <constraint firstItem="dw8-Ei-dNZ" firstAttribute="bottom" secondItem="CNb-op-zfH" secondAttribute="top" id="YCy-Td-KHz"/>
+                            <constraint firstItem="dw8-Ei-dNZ" firstAttribute="top" secondItem="rbj-9g-YPq" secondAttribute="top" id="h7D-wn-j9V"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aiZ-eA-YaX" secondAttribute="trailing" constant="-20" id="isp-u4-yzX"/>
                             <constraint firstItem="qgt-zM-9W5" firstAttribute="leading" secondItem="EjE-ys-XVf" secondAttribute="leadingMargin" constant="-20" id="qaI-pB-Uan"/>
                         </constraints>
@@ -272,8 +300,10 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="btnLogout" destination="S57-od-7Fa" id="isZ-60-4gh"/>
                         <outlet property="headerBackground" destination="qgt-zM-9W5" id="2io-vO-nES"/>
                         <outlet property="homepageTableView" destination="rbj-9g-YPq" id="dAT-VF-XlG"/>
+                        <outlet property="settingsTab" destination="dw8-Ei-dNZ" id="7gw-o6-8uh"/>
                         <outlet property="tableView" destination="aiZ-eA-YaX" id="mix-V6-Kdr"/>
                         <outlet property="tabs" destination="lGk-IP-GFx" id="rIw-Er-UcP"/>
                         <segue destination="MSF-Zl-8qC" kind="show" identifier="toThread" action="showDetailViewController:sender:" id="EDk-Fs-wBx"/>
@@ -289,6 +319,6 @@
         <image name="feed_selected" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OuX-8E-Hqg"/>
+        <segue reference="EDk-Fs-wBx"/>
     </inferredMetricsTieBreakers>
 </document>

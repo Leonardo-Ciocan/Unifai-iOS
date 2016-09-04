@@ -307,6 +307,7 @@
                         <outlet property="settingsTab" destination="dw8-Ei-dNZ" id="7gw-o6-8uh"/>
                         <outlet property="tableView" destination="aiZ-eA-YaX" id="mix-V6-Kdr"/>
                         <outlet property="tabs" destination="lGk-IP-GFx" id="rIw-Er-UcP"/>
+                        <outlet property="txtCurrentlyLoggedIn" destination="9e6-zT-DiU" id="sM0-rl-UCH"/>
                         <segue destination="MSF-Zl-8qC" kind="show" identifier="toThread" action="showDetailViewController:sender:" id="EDk-Fs-wBx"/>
                     </connections>
                 </viewController>

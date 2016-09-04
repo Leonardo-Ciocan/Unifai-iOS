@@ -12,6 +12,7 @@ import PKHUD
 class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UITableViewDataSource ,UIViewControllerPreviewingDelegate, MessageCellDelegate {
     @IBOutlet weak var tabs: UISegmentedControl!
     
+    @IBOutlet weak var txtCurrentlyLoggedIn: UILabel!
     @IBOutlet weak var btnLogout: UIButton!
     @IBOutlet weak var settingsTab: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -63,7 +64,7 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
         
         self.btnLogout.tintColor = self.service?.color
         
-        
+    
         self.settingsTab.hidden = true
         updateLoggedInStatus()
     }
@@ -72,7 +73,8 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
         Unifai.isUserLoggedInToService((self.service?.username)!, completion: { loggedIn in
             if loggedIn {
                 self.tabs.insertSegmentWithTitle("Account", atIndex: 2, animated: true)
-                
+                self.settingsTab.backgroundColor = currentTheme.backgroundColor
+                self.txtCurrentlyLoggedIn.textColor = currentTheme.foregroundColor
             }
         })
     }

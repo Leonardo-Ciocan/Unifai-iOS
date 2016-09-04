@@ -121,22 +121,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Unifai/FeedViewController.swift"
-            timestampString = "490058848.130651"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "refreshControl"
-            landmarkType = "19">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Unifai/ThreadViewController.swift"
             timestampString = "494592226.605683"
             startingColumnNumber = "9223372036854775807"
@@ -368,38 +352,6 @@
             startingLineNumber = "38"
             endingLineNumber = "38"
             landmarkName = "init(data:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Unifai/FeedViewController.swift"
-            timestampString = "494696820.114328"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Unifai/FeedViewController.swift"
-            timestampString = "494696820.114328"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -968,12 +920,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/FeedViewController.swift"
-            timestampString = "494696820.114328"
+            timestampString = "494700411.940409"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "getServicesAndUser(_:)"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
+            landmarkName = "preferredStatusBarStyle()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2212,11 +2164,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/FeedViewController.swift"
-            timestampString = "494696820.114328"
+            timestampString = "494700411.940409"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
             landmarkName = "preferredStatusBarStyle()"
             landmarkType = "5">
          </BreakpointContent>

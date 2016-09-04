@@ -115,7 +115,7 @@ class ProfileViewController: UIViewController , UITableViewDelegate , UITableVie
         }
         else if segue.identifier == "toSettings"{
             segue.destinationViewController.modalPresentationStyle = .Popover
-            segue.destinationViewController.popoverPresentationController!.barButtonItem = sender as! UIBarButtonItem
+            segue.destinationViewController.popoverPresentationController!.barButtonItem = sender as? UIBarButtonItem
             
             segue.destinationViewController.preferredContentSize = CGSizeMake(300,400)
         }

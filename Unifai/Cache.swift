@@ -88,7 +88,7 @@ class Cache{
             }
             completion(messages)
         }
-        catch let _ as NSError {
+        catch _ as NSError {
             print("error occured getting cache")
             completion([])
         }
@@ -118,7 +118,7 @@ class Cache{
             }
             completion(messages)
         }
-        catch let _ as NSError {
+        catch _ as NSError {
             print("error occured getting cache")
             completion([])
         }

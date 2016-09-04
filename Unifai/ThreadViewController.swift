@@ -221,11 +221,9 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     
     private func keyboardShowOrHide(notification: NSNotification) {
         guard let userInfo = notification.userInfo else {return}
-        guard let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey]else { return }
         guard let curve = userInfo[UIKeyboardAnimationCurveUserInfoKey] else { return }
         guard let keyboardFrameEnd = userInfo[UIKeyboardFrameEndUserInfoKey] else { return }
         
-        let curveOption = UIViewAnimationOptions(rawValue: UInt(curve.integerValue << 16))
         let keyboardFrameEndRectFromView = view.convertRect(keyboardFrameEnd.CGRectValue, fromView: nil)
         UIView.animateWithDuration(1.0,
                                    delay: 0,

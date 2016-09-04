@@ -54,16 +54,12 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
 
         
         self.tableView!.separatorStyle = .None
-
-        
-        getServicesAndUser({ _ in
-            Cache.getDashboard({ messages in
-                self.messages = messages
-                self.tableView.reloadData()
-                self.loadData()
-                self.activityControl?.stopAnimating()
-                
-            })
+        Cache.getDashboard({ messages in
+            self.messages = messages
+            self.tableView.reloadData()
+            self.loadData()
+            self.activityControl?.stopAnimating()
+            
         })
         
         activityControl = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
@@ -73,6 +69,18 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         
         updateTimeLabel()
         self.timeUpdatingTimer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: #selector(updateTimeLabel), userInfo: nil, repeats: true)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        lastUpdatedDate = nil
+        updateTimeLabel()
+        Cache.getDashboard({ messages in
+            self.messages = messages
+            self.tableView.reloadData()
+            self.loadData()
+            self.activityControl?.stopAnimating()
+            
+        })
     }
     
     var lastUpdatedDate : NSDate?
@@ -157,12 +165,6 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
-    }
-    
-    @IBAction func logout(sender: AnyObject) {
-        NSUserDefaults.standardUserDefaults().removeObjectForKey("token")
-        NSUserDefaults.standardUserDefaults().synchronize()
-        dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

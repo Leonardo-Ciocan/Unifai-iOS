@@ -90,7 +90,11 @@ class SignupViewController: UIViewController , UITextFieldDelegate {
                     
                 })
             },error: { errors in
-                let alert = UIAlertController(title: "Signup error", message: "Can't sign up with those details", preferredStyle: .Alert)
+                var lines = ""
+                for item in errors {
+                    lines += item.1 + "\n"
+                }
+                let alert = UIAlertController(title: "Signup error", message: "There are problems with your details:\n" + lines , preferredStyle: .Alert)
                 let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
                 alert.addAction(cancel)
                 self.presentViewController(alert, animated: true, completion: nil)

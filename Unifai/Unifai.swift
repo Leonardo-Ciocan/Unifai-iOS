@@ -429,17 +429,21 @@ class Unifai{
         }
     }
     
-    static func signup(username:String,email:String , password:String , completion : ()->() , error : () -> ()) {
+    static func signup(username:String,email:String , password:String , completion : ()->() , error : (Dictionary<String,String>) -> ()) {
         Alamofire.request(.POST , Constants.urlSignup ,
             parameters: ["username":username , "email":email , "password":password])
             .validate()
-            .response{ _,_,_,response_error in
+            .response{ _,response,data,response_error in
                 if response_error == nil {
                     completion()
                 }
                 else {
-                    print(response_error)
-                    error()
+                    let json = JSON(data: data!)
+                    var dictionary = Dictionary<String,String>()
+                    for (key, value) in json {
+                        dictionary[key] = value.arrayValue[0].stringValue
+                    }
+                    error(dictionary)
                 }
         }
     }

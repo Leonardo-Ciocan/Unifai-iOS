@@ -38,6 +38,7 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
         NSUserDefaults.standardUserDefaults().setBool(switchDarkTheme.on, forKey: "darkTheme")
         Settings.darkTheme = switchDarkTheme.on
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

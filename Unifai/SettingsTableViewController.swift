@@ -42,6 +42,18 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
         super.didReceiveMemoryWarning()
     }
     
+    func deleteCache() {
+        do {
+            let paths = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(Cache.cacheFolder.path!)
+            for path in paths
+            {
+                try NSFileManager.defaultManager().removeItemAtPath("\(Cache.cacheFolder.path!)/\(path)")
+            }
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var items : [String] = []
         let id = tableView.cellForRowAtIndexPath(indexPath)?.reuseIdentifier
@@ -50,19 +62,12 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
         if id == "logout" {
             NSUserDefaults.standardUserDefaults().removeObjectForKey("token")
             NSUserDefaults.standardUserDefaults().synchronize()
+            deleteCache()
             self.tabBarController?.dismissViewControllerAnimated(true, completion: nil)
             return
         }
         else if id == "deleteCache" {
-            do {
-                let paths = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(Cache.cacheFolder.path!)
-                for path in paths
-                {
-                    try NSFileManager.defaultManager().removeItemAtPath("\(Cache.cacheFolder.path!)/\(path)")
-                }
-            } catch let error as NSError {
-                print(error.localizedDescription)
-            }
+            deleteCache()
             self.txtCacheSize.text = "0KB"
             return
         }

@@ -19,7 +19,7 @@ extension UITableView {
 }
 
 protocol ThreadVCDelegate {
-    func threadShouldUpdateWithMessage(message:Message)
+    func feedShouldUpdate(message message:Message, forThread threadID:String)
 }
 
 class ThreadViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , MessageCreatorDelegate, MessageCellDelegate {
@@ -83,16 +83,8 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
+    
     func shouldSendMessageWithText(text: String, sourceRect: CGRect, sourceView: UIView) {
-//        let message = Message(body: text, type: .Text, payload: nil)
-//        self.messages.append(message)
-//        self.tableView.beginUpdates()
-//        self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow:messages.count-1,inSection:0)], withRowAnimation: .Bottom)
-//        self.tableView.endUpdates()
-//        Unifai.sendMessage(text,thread: threadID!, completion: { msg in
-//            self.shouldAppendMessage(msg)
-//        })
-        
         messageCreator.txtMessage.becomeFirstResponder()
         animateAddingCharacter(text)
     }
@@ -116,6 +108,9 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     }
     
     func shouldAppendMessage(message: Message) {
+        if !message.isFromUser {
+            self.threadDelegate?.feedShouldUpdate(message:message, forThread:threadID!)
+        }
         self.messages.append(message)
         self.tableView.beginUpdates()
         self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow:messages.count-1,inSection:0)], withRowAnimation: .Bottom)

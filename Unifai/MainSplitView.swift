@@ -21,6 +21,7 @@ class MainSplitView : UISplitViewController , UISplitViewControllerDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toThread"{
             let destination = segue.destinationViewController as! ThreadViewController
+            destination.threadDelegate = ((self.childViewControllers[0] as! UINavigationController).childViewControllers[0] as! FeedViewController)
             destination.loadData(selectedMessage!.threadID!)
         }
         else if segue.identifier == "toProfile"{

@@ -61,10 +61,18 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
         
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
         
+        self.btnLogout.tintColor = self.service?.color
+        
+        
         self.settingsTab.hidden = true
+        updateLoggedInStatus()
+    }
+    
+    func updateLoggedInStatus() {
         Unifai.isUserLoggedInToService((self.service?.username)!, completion: { loggedIn in
             if loggedIn {
                 self.tabs.insertSegmentWithTitle("Account", atIndex: 2, animated: true)
+                
             }
         })
     }
@@ -191,8 +199,9 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
         self.presentViewController(rootVC, animated: true, completion: nil)
     }
     
-    func didFinishAuthentication() {
+    func didFinishAuthenticationFromMessage(message: Message?) {
         loadData(self.service)
+        updateLoggedInStatus()
     }
     
 }

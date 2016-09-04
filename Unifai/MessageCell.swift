@@ -18,7 +18,7 @@ import PKHUD
 
 protocol MessageCellDelegate {
     func shouldSendMessageWithText(text:String, sourceRect:CGRect, sourceView:UIView)
-    func didFinishAuthentication()
+    func didFinishAuthenticationFromMessage(message:Message?)
 }
 
 class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
@@ -322,6 +322,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
             make.bottom.top.equalTo(0)
         })
     }
+    
     func handleAuthPayload() {
         guard let message = self.message else { return }
         self.payloadContainerHeight.constant = 35
@@ -529,7 +530,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
     }
 
     func didFinishAuthentication() {
-        self.delegate?.didFinishAuthentication()
+        self.delegate?.didFinishAuthenticationFromMessage(self.message)
     }
 
     @IBAction func profilePictureTapped(sender: AnyObject) {

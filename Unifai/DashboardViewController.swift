@@ -103,7 +103,7 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         self.presentViewController(rootVC, animated: true, completion: nil)
     }
     
-    func didFinishAuthentication() {
+    func didFinishAuthenticationFromMessage(message: Message?) {
         self.loadData()
     }
     

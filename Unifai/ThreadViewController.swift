@@ -22,7 +22,7 @@ protocol ThreadVCDelegate {
     func threadShouldUpdateWithMessage(message:Message)
 }
 
-class ThreadViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , MessageCreatorDelegate, MessageCellDelegate, AuthViewDelegate  {
+class ThreadViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , MessageCreatorDelegate, MessageCellDelegate {
     
     var threadDelegate : ThreadVCDelegate?
     
@@ -174,7 +174,7 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         })
     }
     
-    func didFinishAuthentication() {
+    func didFinishAuthenticationFromMessage(message: Message?) {
         let msg = messages[messages.count-2].body
         messageCreator.txtMessage.becomeFirstResponder()
         animateAddingCharacter(msg)

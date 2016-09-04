@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 protocol AuthViewDelegate {
     func didFinishAuthentication()
@@ -55,6 +56,7 @@ class AuthViewController: UIViewController  , UIWebViewDelegate{
                     _ in
                     self.dismissViewControllerAnimated(true, completion: nil)
                     self.delegate?.didFinishAuthentication()
+                    HUD.flash(.Success, delay: 1)
                 })
                 return false
             }

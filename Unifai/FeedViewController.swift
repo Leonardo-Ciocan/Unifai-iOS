@@ -5,7 +5,7 @@ import DGElasticPullToRefresh
 extension UIScrollView {
     func dg_stopScrollingAnimation() {}
 }
-class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDataSource  , MessageCreatorDelegate, AuthViewDelegate {
+class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDataSource  , MessageCreatorDelegate, MessageCellDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var creatorAssistant: CreatorAssistant!
@@ -97,9 +97,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         loadData()
     }
     
-    func didFinishAuthentication() {
-        loadData()
-    }
+    
     
     func shouldThemeHostWithColor(color: UIColor) {
         UIView.animateWithDuration(1, animations: {
@@ -136,10 +134,6 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
                 callback(services)
             })
         })
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -204,7 +198,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         cell.selectionStyle = .None
         cell.shouldShowText = !Settings.onlyTextOnFeed
         cell.setMessage(messages[indexPath.row] , shouldShowThreadCount: true)
-
+        cell.delegate = self
         cell.accessoryView = cell.imgLogo as UIView
         cell.imgLogo.contentMode = .ScaleAspectFit
         cell.imgLogo.userInteractionEnabled = true
@@ -225,6 +219,33 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         self.performSegueWithIdentifier("toCatalog", sender: self)
     }
     
+    func didFinishAuthenticationFromMessage(message: Message?) {
+        guard let message = message ,
+              let threadID = message.threadID
+            else { return }
+        Unifai.getThread(threadID, completion: { threadMessages in
+            guard threadMessages.count > 1 else { return }
+            let messageToResend = threadMessages[threadMessages.count - 2]
+            guard messageToResend.isFromUser else { return }
+            Unifai.sendMessage(messageToResend.body, thread: threadID, completion: { answer in
+                guard let indexToReplace = self.messages.indexOf({ $0.id == message.id }) else { return }
+                self.messages[indexToReplace] = answer
+                self.tableView.reloadData()
+            })
+        })
+    }
+    
+    func shouldSendMessageWithText(text: String, sourceRect: CGRect, sourceView: UIView) {
+        let runner = ActionRunnerViewController()
+        runner.loadAction(Action(message: text, name: ""))
+        
+        let rootVC = UINavigationController(rootViewController: runner)
+        rootVC.modalPresentationStyle = .Popover
+        rootVC.popoverPresentationController!.sourceView = sourceView
+        rootVC.popoverPresentationController!.sourceRect = sourceRect
+        rootVC.preferredContentSize = CGSizeMake(350,500)
+        self.presentViewController(rootVC, animated: true, completion: nil)
+    }
     
     
     func doneClicked(){

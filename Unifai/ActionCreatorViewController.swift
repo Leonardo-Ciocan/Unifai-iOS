@@ -4,7 +4,7 @@ protocol ActionCreatorDelegate {
     func didCreateAction()
 }
 
-class ActionCreatorViewController: UIViewController {
+class ActionCreatorViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtName: UITextField!
     @IBOutlet weak var txtMessage: UITextField!
     
@@ -22,8 +22,13 @@ class ActionCreatorViewController: UIViewController {
         txtMessage.layer.borderWidth = 0
         txtName.text = presetName
         txtMessage.text = presetMessage
-        
-        
+        txtMessage.tintColor = UIColor.whiteColor()
+        txtMessage.delegate = self
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.createTapped(self)
+        return true
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -41,16 +46,25 @@ class ActionCreatorViewController: UIViewController {
     }
     
     @IBAction func createTapped(sender: AnyObject) {
-        Unifai.createAction(txtMessage.text! , name: txtName.text! , completion: {
-            self.delegate?.didCreateAction()
-            self.dismissViewControllerAnimated(true, completion: nil)
-            },error: {
-                let dialog = UIAlertController(title: "Can't create action", message: "You need to enter a valid message and name", preferredStyle: .Alert)
-                let cancel = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                dialog.addAction(cancel)
-                self.presentViewController(dialog, animated: true, completion: nil)
-        })
-        
+        let placeholderRanges = TextUtils.getPlaceholderPositionsInMessage(txtMessage.text!)
+        if placeholderRanges.count > 0 {
+            let range = placeholderRanges[0]
+            let start = txtMessage.positionFromPosition(txtMessage.beginningOfDocument, offset: range.location)
+            guard start != nil else { return }
+            let end = txtMessage.positionFromPosition(start!, offset: range.length)
+            txtMessage.selectedTextRange = txtMessage.textRangeFromPosition(start!, toPosition: end!)
+        }
+        else{
+            Unifai.createAction(txtMessage.text! , name: txtName.text! , completion: {
+                self.delegate?.didCreateAction()
+                self.dismissViewControllerAnimated(true, completion: nil)
+                },error: {
+                    let dialog = UIAlertController(title: "Can't create action", message: "You need to enter a valid message and name", preferredStyle: .Alert)
+                    let cancel = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                    dialog.addAction(cancel)
+                    self.presentViewController(dialog, animated: true, completion: nil)
+            })
+        }
     }
     
     @IBAction func cancelTapped(sender: AnyObject) {

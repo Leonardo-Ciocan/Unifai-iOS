@@ -56,7 +56,7 @@ class ActionPickerViewController: UIViewController , UICollectionViewDataSource 
             if !serviceOrder.contains(service!) {
                 serviceOrder.append(service!)
             }
-            if (f.actions[service!]) != nil {
+            if let _ = self.actions[service!] {
                 self.actions[service!]!.append(action)
             }
             else{

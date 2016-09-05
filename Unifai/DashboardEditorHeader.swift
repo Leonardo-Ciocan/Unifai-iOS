@@ -37,6 +37,8 @@ class DashboardEditorHeader: UIView {
         txtMessage.attributedPlaceholder = NSAttributedString(string: "Enter any message..." ,
                                                               attributes:[NSForegroundColorAttributeName: currentTheme.secondaryForegroundColor])
         
+        
+        
         self.addSubview(view)
     }
 

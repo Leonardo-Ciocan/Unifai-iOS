@@ -250,11 +250,11 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     
     func keyboardWasShown(notification: NSNotification)
     {
-        let info : NSDictionary = notification.userInfo!
-        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue().size
-        assistantBottomConstraint.constant = (keyboardSize?.height)! - (tabBarController?.tabBar.frame.height)!
+        guard let info : NSDictionary = notification.userInfo! ,
+            let tabController = self.tabBarController ,
+            let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue().size else { return }
+        assistantBottomConstraint.constant = keyboardSize.height - tabController.tabBar.frame.height
     }
-    
     
     func keyboardWillBeHidden(notification: NSNotification)
     {

@@ -24,7 +24,6 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         collectionView.dataSource = self
         
         getServicesAndUser({ _ in
-            
             Unifai.getActions({ actions in
                 self.setActions(actions)
                 self.collectionView.reloadData()
@@ -33,7 +32,6 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         
         self.navigationItem.title = "Actions"
         navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)! ]
-
     }
     
     func setActions(actions : [Action]) {

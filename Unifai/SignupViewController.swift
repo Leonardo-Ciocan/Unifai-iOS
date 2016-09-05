@@ -102,4 +102,10 @@ class SignupViewController: UIViewController , UITextFieldDelegate {
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
     }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if !(touches.first?.view?.isKindOfClass(UITextField))! {
+            view.endEditing(true)
+        }
+    }
 }

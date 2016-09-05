@@ -76,7 +76,7 @@
                         <constraint firstItem="sYz-XV-UGd" firstAttribute="leading" secondItem="RtR-4R-Ix9" secondAttribute="trailing" constant="8" id="hjy-LW-2p9"/>
                     </constraints>
                 </view>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NCR-md-uoR" customClass="MessageCreatorTextView" customModule="Unifai" customModuleProvider="target">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NCR-md-uoR" customClass="MessageCreatorTextView" customModule="Unifai" customModuleProvider="target">
                     <rect key="frame" x="52" y="20" width="520" height="32"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="LI5-oH-4TB"/>

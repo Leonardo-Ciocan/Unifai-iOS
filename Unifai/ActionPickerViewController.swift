@@ -30,7 +30,6 @@ class ActionPickerViewController: UIViewController , UICollectionViewDataSource 
         collectionView.dataSource = self
         
         getServicesAndUser({ _ in
-            
             Unifai.getActions({ actions in
                 self.setActions(actions)
                 self.collectionView.reloadData()

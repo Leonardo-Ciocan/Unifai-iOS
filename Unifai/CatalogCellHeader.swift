@@ -44,7 +44,7 @@ class CatalogCellHeader: UIView {
         txtServiceName.text = service.name.uppercaseString
         visitProfile.setTitle("Visit @\(service.username) profile", forState: .Normal)
         imgLogo.image = UIImage(named: service.username)
-        self.backgroundColor = service.color.lightenColor(0.02)
+        self.backgroundColor = service.color.darkenColor(0.08)
         
         //visitProfile.layer.backgroundColor = service.color.CGColor
         //txtServiceName.textColor = service.color

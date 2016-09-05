@@ -182,20 +182,12 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="UWm-86-QYj">
-                                <rect key="frame" x="0.0" y="689" width="414" height="37"/>
-                                <color key="pageIndicatorTintColor" white="1" alpha="0.48284995719178081" colorSpace="calibratedWhite"/>
-                                <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="RqH-Ga-5vk" secondAttribute="trailing" constant="-20" id="7A2-rA-FhG"/>
                             <constraint firstItem="Npb-0e-I4z" firstAttribute="top" secondItem="RqH-Ga-5vk" secondAttribute="bottom" id="8Ll-ZR-boC"/>
-                            <constraint firstItem="UWm-86-QYj" firstAttribute="leading" secondItem="2pW-vR-WNs" secondAttribute="leadingMargin" constant="-20" id="JUq-SR-XT2"/>
                             <constraint firstItem="RqH-Ga-5vk" firstAttribute="top" secondItem="ov0-D9-faa" secondAttribute="bottom" constant="-40" id="a17-0x-dja"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="UWm-86-QYj" secondAttribute="trailing" constant="-20" id="oCE-ZN-KJe"/>
-                            <constraint firstItem="Npb-0e-I4z" firstAttribute="top" secondItem="UWm-86-QYj" secondAttribute="bottom" constant="10" id="p3b-C6-U80"/>
                             <constraint firstItem="RqH-Ga-5vk" firstAttribute="leading" secondItem="2pW-vR-WNs" secondAttribute="leadingMargin" constant="-20" id="t8x-op-7Dw"/>
                         </constraints>
                     </view>
@@ -209,7 +201,6 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="collectionView" destination="RqH-Ga-5vk" id="r1H-nJ-kxU"/>
-                        <outlet property="pageControl" destination="UWm-86-QYj" id="lcR-FK-WZK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KEz-Rx-23I" userLabel="First Responder" sceneMemberID="firstResponder"/>

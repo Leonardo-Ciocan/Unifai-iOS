@@ -14,7 +14,7 @@ class CatalogViewController : UIViewController , UICollectionViewDelegate , UICo
         return .LightContent
     }
     
-    @IBOutlet weak var pageControl: UIPageControl!
+    let pageControl: UIPageControl  = UIPageControl()
     var lastColor = UIColor.clearColor()
     var serivices : [Service] = []
     
@@ -29,8 +29,13 @@ class CatalogViewController : UIViewController , UICollectionViewDelegate , UICo
         self.collectionView.registerNib(UINib(nibName: "CatalogCell", bundle: nil), forCellWithReuseIdentifier: "CatalogCell")
         
         self.serivices = Core.Services.sort({ $0.name < $1.name }) //.filter({ $0.id != "1989" })
-        pageControl.numberOfPages = self.serivices.count - 1
         
+        
+        pageControl.numberOfPages = self.serivices.count - 1
+        self.navigationItem.titleView = pageControl
+        let invisibleButton = UIBarButtonItem(title: "Done", style: .Done, target: nil, action: nil)
+        invisibleButton.tintColor = UIColor.clearColor()
+        self.navigationItem.leftBarButtonItem = invisibleButton
         
         collectionView.delegate = self
         collectionView.dataSource = self

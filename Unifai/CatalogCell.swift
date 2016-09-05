@@ -76,7 +76,7 @@ class CatalogCell: UICollectionViewCell , UITableViewDelegate , UITableViewDataS
     var serviceColor : UIColor?
     @IBOutlet weak var tableView: UITableView!
     func loadData(service:Service) {
-        self.serviceColor = service.color
+        self.serviceColor = service.color.darkenColor(0.18)
         
 //        self.tableView.separatorStyle = .SingleLine
 //        self.tableView.separatorInset = UIEdgeInsetsZero

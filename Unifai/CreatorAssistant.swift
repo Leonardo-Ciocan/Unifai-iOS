@@ -11,6 +11,7 @@ import UIKit
 protocol CreatorAssistantDelegate {
     func selectedService(service:Service?, selectedByTapping : Bool)
     func didSelectAutocompletion(message:String)
+    func shouldDismiss()
 }
 
 class CreatorAssistant: UIView , AutoCompletionServicesDelegate , AutoCompletionSuggestionsDelegate , PromptViewDelegate {
@@ -114,4 +115,7 @@ class CreatorAssistant: UIView , AutoCompletionServicesDelegate , AutoCompletion
         self.delegate?.didSelectAutocompletion(name)
     }
     
+    func shouldDismiss() {
+        self.delegate?.shouldDismiss()
+    }
 }

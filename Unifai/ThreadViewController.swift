@@ -40,15 +40,12 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     var messages : [Message] = [
     ]
     @IBOutlet weak var tableView: UITableView!
-    let doneButton = UIBarButtonItem()
 
     override func viewDidLoad() {
         self.view.backgroundColor = currentTheme.backgroundColor
         self.tableView.backgroundColor = currentTheme.backgroundColor
         self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
-        doneButton.action = #selector(doneClicked)
-        doneButton.title = "Done"
-        doneButton.style = .Done
+
 
         super.viewDidLoad()
         
@@ -78,6 +75,7 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
                                                          selector: #selector(keyboardWillHide),
                                                          name: UIKeyboardDidHideNotification,
                                                          object: nil)
+        
     }
     
     deinit {
@@ -221,7 +219,6 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     
     private func keyboardShowOrHide(notification: NSNotification) {
         guard let userInfo = notification.userInfo else {return}
-        guard let curve = userInfo[UIKeyboardAnimationCurveUserInfoKey] else { return }
         guard let keyboardFrameEnd = userInfo[UIKeyboardFrameEndUserInfoKey] else { return }
         
         let keyboardFrameEndRectFromView = view.convertRect(keyboardFrameEnd.CGRectValue, fromView: nil)
@@ -235,16 +232,16 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     }
     
     
-    func doneClicked(){
-        shouldRemoveThemeFromHost()
-        messageCreator?.txtMessage.resignFirstResponder()
-    }
+//    func doneClicked(){
+//        shouldRemoveThemeFromHost()
+//        messageCreator?.txtMessage.resignFirstResponder()
+//    }
     
     func didStartWriting() {
-        self.navigationItem.leftBarButtonItem = doneButton
+        //self.navigationItem.leftBarButtonItem = doneButton
     }
     
     func didFinishWirting() {
-        self.navigationItem.leftBarButtonItem = nil
+        //self.navigationItem.leftBarButtonItem = nil
     }
 }

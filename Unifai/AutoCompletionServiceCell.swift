@@ -19,12 +19,12 @@ class AutoCompletionServiceCell: UICollectionViewCell {
 //        imgLogo.layer.shadowOffset = CGSizeZero
 //        imgLogo.layer.shadowOpacity = 0.25
 //        imgLogo.layer.shadowRadius = 5
+        backgroundColorView.layer.masksToBounds = true
     }
     
     func loadService(service : Service) {
         txtName.text = service.name.uppercaseString
         imgLogo.image = UIImage(named: service.username)
-        backgroundColorView.layer.masksToBounds = true
         backgroundColorView.backgroundColor = service.color
         txtName.textColor = service.color
     }

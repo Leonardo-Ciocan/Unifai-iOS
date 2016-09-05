@@ -3,7 +3,9 @@ import UIKit
 protocol AutoCompletionServicesDelegate {
     func selectedService(service:Service, selectedByTapping : Bool)
     func shouldHideServiceAutocompletion()
+    func shouldDismiss()
 }
+
 extension UIView
 {
     func addCornerRadiusAnimation(from: CGFloat, to: CGFloat, duration: CFTimeInterval)
@@ -70,7 +72,20 @@ class AutoCompletionServices: UIView , UICollectionViewDelegateFlowLayout , UICo
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ServiceCell", forIndexPath: indexPath) as! AutoCompletionServiceCell
-        cell.loadService(getServices()[indexPath.row])
+        let index = indexPath.row
+        if index == 0 {
+            cell.txtName.text = "Dismiss"
+            cell.txtName.textColor = UIColor.grayColor()
+            cell.backgroundColorView.backgroundColor = UIColor.whiteColor()
+            cell.backgroundColorView.layer.borderColor = UIColor.grayColor().CGColor
+            cell.backgroundColorView.layer.borderWidth = 1
+            cell.imgLogo.image = UIImage(named: "cancel")
+            cell.imgLogo.tintColor = UIColor.grayColor()
+        }
+        else {
+            cell.loadService(getServices()[index - 1])
+            cell.backgroundColorView.layer.borderWidth = 0
+        }
         cell.backgroundColorView.layer.cornerRadius = (self.collectionView.frame.width / 4 - 30) / 2
         return cell
     }
@@ -80,7 +95,7 @@ class AutoCompletionServices: UIView , UICollectionViewDelegateFlowLayout , UICo
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return getServices().count
+        return getServices().count + 1
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
@@ -93,13 +108,18 @@ class AutoCompletionServices: UIView , UICollectionViewDelegateFlowLayout , UICo
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        self.delegate?.selectedService(getServices()[indexPath.row] , selectedByTapping: true)
+        if indexPath.row == 0 {
+            delegate?.shouldDismiss()
+            return
+        }
+        
+        self.delegate?.selectedService(getServices()[indexPath.row - 1] , selectedByTapping: true)
         let cellFrame = collectionView.layoutAttributesForItemAtIndexPath(indexPath)?.frame
         let logoFrame = CGRect(x: (cellFrame?.origin.x)! + 15, y: (cellFrame?.origin.y)! + 15 , width: (cellFrame?.size.width)! - 30, height: (cellFrame?.size.width)! - 30)
         overlayView?.layer.cornerRadius = (UIScreen.mainScreen().bounds.width / 4 - 30)/2
         overlayView?.frame = logoFrame
         overlayView?.hidden = false
-        let service = getServices()[indexPath.row]
+        let service = getServices()[indexPath.row - 1]
         overlayView?.backgroundColor = service.color
         overlayView?.addCornerRadiusAnimation(overlayView!.layer.cornerRadius, to: 0, duration: 0.6)
         UIView.animateWithDuration(0.45,delay:0,options: UIViewAnimationOptions.CurveEaseIn,

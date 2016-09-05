@@ -13,6 +13,7 @@ extension FeedViewController {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedRow = indexPath.row
         self.mainSplitView.selectedMessage = messages[indexPath.row]
+        self.navigationController!.navigationBar.hidden = false
         self.splitViewController!.performSegueWithIdentifier("toThread", sender: self)
     }
     
@@ -186,6 +187,12 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         
         registerForKeyboardNotifications()
         self.navigationController?.navigationBar.tintColor = currentTheme.foregroundColor
+        
+        self.navigationController!.navigationBar.hidden = true
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController!.navigationBar.hidden = true
     }
     
     func feedShouldUpdate(message message: Message, forThread threadID: String) {

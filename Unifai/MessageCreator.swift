@@ -18,6 +18,9 @@ enum Position {
 
 @IBDesignable class MessageCreator: UIView , UITextFieldDelegate , UIImagePickerControllerDelegate , UINavigationControllerDelegate , ActionPickerDelegate , CreatorAssistantDelegate , UIPopoverPresentationControllerDelegate , GeniusViewControllerDelegate {
     
+    
+    @IBOutlet weak var txtMessageShadow: UIView!
+    @IBOutlet weak var btnCatalog: UIButton!
     @IBOutlet weak var btnGenius: UIButton!
     @IBOutlet weak var btnRemove: UIButton!
     @IBOutlet weak var btnCamera: UIButton!
@@ -139,6 +142,7 @@ enum Position {
        buttons.append(btnAction)
        buttons.append(btnImage)
        buttons.append(btnCamera)
+       buttons.append(btnCatalog)
         
        txtMessage.addTarget(
             self,
@@ -160,25 +164,32 @@ enum Position {
         self.shadowView.layer.shadowOffset = CGSizeMake(0.0, 0.0)
         self.shadowView.layer.shadowRadius = 5.0
         self.shadowView.layer.shadowOpacity = 0.1
+        
         buttons.forEach({
             $0.tintColor = currentTheme.foregroundColor
             $0.imageView?.contentMode = .ScaleAspectFit
             $0.setImage($0.currentImage!.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
-            $0.backgroundColor = currentTheme.shadeColor
+//            $0.backgroundColor = currentTheme.shadeColor
             $0.layer.masksToBounds = true
             $0.layer.cornerRadius = 12
+            $0.layer.borderWidth = 1
+            $0.layer.borderColor = currentTheme.shadeColor.CGColor
+            
         })
         txtMessage.layer.borderColor = currentTheme.foregroundColor.CGColor
         txtMessage.textColor = currentTheme.foregroundColor
-        txtMessage.backgroundColor = currentTheme.shadeColor
+        txtMessage.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.01)
+        
+        let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+        txtMessage.leftViewMode = .Always
+        txtMessage.leftView = leftView
+        
         
         btnGenius.tintColor = currentTheme.foregroundColor
         btnGenius.imageView?.contentMode = .ScaleAspectFit
         
         self.backgroundColorView.backgroundColor = currentTheme.backgroundColor
     }
-    
-    
     
     func sendMessage(message: String) {
             if threadID == nil {
@@ -526,6 +537,22 @@ enum Position {
     func didSelectGeniusSuggestionWithLink(link: String) {
         let svc = SFSafariViewController(URL: NSURL(string: link)!)
         self.parentViewController!.presentViewController(svc, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func toCatalog(sender: AnyObject) {
+        let catalogVC = UIStoryboard(name: "Feed", bundle: nil).instantiateViewControllerWithIdentifier("catalog")
+        let rootVC = UINavigationController(rootViewController: catalogVC)
+        rootVC.modalPresentationStyle = .Popover
+        rootVC.preferredContentSize = CGSize(width: 300, height: 400)
+        let viewForSource = sender as! UIView
+        rootVC.popoverPresentationController!.sourceView = viewForSource
+        rootVC.popoverPresentationController!.sourceRect = viewForSource.bounds
+        self.parentViewController?.presentViewController(rootVC, animated: true, completion: nil)
+    }
+    
+    func shouldDismiss() {
+        self.txtMessage.resignFirstResponder()
     }
     
 }

@@ -10,6 +10,7 @@
                 <outlet property="backgroundColorView" destination="IKx-1q-xa8" id="vKx-8I-Zf5"/>
                 <outlet property="btnAction" destination="sYz-XV-UGd" id="Fy2-E8-CVj"/>
                 <outlet property="btnCamera" destination="RtR-4R-Ix9" id="eaD-KP-sMk"/>
+                <outlet property="btnCatalog" destination="VuM-wg-9a2" id="HKn-K3-gh4"/>
                 <outlet property="btnGenius" destination="s2s-zU-Egz" id="cER-7H-uWa"/>
                 <outlet property="btnImage" destination="WfG-SM-T08" id="miw-Sp-zDR"/>
                 <outlet property="btnRemove" destination="ZI1-Xc-iRC" id="HzJ-fp-fAs"/>
@@ -56,6 +57,17 @@
                             </state>
                             <connections>
                                 <action selector="runAction:" destination="-1" eventType="touchUpInside" id="cvz-Ac-4Md"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VuM-wg-9a2">
+                            <rect key="frame" x="532" y="60" width="35" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="DWz-fe-eJw"/>
+                                <constraint firstAttribute="width" constant="35" id="cQ7-kR-eGW"/>
+                            </constraints>
+                            <state key="normal" image="catalog"/>
+                            <connections>
+                                <action selector="toCatalog:" destination="-1" eventType="touchUpInside" id="1Ba-bM-WxJ"/>
                             </connections>
                         </button>
                     </subviews>
@@ -161,9 +173,11 @@
                 <constraint firstItem="ZI1-Xc-iRC" firstAttribute="bottom" secondItem="oa3-Ov-mFo" secondAttribute="bottom" id="J39-13-B0e"/>
                 <constraint firstItem="oa3-Ov-mFo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="-110" id="U4h-nM-NTa"/>
                 <constraint firstItem="ZI1-Xc-iRC" firstAttribute="leading" secondItem="oa3-Ov-mFo" secondAttribute="leading" id="YHG-in-PTJ"/>
+                <constraint firstItem="VuM-wg-9a2" firstAttribute="top" secondItem="NCR-md-uoR" secondAttribute="bottom" constant="8" id="Z6p-VE-Mit"/>
                 <constraint firstItem="ZI1-Xc-iRC" firstAttribute="height" secondItem="oa3-Ov-mFo" secondAttribute="height" id="amF-ey-KGa"/>
                 <constraint firstItem="NCR-md-uoR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="52" id="b6b-z3-kls"/>
                 <constraint firstItem="IKx-1q-xa8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="d6X-wB-yOr"/>
+                <constraint firstItem="VuM-wg-9a2" firstAttribute="trailing" secondItem="NCR-md-uoR" secondAttribute="trailing" id="fEZ-SG-JZx"/>
                 <constraint firstItem="RtR-4R-Ix9" firstAttribute="top" secondItem="NCR-md-uoR" secondAttribute="bottom" constant="8" id="j7O-uv-FVZ"/>
                 <constraint firstAttribute="bottom" secondItem="IKx-1q-xa8" secondAttribute="bottom" id="jOG-Va-YdT"/>
                 <constraint firstItem="nl8-sp-AmQ" firstAttribute="bottom" secondItem="NCR-md-uoR" secondAttribute="bottom" id="mSS-07-PiJ"/>
@@ -187,6 +201,7 @@
     </objects>
     <resources>
         <image name="camera" width="30" height="30"/>
+        <image name="catalog" width="100" height="100"/>
         <image name="circleAction" width="30" height="30"/>
         <image name="genius" width="30" height="30"/>
         <image name="image" width="30" height="30"/>

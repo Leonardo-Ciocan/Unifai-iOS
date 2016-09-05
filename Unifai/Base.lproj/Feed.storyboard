@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="16A286a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tlR-Rw-ebq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tlR-Rw-ebq">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -65,11 +65,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kne-SX-8Hu">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="34" width="414" height="702"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Dl-9b-TOG" customClass="CreatorAssistant" customModule="Unifai" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="174" width="414" height="513"/>
+                                <rect key="frame" x="0.0" y="164" width="414" height="523"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="110" id="YWB-FA-YDK"/>
@@ -80,17 +80,31 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="htD-Nz-551">
+                                <rect key="frame" x="37" y="93" width="357" height="123"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1fe-Nr-rs6">
+                                    <rect key="frame" x="0.0" y="0.0" width="357" height="123"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="5w4-o0-tOi"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="vlB-eK-07o" firstAttribute="top" secondItem="5Dl-9b-TOG" secondAttribute="bottom" id="3au-6j-chD"/>
                             <constraint firstItem="kne-SX-8Hu" firstAttribute="leading" secondItem="iJy-dG-NZ9" secondAttribute="leadingMargin" constant="-20" id="CeD-az-YVm"/>
                             <constraint firstItem="5Dl-9b-TOG" firstAttribute="leading" secondItem="iJy-dG-NZ9" secondAttribute="leadingMargin" constant="-20" id="ClQ-Ba-8jX"/>
-                            <constraint firstItem="5Dl-9b-TOG" firstAttribute="top" secondItem="8eS-bY-AXs" secondAttribute="bottom" constant="110" id="ZAi-9r-3Pn"/>
+                            <constraint firstItem="htD-Nz-551" firstAttribute="top" secondItem="8eS-bY-AXs" secondAttribute="bottom" constant="-20" id="UUP-b4-ymT"/>
+                            <constraint firstItem="5Dl-9b-TOG" firstAttribute="top" secondItem="8eS-bY-AXs" secondAttribute="bottom" constant="100" id="ZAi-9r-3Pn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kne-SX-8Hu" secondAttribute="trailing" constant="-20" id="cYC-dj-3eP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5Dl-9b-TOG" secondAttribute="trailing" constant="-20" id="n5x-8g-ReG"/>
-                            <constraint firstItem="kne-SX-8Hu" firstAttribute="top" secondItem="8eS-bY-AXs" secondAttribute="bottom" constant="-64" id="qax-z0-3Wc"/>
+                            <constraint firstItem="kne-SX-8Hu" firstAttribute="top" secondItem="8eS-bY-AXs" secondAttribute="bottom" constant="-30" id="qax-z0-3Wc"/>
                             <constraint firstItem="5Dl-9b-TOG" firstAttribute="top" secondItem="8eS-bY-AXs" secondAttribute="bottom" id="rIE-f6-YNc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="htD-Nz-551" secondAttribute="trailing" constant="-20" id="tiw-Nq-C0V"/>
+                            <constraint firstItem="htD-Nz-551" firstAttribute="leading" secondItem="iJy-dG-NZ9" secondAttribute="leadingMargin" constant="-20" id="v1L-4C-6Jq"/>
                             <constraint firstItem="vlB-eK-07o" firstAttribute="top" secondItem="kne-SX-8Hu" secondAttribute="bottom" constant="-49" id="w96-Wq-Ozd"/>
                         </constraints>
                         <variation key="default">
@@ -118,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3a5-oD-fgl" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1498" y="-1020"/>
+            <point key="canvasLocation" x="1477" y="-1003"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ev5-Tx-RAX">
@@ -139,7 +153,7 @@
         <!--Catalog-->
         <scene sceneID="ST5-3D-Bt9">
             <objects>
-                <viewController id="ylj-jj-8l8" customClass="CatalogViewController" customModule="Unifai" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="catalog" id="ylj-jj-8l8" customClass="CatalogViewController" customModule="Unifai" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ov0-D9-faa"/>
                         <viewControllerLayoutGuide type="bottom" id="Npb-0e-I4z"/>

@@ -129,6 +129,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     
     let loadMoreSpinner = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
     let loadMoreText = UILabel()
+    var didReachEndOfFeed = false
     
     var creator : MessageCreator?
     
@@ -158,6 +159,8 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         loadingView.tintColor = UIColor.whiteColor()
         tableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
             self?.offset = 0
+            self?.didReachEndOfFeed = false
+            self.loadMoreText.text = "Scroll to load more"
             self!.loadData()
             self?.tableView.dg_stopLoading()
             }, loadingView: loadingView)
@@ -219,20 +222,26 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         self.tableView.reloadData()
     }
     
-    func shouldRefreshData() {
-        loadData()
-    }
-    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return currentTheme.statusBarStyle
     }
     
     func loadData() {
         Unifai.getFeed(fromOffset: offset, andAmount: limit, completion: { messages in
-            
+            if messages.count == 0 {
+                self.didReachEndOfFeed = true
+                self.loadMoreText.hidden = false
+                self.loadMoreText.text = "~~ Start of feed ~~"
+                self.loadMoreSpinner.stopAnimating()
+                return
+            }
             if self.offset > 0 {
                 self.messages.appendContentsOf(messages)
-                self.tableView.reloadData()
+                if self.offset < self.messages.count {
+                    let upper = min(self.offset+self.limit, self.messages.count)
+                    self.tableView.insertRowsAtIndexPaths((self.offset..<upper).map{NSIndexPath(forRow:$0,inSection: 0)}, withRowAnimation: .Middle)
+                    
+                }
             }
             else {
                 self.messages = messages
@@ -246,7 +255,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let currentOffset = scrollView.contentOffset.y
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
-        if maximumOffset - currentOffset <= 10.0 {
+        if maximumOffset - currentOffset <= 10.0 && !didReachEndOfFeed {
             self.loadMoreText.hidden = true
             self.loadMoreSpinner.startAnimating()
             offset += limit

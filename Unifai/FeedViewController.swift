@@ -160,7 +160,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         tableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
             self?.offset = 0
             self?.didReachEndOfFeed = false
-            self.loadMoreText.text = "Scroll to load more"
+            self?.loadMoreText.text = "Scroll to load more"
             self!.loadData()
             self?.tableView.dg_stopLoading()
             }, loadingView: loadingView)

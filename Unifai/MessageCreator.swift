@@ -1,15 +1,7 @@
-//
-//  MessageCreator.swift
-//  Unifai
-//
-//  Created by Leonardo Ciocan on 28/05/2016.
-//  Copyright © 2016 Unifai. All rights reserved.
-//
-
 import UIKit
 import Foundation
 import SafariServices
-
+import PKHUD
 
 enum Position {
     case Top
@@ -194,8 +186,11 @@ enum Position {
     func sendMessage(message: String) {
             if threadID == nil {
                 Unifai.sendMessage(message, completion: { msg in
+                    HUD.flash(.Success, delay: 1.0)
                     self.creatorDelegate?.shouldAppendMessage(msg)
                     },error: {
+                        HUD.flash(.Error, delay: 1.0)
+
                         let alert = UIAlertController(title: "Can't send this message", message: "", preferredStyle: UIAlertControllerStyle.Alert)
                         alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: nil))
                         self.parentViewController!.presentViewController(alert, animated: true, completion: nil)
@@ -203,6 +198,7 @@ enum Position {
             }
             else {
                 Unifai.sendMessage(message,thread:threadID!, completion: { msg in
+                    HUD.flash(.Success, delay: 1.0)
                     self.creatorDelegate?.shouldAppendMessage(msg)
                 })
             }
@@ -210,7 +206,8 @@ enum Position {
     
     func sendMessage(message: String, imageData: NSData) {
         Unifai.sendMessage(message , imageData: imageData, completion: { msg in
-           self.creatorDelegate?.shouldAppendMessage(msg)
+            HUD.flash(.Success, delay: 1.0)
+            self.creatorDelegate?.shouldAppendMessage(msg)
         })
     }
     
@@ -238,6 +235,8 @@ enum Position {
                 removeAction(self)
             }
             assistant!.resetAutocompletion()
+            
+            HUD.show(.Progress)
             if imageData == nil {
                 self.sendMessage(message)
             }

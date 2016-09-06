@@ -70,11 +70,9 @@ extension FeedViewController : MessageCreatorDelegate {
     }
     
     func didStartWriting() {
-        self.navigationItem.leftBarButtonItem = doneButton
     }
     
     func didFinishWirting() {
-        self.navigationItem.leftBarButtonItem = nil
     }
     
     func shouldAppendMessage(message: Message) {
@@ -117,7 +115,7 @@ extension FeedViewController {
     }
 }
 
-class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , MessageCellDelegate , ThreadVCDelegate{
+class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , MessageCellDelegate , ThreadVCDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnCatalog: UIBarButtonItem!
     @IBOutlet weak var assistantBottomConstraint: NSLayoutConstraint!
@@ -128,20 +126,19 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     var mainSplitView : MainSplitView {
         return self.splitViewController as! MainSplitView
     }
-    let doneButton = UIBarButtonItem()
+    
+    let loadMoreSpinner = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+    let loadMoreText = UILabel()
+    
     var creator : MessageCreator?
     
+    var offset = 0
+    let limit = 3
     
     override func viewDidLoad() {
-        //Theme setup
         self.view.backgroundColor = currentTheme.backgroundColor
         self.tableView.backgroundColor = currentTheme.backgroundColor
         self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
-        
-
-        doneButton.action = #selector(doneClicked)
-        doneButton.title = "Done"
-        doneButton.style = .Done
         
         self.tableView!.registerNib(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
         
@@ -160,6 +157,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         let loadingView = DGElasticPullToRefreshLoadingViewCircle()
         loadingView.tintColor = UIColor.whiteColor()
         tableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
+            self?.offset = 0
             self!.loadData()
             self?.tableView.dg_stopLoading()
             }, loadingView: loadingView)
@@ -167,11 +165,12 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         tableView.dg_setPullToRefreshBackgroundColor(tableView.backgroundColor!)
         
         Core.populateAll(withCallback: {
-            Cache.getFeed({ messages in
-                self.messages = messages
-                self.tableView.reloadData()
-                self.loadData()
-            })
+//            Cache.getFeed({ messages in
+//                self.messages = messages
+//                self.tableView.reloadData()
+//                self.loadData()
+//            })
+            self.loadData()
         })
         
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
@@ -182,7 +181,26 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         creator!.backgroundColor = UIColor.whiteColor()
         tableView.tableHeaderView = creator
         
-        self.navigationItem.title = "Feed"
+        let loadMoreFooter = UIView(frame: CGRect(x:0,y:0, width: self.view.frame.width,height: 55))
+        loadMoreText.text = "Scroll to load more"
+        loadMoreText.textColor = UIColor.grayColor()
+        loadMoreSpinner.hidesWhenStopped = true
+        loadMoreText.hidden = true
+        
+        loadMoreFooter.addSubview(loadMoreText)
+        loadMoreFooter.addSubview(loadMoreSpinner)
+        
+        loadMoreText.snp_makeConstraints(closure: { make in
+            make.center.equalTo(loadMoreFooter)
+        })
+        
+        loadMoreSpinner.snp_makeConstraints(closure: { make in
+            make.center.equalTo(loadMoreFooter)
+        })
+        
+        tableView.tableFooterView = loadMoreFooter
+        
+        
         navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)!, NSForegroundColorAttributeName: currentTheme.foregroundColor]
         
         registerForKeyboardNotifications()
@@ -210,21 +228,32 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     }
     
     func loadData() {
-        Unifai.getFeed({ threadMessages in
-            let diff = threadMessages.count - self.messages.count
-            if diff > 0 {
-                self.messages = threadMessages
-                self.tableView.beginUpdates()
-                self.tableView.insertRowsAtIndexPaths((0..<diff).map{ NSIndexPath(forRow:$0,inSection: 0)}, withRowAnimation: .Automatic)
-                self.tableView.endUpdates()
-            }
-            else {
-                self.messages = threadMessages
+        Unifai.getFeed(fromOffset: offset, andAmount: limit, completion: { messages in
+            
+            if self.offset > 0 {
+                self.messages.appendContentsOf(messages)
                 self.tableView.reloadData()
             }
-            self.creator?.updateGeniusSuggestionsLocally()
+            else {
+                self.messages = messages
+                self.tableView.reloadData()
+            }
+            self.loadMoreText.hidden = false
+            self.loadMoreSpinner.stopAnimating()
         })
     }
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        if maximumOffset - currentOffset <= 10.0 {
+            self.loadMoreText.hidden = true
+            self.loadMoreSpinner.startAnimating()
+            offset += limit
+            self.loadData()
+        }
+    }
+
 
     @IBAction func toCatalog(sender: AnyObject) {
         self.performSegueWithIdentifier("toCatalog", sender: self)

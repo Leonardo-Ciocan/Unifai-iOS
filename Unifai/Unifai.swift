@@ -99,9 +99,8 @@ class Unifai{
         }
     }
     
-    static func getFeed(completion : ([Message])->()) {
-        
-        Alamofire.request(.GET , Constants.urlFeed , headers:self.headers)
+    static func getFeed(fromOffset offset: Int, andAmount amount: Int, completion : ([Message])->()) {
+        Alamofire.request(.GET , Constants.urlFeed + String(offset) + "/" + String(amount) + "/" , headers:self.headers)
             .validate()
             .responseJSON{ response in
                 switch response.result {

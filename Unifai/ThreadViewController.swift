@@ -2,6 +2,7 @@ import Foundation
 import GSImageViewerController
 import SafariServices
 import UIKit
+
 extension UITableView {
     func scrollToBottom(animated animated: Bool) {
         if self.contentSize.height < self.bounds.size.height { return }

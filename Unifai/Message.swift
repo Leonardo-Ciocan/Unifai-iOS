@@ -90,8 +90,10 @@ class Message {
         self.threadID = thread
         
         if let time = json["timestamp"].string {
+            print(time)
             let formatter = NSDateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSSSxxx"
+            formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
             if let date =  formatter.dateFromString(time){
                 self.timestamp = date
             }

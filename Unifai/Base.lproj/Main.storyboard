@@ -430,13 +430,21 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="scrollIndicatorInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="To begin enter a query above" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMR-Ug-eoR">
+                                <rect key="frame" x="5" y="358" width="223" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="pMR-Ug-eoR" firstAttribute="centerX" secondItem="fBr-eD-Bqp" secondAttribute="centerX" id="Kuv-Ut-L1q"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lYQ-X9-Zfp" secondAttribute="trailing" constant="-20" id="LJb-rI-UbI"/>
                             <constraint firstItem="FyY-4Z-6bw" firstAttribute="top" secondItem="lYQ-X9-Zfp" secondAttribute="bottom" id="Phd-s4-GMC"/>
                             <constraint firstItem="lYQ-X9-Zfp" firstAttribute="leading" secondItem="fBr-eD-Bqp" secondAttribute="leadingMargin" constant="-20" id="QWE-B8-EVO"/>
                             <constraint firstItem="lYQ-X9-Zfp" firstAttribute="top" secondItem="v0t-QA-C0S" secondAttribute="bottom" id="dIY-Ze-Cqa"/>
+                            <constraint firstItem="pMR-Ug-eoR" firstAttribute="centerY" secondItem="fBr-eD-Bqp" secondAttribute="centerY" id="g5o-D9-CUg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit dashboard" id="KNO-cl-s2k">
@@ -454,6 +462,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="tableView" destination="lYQ-X9-Zfp" id="XdI-Sz-Aug"/>
+                        <outlet property="txtInstructions" destination="pMR-Ug-eoR" id="Gr2-0u-V8T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r8I-OI-YBJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

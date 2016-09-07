@@ -9,9 +9,10 @@
 import UIKit
 
 class DashboardEditorHeader: UIView {
+    @IBOutlet weak var shadowView: UIView!
     
     @IBOutlet weak var btnCreate: UIButton!
-    @IBOutlet weak var txtMessage: MessageCreatorTextView!
+    @IBOutlet weak var txtMessage: UITextField!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,16 +31,33 @@ class DashboardEditorHeader: UIView {
         view.frame = bounds
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         
-        txtMessage.layer.borderColor = currentTheme.foregroundColor.CGColor
-        txtMessage.textColor = currentTheme.foregroundColor
-        txtMessage.backgroundColor = currentTheme.shadeColor
+        txtMessage.backgroundColor = UIColor.clearColor()
+        txtMessage.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.06).CGColor
+        txtMessage.layer.borderWidth = 0
+        txtMessage.textColor = UIColor.whiteColor()
+        txtMessage.layer.cornerRadius = 17.5
+        txtMessage.layer.masksToBounds = true
+        txtMessage.tintColor = UIColor.whiteColor()
+        
+        let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+        txtMessage.leftViewMode = .Always
+        txtMessage.leftView = leftView
         
         txtMessage.attributedPlaceholder = NSAttributedString(string: "Enter any message..." ,
-                                                              attributes:[NSForegroundColorAttributeName: currentTheme.secondaryForegroundColor])
+                                                              attributes:[NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(0.9)])
         
         
+        self.backgroundColor = Constants.appBrandColor.darkenColor(0.05)
         
         self.addSubview(view)
+    }
+    
+    override func setNeedsLayout() {
+//        shadowView.layer.shadowPath = UIBezierPath(roundedRect: shadowView.bounds, cornerRadius: 17.5).CGPath
+//        self.shadowView.layer.shadowColor = UIColor.blackColor().CGColor
+//        self.shadowView.layer.shadowOffset = CGSizeMake(0.0, 0.0)
+//        self.shadowView.layer.shadowRadius = 10
+//        self.shadowView.layer.shadowOpacity = 0.04
     }
 
     

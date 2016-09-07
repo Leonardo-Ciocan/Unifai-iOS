@@ -1,11 +1,3 @@
-//
-//  DashboardEditorViewController.swift
-//  Unifai
-//
-//  Created by Leonardo Ciocan on 29/05/2016.
-//  Copyright © 2016 Unifai. All rights reserved.
-//
-
 import UIKit
 
 protocol DashboardEditorViewControllerDelegate {
@@ -21,6 +13,7 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
     var header : DashboardEditorHeader?
     var delegate : DashboardEditorViewControllerDelegate?
     
+    @IBOutlet weak var txtInstructions: UILabel!
     let txtTitle = UILabel()
     let txtSubtitle = UILabel()
     override func viewDidLoad() {
@@ -39,15 +32,15 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
         self.tableView.editing = true
         self.tableView.registerNib(UINib(nibName: "DashboardEditorCell", bundle: nil), forCellReuseIdentifier: "DashboardEditorCell")
         self.tableView.tableFooterView = UIView()
-        header = DashboardEditorHeader(frame:CGRect(x: 0, y: 0, width: self.view.frame.width, height: 70))
+        header = DashboardEditorHeader(frame:CGRect(x: 0, y: 0, width: self.view.frame.width, height: 45))
         self.tableView.tableHeaderView = header
         self.header?.txtMessage.delegate = self
         
         txtTitle.text = "Editing dashboard"
         txtTitle.font = txtTitle.font.fontWithSize(13)
         txtSubtitle.text = "Loading..."
-        txtTitle.textColor = currentTheme.foregroundColor
-        txtSubtitle.textColor = currentTheme.secondaryForegroundColor
+        txtTitle.textColor = UIColor.whiteColor()
+        txtSubtitle.textColor = UIColor.whiteColor()
         txtSubtitle.font = txtSubtitle.font.fontWithSize(13)
         txtTitle.textAlignment = .Center
         txtSubtitle.textAlignment = .Center
@@ -56,7 +49,13 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
         titleContainer.axis = .Vertical
         titleContainer.frame = CGRect(x: 0, y: 0, width: 200, height: 33)
         navigationItem.titleView = titleContainer
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.barTintColor = Constants.appBrandColor
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.barStyle = .Black
+        self.navigationController?.navigationBar.translucent = false
         
+
         loadData()
     }
     
@@ -65,6 +64,7 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
         tableView.insertRowsAtIndexPaths([NSIndexPath(forRow:self.items.count - 1 , inSection:0)], withRowAnimation: .Automatic)
         header?.txtMessage.text = ""
         textField.resignFirstResponder()
+        self.showInstructionsIfNeeded()
         return false
     }
     
@@ -73,7 +73,12 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
             self.items = items
             self.txtSubtitle.text = "\(items.count) items"
             self.tableView.reloadData()
+            self.showInstructionsIfNeeded()
         })
+    }
+    
+    func showInstructionsIfNeeded() {
+        txtInstructions.hidden = items.count > 0
     }
     
     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -114,6 +119,7 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
             items.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             self.txtSubtitle.text = "\(items.count) items"
+            self.showInstructionsIfNeeded()
         }
     }
     
@@ -142,5 +148,10 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
     
     @IBAction func cancel(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
     }
 }

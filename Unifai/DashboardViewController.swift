@@ -69,7 +69,7 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         
         updateTimeLabel()
         self.timeUpdatingTimer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: #selector(updateTimeLabel), userInfo: nil, repeats: true)
-    }
+        }
     
     var hasDashboardNewerThanCacheBeenLoaded = false
     
@@ -182,4 +182,5 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
     func didUpdateDashboardItems() {
         //self.loadData()
     }
+    
 }

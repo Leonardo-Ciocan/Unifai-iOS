@@ -1,11 +1,3 @@
-//
-//  CatalogItem.swift
-//  Unifai
-//
-//  Created by Leonardo Ciocan on 15/07/2016.
-//  Copyright © 2016 Unifai. All rights reserved.
-//
-
 import Foundation
 import SwiftyJSON
 
@@ -13,6 +5,7 @@ class CatalogItem {
     var name = ""
     var message = ""
     var description = ""
+    var isSuitableForDashboard = false
     
     init(json:JSON){
         if let name = json["name"].string {
@@ -25,6 +18,10 @@ class CatalogItem {
         
         if let description = json["description"].string {
             self.description = description
+        }
+        
+        if let isSuitableForDashboard = json["suitable_for_dashboard"].bool {
+            self.isSuitableForDashboard = isSuitableForDashboard
         }
     }
 }

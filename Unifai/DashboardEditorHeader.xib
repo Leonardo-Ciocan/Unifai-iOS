@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardEditorHeader" customModule="Unifai" customModuleProvider="target">
             <connections>
+                <outlet property="shadowView" destination="5k9-CH-pbY" id="oEx-Qq-OAy"/>
                 <outlet property="txtMessage" destination="crW-56-m1P" id="mvI-EN-Thu"/>
             </connections>
         </placeholder>
@@ -15,16 +16,27 @@
             <rect key="frame" x="0.0" y="0.0" width="612" height="128"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="crW-56-m1P" customClass="MessageCreatorTextView" customModule="Unifai" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5k9-CH-pbY">
+                    <rect key="frame" x="20" y="49.5" width="572" height="30"/>
+                </view>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="crW-56-m1P">
                     <rect key="frame" x="20" y="49" width="572" height="30"/>
+                    <color key="backgroundColor" red="0.0008559375689" green="0.68458518400000001" blue="0.016235069370000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="ocy-Is-toS"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="5k9-CH-pbY" firstAttribute="top" secondItem="crW-56-m1P" secondAttribute="top" id="1Vv-T7-ArS"/>
                 <constraint firstItem="crW-56-m1P" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="3dz-TL-acO"/>
                 <constraint firstItem="crW-56-m1P" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Elt-cd-pTM"/>
+                <constraint firstItem="5k9-CH-pbY" firstAttribute="bottom" secondItem="crW-56-m1P" secondAttribute="bottom" id="FRE-O7-ck7"/>
+                <constraint firstItem="5k9-CH-pbY" firstAttribute="leading" secondItem="crW-56-m1P" secondAttribute="leading" id="L8h-yl-v0f"/>
+                <constraint firstItem="5k9-CH-pbY" firstAttribute="trailing" secondItem="crW-56-m1P" secondAttribute="trailing" id="Zxn-vU-TVq"/>
                 <constraint firstAttribute="trailing" secondItem="crW-56-m1P" secondAttribute="trailing" constant="20" id="otu-fS-75V"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

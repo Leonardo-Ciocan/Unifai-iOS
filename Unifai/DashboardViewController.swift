@@ -33,8 +33,8 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         txtTitle.text = "Dashboard"
         txtTitle.font = txtTitle.font.fontWithSize(13)
         txtSubtitle.text = "Updated 2 min ago"
-        txtTitle.textColor = currentTheme.foregroundColor
-        txtSubtitle.textColor = currentTheme.secondaryForegroundColor
+        txtTitle.textColor = UIColor.blackColor()
+        txtSubtitle.textColor = UIColor.grayColor()
         txtSubtitle.font = txtSubtitle.font.fontWithSize(13)
         txtTitle.textAlignment = .Center
         txtSubtitle.textAlignment = .Center
@@ -69,6 +69,13 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         
         updateTimeLabel()
         self.timeUpdatingTimer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: #selector(updateTimeLabel), userInfo: nil, repeats: true)
+        
+        //self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor() //Constants.appBrandColor.darkenColor(0.05)
+        self.navigationController?.navigationBar.tintColor = UIColor.blackColor()
+        //self.navigationController?.navigationBar.barStyle = .Black
+        self.navigationController?.navigationBar.translucent = false
         }
     
     var hasDashboardNewerThanCacheBeenLoaded = false

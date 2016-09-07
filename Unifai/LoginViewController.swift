@@ -39,6 +39,12 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
         txtPassword.layer.masksToBounds = true
         txtPassword.attributedPlaceholder = NSAttributedString(string:"Password",
                                                               attributes:[NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(0.8)])
+        
+        if NSUserDefaults.standardUserDefaults().stringForKey("token") != nil{
+            Core.populateAll(withCallback: {
+                self.performSegueWithIdentifier("auth", sender: self)
+            })
+        }
     }
     
     @IBOutlet weak var logoHeight: NSLayoutConstraint!
@@ -62,7 +68,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
     override func viewDidAppear(animated: Bool) {
         //NSUserDefaults.standardUserDefaults().removeObjectForKey("token")
         if NSUserDefaults.standardUserDefaults().stringForKey("token") != nil{
-            performSegueWithIdentifier("auth", sender: self)
+            
         }
         else{
             txtPassword.delegate = self
@@ -105,7 +111,6 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
             txtPassword.resignFirstResponder()
             loginClicked(self)
         }
-        
         return true
     }
     
@@ -114,7 +119,10 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
             token in
             NSUserDefaults.standardUserDefaults().setValue(token, forKey: "token")
             NSUserDefaults.standardUserDefaults().synchronize()
-            self.performSegueWithIdentifier("auth" , sender: self)
+            Core.populateAll(withCallback: {
+                self.performSegueWithIdentifier("auth" , sender: self)
+            })
+            
             } , error: {
                 let alert = UIAlertController(title: "Login error", message: "That username and password don't match", preferredStyle: .Alert)
                 let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)

@@ -12,7 +12,6 @@ class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.selectedIndex = NSUserDefaults.standardUserDefaults().integerForKey("startingPage")
         self.tabBar.barStyle = currentTheme.barStyle
     }

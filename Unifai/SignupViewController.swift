@@ -77,7 +77,9 @@ class SignupViewController: UIViewController , UITextFieldDelegate {
                 token in
                 NSUserDefaults.standardUserDefaults().setValue(token, forKey: "token")
                 NSUserDefaults.standardUserDefaults().synchronize()
-                self.performSegueWithIdentifier("auth" , sender: self)
+                Core.populateAll(withCallback: {
+                    self.performSegueWithIdentifier("auth" , sender: self)
+                })
                 }, error: {
                     
                 })

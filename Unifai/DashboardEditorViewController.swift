@@ -1,10 +1,14 @@
-import UIKit
+    import UIKit
 
 protocol DashboardEditorViewControllerDelegate {
     func didUpdateDashboardItems()
 }
 
 class DashboardEditorViewController: UIViewController , UITableViewDataSource , UITableViewDelegate, UITextFieldDelegate{
+    
+    @IBOutlet weak var suggestionsTableView: UITableView!
+    
+    @IBOutlet weak var suggestionsView: UIView!
 
     @IBOutlet
     var tableView: UITableView!
@@ -14,8 +18,13 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
     var delegate : DashboardEditorViewControllerDelegate?
     
     @IBOutlet weak var txtInstructions: UILabel!
+    var btnSave : UIBarButtonItem?
+    
     let txtTitle = UILabel()
     let txtSubtitle = UILabel()
+    var dashboardSuggestions : [CatalogItem] = []
+    var allSuggestions : [CatalogItem] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,13 +59,47 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
         titleContainer.frame = CGRect(x: 0, y: 0, width: 200, height: 33)
         navigationItem.titleView = titleContainer
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.barTintColor = Constants.appBrandColor
+        self.navigationController?.navigationBar.barTintColor = UIColor.grayColor().darkenColor(0.1)
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationController?.navigationBar.barStyle = .Black
         self.navigationController?.navigationBar.translucent = false
         
-
+        self.btnSave = UIBarButtonItem(title: "Save", style: .Done, target: self, action: #selector(done))
+        self.navigationItem.rightBarButtonItem = nil
         loadData()
+        
+        self.allSuggestions = Core.Catalog.values.flatMap({ $0 }).filter({ $0.isSuitableForDashboard })
+        self.dashboardSuggestions = Core.Catalog.values.flatMap({ $0 }).filter({ $0.isSuitableForDashboard })
+        
+        self.suggestionsTableView.registerNib(UINib(nibName: "SuggestionCell",bundle: nil), forCellReuseIdentifier: "SuggestionCell")
+        self.suggestionsTableView.dataSource = self
+        self.suggestionsTableView.delegate = self
+        self.suggestionsTableView!.rowHeight = UITableViewAutomaticDimension
+        self.suggestionsTableView.estimatedRowHeight = 100
+        self.suggestionsTableView.separatorColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
+        self.suggestionsTableView.separatorInset = UIEdgeInsetsZero
+        self.suggestionsTableView.separatorStyle = .None
+        
+        header?.txtMessage.addTarget(
+            self,
+            action: #selector(textDidChange),
+            forControlEvents: .EditingChanged
+        )
+    }
+    
+    func textDidChange() {
+        let text = header?.txtMessage.text
+        let wordsInQuery = (text!.componentsSeparatedByString(" "))
+        var filtered : [CatalogItem] = self.allSuggestions
+            wordsInQuery.forEach({ keyword in
+                filtered = filtered.filter({
+                    $0.name.lowercaseString.containsString(keyword.lowercaseString) ||
+                        $0.message.lowercaseString.containsString(keyword.lowercaseString) ||
+                        keyword == ""
+                })
+            })
+        self.dashboardSuggestions = filtered
+        self.suggestionsTableView.reloadData()
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -65,6 +108,8 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
         header?.txtMessage.text = ""
         textField.resignFirstResponder()
         self.showInstructionsIfNeeded()
+        self.navigationItem.rightBarButtonItem = btnSave
+        self.txtSubtitle.text = "\(items.count) items"
         return false
     }
     
@@ -82,44 +127,74 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
     }
     
     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
+        return tableView != suggestionsTableView
     }
     
     func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
         let temp = items[sourceIndexPath.row]
         items[sourceIndexPath.row] = items[destinationIndexPath.row]
         items[destinationIndexPath.row] = temp
+        self.navigationItem.rightBarButtonItem = btnSave
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.items.count
+        return tableView == suggestionsTableView ? dashboardSuggestions.count : self.items.count
     }
     
     @IBAction func cancelTapped(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        tableView.reloadData()
+        //self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("DashboardEditorCell")! as! DashboardEditorCell
-        cell.setMessage(self.items[indexPath.row])
-        cell.backgroundColor = currentTheme.backgroundColor
-        return cell
+        if tableView == suggestionsTableView {
+            let cell = tableView.dequeueReusableCellWithIdentifier("SuggestionCell") as! SuggestionCell
+            cell.txtName.text = dashboardSuggestions[indexPath.row].name
+            cell.txtMessage.text = dashboardSuggestions[indexPath.row].message
+            if let color = TextUtils.extractServiceColorFrom(dashboardSuggestions[indexPath.row].message) {
+                cell.backgroundColor = color.darkenColor(0.03)
+            }
+            cell.selectionStyle = .None
+            return cell
+        }
+        else {
+            let cell = self.tableView.dequeueReusableCellWithIdentifier("DashboardEditorCell")! as! DashboardEditorCell
+            cell.setMessage(self.items[indexPath.row])
+            cell.backgroundColor = currentTheme.backgroundColor
+            return cell
+        }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print("You selected cell #\(indexPath.row)!")
+        if tableView == suggestionsTableView {
+            self.items.append(self.dashboardSuggestions[indexPath.row].message)
+            header?.txtMessage.text = ""
+            textDidChange()
+            reloadData()
+            header?.txtMessage.resignFirstResponder()
+            self.showInstructionsIfNeeded()
+            self.navigationItem.rightBarButtonItem = btnSave
+            self.txtSubtitle.text = "\(items.count) items"
+            self.suggestionsView.hidden = true
+        }
+    }
+    
+    func reloadData() {
+        tableView.reloadData()
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
+        return tableView != suggestionsTableView
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+        if editingStyle == .Delete && tableView != suggestionsTableView {
             items.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             self.txtSubtitle.text = "\(items.count) items"
             self.showInstructionsIfNeeded()
+            self.navigationItem.rightBarButtonItem = btnSave
+            self.txtSubtitle.text = "\(items.count) items"
         }
     }
     
@@ -147,11 +222,26 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
     }
     
     @IBAction func cancel(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        tableView.reloadData()
+        //self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        suggestionsView.hidden = false
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        suggestionsView.hidden = true
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if !(touches.first?.view?.isKindOfClass(UITextField))! {
+            view.endEditing(true)
+        }
     }
 }

@@ -47,7 +47,7 @@ class DashboardEditorHeader: UIView {
                                                               attributes:[NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(0.9)])
         
         
-        self.backgroundColor = Constants.appBrandColor.darkenColor(0.05)
+        self.backgroundColor = UIColor.grayColor().darkenColor(0.15)
         
         self.addSubview(view)
     }

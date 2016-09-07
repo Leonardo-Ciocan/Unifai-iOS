@@ -168,14 +168,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         tableView.dg_setPullToRefreshFillColor(Constants.appBrandColor)
         tableView.dg_setPullToRefreshBackgroundColor(tableView.backgroundColor!)
         
-        Core.populateAll(withCallback: {
-//            Cache.getFeed({ messages in
-//                self.messages = messages
-//                self.tableView.reloadData()
-//                self.loadData()
-//            })
-            self.loadData()
-        })
+        self.loadData()
         
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
         self.creator = MessageCreator(frame: CGRect(x: 0, y: 0, width: self.view.frame.width , height: 110))

@@ -32,7 +32,14 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         })
         
         self.navigationItem.title = "Actions"
-        navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)! ]
+        navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)!, NSForegroundColorAttributeName : currentTheme.foregroundColor ]
+        
+        
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.barTintColor = currentTheme.backgroundColor //Constants.appBrandColor.darkenColor(0.05)
+        self.navigationController?.navigationBar.tintColor = currentTheme.foregroundColor
+        //self.navigationController?.navigationBar.barStyle = .Black
+        self.navigationController?.navigationBar.translucent = false
     }
     
     func setActions(actions : [Action]) {

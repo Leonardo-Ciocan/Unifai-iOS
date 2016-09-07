@@ -7,6 +7,7 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
     var messages : [Message] = []
     @IBOutlet weak var tableView: UITableView!
    
+    @IBOutlet weak var tutorialView: UIView!
     
     var activityControl : UIActivityIndicatorView?
     
@@ -79,17 +80,16 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
             self.tableView.reloadData()
             self.loadData()
             self.activityControl?.stopAnimating()
-            
         })
     }
     
     var lastUpdatedDate : NSDate?
     
     func updateTimeLabel() {
-        if lastUpdatedDate == nil {
+        if lastUpdatedDate == nil && self.txtSubtitle.text != "Your dashboard is empty" {
             self.txtSubtitle.text = "Loading..."
         }
-        else {
+        else if lastUpdatedDate != nil {
             if NSDate().timeIntervalSinceDate(lastUpdatedDate!) < 60 {
                 self.txtSubtitle.text = "Updated just now"
             }
@@ -134,8 +134,10 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         Unifai.getDashboard({ dashboardMessages in
             if dashboardMessages.count == 0 {
                 self.txtSubtitle.text = "Your dashboard is empty"
+                self.tutorialView.hidden = false
             }
             else {
+                self.tutorialView.hidden = true
                 self.lastUpdatedDate = NSDate()
                 self.updateTimeLabel()
             }

@@ -6,6 +6,7 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
     private let reuseIdentifier = "ActionCell"
     private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     
+    @IBOutlet weak var tutorialView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     var actions : [Service:[Action]] = [:]
     var serviceOrder : [Service] = []
@@ -35,6 +36,7 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
     }
     
     func setActions(actions : [Action]) {
+        
         self.actions = [:]
         self.serviceOrder = []
         for action in actions {
@@ -91,6 +93,12 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
     
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        if serviceOrder.count == 0 {
+            tutorialView.hidden = false
+        }
+        else {
+            tutorialView.hidden = true
+        }
         return serviceOrder.count
     }
     

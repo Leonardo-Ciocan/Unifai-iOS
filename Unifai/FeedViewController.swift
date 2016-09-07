@@ -77,6 +77,7 @@ extension FeedViewController : MessageCreatorDelegate {
     
     func shouldAppendMessage(message: Message) {
         guard message.service != nil else { return }
+        offset += 1
         self.messages.insert(message, atIndex: 0)
         self.tableView.beginUpdates()
         self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow:0,inSection:0)], withRowAnimation: .Automatic)
@@ -134,7 +135,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     var creator : MessageCreator?
     
     var offset = 0
-    let limit = 3
+    let limit = 10
     
     override func viewDidLoad() {
         self.view.backgroundColor = currentTheme.backgroundColor

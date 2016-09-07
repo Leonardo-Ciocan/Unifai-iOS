@@ -105,33 +105,6 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
         print("You selected cell #\(indexPath.row)!")
     }
     
-    
-    
-    @IBAction func newItem(sender: AnyObject) {
-        let alert = UIAlertController(title: "New item", message: "Enter a query to be answered", preferredStyle: .Alert)
-        
-        alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
-            textField.placeholder = "@weather What's the weather like in London?"
-        })
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel , handler: nil))
-        
-        alert.addAction(UIAlertAction(title: "OK", style: .Default , handler: { (action) -> Void in
-            let textField = alert.textFields![0] as UITextField
-            
-//            self.tableView.reloadData()
-            self.tableView.beginUpdates()
-            self.items.append(textField.text!)
-
-            self.tableView.insertRowsAtIndexPaths([ NSIndexPath(forRow: self.items.count - 1, inSection: 0)], withRowAnimation: .Fade)
-            self.tableView.endUpdates()
-        }))
-        self.txtSubtitle.text = "\(items.count) items"
-
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
-    
-    
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
@@ -145,6 +118,21 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
     }
     
     @IBAction func done(sender: AnyObject) {
+        if header!.txtMessage.text!.isEmpty {
+            saveAndDismiss()
+        }
+        else {
+            let alert = UIAlertController(title: "You are still writing", message: "Do you want to discard it?", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Discard it", style: .Default , handler: { action in
+                self.saveAndDismiss()
+            }))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        
+    }
+    
+    func saveAndDismiss() {
         Unifai.setDashboardItems(self.items, completion: { s in
             self.dismissViewControllerAnimated(true, completion: {
                 self.delegate?.didUpdateDashboardItems()

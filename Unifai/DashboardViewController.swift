@@ -56,11 +56,10 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         
         self.tableView!.separatorStyle = .None
         Cache.getDashboard({ messages in
+            guard !self.hasDashboardNewerThanCacheBeenLoaded else { return }
             self.messages = messages
             self.tableView.reloadData()
-            self.loadData()
             self.activityControl?.stopAnimating()
-            
         })
         
         activityControl = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
@@ -72,7 +71,10 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         self.timeUpdatingTimer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: #selector(updateTimeLabel), userInfo: nil, repeats: true)
     }
     
+    var hasDashboardNewerThanCacheBeenLoaded = false
+    
     override func viewDidAppear(animated: Bool) {
+        hasDashboardNewerThanCacheBeenLoaded = true
         lastUpdatedDate = nil
         updateTimeLabel()
         Cache.getDashboard({ messages in
@@ -178,6 +180,6 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
     }
     
     func didUpdateDashboardItems() {
-        self.loadData()
+        //self.loadData()
     }
 }

@@ -727,70 +727,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Unifai/DashboardEditorViewController.swift"
-            timestampString = "492837562.239231"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
-            landmarkName = "newItem(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Unifai/DashboardEditorViewController.swift"
-            timestampString = "492837562.239231"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "newItem(_:)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Unifai.DashboardEditorViewController.newItem (Swift.AnyObject) -&gt; ()"
-                  moduleName = "Unifai"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/leo/Development/xCode/Unifai/Unifai/DashboardEditorViewController.swift"
-                  timestampString = "486254698.098984"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "62"
-                  endingLineNumber = "62"
-                  offsetFromSymbolStart = "568">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Unifai.DashboardEditorViewController.(newItem (Swift.AnyObject) -&gt; ()).(closure #2)"
-                  moduleName = "Unifai"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/leo/Development/xCode/Unifai/Unifai/DashboardEditorViewController.swift"
-                  timestampString = "486254698.099249"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "23">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Unifai/Unifai.swift"
             timestampString = "494806763.669253"
             startingColumnNumber = "9223372036854775807"
@@ -808,11 +744,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/DashboardViewController.swift"
-            timestampString = "494901238.674432"
+            timestampString = "494934821.20323"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2420,11 +2356,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/DashboardViewController.swift"
-            timestampString = "494901238.674432"
+            timestampString = "494934821.20323"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "updateTimeLabel()"
             landmarkType = "5">
          </BreakpointContent>
@@ -2436,11 +2372,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/DashboardViewController.swift"
-            timestampString = "494900756.514115"
+            timestampString = "494934821.20323"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -2452,11 +2388,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/DashboardViewController.swift"
-            timestampString = "494901238.674432"
+            timestampString = "494934821.20323"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "updateTimeLabel()"
             landmarkType = "5">
          </BreakpointContent>
@@ -2468,11 +2404,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/DashboardViewController.swift"
-            timestampString = "494901238.674432"
+            timestampString = "494934821.20323"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "updateTimeLabel()"
             landmarkType = "5">
          </BreakpointContent>

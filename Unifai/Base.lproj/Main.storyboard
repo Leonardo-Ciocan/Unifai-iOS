@@ -695,7 +695,7 @@
                                     </connections>
                                 </collectionReusableView>
                             </collectionView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2eD-Pr-loQ">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2eD-Pr-loQ">
                                 <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8SB-EF-Vl5">
@@ -725,7 +725,7 @@
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukD-0y-giO">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukD-0y-giO">
                                         <rect key="frame" x="25" y="59" width="364" height="40.5"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Anything">
@@ -736,7 +736,7 @@
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
-                                            <fragment content=" you can ask can become a button , for example:">
+                                            <fragment content=" you can ask can become an action">
                                                 <attributes>
                                                     <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <font key="NSFont" size="17" name="HelveticaNeue-Thin"/>

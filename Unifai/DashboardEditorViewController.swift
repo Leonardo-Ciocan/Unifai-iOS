@@ -20,6 +20,7 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
     var header : DashboardEditorHeader?
     var delegate : DashboardEditorViewControllerDelegate?
     
+    @IBOutlet weak var barShadow: UIVisualEffectView!
     @IBOutlet weak var txtInstructions: UILabel!
     var btnSave : UIBarButtonItem?
     
@@ -51,8 +52,8 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
         txtTitle.text = "Editing dashboard"
         txtTitle.font = txtTitle.font.fontWithSize(13)
         txtSubtitle.text = "Loading..."
-        txtTitle.textColor = UIColor.whiteColor()
-        txtSubtitle.textColor = UIColor.whiteColor()
+        txtTitle.textColor = UIColor.grayColor()
+        txtSubtitle.textColor = UIColor.grayColor()
         txtSubtitle.font = txtSubtitle.font.fontWithSize(13)
         txtTitle.textAlignment = .Center
         txtSubtitle.textAlignment = .Center
@@ -61,11 +62,6 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
         titleContainer.axis = .Vertical
         titleContainer.frame = CGRect(x: 0, y: 0, width: 200, height: 33)
         navigationItem.titleView = titleContainer
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.barTintColor = UIColor.grayColor().darkenColor(0.1)
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        self.navigationController?.navigationBar.barStyle = .Black
-        self.navigationController?.navigationBar.translucent = false
         
         self.btnSave = UIBarButtonItem(title: "Save", style: .Done, target: self, action: #selector(done))
         self.navigationItem.rightBarButtonItem = nil
@@ -82,6 +78,19 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
         self.suggestionsTableView.separatorColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
         self.suggestionsTableView.separatorInset = UIEdgeInsetsZero
         self.suggestionsTableView.separatorStyle = .None
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.barTintColor = UIColor.clearColor() //Constants.appBrandColor.darkenColor(0.05)
+        self.navigationController?.navigationBar.tintColor = UIColor.blackColor()
+        self.navigationController?.navigationBar.translucent = true
+        
+        barShadow.layer.shadowColor = UIColor.blackColor().CGColor
+        barShadow.layer.shadowOffset = CGSizeZero
+        barShadow.layer.shadowOpacity = 0.11
+        barShadow.layer.shadowRadius = 10
+        barShadow.layer.borderWidth = 0
+        barShadow.layer.borderColor = UIColor.grayColor().colorWithAlphaComponent(0.2).CGColor
         
         header?.txtMessage.addTarget(
             self,

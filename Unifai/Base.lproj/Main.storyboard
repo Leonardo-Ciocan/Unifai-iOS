@@ -11,7 +11,7 @@
         <scene sceneID="CUI-Br-zvL">
             <objects>
                 <navigationController id="geT-Ui-7e2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="profileIcon" selectedImage="profile-selected" id="CjM-sk-LAt"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile-selected" selectedImage="profile-selected" id="CjM-sk-LAt"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" shadowImage="whitepixel" backIndicatorImage="whitepixel" id="I9b-0c-ymd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -411,7 +411,7 @@
         <scene sceneID="Px4-ja-pnd">
             <objects>
                 <navigationController id="ybj-fy-MFA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Dashboard" image="dashboard" selectedImage="dashboard-selected" id="BGz-hv-bj8"/>
+                    <tabBarItem key="tabBarItem" title="Dashboard" image="dashboard-selected" selectedImage="dashboard-selected" id="BGz-hv-bj8"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jkd-gD-8WH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -479,9 +479,22 @@
                                     <constraint firstAttribute="trailing" secondItem="1H5-vi-cic" secondAttribute="trailing" id="pi4-ly-CPi"/>
                                 </constraints>
                             </view>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbV-LZ-YDF">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="wsU-Of-zng">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="DC9-JV-Xc9"/>
+                                </constraints>
+                                <blurEffect style="extraLight"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="sbV-LZ-YDF" secondAttribute="trailing" constant="-20" id="7ee-IB-LGl"/>
+                            <constraint firstItem="sbV-LZ-YDF" firstAttribute="leading" secondItem="fBr-eD-Bqp" secondAttribute="leadingMargin" constant="-20" id="AjV-xz-tgJ"/>
                             <constraint firstItem="pMR-Ug-eoR" firstAttribute="centerX" secondItem="fBr-eD-Bqp" secondAttribute="centerX" id="Kuv-Ut-L1q"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lYQ-X9-Zfp" secondAttribute="trailing" constant="-20" id="LJb-rI-UbI"/>
                             <constraint firstItem="FyY-4Z-6bw" firstAttribute="top" secondItem="lYQ-X9-Zfp" secondAttribute="bottom" id="Phd-s4-GMC"/>
@@ -491,6 +504,7 @@
                             <constraint firstItem="YY7-EH-Ejf" firstAttribute="leading" secondItem="fBr-eD-Bqp" secondAttribute="leadingMargin" constant="-20" id="Wuo-4K-OZ9"/>
                             <constraint firstItem="lYQ-X9-Zfp" firstAttribute="top" secondItem="v0t-QA-C0S" secondAttribute="bottom" id="dIY-Ze-Cqa"/>
                             <constraint firstItem="pMR-Ug-eoR" firstAttribute="centerY" secondItem="fBr-eD-Bqp" secondAttribute="centerY" id="g5o-D9-CUg"/>
+                            <constraint firstItem="sbV-LZ-YDF" firstAttribute="top" secondItem="v0t-QA-C0S" secondAttribute="bottom" constant="-64" id="iXg-Qp-dSu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YY7-EH-Ejf" secondAttribute="trailing" constant="-20" id="vZZ-QT-ZaU"/>
                         </constraints>
                     </view>
@@ -508,6 +522,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="barShadow" destination="sbV-LZ-YDF" id="iZC-gt-Ctz"/>
                         <outlet property="suggestionsBottomConstraint" destination="QRq-yc-hR0" id="zvx-lS-25l"/>
                         <outlet property="suggestionsTableView" destination="1H5-vi-cic" id="cVU-4h-rHw"/>
                         <outlet property="suggestionsView" destination="YY7-EH-Ejf" id="2hi-Kh-rtP"/>
@@ -533,9 +548,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Ib-IS-hze">
-                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jwu-W1-0xn">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="VwL-YR-T9V">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="ziT-Qt-uJL"/>
+                                </constraints>
+                                <blurEffect style="extraLight"/>
+                            </visualEffectView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kzU-Ha-VF7">
                                 <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                                 <subviews>
@@ -647,13 +673,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Jwu-W1-0xn" firstAttribute="leading" secondItem="ocC-iN-dGh" secondAttribute="leadingMargin" constant="-20" id="8P6-Yn-iOX"/>
                             <constraint firstItem="2Ib-IS-hze" firstAttribute="leading" secondItem="ocC-iN-dGh" secondAttribute="leadingMargin" constant="-20" id="AiX-nb-pie"/>
                             <constraint firstItem="y1C-Qf-Ecd" firstAttribute="top" secondItem="2Ib-IS-hze" secondAttribute="bottom" id="H7Y-BI-uNi"/>
                             <constraint firstItem="kzU-Ha-VF7" firstAttribute="top" secondItem="ZoF-Ag-gta" secondAttribute="bottom" id="Ujr-pf-MPu"/>
+                            <constraint firstItem="Jwu-W1-0xn" firstAttribute="top" secondItem="ZoF-Ag-gta" secondAttribute="bottom" constant="-64" id="V75-T0-wiq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2Ib-IS-hze" secondAttribute="trailing" constant="-20" id="Wxu-YZ-lVz"/>
-                            <constraint firstItem="2Ib-IS-hze" firstAttribute="top" secondItem="ZoF-Ag-gta" secondAttribute="bottom" id="Y2a-0S-Eev"/>
+                            <constraint firstItem="2Ib-IS-hze" firstAttribute="top" secondItem="ZoF-Ag-gta" secondAttribute="bottom" constant="-64" id="Y2a-0S-Eev"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kzU-Ha-VF7" secondAttribute="trailing" constant="-20" id="d0s-0W-EFo"/>
                             <constraint firstItem="y1C-Qf-Ecd" firstAttribute="top" secondItem="kzU-Ha-VF7" secondAttribute="bottom" id="efX-Od-5NX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Jwu-W1-0xn" secondAttribute="trailing" constant="-20" id="hPR-yn-kG6"/>
                             <constraint firstItem="kzU-Ha-VF7" firstAttribute="leading" secondItem="ocC-iN-dGh" secondAttribute="leadingMargin" constant="-20" id="kOd-lO-jVM"/>
                         </constraints>
                     </view>
@@ -668,19 +697,20 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="barShadow" destination="Jwu-W1-0xn" id="sTB-QK-t3m"/>
                         <outlet property="tableView" destination="2Ib-IS-hze" id="hf5-zI-gf0"/>
                         <outlet property="tutorialView" destination="kzU-Ha-VF7" id="Vr8-cK-U5V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A8f-if-Kyo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-414" y="1883"/>
+            <point key="canvasLocation" x="-415" y="1912"/>
         </scene>
         <!--Action-->
         <scene sceneID="tum-ZS-Tl8">
             <objects>
                 <navigationController id="bFi-Fx-TQk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Action" image="action" selectedImage="actions-selected" id="fUB-oE-rTU"/>
+                    <tabBarItem key="tabBarItem" title="Action" image="actions-selected" selectedImage="actions-selected" id="fUB-oE-rTU"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="axf-4W-KDc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -707,7 +737,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3WF-XI-cTN">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="zbH-Pi-a6D">
                                     <size key="itemSize" width="50" height="50"/>
@@ -826,12 +856,26 @@
                                     <constraint firstItem="wjN-gO-C0S" firstAttribute="leading" secondItem="2eD-Pr-loQ" secondAttribute="leading" constant="55" id="mSp-Fq-lbB"/>
                                 </constraints>
                             </view>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VA0-Tt-7YH">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="d1h-VZ-Alg">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="Nef-qK-fZ3"/>
+                                </constraints>
+                                <blurEffect style="extraLight"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ZxO-dh-vom" firstAttribute="top" secondItem="2eD-Pr-loQ" secondAttribute="bottom" id="1uN-sf-QKD"/>
-                            <constraint firstItem="3WF-XI-cTN" firstAttribute="top" secondItem="0hL-oD-YXf" secondAttribute="bottom" id="5Fi-1n-LUc"/>
+                            <constraint firstItem="3WF-XI-cTN" firstAttribute="top" secondItem="0hL-oD-YXf" secondAttribute="bottom" constant="-64" id="5Fi-1n-LUc"/>
+                            <constraint firstItem="VA0-Tt-7YH" firstAttribute="top" secondItem="0hL-oD-YXf" secondAttribute="bottom" constant="-64" id="E0R-67-Qx9"/>
+                            <constraint firstItem="VA0-Tt-7YH" firstAttribute="leading" secondItem="NNr-pu-ON2" secondAttribute="leadingMargin" constant="-20" id="HTp-wr-4tW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3WF-XI-cTN" secondAttribute="trailing" constant="-20" id="Jom-y0-joo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VA0-Tt-7YH" secondAttribute="trailing" constant="-20" id="LkW-Xh-g1U"/>
                             <constraint firstItem="2eD-Pr-loQ" firstAttribute="leading" secondItem="NNr-pu-ON2" secondAttribute="leadingMargin" constant="-20" id="MLY-Gc-i1O"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2eD-Pr-loQ" secondAttribute="trailing" constant="-20" id="SSh-QZ-19v"/>
                             <constraint firstItem="ZxO-dh-vom" firstAttribute="top" secondItem="3WF-XI-cTN" secondAttribute="bottom" constant="-49" id="TRf-L0-lkj"/>
@@ -849,6 +893,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="barShadow" destination="VA0-Tt-7YH" id="1i0-e8-ljz"/>
                         <outlet property="collectionView" destination="3WF-XI-cTN" id="sA8-rN-Ary"/>
                         <outlet property="tutorialView" destination="2eD-Pr-loQ" id="KzE-lE-Lv5"/>
                     </connections>
@@ -998,16 +1043,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="action" width="30" height="30"/>
         <image name="actionIcon" width="30" height="30"/>
         <image name="actions-selected" width="30" height="30"/>
-        <image name="dashboard" width="30" height="30"/>
         <image name="dashboard-selected" width="30" height="30"/>
         <image name="dashboard-tap-reminder" width="300" height="156"/>
         <image name="passport" width="250" height="125"/>
         <image name="profile" width="30" height="30"/>
         <image name="profile-selected" width="30" height="30"/>
-        <image name="profileIcon" width="30" height="30"/>
         <image name="unifai" width="100" height="100"/>
         <image name="whitepixel" width="1" height="1"/>
     </resources>

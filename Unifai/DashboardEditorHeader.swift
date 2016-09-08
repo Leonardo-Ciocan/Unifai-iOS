@@ -34,20 +34,20 @@ class DashboardEditorHeader: UIView {
         txtMessage.backgroundColor = UIColor.clearColor()
         txtMessage.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.06).CGColor
         txtMessage.layer.borderWidth = 0
-        txtMessage.textColor = UIColor.whiteColor()
+        txtMessage.textColor = UIColor.blackColor()
         txtMessage.layer.cornerRadius = 17.5
         txtMessage.layer.masksToBounds = true
-        txtMessage.tintColor = UIColor.whiteColor()
+        txtMessage.tintColor = UIColor.blackColor()
         
         let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
         txtMessage.leftViewMode = .Always
         txtMessage.leftView = leftView
         
         txtMessage.attributedPlaceholder = NSAttributedString(string: "Enter any message..." ,
-                                                              attributes:[NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(0.9)])
+                                                              attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
         
         
-        self.backgroundColor = UIColor.grayColor().darkenColor(0.15)
+        self.backgroundColor = UIColor.grayColor().lightenColor(0.45)
         
         self.addSubview(view)
     }

@@ -47,7 +47,7 @@ enum Position {
     override func drawRect(rect: CGRect) {
         border.backgroundColor = currentTheme.shadeColor.CGColor
         border.frame = CGRect(x: 15, y: isTop ? self.frame.height - 1 : 0, width: self.frame.width-30, height: 1)
-        self.layer.addSublayer(border)
+        //self.layer.addSublayer(border)
         super.drawRect(rect)
     }
 

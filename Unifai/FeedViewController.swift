@@ -138,6 +138,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     
     var offset = 0
     let limit = 10
+    @IBOutlet weak var creatorShadow: UIView!
     
     override func viewDidLoad() {
         self.view.backgroundColor = currentTheme.backgroundColor
@@ -212,6 +213,13 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         reloadPrompt.layer.shadowRadius = 10
         reloadPrompt.layer.borderWidth = 1
         reloadPrompt.layer.borderColor = UIColor.grayColor().colorWithAlphaComponent(0.2).CGColor
+        
+        creatorShadow.layer.shadowColor = UIColor.blackColor().CGColor
+        creatorShadow.layer.shadowOffset = CGSizeZero
+        creatorShadow.layer.shadowOpacity = 0.11
+        creatorShadow.layer.shadowRadius = 10
+        creatorShadow.layer.borderWidth = 0
+        creatorShadow.layer.borderColor = UIColor.grayColor().colorWithAlphaComponent(0.2).CGColor
         
     }
     

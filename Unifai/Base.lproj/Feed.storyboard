@@ -10,7 +10,7 @@
         <scene sceneID="dtg-T1-m1Z">
             <objects>
                 <splitViewController id="tlR-Rw-ebq" customClass="MainSplitView" customModule="Unifai" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Feed" image="feed" selectedImage="feed_selected" id="YL9-p1-CRb"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="feed_selected" selectedImage="feed_selected" id="YL9-p1-CRb"/>
                     <navigationItem key="navigationItem" id="Puy-Hp-xsA"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
@@ -68,6 +68,26 @@
                                 <rect key="frame" x="0.0" y="34" width="414" height="702"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oQJ-Ol-k1E">
+                                <rect key="frame" x="0.0" y="44" width="414" height="120"/>
+                                <subviews>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RNp-1H-0vT">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="w3w-we-2k1">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <blurEffect style="extraLight"/>
+                                    </visualEffectView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="RNp-1H-0vT" firstAttribute="leading" secondItem="oQJ-Ol-k1E" secondAttribute="leading" id="Fza-ap-nyg"/>
+                                    <constraint firstItem="RNp-1H-0vT" firstAttribute="top" secondItem="oQJ-Ol-k1E" secondAttribute="top" id="PEv-Lu-3XB"/>
+                                    <constraint firstAttribute="bottom" secondItem="RNp-1H-0vT" secondAttribute="bottom" id="SK3-bW-pba"/>
+                                    <constraint firstAttribute="trailing" secondItem="RNp-1H-0vT" secondAttribute="trailing" id="gbJ-wF-AOw"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rzu-bd-HCc" customClass="MessageCreator" customModule="Unifai" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="120"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -136,14 +156,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="oQJ-Ol-k1E" firstAttribute="leading" secondItem="Rzu-bd-HCc" secondAttribute="leading" id="09s-my-nXY"/>
                             <constraint firstItem="vlB-eK-07o" firstAttribute="top" secondItem="5Dl-9b-TOG" secondAttribute="bottom" id="3au-6j-chD"/>
                             <constraint firstItem="kne-SX-8Hu" firstAttribute="leading" secondItem="iJy-dG-NZ9" secondAttribute="leadingMargin" constant="-20" id="CeD-az-YVm"/>
                             <constraint firstItem="5Dl-9b-TOG" firstAttribute="leading" secondItem="iJy-dG-NZ9" secondAttribute="leadingMargin" constant="-20" id="ClQ-Ba-8jX"/>
                             <constraint firstItem="Rzu-bd-HCc" firstAttribute="top" secondItem="8eS-bY-AXs" secondAttribute="bottom" constant="-20" id="E7G-42-cHQ"/>
                             <constraint firstItem="HoM-TM-Dym" firstAttribute="leading" secondItem="iJy-dG-NZ9" secondAttribute="leadingMargin" id="OnS-nc-7Xg"/>
+                            <constraint firstItem="oQJ-Ol-k1E" firstAttribute="bottom" secondItem="Rzu-bd-HCc" secondAttribute="bottom" id="Po9-f6-5WI"/>
                             <constraint firstItem="Rzu-bd-HCc" firstAttribute="leading" secondItem="iJy-dG-NZ9" secondAttribute="leadingMargin" constant="-20" id="ReB-A9-1Ix"/>
                             <constraint firstItem="htD-Nz-551" firstAttribute="top" secondItem="8eS-bY-AXs" secondAttribute="bottom" constant="-20" id="UUP-b4-ymT"/>
                             <constraint firstItem="5Dl-9b-TOG" firstAttribute="top" secondItem="8eS-bY-AXs" secondAttribute="bottom" constant="100" id="ZAi-9r-3Pn"/>
+                            <constraint firstItem="oQJ-Ol-k1E" firstAttribute="trailing" secondItem="Rzu-bd-HCc" secondAttribute="trailing" id="bjp-Zj-hVe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kne-SX-8Hu" secondAttribute="trailing" constant="-20" id="cYC-dj-3eP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5Dl-9b-TOG" secondAttribute="trailing" constant="-20" id="n5x-8g-ReG"/>
                             <constraint firstItem="kne-SX-8Hu" firstAttribute="top" secondItem="8eS-bY-AXs" secondAttribute="bottom" constant="-30" id="qax-z0-3Wc"/>
@@ -154,6 +177,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="HoM-TM-Dym" secondAttribute="trailing" id="vcd-pF-12a"/>
                             <constraint firstItem="vlB-eK-07o" firstAttribute="top" secondItem="kne-SX-8Hu" secondAttribute="bottom" constant="-49" id="w96-Wq-Ozd"/>
                             <constraint firstItem="vlB-eK-07o" firstAttribute="top" secondItem="HoM-TM-Dym" secondAttribute="bottom" constant="15" id="wvf-6j-bbv"/>
+                            <constraint firstItem="oQJ-Ol-k1E" firstAttribute="top" secondItem="Rzu-bd-HCc" secondAttribute="top" id="xSm-Px-Mql"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -175,6 +199,7 @@
                         <outlet property="btnCatalog" destination="e7A-fo-b5U" id="Smd-mV-cWo"/>
                         <outlet property="creator" destination="Rzu-bd-HCc" id="cXO-y3-IRQ"/>
                         <outlet property="creatorAssistant" destination="5Dl-9b-TOG" id="f70-H6-QTt"/>
+                        <outlet property="creatorShadow" destination="oQJ-Ol-k1E" id="Dha-qs-JkE"/>
                         <outlet property="reloadPrompt" destination="HoM-TM-Dym" id="iJe-Gi-C9K"/>
                         <outlet property="tableView" destination="kne-SX-8Hu" id="mbl-jU-b67"/>
                         <segue destination="dAm-DF-bdC" kind="presentation" identifier="toCatalog" id="7Qq-7M-Qti"/>
@@ -376,6 +401,6 @@
         <image name="feed_selected" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EDk-Fs-wBx"/>
+        <segue reference="OuX-8E-Hqg"/>
     </inferredMetricsTieBreakers>
 </document>

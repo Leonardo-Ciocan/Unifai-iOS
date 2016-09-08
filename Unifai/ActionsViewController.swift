@@ -6,6 +6,7 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
     private let reuseIdentifier = "ActionCell"
     private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     
+    @IBOutlet weak var barShadow: UIVisualEffectView!
     @IBOutlet weak var tutorialView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     var actions : [Service:[Action]] = [:]
@@ -31,11 +32,20 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)!, NSForegroundColorAttributeName : currentTheme.foregroundColor ]
         
         
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.barTintColor = currentTheme.backgroundColor //Constants.appBrandColor.darkenColor(0.05)
-        self.navigationController?.navigationBar.tintColor = currentTheme.foregroundColor
-        //self.navigationController?.navigationBar.barStyle = .Black
-        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.barTintColor = UIColor.clearColor() //Constants.appBrandColor.darkenColor(0.05)
+        self.navigationController?.navigationBar.tintColor = UIColor.blackColor()
+        self.navigationController?.navigationBar.translucent = true
+        
+        barShadow.layer.shadowColor = UIColor.blackColor().CGColor
+        barShadow.layer.shadowOffset = CGSizeZero
+        barShadow.layer.shadowOpacity = 0.11
+        barShadow.layer.shadowRadius = 10
+        barShadow.layer.borderWidth = 0
+        barShadow.layer.borderColor = UIColor.grayColor().colorWithAlphaComponent(0.2).CGColor
+        
     }
     
     var isFirstLoad : Bool = true

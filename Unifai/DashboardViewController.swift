@@ -11,6 +11,7 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
     
     var activityControl : UIActivityIndicatorView?
     
+    @IBOutlet weak var barShadow: UIVisualEffectView!
     let txtTitle = UILabel()
     let txtSubtitle = UILabel()
     var timeUpdatingTimer : NSTimer?
@@ -70,13 +71,21 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         updateTimeLabel()
         self.timeUpdatingTimer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: #selector(updateTimeLabel), userInfo: nil, repeats: true)
         
-        //self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor() //Constants.appBrandColor.darkenColor(0.05)
+        self.navigationController?.navigationBar.barTintColor = UIColor.clearColor() //Constants.appBrandColor.darkenColor(0.05)
         self.navigationController?.navigationBar.tintColor = UIColor.blackColor()
         //self.navigationController?.navigationBar.barStyle = .Black
-        self.navigationController?.navigationBar.translucent = false
-        }
+        self.navigationController?.navigationBar.translucent = true
+        
+        barShadow.layer.shadowColor = UIColor.blackColor().CGColor
+        barShadow.layer.shadowOffset = CGSizeZero
+        barShadow.layer.shadowOpacity = 0.11
+        barShadow.layer.shadowRadius = 10
+        barShadow.layer.borderWidth = 0
+        barShadow.layer.borderColor = UIColor.grayColor().colorWithAlphaComponent(0.2).CGColor
+        
+    }
     
     var hasDashboardNewerThanCacheBeenLoaded = false
     
@@ -84,12 +93,7 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         hasDashboardNewerThanCacheBeenLoaded = true
         lastUpdatedDate = nil
         updateTimeLabel()
-        Cache.getDashboard({ messages in
-            self.messages = messages
-            self.tableView.reloadData()
-            self.loadData()
-            self.activityControl?.stopAnimating()
-        })
+        self.loadData()
     }
     
     var lastUpdatedDate : NSDate?

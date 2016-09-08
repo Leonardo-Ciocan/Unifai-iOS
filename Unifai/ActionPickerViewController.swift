@@ -38,6 +38,10 @@ class ActionPickerViewController: UIViewController , UICollectionViewDataSource 
         self.navigationItem.title = "Pick an action"
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: #selector(CancelTapped))
         self.applyCurrentTheme()
+        
+        self.navigationController?.navigationBar.barTintColor = currentTheme.backgroundColor
+        self.navigationController?.navigationBar.tintColor = currentTheme.foregroundColor
+        self.navigationController?.navigationBar.translucent = false
     }
     
     func setActions(actions : [Action]) {
@@ -109,7 +113,7 @@ class ActionPickerViewController: UIViewController , UICollectionViewDataSource 
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10)
+        return UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {

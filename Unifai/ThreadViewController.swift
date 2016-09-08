@@ -21,6 +21,9 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     
     @IBOutlet weak var creatorAssistant: CreatorAssistant!
     
+    
+    @IBOutlet weak var creatorShadow: UIView!
+    
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet var rootView: UIView!
     @IBOutlet weak var messageCreator: MessageCreator! {
@@ -57,7 +60,13 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         self.messageCreator.assistant = creatorAssistant
         self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 49 + 100))
         self.messageCreator.updateGeniusSuggestions(threadID!)
-
+        creatorShadow.layer.shadowColor = UIColor.blackColor().CGColor
+        creatorShadow.layer.shadowOffset = CGSizeZero
+        creatorShadow.layer.shadowOpacity = 0.11
+        creatorShadow.layer.shadowRadius = 10
+        creatorShadow.layer.borderWidth = 0
+        creatorShadow.layer.borderColor = UIColor.grayColor().colorWithAlphaComponent(0.2).CGColor
+        
         messageCreator.parentViewController = self
         
         NSNotificationCenter.defaultCenter().addObserver(self,

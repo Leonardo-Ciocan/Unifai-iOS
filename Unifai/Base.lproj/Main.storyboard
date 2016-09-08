@@ -69,6 +69,33 @@
             </objects>
             <point key="canvasLocation" x="1276" y="-16"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="smc-Xt-CZa">
+            <objects>
+                <viewController id="w8g-Ch-d5v" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HAy-vo-IVH"/>
+                        <viewControllerLayoutGuide type="bottom" id="NKs-Hb-ccR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bcX-XF-Q4O">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="I9a-Wm-Fqf">
+                                <rect key="frame" x="93" y="165" width="47" height="36"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="unifai" translatesAutoresizingMaskIntoConstraints="NO" id="4mo-3i-dR2">
+                                <rect key="frame" x="33" y="115" width="166" height="135"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IXp-Gn-qQr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1254" y="-16"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="Sf4-KS-Zka">
             <objects>

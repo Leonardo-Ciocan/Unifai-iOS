@@ -128,10 +128,12 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         return self.splitViewController as! MainSplitView
     }
     
+    @IBOutlet weak var reloadPrompt: UIView!
     let loadMoreSpinner = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
     let loadMoreText = UILabel()
     var didReachEndOfFeed = false
     
+    @IBOutlet
     var creator : MessageCreator?
     
     var offset = 0
@@ -171,12 +173,11 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         self.loadData()
         
         tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 100))
-        self.creator = MessageCreator(frame: CGRect(x: 0, y: 0, width: self.view.frame.width , height: 110))
         creator!.assistant = creatorAssistant
         creator!.parentViewController = self
         creator!.creatorDelegate = self
-        creator!.backgroundColor = UIColor.whiteColor()
-        tableView.tableHeaderView = creator
+        creator!.backgroundColor = UIColor.clearColor()
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width , height: 110))
         
         let loadMoreFooter = UIView(frame: CGRect(x:0,y:0, width: self.view.frame.width,height: 55))
         loadMoreText.text = "Scroll to load more"
@@ -204,6 +205,14 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         self.navigationController?.navigationBar.tintColor = currentTheme.foregroundColor
         
         self.navigationController!.navigationBar.hidden = true
+        
+        reloadPrompt.layer.shadowColor = UIColor.blackColor().CGColor
+        reloadPrompt.layer.shadowOffset = CGSizeZero
+        reloadPrompt.layer.shadowOpacity = 0.11
+        reloadPrompt.layer.shadowRadius = 10
+        reloadPrompt.layer.borderWidth = 1
+        reloadPrompt.layer.borderColor = UIColor.grayColor().colorWithAlphaComponent(0.2).CGColor
+        
     }
     
     override func viewWillAppear(animated: Bool) {

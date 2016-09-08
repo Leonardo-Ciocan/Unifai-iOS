@@ -129,7 +129,6 @@ enum Position {
         self.addSubview(view);
         
         //view.backgroundColor = currentTheme.backgroundColor
-        self.backgroundColor = currentTheme.backgroundColor
         view.layer.masksToBounds = true
        buttons.append(btnAction)
        buttons.append(btnImage)
@@ -158,19 +157,22 @@ enum Position {
         self.shadowView.layer.shadowOpacity = 0.1
         
         buttons.forEach({
-            $0.tintColor = currentTheme.foregroundColor
+            $0.tintColor = currentTheme.foregroundColor.colorWithAlphaComponent(0.65)
             $0.imageView?.contentMode = .ScaleAspectFit
             $0.setImage($0.currentImage!.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
-//            $0.backgroundColor = currentTheme.shadeColor
             $0.layer.masksToBounds = true
             $0.layer.cornerRadius = 12
             $0.layer.borderWidth = 1
             $0.layer.borderColor = currentTheme.shadeColor.CGColor
-            
         })
+   
         txtMessage.layer.borderColor = currentTheme.foregroundColor.CGColor
         txtMessage.textColor = currentTheme.foregroundColor
-        txtMessage.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.01)
+        txtMessage.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.035)
+        txtMessage.layer.cornerRadius = 5
+        txtMessage.layer.masksToBounds = true
+        txtMessage.layer.borderColor = currentTheme.shadeColor.CGColor
+        txtMessage.layer.borderWidth = 1
         
         let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
         txtMessage.leftViewMode = .Always
@@ -180,8 +182,20 @@ enum Position {
         btnGenius.tintColor = currentTheme.foregroundColor
         btnGenius.imageView?.contentMode = .ScaleAspectFit
         
-        self.backgroundColorView.backgroundColor = currentTheme.backgroundColor
+        //self.backgroundColorView.backgroundColor = currentTheme.backgroundColor
         updateGeniusSuggestionsLocally()
+
+//        txtMessage.layer.cornerRadius = 0
+//        txtMessage.layer.shadowPath = UIBezierPath(roundedRect: txtMessage.bounds, cornerRadius: 10).CGPath
+//        txtMessage.layer.shadowColor = UIColor.blackColor().CGColor
+//        txtMessage.layer.shadowOffset = CGSizeZero
+//        txtMessage.layer.shadowOpacity = 0.04
+//        txtMessage.layer.shadowRadius = 5
+//        txtMessage.layer.borderWidth = 1
+//        txtMessage.layer.borderColor = UIColor.blackColor().colorWithAlphaComponent(0.05).CGColor
+//        txtMessage.layer.masksToBounds = false
+//        txtMessage.layer.backgroundColor = UIColor.clea
+        
     }
     
     func sendMessage(message: String) {
@@ -226,9 +240,9 @@ enum Position {
             txtMessage.text = ""
             txtMessage.resignFirstResponder()
             btnSend.tintColor = Constants.appBrandColor
-            btnImage.tintColor = currentTheme.foregroundColor
-            btnAction.tintColor = currentTheme.foregroundColor
-            btnCamera.tintColor = currentTheme.foregroundColor
+            btnImage.tintColor = UIColor.blackColor().colorWithAlphaComponent(0.65)
+            btnAction.tintColor = UIColor.blackColor().colorWithAlphaComponent(0.65)
+            btnCamera.tintColor = UIColor.blackColor().colorWithAlphaComponent(0.65)
             txtMessage.tintColor = Constants.appBrandColor
             selectedService(nil, selectedByTapping: false)
             if self.imageData != nil {
@@ -284,10 +298,10 @@ enum Position {
             self.creatorDelegate?.shouldRemoveThemeFromHost()
             self.btnGenius.setImage(UIImage(named: geniusSuggestions.count == 0 ? "genius" : "genius_on"), forState: .Normal)
             UIView.animateWithDuration(1, animations: {
-                self.backgroundColorView.backgroundColor = currentTheme.backgroundColor
+                self.backgroundColorView.backgroundColor = UIColor.clearColor()
                 self.btnSend.tintColor = Constants.appBrandColor
                 self.buttons.forEach({
-                    $0.tintColor = currentTheme.foregroundColor
+                    $0.tintColor = UIColor.blackColor().colorWithAlphaComponent(0.65)
                 })
                 self.txtMessage.textColor = currentTheme.foregroundColor
             })

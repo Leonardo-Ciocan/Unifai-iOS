@@ -55,20 +55,20 @@ class SignupViewController: UIViewController , UITextFieldDelegate {
     
     @IBOutlet weak var logoHeight: NSLayoutConstraint!
     func keyboardWillShow(sender: NSNotification) {
-        _ = sender.userInfo!
-        //var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
-        
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
-            self.logoHeight.constant = 0
-        })
+//        _ = sender.userInfo!
+//        //var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+//        
+//        UIView.animateWithDuration(0.5, animations: { () -> Void in
+//            self.logoHeight.constant = 0
+//        })
     }
     func keyboardWillHide(sender: NSNotification) {
-        _ = sender.userInfo!
-        //var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
-        
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
-            self.logoHeight.constant = 215
-        })
+//        _ = sender.userInfo!
+//        //var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+//        
+//        UIView.animateWithDuration(0.5, animations: { () -> Void in
+//            self.logoHeight.constant = 215
+//        })
     }
     
     @IBAction func signup(sender: AnyObject) {
@@ -79,7 +79,7 @@ class SignupViewController: UIViewController , UITextFieldDelegate {
                 NSUserDefaults.standardUserDefaults().synchronize()
                 Core.populateAll(withCallback: {
                     self.performSegueWithIdentifier("auth" , sender: self)
-                })
+                    },error:{status in })
                 }, error: {
                     
                 })

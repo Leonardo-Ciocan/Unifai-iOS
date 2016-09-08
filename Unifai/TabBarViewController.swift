@@ -14,11 +14,18 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
         self.selectedIndex = NSUserDefaults.standardUserDefaults().integerForKey("startingPage")
         self.tabBar.barStyle = currentTheme.barStyle
+        //self.tabBar.translucent = false
+        self.tabBar.barTintColor = currentTheme.backgroundColor
+        if let items = tabBar.items {
+            for item in items {
+                item.title = ""
+                item.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0);
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {

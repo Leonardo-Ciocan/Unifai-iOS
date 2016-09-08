@@ -29,12 +29,8 @@ class ActionPickerViewController: UIViewController , UICollectionViewDataSource 
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        getServicesAndUser({ _ in
-            Unifai.getActions({ actions in
-                self.setActions(actions)
-                self.collectionView.reloadData()
-            })
-        })
+        self.setActions(Core.Actions)
+        self.collectionView.reloadData()
 
 
         self.collectionView.backgroundColor = currentTheme.backgroundColor
@@ -62,18 +58,6 @@ class ActionPickerViewController: UIViewController , UICollectionViewDataSource 
                 self.actions[service!] = [action]
             }
         }
-    }
-    func getServicesAndUser(callback: ([Service]) -> () ){
-        if Core.Services.count > 0 {
-            callback(Core.Services)
-            return
-        }
-        Unifai.getServices({ services in
-            Unifai.getUserInfo({username , email in
-                Core.Username = username
-                callback(services)
-            })
-        })
     }
     
     @IBAction func CancelTapped(sender: AnyObject) {

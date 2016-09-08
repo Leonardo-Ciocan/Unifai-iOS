@@ -32,27 +32,7 @@ class TestingViewController : UIViewController , UITableViewDelegate , UITableVi
         
         self.tabBarController?.title = "Feed"
         print("loading view")
-        Unifai.getServices({ services in
-            Core.Services = services
-            print("AQUIRED SERVICES")
-            Unifai.getUserInfo({username , email in
-                Core.Username = username
-//                
-//                let item1 = CardListPayloadItem()
-//                item1.title = "Wisconsin Democrats To Vote On Ending Superdelegates"
-//                item1.imageURL = "https://b.thumbs.redditmedia.com/7oGJLtC95d2W9N_WybDoFgOrsjF4CzYVDQf7JKopJBg.jpg"
-//                
-//                let item2 = CardListPayloadItem()
-//                item2.title = "Pebble Core gets Amazon Alexa integration."
-//                item2.imageURL = "https://b.thumbs.redditmedia.com/Opy9G8Ku-3vjaSq66GHltBNkXS5kLgnGJmU5oiThfRk.jpg"
-//                
-//                let payload = CardListPayload()
-//                payload.items = [item1,item2]
-//                
-//                self.messages.append(Message(body: "Hello world", type: .CardList, payload: payload, service: services[1]))
-                self.tableView.reloadData()
-            })
-        })
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

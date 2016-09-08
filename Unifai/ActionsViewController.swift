@@ -24,12 +24,8 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        getServicesAndUser({ _ in
-            Unifai.getActions({ actions in
-                self.setActions(actions)
-                self.collectionView.reloadData()
-            })
-        })
+        self.setActions(Core.Actions)
+        self.collectionView.reloadData()
         
         self.navigationItem.title = "Actions"
         navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)!, NSForegroundColorAttributeName : currentTheme.foregroundColor ]
@@ -40,6 +36,17 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         self.navigationController?.navigationBar.tintColor = currentTheme.foregroundColor
         //self.navigationController?.navigationBar.barStyle = .Black
         self.navigationController?.navigationBar.translucent = false
+    }
+    
+    var isFirstLoad : Bool = true
+    override func viewDidAppear(animated: Bool) {
+        if !isFirstLoad {
+            self.setActions(Core.Actions)
+            self.collectionView.reloadData()
+        }
+        else {
+            isFirstLoad = false
+        }
     }
     
     func setActions(actions : [Action]) {
@@ -61,11 +68,10 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         }
     }
     
-    func didCreateAction() {
-        Unifai.getActions({ actions in
-            self.setActions(actions)
-            self.collectionView.reloadData()
-        })
+    func didCreateAction(action:Action) {
+        Core.Actions.append(action)
+        setActions(Core.Actions)
+        collectionView.reloadData()
     }
     
     func deleteAction(){
@@ -84,20 +90,6 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         creator.preferredContentSize = CGSizeMake(300,250)
         self.presentViewController(creator, animated: true, completion: nil)
     }
-    
-    func getServicesAndUser(callback: ([Service]) -> () ){
-        if Core.Services.count > 0 {
-            callback(Core.Services)
-            return
-        }
-        Unifai.getServices({ services in
-            Unifai.getUserInfo({username , email in
-                Core.Username = username
-                callback(services)
-            })
-        })
-    }
-    
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         if serviceOrder.count == 0 {
@@ -135,7 +127,7 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10)
+        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
     //
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {

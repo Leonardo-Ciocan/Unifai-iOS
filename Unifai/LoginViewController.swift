@@ -1,5 +1,7 @@
 import UIKit
 import AlertOnboarding
+import PKHUD
+
 class LoginViewController: UIViewController , UITextFieldDelegate{
     @IBOutlet weak var btnSignup: UIButton!
 
@@ -40,9 +42,14 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
         txtPassword.attributedPlaceholder = NSAttributedString(string:"Password",
                                                               attributes:[NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(0.8)])
         
+        
         if NSUserDefaults.standardUserDefaults().stringForKey("token") != nil{
             Core.populateAll(withCallback: {
                 self.performSegueWithIdentifier("auth", sender: self)
+                },error: { status in
+                    HUD.show(HUDContentType.Label("Can't log in right now"))
+                    PKHUD.sharedHUD.hide(afterDelay: 2.0)
+                    self.view.hidden = false
             })
         }
     }
@@ -51,18 +58,18 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
     func keyboardWillShow(sender: NSNotification) {
         _ = sender.userInfo!
         //var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
-        self.logoHeight.constant = 0
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
-            self.view.layoutIfNeeded()
-        })
+//        self.logoHeight.constant = 0
+//        UIView.animateWithDuration(0.5, animations: { () -> Void in
+//            self.view.layoutIfNeeded()
+//        })
     }
     func keyboardWillHide(sender: NSNotification) {
         _ = sender.userInfo!
         //var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
-        
-        UIView.animateWithDuration(0.5, animations: { () -> Void in
-            self.logoHeight.constant = 215
-        })
+//        
+//        UIView.animateWithDuration(0.5, animations: { () -> Void in
+//            self.logoHeight.constant = 215
+//        })
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -121,6 +128,10 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
             NSUserDefaults.standardUserDefaults().synchronize()
             Core.populateAll(withCallback: {
                 self.performSegueWithIdentifier("auth" , sender: self)
+                },error:{ status in
+                    HUD.show(HUDContentType.Label("Can't log in right now"))
+                    PKHUD.sharedHUD.hide(afterDelay: 2.0)
+                    self.view.hidden = false
             })
             
             } , error: {

@@ -3,6 +3,13 @@ import Alamofire
 import SwiftyJSON
 
 
+enum ResponseStatus {
+    case AuthenticationFailed
+    case ServerUnavailable
+}
+
+typealias ErrorHandler = ( () -> () )?
+
 class Unifai{
     
     static var headers : Dictionary<String,String> {
@@ -346,8 +353,8 @@ class Unifai{
         }
     }
     
-    static func getUserInfo(completion : (username:String,email:String)->()) {
-        
+    
+    static func getUserInfo(completion : (username:String,email:String)->(), error : (ResponseStatus) -> ()) {
         Alamofire.request(.GET , Constants.urlUserInfo , headers:self.headers)
             .validate()
             .responseJSON{ response in
@@ -356,8 +363,8 @@ class Unifai{
                     let json = JSON(data)
                     
                     completion(username:json["username"].stringValue , email:json["email"].stringValue)
-                case .Failure(let error):
-                    print("Request failed with error: \(error)")
+                case .Failure(let err):
+                    error(err.code == 401 ? .AuthenticationFailed : .ServerUnavailable)
                 }
         }
     }

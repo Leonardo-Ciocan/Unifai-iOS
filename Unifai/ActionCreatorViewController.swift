@@ -1,7 +1,7 @@
 import UIKit
 
 protocol ActionCreatorDelegate {
-    func didCreateAction()
+    func didCreateAction(action: Action)
 }
 
 class ActionCreatorViewController: UIViewController, UITextFieldDelegate {
@@ -67,7 +67,7 @@ class ActionCreatorViewController: UIViewController, UITextFieldDelegate {
         }
         else{
             Unifai.createAction(txtMessage.text! , name: txtName.text! , completion: {
-                self.delegate?.didCreateAction()
+                self.delegate?.didCreateAction(Action(message: self.txtMessage.text!, name: self.txtName.text!))
                 self.dismissViewControllerAnimated(true, completion: nil)
                 },error: {
                     let dialog = UIAlertController(title: "Can't create action", message: "You need to enter a valid message and name", preferredStyle: .Alert)

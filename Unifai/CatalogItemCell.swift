@@ -35,7 +35,7 @@ class CatalogItemCell: UITableViewCell , ActionCreatorDelegate {
         super.setSelected(selected, animated: animated)
     }
     
-    func didCreateAction() {
+    func didCreateAction(_:  Action) {
         
     }
     

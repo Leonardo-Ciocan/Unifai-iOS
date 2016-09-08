@@ -76,7 +76,7 @@ class AutoCompletionServices: UIView , UICollectionViewDelegateFlowLayout , UICo
         if index == 0 {
             cell.txtName.text = "Dismiss"
             cell.txtName.textColor = UIColor.grayColor()
-            cell.backgroundColorView.backgroundColor = UIColor.whiteColor()
+            cell.backgroundColorView.backgroundColor = currentTheme.backgroundColor
             cell.backgroundColorView.layer.borderColor = UIColor.grayColor().CGColor
             cell.backgroundColorView.layer.borderWidth = 1
             cell.imgLogo.image = UIImage(named: "cancel")

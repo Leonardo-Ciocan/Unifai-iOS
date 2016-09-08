@@ -32,12 +32,40 @@ struct GeniusSuggestion {
     }
 }
 
+class GeniusUtil {
+    class func performQRCodeDetection(image: CIImage) ->  String {
+        var decode = ""
+        let options = [CIDetectorAccuracy: CIDetectorAccuracyHigh]
+        let detector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: options)
+        let features = detector.featuresInImage(image)
+        for feature in features as! [CIQRCodeFeature] {
+            decode = feature.messageString
+        }
+        return decode
+    }
+}
+
 class Genius {
     class func computeLocalGeniusSuggestions(withImageData image : NSData?) -> [GeniusGroup] {
         let clipboardSuggestions = Genius.getSuggestionsForClipboard()
-        return clipboardSuggestions
+        let imageSuggestions = getSuggestionsForImage(image)
+        return clipboardSuggestions + imageSuggestions
     }
 
+    class func getSuggestionsForImage(image:NSData?) -> [GeniusGroup] {
+        guard let image = image,
+              let img = CIImage(data: image)
+            else { return [] }
+        let str = GeniusUtil.performQRCodeDetection(img)
+        if !str.isEmpty {
+            let group = GeniusGroup(reason: "Because your image contains a QR code", suggestions: [
+                    GeniusSuggestion(name: "Open in browser", message: str, trigger: .OpenLink)
+                ])
+            return [group]
+        }
+        return []
+    }
+    
     class func getSuggestionsForClipboard() -> [GeniusGroup] {
         var groups : [GeniusGroup] = []
         if let clipboardText = UIPasteboard.generalPasteboard().string {
@@ -61,6 +89,18 @@ class Genius {
                     GeniusSuggestion(name: "Use image as attachment", message: "\(Int(clipboardImage.size.width))x\(Int(clipboardImage.size.height))" , trigger: .PasteImage)
                 ])
             groups.append(group)
+            
+            guard
+                let img = CIImage(data: UIImagePNGRepresentation(clipboardImage)!)
+                else { return [] }
+            let str = GeniusUtil.performQRCodeDetection(img)
+            if !str.isEmpty {
+                let group = GeniusGroup(reason: "Because the image you copied contains a QR code", suggestions: [
+                    GeniusSuggestion(name: "Open in browser", message: str, trigger: .OpenLink)
+                    ])
+                return [group]
+            }
+            return []
         }
         return groups
     }

@@ -181,6 +181,7 @@ enum Position {
         btnGenius.imageView?.contentMode = .ScaleAspectFit
         
         self.backgroundColorView.backgroundColor = currentTheme.backgroundColor
+        updateGeniusSuggestionsLocally()
     }
     
     func sendMessage(message: String) {
@@ -398,6 +399,7 @@ enum Position {
             if let imageData = UIImagePNGRepresentation(pickedImage) {
                 self.imageData = imageData
             }
+            updateGeniusSuggestionsLocally()
         }
         
         self.parentViewController!.dismissViewControllerAnimated(true, completion: nil)
@@ -461,7 +463,7 @@ enum Position {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .Camera
         imagePicker.modalPresentationStyle = .Popover
-        
+        updateGeniusSuggestionsLocally()
         self.textBoxLeftConstraint.constant = 135
         self.imageLeftConstraint.constant = 15
         UIView.animateWithDuration(0.7, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations:
@@ -537,7 +539,6 @@ enum Position {
         let svc = SFSafariViewController(URL: NSURL(string: link)!)
         self.parentViewController!.presentViewController(svc, animated: true, completion: nil)
     }
-    
     
     @IBAction func toCatalog(sender: AnyObject) {
         let catalogVC = UIStoryboard(name: "Feed", bundle: nil).instantiateViewControllerWithIdentifier("catalog")

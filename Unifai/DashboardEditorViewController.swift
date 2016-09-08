@@ -10,6 +10,9 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
     
     @IBOutlet weak var suggestionsView: UIView!
 
+    @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var suggestionsBottomConstraint: NSLayoutConstraint!
+    
     @IBOutlet
     var tableView: UITableView!
     
@@ -85,6 +88,33 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
             action: #selector(textDidChange),
             forControlEvents: .EditingChanged
         )
+        
+        registerForKeyboardNotifications()
+    }
+    
+    func registerForKeyboardNotifications()
+    {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillShow), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillHide), name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            self.suggestionsBottomConstraint.constant = keyboardSize.height
+            self.tableViewBottomConstraint.constant = keyboardSize.height
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        self.suggestionsBottomConstraint.constant = 0
+        self.tableViewBottomConstraint.constant = 0
+        self.view.layoutIfNeeded()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func textDidChange() {
@@ -103,14 +133,30 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.items.append((header?.txtMessage.text)!)
-        tableView.insertRowsAtIndexPaths([NSIndexPath(forRow:self.items.count - 1 , inSection:0)], withRowAnimation: .Automatic)
-        header?.txtMessage.text = ""
-        textField.resignFirstResponder()
-        self.showInstructionsIfNeeded()
-        self.navigationItem.rightBarButtonItem = btnSave
-        self.txtSubtitle.text = "\(items.count) items"
+        createOrHightlightToken()
         return false
+    }
+    
+    func createOrHightlightToken() {
+        let txtMessage = header?.txtMessage
+        let placeholderRanges = TextUtils.getPlaceholderPositionsInMessage((txtMessage?.text)!)
+        if placeholderRanges.count > 0 {
+            let range = placeholderRanges[0]
+            let start = txtMessage!.positionFromPosition(txtMessage!.beginningOfDocument, offset: range.location)
+            guard start != nil else { return }
+            let end = txtMessage!.positionFromPosition(start!, offset: range.length)
+            txtMessage!.selectedTextRange = txtMessage!.textRangeFromPosition(start!, toPosition: end!)
+        }
+        else{
+            self.items.append((header?.txtMessage.text)!)
+            tableView.insertRowsAtIndexPaths([NSIndexPath(forRow:self.items.count - 1 , inSection:0)], withRowAnimation: .Automatic)
+            header?.txtMessage.text = ""
+            textDidChange()
+            txtMessage!.resignFirstResponder()
+            self.showInstructionsIfNeeded()
+            self.navigationItem.rightBarButtonItem = btnSave
+            self.txtSubtitle.text = "\(items.count) items"
+        }
     }
     
     func loadData(){
@@ -142,8 +188,7 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
     }
     
     @IBAction func cancelTapped(sender: AnyObject) {
-        tableView.reloadData()
-        //self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -167,15 +212,8 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if tableView == suggestionsTableView {
-            self.items.append(self.dashboardSuggestions[indexPath.row].message)
-            header?.txtMessage.text = ""
-            textDidChange()
-            reloadData()
-            header?.txtMessage.resignFirstResponder()
-            self.showInstructionsIfNeeded()
-            self.navigationItem.rightBarButtonItem = btnSave
-            self.txtSubtitle.text = "\(items.count) items"
-            self.suggestionsView.hidden = true
+            header?.txtMessage.text = self.dashboardSuggestions[indexPath.row].message
+            createOrHightlightToken()
         }
     }
     

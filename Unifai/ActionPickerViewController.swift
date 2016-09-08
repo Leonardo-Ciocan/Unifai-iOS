@@ -118,7 +118,7 @@ class ActionPickerViewController: UIViewController , UICollectionViewDataSource 
         header.txtName.textColor = service.color
         header.txtCount.textColor = currentTheme.secondaryForegroundColor
         
-        header.txtName.text = service.name
+        header.txtName.text = service.name.uppercaseString
         header.txtCount.text = String(actions[service]!.count) + " actions"
         
         return header

@@ -14,16 +14,23 @@ class ActionCreatorViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        txtName.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.1)
-        txtName.layer.cornerRadius = 5
-        txtName.layer.borderWidth = 0
-        txtMessage.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.1)
-        txtMessage.layer.cornerRadius = 5
-        txtMessage.layer.borderWidth = 0
         txtName.text = presetName
         txtMessage.text = presetMessage
-        txtMessage.tintColor = UIColor.whiteColor()
         txtMessage.delegate = self
+        
+        self.view.backgroundColor = currentTheme.backgroundColor
+        txtName.tintColor = UIColor.whiteColor()
+        txtMessage.tintColor = UIColor.whiteColor()
+        changeColor(UIColor.grayColor().lightenColor(0.05))
+        self.navigationController?.navigationController?.navigationBar.translucent = false
+        
+        let leftView1 = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 0))
+        txtName.leftViewMode = .Always
+        txtName.leftView = leftView1
+        
+        let leftView2 = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 0))
+        txtMessage.leftViewMode = .Always
+        txtMessage.leftView = leftView2
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -31,18 +38,22 @@ class ActionCreatorViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    func changeColor(color:UIColor) {
+        UIView.animateWithDuration(0.5, animations: {
+            self.txtName.backgroundColor = color.darkenColor(0.05)
+            self.txtMessage.backgroundColor = color.darkenColor(0.05)
+            self.view.backgroundColor = color
+        })
+    }
+    
     override func viewDidAppear(animated: Bool) {
         let color = TextUtils.extractServiceColorFrom(txtMessage.text!)
-        UIView.animateWithDuration(0.6, animations: {
-            self.view.backgroundColor = color ?? UIColor.blackColor()
-        })
+        changeColor( color ?? UIColor.grayColor().lightenColor(0.05) )
     }
 
     @IBAction func textChanged(sender: AnyObject) {
         let color = TextUtils.extractServiceColorFrom(txtMessage.text!)
-        UIView.animateWithDuration(0.6, animations: {
-            self.view.backgroundColor = color ?? UIColor.blackColor()
-        })
+        changeColor( color ?? UIColor.grayColor().lightenColor(0.05) )
     }
     
     @IBAction func createTapped(sender: AnyObject) {
@@ -68,11 +79,7 @@ class ActionCreatorViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func cancelTapped(sender: AnyObject) {
-        UIView.animateWithDuration(0.3, animations: {
-            self.view.backgroundColor = UIColor.blackColor()
-            },completion: { _ in
-                self.dismissViewControllerAnimated(true, completion: nil)
-        })
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {

@@ -59,6 +59,13 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
         }
     }
     
+    static let imageDownloader = ImageDownloader(
+        configuration: ImageDownloader.defaultURLSessionConfiguration(),
+        downloadPrioritization: .FIFO,
+        maximumActiveDownloads: 4,
+        imageCache: AutoPurgingImageCache()
+    )
+    
     var shouldShowText = true
     
     
@@ -182,6 +189,8 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
         
     }
     
+    
+    
     func handleMessage() {
         guard let message = self.message else { return }
         self.txtBody.text = message.body
@@ -255,6 +264,14 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
                     imageView.image = image.af_imageAspectScaledToFitSize(CGSize(width: 250, height: 150))
                 }
         }
+        let URLRequest = NSURLRequest(URL: NSURL(string:(message.payload as! ImagePayload).URL)!)
+        MessageCell.imageDownloader.downloadImage(URLRequest: URLRequest) { response in
+            if let image = response.result.value {
+                self.img = image
+                imageView.image = image.af_imageAspectScaledToFitSize(CGSize(width: 250, height: 150))
+            }
+        }
+
         
         
         self.imgView = imageView

@@ -22,6 +22,7 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     @IBOutlet weak var creatorAssistant: CreatorAssistant!
     
     
+    @IBOutlet weak var barShadow: UIVisualEffectView!
     @IBOutlet weak var creatorShadow: UIView!
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
@@ -68,6 +69,21 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         creatorShadow.layer.borderColor = UIColor.grayColor().colorWithAlphaComponent(0.2).CGColor
         
         messageCreator.parentViewController = self
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.barTintColor = UIColor.clearColor() //Constants.appBrandColor.darkenColor(0.05)
+        self.navigationController?.navigationBar.tintColor = UIColor.blackColor()
+        self.navigationController?.navigationBar.translucent = true
+        
+        barShadow.layer.shadowColor = UIColor.blackColor().CGColor
+        barShadow.layer.shadowOffset = CGSizeZero
+        barShadow.layer.shadowOpacity = 0.11
+        barShadow.layer.shadowRadius = 10
+        barShadow.layer.borderWidth = 0
+        barShadow.layer.borderColor = UIColor.grayColor().colorWithAlphaComponent(0.2).CGColor
+        
+        
         
         NSNotificationCenter.defaultCenter().addObserver(self,
                                                          selector: #selector(keyboardWillShow),

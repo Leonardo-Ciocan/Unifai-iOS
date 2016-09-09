@@ -170,7 +170,8 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
                 let delay = 0.4 * Double(NSEC_PER_SEC)
                 let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
                 dispatch_after(time, dispatch_get_main_queue()) {
-                    self.tableView.scrollToBottom(animated: true)
+                    //self.tableView.scrollToBottom(animated: true)
+                    self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: self.messages.count - 1, inSection:0) , atScrollPosition: .Top, animated: true)
                 }
                 if let lastMessage = threadMessages.last {
                     if lastMessage.type == .Prompt {

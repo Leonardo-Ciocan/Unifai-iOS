@@ -17,7 +17,6 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
     var tableView: UITableView!
     
     var items : [String] = []
-    var header : DashboardEditorHeader?
     var delegate : DashboardEditorViewControllerDelegate?
     
     @IBOutlet weak var barShadow: UIVisualEffectView!
@@ -29,6 +28,7 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
     var dashboardSuggestions : [CatalogItem] = []
     var allSuggestions : [CatalogItem] = []
     
+    @IBOutlet weak var txtMessage: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,9 +45,7 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
         self.tableView.editing = true
         self.tableView.registerNib(UINib(nibName: "DashboardEditorCell", bundle: nil), forCellReuseIdentifier: "DashboardEditorCell")
         self.tableView.tableFooterView = UIView()
-        header = DashboardEditorHeader(frame:CGRect(x: 0, y: 0, width: self.view.frame.width, height: 45))
-        self.tableView.tableHeaderView = header
-        self.header?.txtMessage.delegate = self
+        self.txtMessage.delegate = self
         
         txtTitle.text = "Editing dashboard"
         txtTitle.font = txtTitle.font.fontWithSize(13)
@@ -92,7 +90,22 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
         barShadow.layer.borderWidth = 0
         barShadow.layer.borderColor = UIColor.grayColor().colorWithAlphaComponent(0.2).CGColor
         
-        header?.txtMessage.addTarget(
+        txtMessage.textColor = UIColor.blackColor()
+        txtMessage.layer.masksToBounds = true
+        txtMessage.tintColor = UIColor.blackColor()
+        
+        let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+        txtMessage.leftViewMode = .Always
+        txtMessage.leftView = leftView
+        
+        txtMessage.attributedPlaceholder = NSAttributedString(string: "Enter any message..." ,
+                                                              attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
+        
+        
+        txtMessage.backgroundColor = UIColor.grayColor().lightenColor(0.5)
+
+        
+        txtMessage.addTarget(
             self,
             action: #selector(textDidChange),
             forControlEvents: .EditingChanged
@@ -127,7 +140,7 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
     }
     
     func textDidChange() {
-        let text = header?.txtMessage.text
+        let text = txtMessage.text
         let wordsInQuery = (text!.componentsSeparatedByString(" "))
         var filtered : [CatalogItem] = self.allSuggestions
             wordsInQuery.forEach({ keyword in
@@ -147,7 +160,6 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
     }
     
     func createOrHightlightToken() {
-        let txtMessage = header?.txtMessage
         let placeholderRanges = TextUtils.getPlaceholderPositionsInMessage((txtMessage?.text)!)
         if placeholderRanges.count > 0 {
             let range = placeholderRanges[0]
@@ -157,9 +169,9 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
             txtMessage!.selectedTextRange = txtMessage!.textRangeFromPosition(start!, toPosition: end!)
         }
         else{
-            self.items.append((header?.txtMessage.text)!)
+            self.items.append((txtMessage.text)!)
             tableView.insertRowsAtIndexPaths([NSIndexPath(forRow:self.items.count - 1 , inSection:0)], withRowAnimation: .Automatic)
-            header?.txtMessage.text = ""
+            txtMessage.text = ""
             textDidChange()
             txtMessage!.resignFirstResponder()
             self.showInstructionsIfNeeded()
@@ -221,7 +233,7 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if tableView == suggestionsTableView {
-            header?.txtMessage.text = self.dashboardSuggestions[indexPath.row].message
+            txtMessage.text = self.dashboardSuggestions[indexPath.row].message
             createOrHightlightToken()
         }
     }
@@ -246,7 +258,7 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
     }
     
     @IBAction func done(sender: AnyObject) {
-        if header!.txtMessage.text!.isEmpty {
+        if txtMessage.text!.isEmpty {
             saveAndDismiss()
         }
         else {

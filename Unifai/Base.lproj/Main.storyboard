@@ -452,8 +452,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lYQ-X9-Zfp">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lYQ-X9-Zfp">
+                                <rect key="frame" x="0.0" y="109" width="414" height="627"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="scrollIndicatorInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                             </tableView>
@@ -467,29 +467,36 @@
                                 <rect key="frame" x="0.0" y="109" width="414" height="627"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1H5-vi-cic">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="627"/>
+                                        <rect key="frame" x="0.0" y="-5" width="414" height="632"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="1H5-vi-cic" firstAttribute="top" secondItem="YY7-EH-Ejf" secondAttribute="top" id="3tk-ye-NWG"/>
                                     <constraint firstItem="1H5-vi-cic" firstAttribute="leading" secondItem="YY7-EH-Ejf" secondAttribute="leading" id="7Oy-6O-bSH"/>
                                     <constraint firstAttribute="bottom" secondItem="1H5-vi-cic" secondAttribute="bottom" id="mZR-47-MNm"/>
                                     <constraint firstAttribute="trailing" secondItem="1H5-vi-cic" secondAttribute="trailing" id="pi4-ly-CPi"/>
                                 </constraints>
                             </view>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbV-LZ-YDF">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="101"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="wsU-Of-zng">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="101"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="DC9-JV-Xc9"/>
+                                    <constraint firstAttribute="height" constant="101" id="DC9-JV-Xc9"/>
                                 </constraints>
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2do-Sb-m2E">
+                                <rect key="frame" x="0.0" y="64" width="414" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="wFT-Gq-dgo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -502,10 +509,14 @@
                             <constraint firstItem="lYQ-X9-Zfp" firstAttribute="leading" secondItem="fBr-eD-Bqp" secondAttribute="leadingMargin" constant="-20" id="QWE-B8-EVO"/>
                             <constraint firstItem="YY7-EH-Ejf" firstAttribute="top" secondItem="v0t-QA-C0S" secondAttribute="bottom" constant="45" id="S2t-wv-n23"/>
                             <constraint firstItem="YY7-EH-Ejf" firstAttribute="leading" secondItem="fBr-eD-Bqp" secondAttribute="leadingMargin" constant="-20" id="Wuo-4K-OZ9"/>
-                            <constraint firstItem="lYQ-X9-Zfp" firstAttribute="top" secondItem="v0t-QA-C0S" secondAttribute="bottom" id="dIY-Ze-Cqa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2do-Sb-m2E" secondAttribute="trailing" constant="-20" id="Y3x-f2-4kK"/>
+                            <constraint firstItem="lYQ-X9-Zfp" firstAttribute="top" secondItem="v0t-QA-C0S" secondAttribute="bottom" constant="30" id="dIY-Ze-Cqa"/>
                             <constraint firstItem="pMR-Ug-eoR" firstAttribute="centerY" secondItem="fBr-eD-Bqp" secondAttribute="centerY" id="g5o-D9-CUg"/>
                             <constraint firstItem="sbV-LZ-YDF" firstAttribute="top" secondItem="v0t-QA-C0S" secondAttribute="bottom" constant="-64" id="iXg-Qp-dSu"/>
+                            <constraint firstItem="2do-Sb-m2E" firstAttribute="top" secondItem="v0t-QA-C0S" secondAttribute="bottom" id="kvI-Wn-SHS"/>
+                            <constraint firstItem="2do-Sb-m2E" firstAttribute="leading" secondItem="fBr-eD-Bqp" secondAttribute="leadingMargin" constant="-20" id="lWy-ky-XRv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YY7-EH-Ejf" secondAttribute="trailing" constant="-20" id="vZZ-QT-ZaU"/>
+                            <constraint firstItem="1H5-vi-cic" firstAttribute="top" secondItem="2do-Sb-m2E" secondAttribute="bottom" id="xIZ-mo-Z0a"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit dashboard" id="KNO-cl-s2k">
@@ -529,6 +540,7 @@
                         <outlet property="tableView" destination="lYQ-X9-Zfp" id="XdI-Sz-Aug"/>
                         <outlet property="tableViewBottomConstraint" destination="Phd-s4-GMC" id="agL-HK-RIn"/>
                         <outlet property="txtInstructions" destination="pMR-Ug-eoR" id="Gr2-0u-V8T"/>
+                        <outlet property="txtMessage" destination="2do-Sb-m2E" id="eXQ-Xk-UEI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r8I-OI-YBJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

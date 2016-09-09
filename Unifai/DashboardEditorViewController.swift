@@ -76,6 +76,7 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
         self.suggestionsTableView.separatorColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
         self.suggestionsTableView.separatorInset = UIEdgeInsetsZero
         self.suggestionsTableView.separatorStyle = .None
+        self.suggestionsTableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 64 + 40))
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -94,16 +95,16 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
         txtMessage.layer.masksToBounds = true
         txtMessage.tintColor = UIColor.blackColor()
         
-        let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
-        txtMessage.leftViewMode = .Always
-        txtMessage.leftView = leftView
+        
         
         txtMessage.attributedPlaceholder = NSAttributedString(string: "Enter any message..." ,
                                                               attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
         
         
-        txtMessage.backgroundColor = UIColor.grayColor().lightenColor(0.5)
-
+        txtMessage.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.05)
+        let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 0))
+        txtMessage.leftViewMode = .Always
+        txtMessage.leftView = leftView
         
         txtMessage.addTarget(
             self,

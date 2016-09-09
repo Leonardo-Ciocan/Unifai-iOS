@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 class Constants{
-    static let DEBUG = true
+    static let DEBUG = false
     static let appBrandColor = UIColor(red: 106/255.0, green: 147/255.0, blue: 195/255.0, alpha: 1.00)
     
     static let urlRoot           = "http://\(Constants.DEBUG ? "0.0.0.0" : "178.62.67.171"):8000/"

@@ -257,13 +257,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
         imageView.layer.shadowOpacity = 0.15
         imageView.layer.shadowOffset = CGSizeZero
         imageView.layer.shadowRadius = 10
-        Alamofire.request(.GET, (message.payload as! ImagePayload).URL)
-            .responseImage { response in
-                if let image = response.result.value {
-                    self.img = image
-                    imageView.image = image.af_imageAspectScaledToFitSize(CGSize(width: 250, height: 150))
-                }
-        }
+        
         let URLRequest = NSURLRequest(URL: NSURL(string:(message.payload as! ImagePayload).URL)!)
         MessageCell.imageDownloader.downloadImage(URLRequest: URLRequest) { response in
             if let image = response.result.value {
@@ -523,11 +517,16 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
     }
     
     func payloadImageTapped(senderA:UITapGestureRecognizer){
-        let sender = senderA.view as! UIImageView
-        let imageInfo      = GSImageInfo(image: sender.image!, imageMode: .AspectFit, imageHD: nil)
-        let transitionInfo = GSTransitionInfo(fromView: sender)
-        let imageViewer    = GSImageViewerController(imageInfo: imageInfo, transitionInfo: transitionInfo)
-        self.parentViewController!.presentViewController(imageViewer, animated: true, completion: nil)
+        guard let message = self.message else { return }
+        let URLRequest = NSURLRequest(URL: NSURL(string:(message.payload as! ImagePayload).URL)!)
+        MessageCell.imageDownloader.downloadImage(URLRequest: URLRequest) { response in
+            if let image = response.result.value {
+                let imageInfo      = GSImageInfo(image: image, imageMode: .AspectFit, imageHD: nil)
+                let transitionInfo = GSTransitionInfo(fromView: senderA.view!)
+                let imageViewer    = GSImageViewerController(imageInfo: imageInfo, transitionInfo: transitionInfo)
+                self.parentViewController!.presentViewController(imageViewer, animated: true, completion: nil)
+            }
+        }
     }
     
     func onCardTapped(recon:UITapGestureRecognizer){

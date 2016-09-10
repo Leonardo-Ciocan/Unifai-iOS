@@ -24,24 +24,16 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXJ-Ha-bUs">
                                 <rect key="frame" x="0.0" y="490" width="600" height="110"/>
-                                <subviews>
-                                    <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ExP-yt-YIb">
-                                        <rect key="frame" x="10" y="-460" width="414" height="120"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="VdE-tZ-rfs">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        </view>
-                                        <blurEffect style="extraLight"/>
-                                    </visualEffectView>
-                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="ExP-yt-YIb" secondAttribute="bottom" id="Toz-Lv-2ke"/>
-                                    <constraint firstItem="ExP-yt-YIb" firstAttribute="top" secondItem="dXJ-Ha-bUs" secondAttribute="top" id="Trv-9x-JxS"/>
-                                    <constraint firstAttribute="trailing" secondItem="ExP-yt-YIb" secondAttribute="trailing" id="hmw-yP-rRo"/>
-                                    <constraint firstItem="ExP-yt-YIb" firstAttribute="leading" secondItem="dXJ-Ha-bUs" secondAttribute="leading" id="tWD-5e-dTT"/>
-                                </constraints>
                             </view>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ExP-yt-YIb">
+                                <rect key="frame" x="0.0" y="490" width="600" height="110"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="VdE-tZ-rfs">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="110"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="extraLight"/>
+                            </visualEffectView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avq-xy-jZT">
                                 <rect key="frame" x="0.0" y="-20" width="600" height="64"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="yQc-XS-ejI">
@@ -79,12 +71,16 @@
                             <constraint firstItem="Qo1-aj-NSE" firstAttribute="top" secondItem="4YZ-DU-O8Q" secondAttribute="bottom" constant="-1" id="B22-RB-Cvm"/>
                             <constraint firstItem="avq-xy-jZT" firstAttribute="leading" secondItem="p4f-uC-4yO" secondAttribute="leadingMargin" constant="-20" id="DMu-3n-Pta"/>
                             <constraint firstItem="IRh-sT-B6t" firstAttribute="top" secondItem="raS-3S-9q9" secondAttribute="bottom" constant="-49" id="DrN-c8-tQM"/>
+                            <constraint firstItem="ExP-yt-YIb" firstAttribute="top" secondItem="Qo1-aj-NSE" secondAttribute="top" id="FOr-Us-c6C"/>
                             <constraint firstItem="Qo1-aj-NSE" firstAttribute="leading" secondItem="p4f-uC-4yO" secondAttribute="leadingMargin" constant="-20" id="GjQ-iE-AcX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="avq-xy-jZT" secondAttribute="trailing" constant="-20" id="IeW-hk-HXm"/>
                             <constraint firstItem="raS-3S-9q9" firstAttribute="leading" secondItem="p4f-uC-4yO" secondAttribute="leadingMargin" constant="-20" id="KOo-gY-vIT"/>
+                            <constraint firstItem="ExP-yt-YIb" firstAttribute="trailing" secondItem="Qo1-aj-NSE" secondAttribute="trailing" id="LTi-4Q-ZaH"/>
                             <constraint firstItem="dXJ-Ha-bUs" firstAttribute="leading" secondItem="Qo1-aj-NSE" secondAttribute="leading" id="NS4-Tz-qhZ"/>
+                            <constraint firstItem="ExP-yt-YIb" firstAttribute="leading" secondItem="Qo1-aj-NSE" secondAttribute="leading" id="VX2-pa-v0a"/>
                             <constraint firstItem="dXJ-Ha-bUs" firstAttribute="top" secondItem="Qo1-aj-NSE" secondAttribute="top" id="aqb-cp-4UA"/>
                             <constraint firstItem="avq-xy-jZT" firstAttribute="top" secondItem="hdI-zC-lR5" secondAttribute="bottom" constant="-64" id="dn0-1T-KoM"/>
+                            <constraint firstItem="ExP-yt-YIb" firstAttribute="bottom" secondItem="Qo1-aj-NSE" secondAttribute="bottom" id="g6e-U1-7j8"/>
                             <constraint firstItem="dXJ-Ha-bUs" firstAttribute="trailing" secondItem="Qo1-aj-NSE" secondAttribute="trailing" id="hDD-QH-ebb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Qo1-aj-NSE" secondAttribute="trailing" constant="-20" id="m8g-M8-CEp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4YZ-DU-O8Q" secondAttribute="trailing" constant="-20" id="n2K-b7-54s"/>

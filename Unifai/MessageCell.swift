@@ -281,6 +281,9 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
         singleTap.numberOfTapsRequired = 1
         imageView.userInteractionEnabled = true
         imageView.addGestureRecognizer(singleTap)
+        
+        let longTap = UILongPressGestureRecognizer(target: self, action:#selector(payloadImageWasLongTapped))
+        imageView.addGestureRecognizer(longTap)
     }
     
     func handleBarChartPayload() {
@@ -342,7 +345,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
         self.payloadContainer.addSubview(btn)
         
         
-        let recon = UITapGestureRecognizer(target: self, action: #selector(onTap))
+        let recon = UITapGestureRecognizer(target: self, action: #selector(loginButtonWasTapped))
         btn.addGestureRecognizer(recon)
         
         
@@ -529,13 +532,29 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
         }
     }
     
+    func payloadImageWasLongTapped(senderA:UITapGestureRecognizer){
+        guard let message = self.message else { return }
+        let URLRequest = NSURLRequest(URL: NSURL(string:(message.payload as! ImagePayload).URL)!)
+        MessageCell.imageDownloader.downloadImage(URLRequest: URLRequest) { response in
+            if let image = response.result.value {
+                let prompt = UIAlertController(title: "Do you want to save this image?", message: "", preferredStyle: .ActionSheet)
+                prompt.addAction(UIAlertAction(title: "Save image", style: .Default, handler: { _ in
+                    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+                    HUD.flash(.Success, delay: 0.35)
+                }))
+                prompt.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+                self.parentViewController?.presentViewController(prompt, animated: true, completion: nil)
+            }
+        }
+    }
+    
     func onCardTapped(recon:UITapGestureRecognizer){
         let view = recon.view as! CardView
         let svc = SFSafariViewController(URL: NSURL(string: view.navigateURL)!)
         self.parentViewController!.presentViewController(svc, animated: true, completion: nil)
     }
     
-    func onTap(recon:UITapGestureRecognizer){
+    func loginButtonWasTapped(recon:UITapGestureRecognizer){
         let payload = message?.payload as! RequestAuthPayload
         
         let vc = AuthViewController()

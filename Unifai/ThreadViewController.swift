@@ -59,7 +59,7 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         self.navigationController?.navigationItem.title = "Loaded";
         self.messageCreator.creatorDelegate = self
         self.messageCreator.assistant = creatorAssistant
-        self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 49 + 100))
+        self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 49 + 100 + 10))
         self.messageCreator.updateGeniusSuggestions(threadID!)
         creatorShadow.layer.shadowColor = UIColor.blackColor().CGColor
         creatorShadow.layer.shadowOffset = CGSizeZero

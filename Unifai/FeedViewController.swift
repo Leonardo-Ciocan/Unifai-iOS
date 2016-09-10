@@ -214,13 +214,13 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         reloadPrompt.layer.borderWidth = 1
         reloadPrompt.layer.borderColor = UIColor.grayColor().colorWithAlphaComponent(0.2).CGColor
         
+        creatorShadow.layer.shadowPath = CGPathCreateWithRect(creatorShadow.bounds, nil)
         creatorShadow.layer.shadowColor = UIColor.blackColor().CGColor
         creatorShadow.layer.shadowOffset = CGSizeZero
         creatorShadow.layer.shadowOpacity = 0.11
         creatorShadow.layer.shadowRadius = 10
         creatorShadow.layer.borderWidth = 0
         creatorShadow.layer.borderColor = UIColor.grayColor().colorWithAlphaComponent(0.2).CGColor
-        
     }
     
     override func viewWillAppear(animated: Bool) {

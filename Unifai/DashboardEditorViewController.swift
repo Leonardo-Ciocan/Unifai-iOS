@@ -19,7 +19,7 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
     var items : [String] = []
     var delegate : DashboardEditorViewControllerDelegate?
     
-    @IBOutlet weak var barShadow: UIVisualEffectView!
+    @IBOutlet weak var barShadow: UIView!
     @IBOutlet weak var txtInstructions: UILabel!
     var btnSave : UIBarButtonItem?
     
@@ -84,6 +84,7 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
         self.navigationController?.navigationBar.tintColor = UIColor.blackColor()
         self.navigationController?.navigationBar.translucent = true
         
+        barShadow.layer.shadowPath = CGPathCreateWithRect(barShadow.bounds, nil)
         barShadow.layer.shadowColor = UIColor.blackColor().CGColor
         barShadow.layer.shadowOffset = CGSizeZero
         barShadow.layer.shadowOpacity = 0.11

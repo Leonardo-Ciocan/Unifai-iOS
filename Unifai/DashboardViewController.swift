@@ -11,7 +11,7 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
     
     var activityControl : UIActivityIndicatorView?
     
-    @IBOutlet weak var barShadow: UIVisualEffectView!
+    @IBOutlet weak var barShadow: UIView!
     let txtTitle = UILabel()
     let txtSubtitle = UILabel()
     var timeUpdatingTimer : NSTimer?
@@ -78,6 +78,7 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         //self.navigationController?.navigationBar.barStyle = .Black
         self.navigationController?.navigationBar.translucent = true
         
+        barShadow.layer.shadowPath = CGPathCreateWithRect(barShadow.bounds, nil)
         barShadow.layer.shadowColor = UIColor.blackColor().CGColor
         barShadow.layer.shadowOffset = CGSizeZero
         barShadow.layer.shadowOpacity = 0.11

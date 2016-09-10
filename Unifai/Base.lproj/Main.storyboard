@@ -84,7 +84,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logging you in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ofb-Ox-S7f">
                                 <rect key="frame" x="145.5" y="106" width="123.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="YEL-4I-si1">
@@ -488,6 +488,12 @@
                                     <constraint firstAttribute="trailing" secondItem="1H5-vi-cic" secondAttribute="trailing" id="pi4-ly-CPi"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndr-CQ-GLx">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="104"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="104" id="d6t-k1-AWM"/>
+                                </constraints>
+                            </view>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbV-LZ-YDF">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="104"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="wsU-Of-zng">
@@ -510,14 +516,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ndr-CQ-GLx" firstAttribute="top" secondItem="v0t-QA-C0S" secondAttribute="bottom" constant="-64" id="0dG-Cd-QAw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sbV-LZ-YDF" secondAttribute="trailing" constant="-20" id="7ee-IB-LGl"/>
                             <constraint firstItem="sbV-LZ-YDF" firstAttribute="leading" secondItem="fBr-eD-Bqp" secondAttribute="leadingMargin" constant="-20" id="AjV-xz-tgJ"/>
+                            <constraint firstItem="ndr-CQ-GLx" firstAttribute="leading" secondItem="fBr-eD-Bqp" secondAttribute="leadingMargin" constant="-20" id="ECH-sW-jiD"/>
                             <constraint firstItem="pMR-Ug-eoR" firstAttribute="centerX" secondItem="fBr-eD-Bqp" secondAttribute="centerX" id="Kuv-Ut-L1q"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lYQ-X9-Zfp" secondAttribute="trailing" constant="-20" id="LJb-rI-UbI"/>
                             <constraint firstItem="FyY-4Z-6bw" firstAttribute="top" secondItem="lYQ-X9-Zfp" secondAttribute="bottom" id="Phd-s4-GMC"/>
                             <constraint firstItem="FyY-4Z-6bw" firstAttribute="top" secondItem="YY7-EH-Ejf" secondAttribute="bottom" id="QRq-yc-hR0"/>
                             <constraint firstItem="lYQ-X9-Zfp" firstAttribute="leading" secondItem="fBr-eD-Bqp" secondAttribute="leadingMargin" constant="-20" id="QWE-B8-EVO"/>
                             <constraint firstItem="YY7-EH-Ejf" firstAttribute="top" secondItem="v0t-QA-C0S" secondAttribute="bottom" constant="-64" id="S2t-wv-n23"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ndr-CQ-GLx" secondAttribute="trailing" constant="-20" id="SoP-8b-rzv"/>
                             <constraint firstItem="YY7-EH-Ejf" firstAttribute="leading" secondItem="fBr-eD-Bqp" secondAttribute="leadingMargin" constant="-20" id="Wuo-4K-OZ9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2do-Sb-m2E" secondAttribute="trailing" constant="-20" id="Y3x-f2-4kK"/>
                             <constraint firstItem="lYQ-X9-Zfp" firstAttribute="top" secondItem="v0t-QA-C0S" secondAttribute="bottom" constant="30" id="dIY-Ze-Cqa"/>
@@ -542,7 +551,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="barShadow" destination="sbV-LZ-YDF" id="iZC-gt-Ctz"/>
+                        <outlet property="barShadow" destination="ndr-CQ-GLx" id="9UG-gD-SOy"/>
                         <outlet property="suggestionsBottomConstraint" destination="QRq-yc-hR0" id="zvx-lS-25l"/>
                         <outlet property="suggestionsTableView" destination="1H5-vi-cic" id="cVU-4h-rHw"/>
                         <outlet property="suggestionsView" destination="YY7-EH-Ejf" id="2hi-Kh-rtP"/>
@@ -572,6 +581,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SQC-ro-UGg">
+                                <rect key="frame" x="20" y="0.0" width="374" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="aBd-Nk-dD4"/>
+                                </constraints>
+                            </view>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jwu-W1-0xn">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="VwL-YR-T9V">
@@ -591,14 +606,14 @@
                                         <attributedString key="attributedText">
                                             <fragment content="The dashboard is your own personal ">
                                                 <attributes>
-                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="18" name="HelveticaNeue-Thin"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                             <fragment content="homepage">
                                                 <attributes>
-                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="18" name="HelveticaNeue"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
@@ -611,28 +626,28 @@
                                         <attributedString key="attributedText">
                                             <fragment content="Give us a list of ">
                                                 <attributes>
-                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="16" name="HelveticaNeue-Thin"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                             <fragment content="questions">
                                                 <attributes>
-                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="16" name="HelveticaNeue"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                             <fragment content=" and your dashboard will show you ">
                                                 <attributes>
-                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="16" name="HelveticaNeue-Thin"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                             <fragment content="up to date answers">
                                                 <attributes>
-                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="16" name="HelveticaNeue"/>
                                                     <font key="NSOriginalFont" size="16" name="HelveticaNeue"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -646,7 +661,7 @@
                                         <attributedString key="attributedText">
                                             <fragment content="To begin , press ">
                                                 <attributes>
-                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="17" name="HelveticaNeue-Thin"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
@@ -660,7 +675,7 @@
                                             </fragment>
                                             <fragment content=" in the top left and enter your queries">
                                                 <attributes>
-                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="17" name="HelveticaNeue-Thin"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
@@ -696,6 +711,7 @@
                         <constraints>
                             <constraint firstItem="Jwu-W1-0xn" firstAttribute="leading" secondItem="ocC-iN-dGh" secondAttribute="leadingMargin" constant="-20" id="8P6-Yn-iOX"/>
                             <constraint firstItem="2Ib-IS-hze" firstAttribute="leading" secondItem="ocC-iN-dGh" secondAttribute="leadingMargin" constant="-20" id="AiX-nb-pie"/>
+                            <constraint firstItem="SQC-ro-UGg" firstAttribute="leading" secondItem="ocC-iN-dGh" secondAttribute="leadingMargin" id="G4y-Ae-GXd"/>
                             <constraint firstItem="y1C-Qf-Ecd" firstAttribute="top" secondItem="2Ib-IS-hze" secondAttribute="bottom" id="H7Y-BI-uNi"/>
                             <constraint firstItem="kzU-Ha-VF7" firstAttribute="top" secondItem="ZoF-Ag-gta" secondAttribute="bottom" id="Ujr-pf-MPu"/>
                             <constraint firstItem="Jwu-W1-0xn" firstAttribute="top" secondItem="ZoF-Ag-gta" secondAttribute="bottom" constant="-64" id="V75-T0-wiq"/>
@@ -705,6 +721,8 @@
                             <constraint firstItem="y1C-Qf-Ecd" firstAttribute="top" secondItem="kzU-Ha-VF7" secondAttribute="bottom" id="efX-Od-5NX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Jwu-W1-0xn" secondAttribute="trailing" constant="-20" id="hPR-yn-kG6"/>
                             <constraint firstItem="kzU-Ha-VF7" firstAttribute="leading" secondItem="ocC-iN-dGh" secondAttribute="leadingMargin" constant="-20" id="kOd-lO-jVM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SQC-ro-UGg" secondAttribute="trailing" id="x4I-hW-Dhk"/>
+                            <constraint firstItem="SQC-ro-UGg" firstAttribute="top" secondItem="ZoF-Ag-gta" secondAttribute="bottom" constant="-64" id="zbB-ZS-NJl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Dashboard" id="iXA-0w-B4y">
@@ -718,7 +736,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="barShadow" destination="Jwu-W1-0xn" id="sTB-QK-t3m"/>
+                        <outlet property="barShadow" destination="SQC-ro-UGg" id="Jbh-Ky-pmR"/>
                         <outlet property="tableView" destination="2Ib-IS-hze" id="hf5-zI-gf0"/>
                         <outlet property="tutorialView" destination="kzU-Ha-VF7" id="Vr8-cK-U5V"/>
                     </connections>
@@ -814,21 +832,21 @@
                                         <attributedString key="attributedText">
                                             <fragment content="An action is a ">
                                                 <attributes>
-                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="16" name="HelveticaNeue-Thin"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                             <fragment content="button">
                                                 <attributes>
-                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="16" name="HelveticaNeue"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                             <fragment content=" that does something you want">
                                                 <attributes>
-                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="16" name="HelveticaNeue-Thin"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
@@ -841,7 +859,7 @@
                                         <attributedString key="attributedText">
                                             <fragment content="Anything">
                                                 <attributes>
-                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="17" name="HelveticaNeue"/>
                                                     <font key="NSOriginalFont" size="17" name="HelveticaNeue"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -849,7 +867,7 @@
                                             </fragment>
                                             <fragment content=" you can ask can become an action">
                                                 <attributes>
-                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="17" name="HelveticaNeue-Thin"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
@@ -877,6 +895,12 @@
                                     <constraint firstItem="wjN-gO-C0S" firstAttribute="leading" secondItem="2eD-Pr-loQ" secondAttribute="leading" constant="55" id="mSp-Fq-lbB"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YKZ-Bn-wfB">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="BPf-z1-0vx"/>
+                                </constraints>
+                            </view>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VA0-Tt-7YH">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="d1h-VZ-Alg">
@@ -892,7 +916,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ZxO-dh-vom" firstAttribute="top" secondItem="2eD-Pr-loQ" secondAttribute="bottom" id="1uN-sf-QKD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YKZ-Bn-wfB" secondAttribute="trailing" constant="-20" id="2He-8p-T3g"/>
                             <constraint firstItem="3WF-XI-cTN" firstAttribute="top" secondItem="0hL-oD-YXf" secondAttribute="bottom" constant="-64" id="5Fi-1n-LUc"/>
+                            <constraint firstItem="YKZ-Bn-wfB" firstAttribute="top" secondItem="0hL-oD-YXf" secondAttribute="bottom" constant="-64" id="AJH-WB-ZC2"/>
                             <constraint firstItem="VA0-Tt-7YH" firstAttribute="top" secondItem="0hL-oD-YXf" secondAttribute="bottom" constant="-64" id="E0R-67-Qx9"/>
                             <constraint firstItem="VA0-Tt-7YH" firstAttribute="leading" secondItem="NNr-pu-ON2" secondAttribute="leadingMargin" constant="-20" id="HTp-wr-4tW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3WF-XI-cTN" secondAttribute="trailing" constant="-20" id="Jom-y0-joo"/>
@@ -901,6 +927,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="2eD-Pr-loQ" secondAttribute="trailing" constant="-20" id="SSh-QZ-19v"/>
                             <constraint firstItem="ZxO-dh-vom" firstAttribute="top" secondItem="3WF-XI-cTN" secondAttribute="bottom" constant="-49" id="TRf-L0-lkj"/>
                             <constraint firstItem="2eD-Pr-loQ" firstAttribute="top" secondItem="0hL-oD-YXf" secondAttribute="bottom" id="qwb-CK-RX5"/>
+                            <constraint firstItem="YKZ-Bn-wfB" firstAttribute="leading" secondItem="NNr-pu-ON2" secondAttribute="leadingMargin" constant="-20" id="w8i-nQ-F61"/>
                             <constraint firstItem="3WF-XI-cTN" firstAttribute="leading" secondItem="NNr-pu-ON2" secondAttribute="leadingMargin" constant="-20" id="yq3-Nf-fp3"/>
                         </constraints>
                     </view>
@@ -914,7 +941,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="barShadow" destination="VA0-Tt-7YH" id="1i0-e8-ljz"/>
+                        <outlet property="barShadow" destination="YKZ-Bn-wfB" id="sSf-l5-kVB"/>
                         <outlet property="collectionView" destination="3WF-XI-cTN" id="sA8-rN-Ary"/>
                         <outlet property="tutorialView" destination="2eD-Pr-loQ" id="KzE-lE-Lv5"/>
                     </connections>

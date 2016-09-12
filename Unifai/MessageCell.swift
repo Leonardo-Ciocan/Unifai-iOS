@@ -1,11 +1,3 @@
-//
-//  MessageCell.swift
-//  Unifai
-//
-//  Created by Leonardo Ciocan on 26/04/2016.
-//  Copyright © 2016 Unifai. All rights reserved.
-//
-
 import UIKit
 import DateTools
 import ActiveLabel
@@ -20,6 +12,22 @@ protocol MessageCellDelegate {
     func shouldSendMessageWithText(text:String, sourceRect:CGRect, sourceView:UIView)
     func didFinishAuthenticationFromMessage(message:Message?)
 }
+
+let standardFont = UIFont(name: "HelveticaNeue-Light", size: 15.0)
+
+extension UILabel {
+    func setHTMLFromString(text: String) {
+        let modifiedFont = "<style> body { color:\(self.textColor.toHexString());font-family: '\(standardFont!.fontName)'; font-size: \(self.font!.pointSize) }</style> " + text
+        
+        let attrStr = try! NSAttributedString(
+            data: modifiedFont.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!,
+            options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: NSUTF8StringEncoding],
+            documentAttributes: nil)
+        
+        self.attributedText = attrStr
+    }
+}
+
 
 class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
     
@@ -193,7 +201,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
     
     func handleMessage() {
         guard let message = self.message else { return }
-        self.txtBody.text = message.body
+        self.txtBody.setHTMLFromString(message.body)
         imgLogo.backgroundColor = message.service?.color
 //        backgroundShadowView.layer.borderColor = message.service?.color.CGColor
 //        backgroundShadowView.layer.borderWidth = 0

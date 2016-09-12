@@ -91,9 +91,11 @@ class SheetCell: UICollectionViewCell {
                     UICache.append([item])
                 }
             case let entry as ImageSheetEntry:
+                
                 let imageview = cellWasInitialized ?
                     UICache[index][0] as! UIImageView :
-                    UIImageView(frame: CGRect(x: 0, y: y , width: 200, height: 200))
+                    UIImageView(frame: CGRect(x: 0, y: y + (entry.isIcon ? 5 : 0) , width: 200, height: entry.isIcon ? 50 : 200))
+                
                 let blurView = cellWasInitialized ?
                     UICache[index][1] as! UIVisualEffectView :
                     UIVisualEffectView(frame: CGRect(x: 0, y: y + 160 , width: 200, height: 40))
@@ -109,6 +111,7 @@ class SheetCell: UICollectionViewCell {
                 label.text = entry.title
                 indicator.startAnimating()
                 imageview.image = nil
+                
                 if entry.url == "" {
                     indicator.stopAnimating()
                 }
@@ -121,34 +124,42 @@ class SheetCell: UICollectionViewCell {
                             indicator.stopAnimating()
                         }
                     }
-
                 }
                 
                 
                 if !cellWasInitialized {
-                    blurView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
-                    blurView.effect = UIBlurEffect(style: .Light)
-                    label.layer.shadowOffset = CGSizeZero
-                    label.layer.shadowColor = UIColor.blackColor().CGColor
-                    label.layer.shadowOpacity = 0.35
-                    label.layer.shadowRadius = 3
-                    label.textColor = UIColor.whiteColor()
-                    label.font = label.font.fontWithSize(13)
-                    label.textAlignment = .Center
+                    if entry.isIcon {
+                        blurView.hidden = true
+                        label.hidden = true
+                        imageview.contentMode = .ScaleAspectFit
+                    }
+                    else {
+                        blurView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
+                        blurView.effect = UIBlurEffect(style: .Light)
+                        label.layer.shadowOffset = CGSizeZero
+                        label.layer.shadowColor = UIColor.blackColor().CGColor
+                        label.layer.shadowOpacity = 0.35
+                        label.layer.shadowRadius = 3
+                        label.textColor = UIColor.whiteColor()
+                        label.font = label.font.fontWithSize(13)
+                        label.textAlignment = .Center
+                        addSubview(blurView)
+                        blurView.addSubview(label)
+                        label.snp_makeConstraints(closure: { make in
+                            make.center.equalTo(blurView)
+                            make.width.equalTo(blurView).offset(-20)
+                            make.height.equalTo(blurView)
+                        })
+                        let tapRecon = UITapGestureRecognizer(target: self, action: #selector(tappedImage))
+                        imageview.addGestureRecognizer(tapRecon)
+                    }
                     
                     imageview.userInteractionEnabled = true
                     imageview.tag = index
-                    let tapRecon = UITapGestureRecognizer(target: self, action: #selector(tappedImage))
-                    imageview.addGestureRecognizer(tapRecon)
+                    
                     
                     addSubview(imageview)
-                    addSubview(blurView)
-                    blurView.addSubview(label)
-                    label.snp_makeConstraints(closure: { make in
-                        make.center.equalTo(blurView)
-                        make.width.equalTo(blurView).offset(-20)
-                        make.height.equalTo(blurView)
-                    })
+                    
                     UICache.append([imageview,blurView,label,indicator])
                 }
             default:

@@ -159,7 +159,10 @@ class SheetsPayload : Payload {
                     case 2:
                         sheet.entries.append(ActionSheetEntry(label: entry["label"].stringValue,action: entry["action"].stringValue, value: entry["value"].stringValue))
                     case 3:
-                        sheet.entries.append(ImageSheetEntry(url: entry["url"].stringValue, title: entry["title"].stringValue, link: entry["link"].stringValue))
+                        sheet.entries.append(ImageSheetEntry(url: entry["url"].stringValue,
+                            title: entry["title"].stringValue,
+                            link: entry["link"].stringValue,
+                            isIcon: entry["is_icon"].boolValue))
                     default:
                         continue
                     }

@@ -5,8 +5,8 @@ class SheetEntry{
         switch self{
         case _ as TextSheetEntry:
             return 40
-        case _ as ImageSheetEntry:
-            return 200
+        case let entry as ImageSheetEntry:
+            return entry.isIcon ? 60 : 200
         case _ as TitledSheetEntry:
             return 60
         case _ as ActionSheetEntry:
@@ -27,22 +27,27 @@ class ActionSheetEntry : SheetEntry {
         self.value = value
     }
 }
+
 class TextSheetEntry : SheetEntry {
     var text = ""
     init(text:String) {
         self.text = text
     }
 }
+
 class ImageSheetEntry : SheetEntry {
     var url = ""
     var title = ""
     var link = ""
-    init(url:String, title:String, link:String) {
+    var isIcon = false
+    init(url:String, title:String, link:String, isIcon:Bool) {
         self.url = url
         self.title = title
         self.link = link
+        self.isIcon = isIcon
     }
 }
+
 class TitledSheetEntry : SheetEntry {
     var title = ""
     var subtitle = ""

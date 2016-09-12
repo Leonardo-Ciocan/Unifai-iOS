@@ -1096,11 +1096,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/AuthViewController.swift"
-            timestampString = "494694589.706436"
+            timestampString = "495386549.423654"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "webView(_:shouldStartLoadWithRequest:navigationType:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1112,44 +1112,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/AuthViewController.swift"
-            timestampString = "494694589.706436"
+            timestampString = "495386549.423654"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "webView(_:shouldStartLoadWithRequest:navigationType:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Unifai/AuthViewController.swift"
-            timestampString = "494694589.706436"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Unifai/AuthViewController.swift"
-            timestampString = "494694589.706436"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1620,11 +1588,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/ServiceProfileViewcontroller.swift"
-            timestampString = "494790471.713838"
+            timestampString = "495391889.140853"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "tableView(_:didSelectRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2228,11 +2196,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/Payload.swift"
-            timestampString = "494708265.915357"
+            timestampString = "495386549.423654"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "init(data:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2244,11 +2212,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/Payload.swift"
-            timestampString = "494708265.915357"
+            timestampString = "495386549.423654"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "init(data:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2260,11 +2228,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/Payload.swift"
-            timestampString = "494708265.915357"
+            timestampString = "495386549.423654"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "init(data:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -3211,6 +3179,149 @@
                   offsetFromSymbolStart = "19">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Unifai/CreatorAssistant.swift"
+            timestampString = "495318630.397291"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "autocompleteFor(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Unifai/AuthViewController.swift"
+            timestampString = "495386549.423654"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "webView(_:shouldStartLoadWithRequest:navigationType:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Unifai.AuthViewController.webView (__ObjC.UIWebView, shouldStartLoadWithRequest : __ObjC.NSURLRequest, navigationType : __C.UIWebViewNavigationType) -&gt; Swift.Bool"
+                  moduleName = "Unifai"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leo/Development/xCode/Unifai/Unifai/AuthViewController.swift"
+                  timestampString = "495318922.297426"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "2252">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Unifai.AuthViewController.webView (__ObjC.UIWebView, shouldStartLoadWithRequest : __ObjC.NSURLRequest, navigationType : __C.UIWebViewNavigationType) -&gt; Swift.Bool"
+                  moduleName = "Unifai"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leo/Development/xCode/Unifai/Unifai/AuthViewController.swift"
+                  timestampString = "495318922.297627"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "3372">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Unifai.AuthViewController.(webView (__ObjC.UIWebView, shouldStartLoadWithRequest : __ObjC.NSURLRequest, navigationType : __C.UIWebViewNavigationType) -&gt; Swift.Bool).(closure #2)"
+                  moduleName = "Unifai"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leo/Development/xCode/Unifai/Unifai/AuthViewController.swift"
+                  timestampString = "495318922.297762"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "23">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Unifai/AuthViewController.swift"
+            timestampString = "495386922.778274"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "webView(_:shouldStartLoadWithRequest:navigationType:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Unifai.AuthViewController.webView (__ObjC.UIWebView, shouldStartLoadWithRequest : __ObjC.NSURLRequest, navigationType : __C.UIWebViewNavigationType) -&gt; Swift.Bool"
+                  moduleName = "Unifai"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leo/Development/xCode/Unifai/Unifai/AuthViewController.swift"
+                  timestampString = "495386923.370174"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "47">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Unifai.AuthViewController.webView (__ObjC.UIWebView, shouldStartLoadWithRequest : __ObjC.NSURLRequest, navigationType : __C.UIWebViewNavigationType) -&gt; Swift.Bool"
+                  moduleName = "Unifai"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leo/Development/xCode/Unifai/Unifai/AuthViewController.swift"
+                  timestampString = "495386923.37074"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "349">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Unifai/SheetCell.swift"
+            timestampString = "495392935.536184"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "loadEntries(_:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

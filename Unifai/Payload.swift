@@ -57,6 +57,8 @@ class RequestAuthPayload : Payload {
     var clientID = ""
     var secret = ""
     var scope = ""
+    var fullAuthorizationURL = ""
+    var parameterNameToCapture = ""
     
     init(data:String) {
         let dt = data.dataUsingEncoding(NSUTF8StringEncoding , allowLossyConversion: true)
@@ -65,6 +67,8 @@ class RequestAuthPayload : Payload {
         clientID = json["client_id"].stringValue
         secret = json["secret"].stringValue
         scope = json["scope"].stringValue
+        fullAuthorizationURL = json["full_url"].stringValue
+        parameterNameToCapture = json["capture_param"].stringValue
     }
 }
 

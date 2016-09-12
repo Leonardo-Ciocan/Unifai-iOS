@@ -89,7 +89,7 @@ class CreatorAssistant: UIView , AutoCompletionServicesDelegate , AutoCompletion
     func selectedService(service: Service , selectedByTapping : Bool) {
         delegate?.selectedService(service , selectedByTapping: selectedByTapping)
         suggestionsView.serviceColor = service.color
-        suggestionsView.suggestions = Core.Catalog[service.username]!
+        suggestionsView.suggestions = Core.Catalog[service.username] ?? []
         suggestionsView.actions = Core.Actions.filter({ TextUtils.extractService($0.message) == service })
         suggestionsView.filterSuggestionsWithKeywords([])
         suggestionsView.tableView.reloadData()

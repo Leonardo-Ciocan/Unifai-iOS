@@ -27,6 +27,7 @@ extension FeedViewController {
         cell.imgLogo.contentMode = .ScaleAspectFit
         cell.imgLogo.userInteractionEnabled = true
         cell.parentViewController = self
+        cell.txtBody.userInteractionEnabled = false
         return cell
     }
     
@@ -128,6 +129,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         return self.splitViewController as! MainSplitView
     }
     
+    @IBOutlet weak var visualEffectView: UIVisualEffectView!
     @IBOutlet weak var reloadPrompt: UIView!
     let loadMoreSpinner = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
     let loadMoreText = UILabel()
@@ -221,6 +223,8 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         creatorShadow.layer.shadowRadius = 10
         creatorShadow.layer.borderWidth = 0
         creatorShadow.layer.borderColor = UIColor.grayColor().colorWithAlphaComponent(0.2).CGColor
+        
+        visualEffectView.effect = UIBlurEffect(style:currentTheme.visualEffectStyle)
     }
     
     override func viewWillAppear(animated: Bool) {

@@ -4,7 +4,8 @@ import UIKit
 class Constants{
     static let DEBUG = true
     static let appBrandColor = UIColor(red: 106/255.0, green: 147/255.0, blue: 195/255.0, alpha: 1.00)
-    
+    static let standardFont = UIFont(name: "HelveticaNeue-Light", size: 15.0)
+
     static let urlRoot           = "http://\(Constants.DEBUG ? "0.0.0.0" : "178.62.67.171"):8000/"
     static let urlThread         = urlRoot + "thread/"
     static let urlFeed           = urlRoot + "feed/"

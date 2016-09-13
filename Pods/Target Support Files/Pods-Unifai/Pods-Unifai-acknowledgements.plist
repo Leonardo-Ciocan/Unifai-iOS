@@ -469,14 +469,6 @@ SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string></string>
-			<key>Title</key>
-			<string>MaterialDesignSymbol</string>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-		</dict>
-		<dict>
-			<key>FooterText</key>
 			<string>The MIT License (MIT)
 
 Copyright (c) 2014 Philip Kluz (Philip.Kluz@gmail.com)

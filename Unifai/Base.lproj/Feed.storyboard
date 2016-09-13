@@ -183,6 +183,7 @@
                         <outlet property="creatorShadow" destination="oQJ-Ol-k1E" id="Dha-qs-JkE"/>
                         <outlet property="reloadPrompt" destination="HoM-TM-Dym" id="iJe-Gi-C9K"/>
                         <outlet property="tableView" destination="kne-SX-8Hu" id="mbl-jU-b67"/>
+                        <outlet property="visualEffectView" destination="RNp-1H-0vT" id="muv-xR-Kqt"/>
                         <segue destination="dAm-DF-bdC" kind="presentation" identifier="toCatalog" id="7Qq-7M-Qti"/>
                     </connections>
                 </viewController>

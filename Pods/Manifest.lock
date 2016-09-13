@@ -1,5 +1,5 @@
 PODS:
-  - ActiveLabel (0.5.0)
+  - ActiveLabel (0.6.2)
   - Alamofire (3.3.1)
   - AlamofireImage (2.4.1):
     - Alamofire (~> 3.3)
@@ -15,7 +15,6 @@ PODS:
   - expanding-collection (0.3.2)
   - Fabric (1.6.7)
   - GSImageViewerController (1.1.1)
-  - MaterialDesignSymbol (1.7)
   - PKHUD (3.2.1)
   - RFAboutView-Swift (1.0.13)
   - SnapKit (0.15.0)
@@ -34,7 +33,6 @@ DEPENDENCIES:
   - expanding-collection
   - Fabric
   - GSImageViewerController
-  - MaterialDesignSymbol
   - PKHUD
   - RFAboutView-Swift (~> 1.0.13)
   - SnapKit (~> 0.15.0)
@@ -50,7 +48,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  ActiveLabel: c7b011767b5660faacf8a3629174a9a775886b8d
+  ActiveLabel: 2394eb48a2e31644ea90d6543c17bffe1d06f549
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
   AlamofireImage: 3ccf3347d9ea24580dc11fb892770a0be6a29826
   AlertOnboarding: 4b92341965987dc9492a37d453aac7826f60f0a3
@@ -62,7 +60,6 @@ SPEC CHECKSUMS:
   expanding-collection: 0a237d343a1d71472a312296a8e1359be01244ab
   Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   GSImageViewerController: 1fd7ff9210bca2eaaeb89811c55230b575377143
-  MaterialDesignSymbol: 8216d8587ff04b8d0d110a9a02eb53ea94174328
   PKHUD: 001c11518f125a273ddf026bcc64918423744ea2
   RFAboutView-Swift: 744c159dfa3c59e967dc191f4de0973b131d5ff9
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87

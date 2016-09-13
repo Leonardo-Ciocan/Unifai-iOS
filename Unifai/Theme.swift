@@ -11,6 +11,7 @@ protocol Theme {
     var secondaryBackgroundColor : UIColor { get }
     var barStyle : UIBarStyle { get }
     var statusBarStyle : UIStatusBarStyle { get }
+    var visualEffectStyle : UIBlurEffectStyle { get }
 }
 
 class LightTheme : Theme {
@@ -21,6 +22,7 @@ class LightTheme : Theme {
     var shadeColor: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.05)
     var barStyle: UIBarStyle = .Default
     var statusBarStyle: UIStatusBarStyle = .Default
+    var visualEffectStyle: UIBlurEffectStyle = .ExtraLight
 }
 
 class DarkTheme : Theme {
@@ -31,6 +33,7 @@ class DarkTheme : Theme {
     var shadeColor: UIColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.05)
     var barStyle: UIBarStyle = .Black
     var statusBarStyle: UIStatusBarStyle = .LightContent
+    var visualEffectStyle: UIBlurEffectStyle = .Dark
 }
 
 extension UIViewController {

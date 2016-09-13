@@ -412,10 +412,6 @@ SOFTWARE.
 
 
 
-## MaterialDesignSymbol
-
-
-
 ## PKHUD
 
 The MIT License (MIT)

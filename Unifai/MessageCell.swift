@@ -13,27 +13,46 @@ protocol MessageCellDelegate {
     func didFinishAuthenticationFromMessage(message:Message?)
 }
 
-let standardFont = UIFont(name: "HelveticaNeue-Light", size: 15.0)
-
-extension UILabel {
-    func setHTMLFromString(text: String) {
-        let modifiedFont = "<style> body { color:\(self.textColor.toHexString());font-family: '\(standardFont!.fontName)'; font-size: \(self.font!.pointSize) }</style> " + text
+extension UITextView {
+    func setHTMLFromString(text: String, color:UIColor) {
+        print(text)
+        let textColor = self.textColor ?? UIColor.blackColor()
+        let font = Constants.standardFont
+        let modifiedFont = "<style> body {font-family: '\(font!.fontName)'; font-size: \(font!.pointSize) }</style> " + text
         
-        let attrStr = try! NSAttributedString(
+        let attrStr = try! NSMutableAttributedString(
             data: modifiedFont.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!,
             options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: NSUTF8StringEncoding],
             documentAttributes: nil)
         
+//        let flatText = attrStr.string
+//        let types: NSTextCheckingType = .Link
+//        
+//        let detector = try? NSDataDetector(types: types.rawValue)
+//        
+//        guard let detect = detector else {
+//            return
+//        }
+//        
+//        let matches = detect.matchesInString(flatText, options: .ReportCompletion, range: NSMakeRange(0, flatText.characters.count))
+//        
+//        for match in matches {
+////            attrStr.addAttribute(NSLinkAttributeName, value: (match.URL?.absoluteURL)! , range: match.range)
+//            attrStr.addAttribute(NSForegroundColorAttributeName, value: color , range: match.range)
+//        }
+        self.text = nil
+        self.attributedText = nil
         self.attributedText = attrStr
+        self.sizeToFit()
     }
 }
 
 
-class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
+class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UITextViewDelegate{
     
     @IBOutlet weak var txtName: UILabel!
     @IBOutlet weak var txtUsername: UILabel!
-    @IBOutlet weak var txtBody: ActiveLabel!
+    @IBOutlet weak var txtBody: UITextView!
     @IBOutlet weak var imgLogo: UIButton!
     @IBOutlet weak var txtTime: UILabel!
     
@@ -83,7 +102,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
         imgLogo.layer.cornerRadius = imgLogo.frame.width/2
         imgLogo.layer.masksToBounds = true
         
-        
+        txtBody.delegate = self
         
         contentView.userInteractionEnabled = false
         threadCountView.layer.masksToBounds = true
@@ -99,32 +118,39 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
         let textSize = [10,15,20][Settings.textSize]
         let font = UIFont.systemFontOfSize(CGFloat(textSize), weight: UIFontWeightThin)
         txtBody.font = font
+        
         txtTime.font = font
         
-        txtBody.handleURLTap({url in
-            let alert = UIAlertController(title: "", message: url.absoluteString, preferredStyle: .ActionSheet)
-            alert.addAction(UIAlertAction(title: "Open link", style: .Default, handler: { _ in
-                let svc = SFSafariViewController(URL: url)
-                self.parentViewController!.presentViewController(svc, animated: true, completion: nil)
-            }))
-            alert.addAction(UIAlertAction(title: "Copy link", style: .Default, handler: { _ in
-                UIPasteboard.generalPasteboard().string = url.absoluteString
-            }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { _ in
-                alert.dismissViewControllerAnimated(true, completion: nil)
-            }))
-            
-            let popover = alert.popoverPresentationController
-            if let popover = popover {
-                popover.sourceView = self.txtBody
-                popover.sourceRect = self.txtBody.bounds
-                popover.permittedArrowDirections = .Any
-            }
-            self.parentViewController!.presentViewController(alert, animated: true, completion: nil)
-        })
+//        txtBody.handleURLTap({url in
+//            let alert = UIAlertController(title: "", message: url.absoluteString, preferredStyle: .ActionSheet)
+//            alert.addAction(UIAlertAction(title: "Open link", style: .Default, handler: { _ in
+//                let svc = SFSafariViewController(URL: url)
+//                self.parentViewController!.presentViewController(svc, animated: true, completion: nil)
+//            }))
+//            alert.addAction(UIAlertAction(title: "Copy link", style: .Default, handler: { _ in
+//                UIPasteboard.generalPasteboard().string = url.absoluteString
+//            }))
+//            alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { _ in
+//                alert.dismissViewControllerAnimated(true, completion: nil)
+//            }))
+//            
+//            let popover = alert.popoverPresentationController
+//            if let popover = popover {
+//                popover.sourceView = self.txtBody
+//                popover.sourceRect = self.txtBody.bounds
+//                popover.permittedArrowDirections = .Any
+//            }
+//            self.parentViewController!.presentViewController(alert, animated: true, completion: nil)
+//        })
         
         let longTapRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longTappedMessage))
         txtBody.addGestureRecognizer(longTapRecognizer)
+    }
+    
+    func textView(textView: UITextView, shouldInteractWithURL URL: NSURL, inRange characterRange: NSRange) -> Bool {
+        let svc = SFSafariViewController(URL: URL)
+        self.parentViewController!.presentViewController(svc, animated: true, completion: nil)
+        return false
     }
     
     func longTappedMessage() {
@@ -197,11 +223,10 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
         
     }
     
-    
-    
     func handleMessage() {
         guard let message = self.message else { return }
-        self.txtBody.setHTMLFromString(message.body)
+        self.txtBody.setHTMLFromString(message.body,color: message.service?.color ?? Constants.appBrandColor)
+        self.txtBody.tintColor = message.service?.color
         imgLogo.backgroundColor = message.service?.color
 //        backgroundShadowView.layer.borderColor = message.service?.color.CGColor
 //        backgroundShadowView.layer.borderWidth = 0
@@ -211,11 +236,11 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate {
         txtName.textColor = message.color
         
         self.txtName.text = message.isFromUser ? Core.Username.uppercaseString : message.service?.name.uppercaseString
-        txtBody.URLColor = message.color
-        if message.isFromUser {
-            let atColor = TextUtils.extractServiceColorFrom(message.body)
-            txtBody.mentionColor = atColor!
-        }
+//        txtBody.URLColor = message.color
+//        if message.isFromUser {
+//            let atColor = TextUtils.extractServiceColorFrom(message.body)
+//            txtBody.mentionColor = atColor!
+//        }
     }
     
     func handleThreadCount(shouldShowThreadCount: Bool) {

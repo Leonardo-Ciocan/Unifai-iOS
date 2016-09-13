@@ -54,11 +54,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>MaterialDesignSymbol.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>PKHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -112,7 +107,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>0AA00798211CA80F31BAE391A5865EB2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>115824B7CB2E76E5ACB836A251E79404</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1CB32EE87C05D015B0810EBE169DB315</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,22 +127,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1EBDE83DBF14F3E1ACCF7D7811F3AD55</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>1FB7C9F249AD65C80987D84A86575915</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3074B6EEA5145648591C1780F11BD4B7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>31C84A3832DB4AEB429573AACE8E3E73</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -147,7 +137,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>7DA469358433C63266FF59ED5C70C82E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>886C73F1408573C5A056EEDC90A14545</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>88704C02B695D10F0FFD6C4088DE7BC9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -162,22 +162,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D4C7D49768AFF6C86B1DD0C3496208D8</key>
+		<key>D17D8C5F7E7F34E6AE96AEFF841D4DA1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EE34AC9C053F980CFA47D800A9C03D63</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EEC43E06231298584EB3C39F38A86DB8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F2329606E531AFD5FAA5E200A2533F85</key>
+		<key>F444F14CBC69C25C83B9D65196D6DC49</key>
 		<dict>
 			<key>primary</key>
 			<true/>

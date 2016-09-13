@@ -5,7 +5,6 @@ target 'Unifai' do
     pod 'DateTools'
     pod 'ActiveLabel'
     pod 'SnapKit', '~> 0.15.0'
-    pod "MaterialDesignSymbol"
     pod 'AlertOnboarding'
     pod "GSImageViewerController"
     pod 'Charts'

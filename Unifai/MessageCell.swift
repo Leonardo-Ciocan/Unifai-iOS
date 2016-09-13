@@ -15,10 +15,13 @@ protocol MessageCellDelegate {
 
 extension UITextView {
     func setHTMLFromString(text: String, color:UIColor) {
-        print(text)
         let textColor = self.textColor ?? UIColor.blackColor()
         let font = Constants.standardFont
-        let modifiedFont = "<style> body {font-family: '\(font!.fontName)'; font-size: \(font!.pointSize) }</style> " + text
+        let imgSizeStyle = "<head>" +
+        "   <style>" +
+        "        img,div {max-width: \(self.frame.width * 0.95)px; height: auto;}" +
+        "   "
+        let modifiedFont = imgSizeStyle + " body {font-family: '\(font!.fontName)'; font-size: \(font!.pointSize) }</style></head> " + text
         
         let attrStr = try! NSMutableAttributedString(
             data: modifiedFont.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!,
@@ -101,7 +104,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         
         imgLogo.layer.cornerRadius = imgLogo.frame.width/2
         imgLogo.layer.masksToBounds = true
-        
+//        textView.textContainerInset = UIEdgeInsetsMake(10, 10, 10, 10);
         txtBody.delegate = self
         
         contentView.userInteractionEnabled = false
@@ -383,7 +386,8 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         
         
         btn.snp_makeConstraints(closure: { (make)->Void in
-            make.trailing.leading.equalTo(0)
+            make.trailing.equalTo(0)
+            make.leading.equalTo((self.hideServiceMarkings! ? -50 : 0))
             make.height.equalTo(35)
             make.top.equalTo(0)
         })
@@ -490,7 +494,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         let sheetsView = SheetsView()
         sheetsView.backgroundColor = UIColor.clearColor()
         sheetsView.delegate = self
-        sheetsView.loadSheets(payload.sheets, color: message.color)
+        sheetsView.loadSheets(payload.sheets, color: message.color, service:message.service)
         sheetsView.collectionView.contentInset = UIEdgeInsets(top: 10, left: self.hideServiceMarkings != true ? 77 : 20, bottom: 0, right: 10)
         self.payloadContainer.addSubview(sheetsView)
         sheetsView.snp_makeConstraints(closure: { (make)->Void in

@@ -21,6 +21,8 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
         tabs.removeSegmentAtIndex(2, animated: true)
         homepageTableView.hidden = false
         HUD.flash(.Success, delay: 1)
+        activtyControl.startAnimating()
+        self.loadData(service)
     }
     
     override func viewDidLoad() {
@@ -152,6 +154,7 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
     }
     
     func handleRefresh(refreshControl: UIRefreshControl) {
+        activtyControl.startAnimating()
         loadData(self.service)
     }
     
@@ -195,6 +198,7 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
     }
     
     func didFinishAuthenticationFromMessage(message: Message?) {
+        activtyControl.startAnimating()
         loadData(self.service)
         updateLoggedInStatus()
     }

@@ -362,11 +362,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/MessageCell.swift"
-            timestampString = "495453790.746066"
+            timestampString = "495480816.389985"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "539"
-            endingLineNumber = "539"
+            startingLineNumber = "543"
+            endingLineNumber = "543"
             landmarkName = "setMessage(_:shouldShowThreadCount:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2244,39 +2244,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/SheetCell.swift"
-            timestampString = "495407546.94468"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
-            landmarkName = "tappedButton(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Unifai/SheetCell.swift"
-            timestampString = "495407546.94468"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
-            landmarkName = "tappedButton(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Unifai/SheetCell.swift"
-            timestampString = "495407546.94468"
+            timestampString = "495476089.297512"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "187"
@@ -2291,12 +2259,44 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Unifai/MessageCell.swift"
-            timestampString = "495453790.746066"
+            filePath = "Unifai/SheetCell.swift"
+            timestampString = "495476089.297512"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "540"
-            endingLineNumber = "540"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "tappedButton(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Unifai/SheetCell.swift"
+            timestampString = "495476089.297512"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "tappedButton(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Unifai/MessageCell.swift"
+            timestampString = "495480816.389985"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "544"
+            endingLineNumber = "544"
             landmarkName = "setMessage(_:shouldShowThreadCount:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2676,11 +2676,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/MessageCell.swift"
-            timestampString = "495453790.746066"
+            timestampString = "495460204.590429"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246"
+            startingLineNumber = "249"
+            endingLineNumber = "249"
             landmarkName = "handleThreadCount(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2692,11 +2692,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/SheetsView.swift"
-            timestampString = "493139307.904548"
+            timestampString = "495476089.297512"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "collectionView(_:layout:sizeForItemAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2740,11 +2740,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/SheetCell.swift"
-            timestampString = "495407546.94468"
+            timestampString = "495476089.297512"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
             landmarkName = "tappedImage(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2756,11 +2756,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/SheetCell.swift"
-            timestampString = "495407546.94468"
+            timestampString = "495476089.297512"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "loadEntries(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -2916,11 +2916,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/MessageCell.swift"
-            timestampString = "495453790.746066"
+            timestampString = "495460204.590429"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "257"
-            endingLineNumber = "257"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
             landmarkName = "handleTime()"
             landmarkType = "5">
          </BreakpointContent>
@@ -2932,11 +2932,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/MessageCell.swift"
-            timestampString = "495453790.746066"
+            timestampString = "495460204.590429"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
             landmarkName = "handleTime()"
             landmarkType = "5">
          </BreakpointContent>
@@ -3315,11 +3315,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/SheetCell.swift"
-            timestampString = "495407490.133317"
+            timestampString = "495476089.297512"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "loadEntries(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -3331,12 +3331,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Unifai/MessageCell.swift"
-            timestampString = "495453790.746066"
+            timestampString = "495459508.900096"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
             landmarkName = "setHTMLFromString(_:color:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Unifai/SheetCell.swift"
+            timestampString = "495476089.297512"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "loadEntries(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

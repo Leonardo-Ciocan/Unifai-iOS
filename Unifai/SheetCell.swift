@@ -11,6 +11,8 @@ protocol SheetCellDelegate {
 class SheetCell: UICollectionViewCell {
 
     var UICache : [[UIView]] = []
+    var service : Service?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         layer.masksToBounds = false
@@ -114,6 +116,7 @@ class SheetCell: UICollectionViewCell {
                 
                 if entry.url == "" {
                     indicator.stopAnimating()
+                    imageview.image = UIImage(named: (service?.username)!)
                 }
                 else {
                     let URLRequest = NSURLRequest(URL: NSURL(string:entry.url)!)
@@ -143,7 +146,6 @@ class SheetCell: UICollectionViewCell {
                         label.textColor = UIColor.whiteColor()
                         label.font = label.font.fontWithSize(13)
                         label.textAlignment = .Center
-                        addSubview(blurView)
                         blurView.addSubview(label)
                         label.snp_makeConstraints(closure: { make in
                             make.center.equalTo(blurView)
@@ -159,6 +161,10 @@ class SheetCell: UICollectionViewCell {
                     
                     
                     addSubview(imageview)
+                    
+                    if !entry.isIcon {
+                        addSubview(blurView)
+                    }
                     
                     UICache.append([imageview,blurView,label,indicator])
                 }

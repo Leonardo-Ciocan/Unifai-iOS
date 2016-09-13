@@ -581,24 +581,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SQC-ro-UGg">
-                                <rect key="frame" x="20" y="0.0" width="374" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="aBd-Nk-dD4"/>
-                                </constraints>
-                            </view>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jwu-W1-0xn">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="VwL-YR-T9V">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="ziT-Qt-uJL"/>
-                                </constraints>
-                                <blurEffect style="extraLight"/>
-                            </visualEffectView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kzU-Ha-VF7">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kzU-Ha-VF7">
                                 <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5T-2C-HAc">
@@ -706,6 +689,23 @@
                                     <constraint firstItem="cSF-y6-dgY" firstAttribute="leading" secondItem="4C5-0S-mYf" secondAttribute="leading" id="vFa-fU-Hwt"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SQC-ro-UGg">
+                                <rect key="frame" x="20" y="0.0" width="374" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="aBd-Nk-dD4"/>
+                                </constraints>
+                            </view>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jwu-W1-0xn">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="VwL-YR-T9V">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="ziT-Qt-uJL"/>
+                                </constraints>
+                                <blurEffect style="extraLight"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

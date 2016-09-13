@@ -18,6 +18,7 @@ class SheetsView: UIView, UICollectionViewDelegate , UICollectionViewDataSource 
     var sheets : [Sheet] = []
     var color : UIColor?
     var delegate : SheetsViewDelegate?
+    var service : Service?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -57,6 +58,7 @@ class SheetsView: UIView, UICollectionViewDelegate , UICollectionViewDataSource 
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SheetCell", forIndexPath: indexPath) as! SheetCell
+        cell.service = self.service
         cell.loadEntries(sheets[indexPath.row].entries)
         cell.backgroundColor = color
         cell.delegate = self
@@ -67,9 +69,10 @@ class SheetsView: UIView, UICollectionViewDelegate , UICollectionViewDataSource 
         return CGSize(width: 200, height: collectionView.frame.height - 40)
     }
     
-    func loadSheets(sheets:[Sheet],color:UIColor) {
+    func loadSheets(sheets:[Sheet],color:UIColor,service:Service?) {
         self.sheets = sheets
         self.color = color
+        self.service = service
         self.collectionView.reloadData()
     }
     

@@ -62,7 +62,7 @@
                     </constraints>
                 </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="j5i-dz-S08">
-                    <rect key="frame" x="73" y="44" width="508" height="530"/>
+                    <rect key="frame" x="68" y="36" width="513" height="538"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -82,10 +82,10 @@
                 <constraint firstAttribute="trailing" secondItem="Plt-Xd-OrE" secondAttribute="trailing" constant="19" id="Qu7-71-COc"/>
                 <constraint firstItem="ZZE-Ct-5dI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="YrM-PT-JHh"/>
                 <constraint firstItem="HIq-Dn-oQM" firstAttribute="top" secondItem="ZZE-Ct-5dI" secondAttribute="bottom" constant="-15" id="b7R-ZL-cNg"/>
-                <constraint firstItem="j5i-dz-S08" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="73" id="cI0-dW-ioE"/>
+                <constraint firstItem="j5i-dz-S08" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="68" id="cI0-dW-ioE"/>
                 <constraint firstAttribute="trailing" secondItem="j5i-dz-S08" secondAttribute="trailing" constant="19" id="cJj-Ha-MXY"/>
                 <constraint firstItem="rMW-pm-lz3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="kCk-aK-NhC"/>
-                <constraint firstItem="j5i-dz-S08" firstAttribute="top" secondItem="rMW-pm-lz3" secondAttribute="bottom" constant="3" id="let-cb-nOO"/>
+                <constraint firstItem="j5i-dz-S08" firstAttribute="top" secondItem="rMW-pm-lz3" secondAttribute="bottom" constant="-5" id="let-cb-nOO"/>
                 <constraint firstAttribute="bottom" secondItem="Plt-Xd-OrE" secondAttribute="bottom" constant="10" id="tr9-C5-tSd"/>
             </constraints>
             <connections>

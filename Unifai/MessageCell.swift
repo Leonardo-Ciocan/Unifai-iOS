@@ -270,7 +270,8 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
             let tableView = TablePayloadView()
             self.payloadContainer.addSubview(tableView)
             tableView.snp_makeConstraints(closure: { (make)->Void in
-                make.trailing.leading.equalTo(0)
+                make.trailing.equalTo(0)
+                make.leading.equalTo(self.hideServiceMarkings ?? false ? -45 : 0)
                 make.bottom.top.equalTo(0)
             })
             tableView.loadData(message.payload as! TablePayload)
@@ -285,8 +286,9 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
             self.payloadContainerHeight.constant = 0
             return
         }
-        self.payloadContainerHeight.constant = 180
-        
+        else {
+            self.payloadContainerHeight.constant = 180
+        }
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 5
         imageView.layer.shadowColor = UIColor.blackColor().CGColor
@@ -387,7 +389,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         
         btn.snp_makeConstraints(closure: { (make)->Void in
             make.trailing.equalTo(0)
-            make.leading.equalTo((self.hideServiceMarkings! ? -50 : 0))
+            make.leading.equalTo((self.hideServiceMarkings ?? false ? -50 : 0))
             make.height.equalTo(35)
             make.top.equalTo(0)
         })

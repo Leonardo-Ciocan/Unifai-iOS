@@ -60,7 +60,7 @@ class TablePayloadView: UIView {
         let rows = payload!.rows;
         
         self.hidden = true
-        let colWidth = Int(self.superview!.frame.width / CGFloat(cols.count))
+        let colWidth = Int(self.frame.width / CGFloat(cols.count))
         for col in 0..<cols.count{
             let colLabel = UILabel()
             colLabel.textColor = currentTheme.foregroundColor

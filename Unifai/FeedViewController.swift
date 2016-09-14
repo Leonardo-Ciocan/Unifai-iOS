@@ -2,6 +2,7 @@ import UIKit
 import AlertOnboarding
 import GSImageViewerController
 import DGElasticPullToRefresh
+import PKHUD
 
 extension UIScrollView {
     func dg_stopScrollingAnimation() {}
@@ -118,29 +119,27 @@ extension FeedViewController {
 }
 
 class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , MessageCellDelegate , ThreadVCDelegate {
+    
+    var mainSplitView : MainSplitView { return self.splitViewController as! MainSplitView }
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnCatalog: UIBarButtonItem!
     @IBOutlet weak var assistantBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var creatorAssistant: CreatorAssistant!
-    
-    var messages : [Message] = []
-    var selectedRow = 0
-    var mainSplitView : MainSplitView {
-        return self.splitViewController as! MainSplitView
-    }
-    
+    @IBOutlet weak var creatorShadow: UIView!
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
     @IBOutlet weak var reloadPrompt: UIView!
+    @IBOutlet weak var creator : MessageCreator?
+    
+    var processedMessageBodies : [String:NSAttributedString] = [:]
+    var messages : [Message] = []
+    var selectedRow = 0
+    
     let loadMoreSpinner = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
     let loadMoreText = UILabel()
     var didReachEndOfFeed = false
     
-    @IBOutlet
-    var creator : MessageCreator?
-    
     var offset = 0
     let limit = 10
-    @IBOutlet weak var creatorShadow: UIView!
     
     override func viewDidLoad() {
         self.view.backgroundColor = currentTheme.backgroundColor
@@ -202,7 +201,9 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         tableView.tableFooterView = loadMoreFooter
         
         
-        navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)!, NSForegroundColorAttributeName: currentTheme.foregroundColor]
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSFontAttributeName : UIFont(name:"Helvetica",size:15)!, NSForegroundColorAttributeName: currentTheme.foregroundColor
+        ]
         
         registerForKeyboardNotifications()
         self.navigationController?.navigationBar.tintColor = currentTheme.foregroundColor
@@ -242,6 +243,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     }
     
     func loadData() {
+        HUD.show(.LabeledProgress(title: "Loading feed", subtitle: "Stand by"))
         Unifai.getFeed(fromOffset: offset, andAmount: limit, completion: { messages in
             if messages.count == 0 {
                 self.didReachEndOfFeed = true
@@ -264,6 +266,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
             }
             self.loadMoreText.hidden = false
             self.loadMoreSpinner.stopAnimating()
+            HUD.flash(.Success, delay: 0.3)
         })
     }
     
@@ -276,16 +279,6 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
             offset += limit
             self.loadData()
         }
-    }
-
-
-    @IBAction func toCatalog(sender: AnyObject) {
-        self.performSegueWithIdentifier("toCatalog", sender: self)
-    }
-    
-    func doneClicked(){
-        shouldRemoveThemeFromHost()
-        creator?.txtMessage.resignFirstResponder()
     }
     
     func registerForKeyboardNotifications()
@@ -312,11 +305,5 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     func keyboardWillBeHidden(notification: NSNotification)
     {
         assistantBottomConstraint.constant = 0
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        segue.destinationViewController.modalPresentationStyle = .Popover
-        segue.destinationViewController.popoverPresentationController!.barButtonItem = btnCatalog
-        segue.destinationViewController.preferredContentSize = CGSizeMake(400,550)
     }
 }

@@ -23,6 +23,8 @@ extension UITextView {
         "   "
         let modifiedFont = imgSizeStyle + " body {font-family: '\(font!.fontName)'; font-size: \(font!.pointSize) }</style></head> " + text
         
+        
+        
         let attrStr = try! NSMutableAttributedString(
             data: modifiedFont.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!,
             options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: NSUTF8StringEncoding],

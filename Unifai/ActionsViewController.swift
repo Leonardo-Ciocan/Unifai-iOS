@@ -162,6 +162,7 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         self.presentViewController(rootVC, animated: true, completion: nil)
     }
     
+    
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         let header =  collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "header", forIndexPath: indexPath) as! ActionsHeader
 

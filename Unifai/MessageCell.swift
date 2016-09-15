@@ -508,6 +508,14 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         })
     }
     
+    func shouldOpenSheetsManagerWithSheets(sheets: [Sheet], service: Service) {
+        let rootVC = SheetsManagerViewController()
+        //let nav = UINavigationController(rootViewController: rootVC)
+        let height = CGFloat(sheets[0].entries.reduce(0){$0 + $1.size()})
+        rootVC.loadSheets(sheets, service: service, itemHeight: height)
+        self.parentViewController?.presentViewController(rootVC, animated: true, completion: nil)
+    }
+    
     func handlePayload() {
         guard let message = self.message else { return }
         self.payloadContainer.subviews.forEach { $0.removeFromSuperview() }

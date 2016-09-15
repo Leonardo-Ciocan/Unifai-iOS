@@ -16,4 +16,5 @@ target 'Unifai' do
     pod 'Answers'
     pod 'AlamofireImage', '~> 2.0'
     pod "PKHUD"
+    pod 'CrossroadRegex'
 end

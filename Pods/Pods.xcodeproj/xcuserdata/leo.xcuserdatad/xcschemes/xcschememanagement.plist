@@ -29,7 +29,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Boilerplate.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Charts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>CrossroadRegex.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -74,6 +84,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Result.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SnapKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -107,17 +122,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0AA00798211CA80F31BAE391A5865EB2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>115824B7CB2E76E5ACB836A251E79404</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1CB32EE87C05D015B0810EBE169DB315</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,12 +137,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
+		<key>390D8EDDB337C63224421CB26ECB5740</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7DA469358433C63266FF59ED5C70C82E</key>
+		<key>3E9A363E6BE97EF557DB95CCD1A30528</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>429DB6D97CF2EF1A95864A1EAF278ACE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -152,7 +167,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>AC2BDE7CCE06CE9BC100B6108B859DED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AC3CAA2ADB6570F2DB86344A1A558AA1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AF7D1905BEA64782FBDCDF2F8D5CA9F7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>AFEDA8059B169E4068B6DCC4D2F0B0E9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C3525A7F888593C80C51F3647F027503</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -162,12 +197,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D17D8C5F7E7F34E6AE96AEFF841D4DA1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F444F14CBC69C25C83B9D65196D6DC49</key>
+		<key>EA9BFA38F67327ADC9138F1A789D1526</key>
 		<dict>
 			<key>primary</key>
 			<true/>

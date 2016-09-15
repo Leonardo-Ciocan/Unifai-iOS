@@ -87,8 +87,8 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
         barShadow.layer.shadowPath = CGPathCreateWithRect(barShadow.bounds, nil)
         barShadow.layer.shadowColor = UIColor.blackColor().CGColor
         barShadow.layer.shadowOffset = CGSizeZero
-        barShadow.layer.shadowOpacity = 0.11
-        barShadow.layer.shadowRadius = 10
+        barShadow.layer.shadowOpacity = 0.15
+        barShadow.layer.shadowRadius = 5
         barShadow.layer.borderWidth = 0
         barShadow.layer.borderColor = UIColor.grayColor().colorWithAlphaComponent(0.2).CGColor
         

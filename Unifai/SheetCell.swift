@@ -96,11 +96,11 @@ class SheetCell: UICollectionViewCell {
                 
                 let imageview = cellWasInitialized ?
                     UICache[index][0] as! UIImageView :
-                    UIImageView(frame: CGRect(x: 0, y: y + (entry.isIcon ? 5 : 0) , width: 200, height: entry.isIcon ? 50 : 200))
+                    UIImageView(frame: CGRect(x: 0, y: y + (entry.isIcon ? 5 : 0) , width: self.frame.width, height: entry.isIcon ? 50 : 200))
                 
                 let blurView = cellWasInitialized ?
                     UICache[index][1] as! UIVisualEffectView :
-                    UIVisualEffectView(frame: CGRect(x: 0, y: y + 160 , width: 200, height: 40))
+                    UIVisualEffectView(frame: CGRect(x: 0, y: y + 160 , width: self.frame.width, height: 40))
                 
                 let label = cellWasInitialized ?
                     UICache[index][2] as! UILabel :

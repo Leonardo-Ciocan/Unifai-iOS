@@ -11,9 +11,12 @@ import UIKit
 protocol SheetsViewDelegate {
     func shouldOpenLinkWithURL(url:String)
     func shouldSendMessageWithText(text:String, sourceRect:CGRect, sourceView:UIView)
+    func shouldOpenSheetsManagerWithSheets(sheets:[Sheet], service:Service)
 }
+
 class SheetsView: UIView, UICollectionViewDelegate , UICollectionViewDataSource , SheetCellDelegate, UICollectionViewDelegateFlowLayout {
 
+    @IBOutlet weak var btnFilter: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     var sheets : [Sheet] = []
     var color : UIColor?
@@ -46,12 +49,12 @@ class SheetsView: UIView, UICollectionViewDelegate , UICollectionViewDataSource 
         layout.scrollDirection = .Horizontal
         collectionView.collectionViewLayout = layout
 
-        collectionView.registerNib(UINib(nibName:"SheetCell",bundle: nil), forCellWithReuseIdentifier: "SheetCell")
-        
+        collectionView.registerNib(UINib(nibName: "SheetCell", bundle: nil), forCellWithReuseIdentifier: "SheetCell")
+        collectionView.registerNib(UINib(nibName: "SheetsViewHeader", bundle: nil), forSupplementaryViewOfKind: "UICollectionElementKindSectionHeader", withReuseIdentifier: "header")
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-    
+  
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return sheets.count
     }
@@ -73,12 +76,19 @@ class SheetsView: UIView, UICollectionViewDelegate , UICollectionViewDataSource 
         self.sheets = sheets
         self.color = color
         self.service = service
+        self.btnFilter.tintColor = color
         self.collectionView.reloadData()
     }
     
     func shouldOpenLinkWithURL(url: String) {
         self.delegate?.shouldOpenLinkWithURL(url)
     }
+    
+    @IBAction func tappedFilter(sender: AnyObject) {
+        self.delegate?.shouldOpenSheetsManagerWithSheets(sheets, service: service!)
+        
+    }
+    
     func shouldSendMessageWithText(text: String, sourceRect: CGRect, sourceView: UIView) {
         delegate?.shouldSendMessageWithText(text, sourceRect: sourceRect, sourceView: sourceView)
     }

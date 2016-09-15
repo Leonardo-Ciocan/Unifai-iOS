@@ -71,6 +71,9 @@
 		B363CFCC1CCF205700B6182D /* Unifai.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363CFCB1CCF205700B6182D /* Unifai.swift */; };
 		B363CFD01CCF4D9600B6182D /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363CFCF1CCF4D9600B6182D /* MainNavigationController.swift */; };
 		B363CFD21CCF502A00B6182D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B363CFD11CCF502A00B6182D /* LoginViewController.swift */; };
+		B383AE211D89A630008A797A /* SheetsManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B383AE1F1D89A630008A797A /* SheetsManagerViewController.swift */; };
+		B383AE221D89A630008A797A /* SheetsManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B383AE201D89A630008A797A /* SheetsManagerViewController.xib */; };
+		B383AE281D8AF2FE008A797A /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B383AE271D8AF2FE008A797A /* Filter.swift */; };
 		B390068B1CD35D7F00F472AC /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B390068A1CD35D7F00F472AC /* Schedule.swift */; };
 		B39006951CD661C600F472AC /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39006941CD661C600F472AC /* SignupViewController.swift */; };
 		B39006971CD66ED600F472AC /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39006961CD66ED600F472AC /* Action.swift */; };
@@ -224,6 +227,9 @@
 		B363CFCB1CCF205700B6182D /* Unifai.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unifai.swift; sourceTree = "<group>"; };
 		B363CFCF1CCF4D9600B6182D /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		B363CFD11CCF502A00B6182D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B383AE1F1D89A630008A797A /* SheetsManagerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetsManagerViewController.swift; sourceTree = "<group>"; };
+		B383AE201D89A630008A797A /* SheetsManagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SheetsManagerViewController.xib; sourceTree = "<group>"; };
+		B383AE271D8AF2FE008A797A /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		B390068A1CD35D7F00F472AC /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		B39006941CD661C600F472AC /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		B39006961CD66ED600F472AC /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
@@ -393,10 +399,6 @@
 				B31BD92E1CFF93EF001B3875 /* LoginButton.xib */,
 				B3131F4F1D39A1D400461C12 /* ProgressView.swift */,
 				B3131F511D39A1EE00461C12 /* ProgressView.xib */,
-				B347B7FA1D552AC200965FD6 /* SheetsView.swift */,
-				B347B7FC1D552AD100965FD6 /* SheetsView.xib */,
-				B347B7FE1D5557A400965FD6 /* SheetCell.swift */,
-				B347B7FF1D5557A400965FD6 /* SheetCell.xib */,
 				B347B8041D55603C00965FD6 /* TitledSheetItemView.swift */,
 				B347B8061D55606500965FD6 /* TitledSheetItemView.xib */,
 			);
@@ -454,6 +456,7 @@
 		B363CF831CCEEBB300B6182D /* Unifai */ = {
 			isa = PBXGroup;
 			children = (
+				B383AE1C1D89A59A008A797A /* Sheets */,
 				B3E5DF4C1D4AB15C00E18199 /* Genius */,
 				B363CF8D1CCEEBB300B6182D /* Assets.xcassets */,
 				B32040AA1D3C7D7E0062686F /* Actions */,
@@ -528,8 +531,22 @@
 				B3E5DF4A1D4AAA6700E18199 /* Genius.swift */,
 				B3F1FFE71D531E6200E678E9 /* SuggestionItem.swift */,
 				B347B8021D555B8800965FD6 /* Sheet.swift */,
+				B383AE271D8AF2FE008A797A /* Filter.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		B383AE1C1D89A59A008A797A /* Sheets */ = {
+			isa = PBXGroup;
+			children = (
+				B347B7FA1D552AC200965FD6 /* SheetsView.swift */,
+				B347B7FC1D552AD100965FD6 /* SheetsView.xib */,
+				B347B7FE1D5557A400965FD6 /* SheetCell.swift */,
+				B347B7FF1D5557A400965FD6 /* SheetCell.xib */,
+				B383AE1F1D89A630008A797A /* SheetsManagerViewController.swift */,
+				B383AE201D89A630008A797A /* SheetsManagerViewController.xib */,
+			);
+			name = Sheets;
 			sourceTree = "<group>";
 		};
 		B39006A71CD6853400F472AC /* UnifaiWidget */ = {
@@ -710,6 +727,7 @@
 				B3131F521D39A1EE00461C12 /* ProgressView.xib in Resources */,
 				B3D721291D00DD9F00BFEEC2 /* CardView.xib in Resources */,
 				B363CF8E1CCEEBB300B6182D /* Assets.xcassets in Resources */,
+				B383AE221D89A630008A797A /* SheetsManagerViewController.xib in Resources */,
 				B350B9261D381B3A00FADBB6 /* ActionPickerViewController.xib in Resources */,
 				B3F1FFE61D531C8B00E678E9 /* PromptView.xib in Resources */,
 				B3B182F91D6AF1870045EB3B /* CatalogCellHeader.xib in Resources */,
@@ -825,6 +843,7 @@
 				B3F7B0151CF94F5800734F9B /* MessageCreatorDelegate.swift in Sources */,
 				B3D7213A1D01C5AE00BFEEC2 /* Cache.swift in Sources */,
 				B335AC2B1CD3336F00B85781 /* TablePayloadView.swift in Sources */,
+				B383AE281D8AF2FE008A797A /* Filter.swift in Sources */,
 				B307437C1D2C4E7300A9CD0E /* CatalogViewController.swift in Sources */,
 				B335AC271CD1127C00B85781 /* ServiceProfileViewcontroller.swift in Sources */,
 				B363CFBE1CCEF52600B6182D /* Service.swift in Sources */,
@@ -834,6 +853,7 @@
 				B32BDC9D1CFBA17900C18AFE /* DashboardEditorViewController.swift in Sources */,
 				B341EFB71D42C17E004604A7 /* AutoCompletionServices.swift in Sources */,
 				B3F1FFE81D531E6200E678E9 /* SuggestionItem.swift in Sources */,
+				B383AE211D89A630008A797A /* SheetsManagerViewController.swift in Sources */,
 				B341EFBC1D42C26F004604A7 /* AutoCompletionServiceCell.swift in Sources */,
 				B363CF851CCEEBB300B6182D /* AppDelegate.swift in Sources */,
 				B335AC291CD177C400B85781 /* ProfileViewController.swift in Sources */,

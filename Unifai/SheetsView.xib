@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="16A319" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SheetsView" customModule="Unifai" customModuleProvider="target">
             <connections>
+                <outlet property="btnFilter" destination="NrR-UZ-Cqa" id="QEA-An-fUL"/>
                 <outlet property="collectionView" destination="r7O-E4-fvM" id="DoL-Ph-w50"/>
             </connections>
         </placeholder>
@@ -24,13 +25,24 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NrR-UZ-Cqa">
+                    <rect key="frame" x="77" y="-8" width="96" height="30"/>
+                    <state key="normal" title="Filter and sort"/>
+                    <connections>
+                        <action selector="tappedFilter:" destination="-1" eventType="touchUpInside" id="AaN-Uh-KK9"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
+                <constraint firstItem="NrR-UZ-Cqa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="77" id="Aht-ay-HKz"/>
+                <constraint firstItem="NrR-UZ-Cqa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="-8" id="T4H-hP-YBq"/>
                 <constraint firstAttribute="trailing" secondItem="r7O-E4-fvM" secondAttribute="trailing" id="awk-eE-Rlp"/>
                 <constraint firstItem="r7O-E4-fvM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fLl-y1-Jle"/>
                 <constraint firstItem="r7O-E4-fvM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="sdv-9t-PsP"/>
                 <constraint firstAttribute="bottom" secondItem="r7O-E4-fvM" secondAttribute="bottom" id="sjP-Qp-oQm"/>
             </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <point key="canvasLocation" x="108" y="154"/>
         </view>
     </objects>
 </document>

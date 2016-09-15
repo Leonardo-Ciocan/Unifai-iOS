@@ -70,7 +70,6 @@
                             <constraint firstItem="UPY-XS-3xP" firstAttribute="centerY" secondItem="p4f-uC-4yO" secondAttribute="centerY" id="4Dt-CC-pY7"/>
                             <constraint firstItem="Qo1-aj-NSE" firstAttribute="top" secondItem="4YZ-DU-O8Q" secondAttribute="bottom" constant="-1" id="B22-RB-Cvm"/>
                             <constraint firstItem="avq-xy-jZT" firstAttribute="leading" secondItem="p4f-uC-4yO" secondAttribute="leadingMargin" constant="-20" id="DMu-3n-Pta"/>
-                            <constraint firstItem="IRh-sT-B6t" firstAttribute="top" secondItem="raS-3S-9q9" secondAttribute="bottom" constant="-49" id="DrN-c8-tQM"/>
                             <constraint firstItem="ExP-yt-YIb" firstAttribute="top" secondItem="Qo1-aj-NSE" secondAttribute="top" id="FOr-Us-c6C"/>
                             <constraint firstItem="Qo1-aj-NSE" firstAttribute="leading" secondItem="p4f-uC-4yO" secondAttribute="leadingMargin" constant="-20" id="GjQ-iE-AcX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="avq-xy-jZT" secondAttribute="trailing" constant="-20" id="IeW-hk-HXm"/>
@@ -89,6 +88,7 @@
                             <constraint firstItem="UPY-XS-3xP" firstAttribute="centerX" secondItem="p4f-uC-4yO" secondAttribute="centerX" id="sJA-9n-Qir"/>
                             <constraint firstItem="dXJ-Ha-bUs" firstAttribute="bottom" secondItem="Qo1-aj-NSE" secondAttribute="bottom" id="sXF-ch-lxk"/>
                             <constraint firstItem="IRh-sT-B6t" firstAttribute="top" secondItem="Qo1-aj-NSE" secondAttribute="bottom" id="wkZ-VP-Qpv"/>
+                            <constraint firstItem="raS-3S-9q9" firstAttribute="bottom" secondItem="Qo1-aj-NSE" secondAttribute="bottom" id="ySe-0a-QHC"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -96,6 +96,7 @@
                     <connections>
                         <outlet property="barShadow" destination="avq-xy-jZT" id="fZp-i8-6gU"/>
                         <outlet property="creatorAssistant" destination="4YZ-DU-O8Q" id="3Fu-qf-Dx7"/>
+                        <outlet property="creatorBottomConstraint" destination="wkZ-VP-Qpv" id="dZi-a9-oan"/>
                         <outlet property="creatorShadow" destination="dXJ-Ha-bUs" id="Yqm-tj-bpQ"/>
                         <outlet property="messageCreator" destination="Qo1-aj-NSE" id="bQd-pc-d9G"/>
                         <outlet property="rootView" destination="p4f-uC-4yO" id="nmQ-Ks-NDA"/>

@@ -38,6 +38,7 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     ]
     @IBOutlet weak var tableView: UITableView!
 
+    @IBOutlet weak var creatorBottomConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         self.view.backgroundColor = currentTheme.backgroundColor
         self.tableView.backgroundColor = currentTheme.backgroundColor
@@ -101,26 +102,24 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     }
     
     func shouldSendMessageWithText(text: String, sourceRect: CGRect, sourceView: UIView) {
-        messageCreator.txtMessage.becomeFirstResponder()
-        animateAddingCharacter(text)
-    }
-    
-    func animateAddingCharacter(consumableString:String) {
-        messageCreator.txtMessage.text = messageCreator.txtMessage.text! + String(consumableString.characters.first!)
-        messageCreator.textChanged(messageCreator)
-        guard consumableString.characters.count > 1 else {
-            let delay = 0.3 * Double(NSEC_PER_SEC)
-            let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-            dispatch_after(time, dispatch_get_main_queue()) {
-                self.messageCreator.sendMessageOrSelectPlaceholder(self.messageCreator.txtMessage.text!, imageData: nil)
+        messages.append(Message(body: text, type: .Text, payload: nil))
+        self.tableView.beginUpdates()
+        self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow:messages.count-1,inSection:0)], withRowAnimation: .Bottom)
+        self.tableView.endUpdates()
+        self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: self.messages.count - 1, inSection:0) , atScrollPosition: .Top, animated: true)
+        updatePromptStatus()
+        Unifai.sendMessage(text, thread: threadID!, completion: {
+            msg in
+            if !msg.isFromUser {
+                self.threadDelegate?.feedShouldUpdate(message:msg, forThread:self.threadID!)
             }
-            return
-        }
-        let delay = 0.015 * Double(NSEC_PER_SEC)
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-        dispatch_after(time, dispatch_get_main_queue()) {
-            self.animateAddingCharacter(consumableString.substringFromIndex(consumableString.startIndex.advancedBy(1)))
-        }
+            self.messages.append(msg)
+            self.tableView.beginUpdates()
+            self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow:self.messages.count-1,inSection:0)], withRowAnimation: .Bottom)
+            self.tableView.endUpdates()
+            self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: self.messages.count - 1, inSection:0) , atScrollPosition: .Top, animated: true)
+            self.updatePromptStatus()
+        })
     }
     
     func shouldAppendMessage(message: Message) {
@@ -131,11 +130,8 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         self.tableView.beginUpdates()
         self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow:messages.count-1,inSection:0)], withRowAnimation: .Bottom)
         self.tableView.endUpdates()
-        let delay = 0.4 * Double(NSEC_PER_SEC)
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-        dispatch_after(time, dispatch_get_main_queue()) {
-            self.tableView.scrollToBottom(animated: true)
-        }
+        self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: self.messages.count - 1, inSection:0) , atScrollPosition: .Top, animated: true)
+        updatePromptStatus()
     }
     
     func shouldThemeHostWithColor(color: UIColor) {
@@ -173,23 +169,42 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
                     //self.tableView.scrollToBottom(animated: true)
                     self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: self.messages.count - 1, inSection:0) , atScrollPosition: .Top, animated: true)
                 }
-                if let lastMessage = threadMessages.last {
-                    if lastMessage.type == .Prompt {
-                        self.messageCreator.enablePromptModeWithSuggestions(lastMessage.service!, suggestions: (lastMessage.payload as! PromptPayload).suggestions, questionText: ((lastMessage.payload as! PromptPayload)).questionText)
-                    }
-                    else if self.messageCreator.isInPromptMode {
-                        self.messageCreator.disablePromptMode()
-                    }
-                }
-                
+                self.updatePromptStatus()
             })
         })
     }
     
+    func updatePromptStatus() {
+        if let lastMessage = messages.last {
+            if lastMessage.type == .Prompt {
+                self.messageCreator.enablePromptModeWithSuggestions(lastMessage.service!, suggestions: (lastMessage.payload as! PromptPayload).suggestions, questionText: ((lastMessage.payload as! PromptPayload)).questionText)
+            }
+            else if self.messageCreator.isInPromptMode {
+                self.messageCreator.disablePromptMode()
+            }
+        }
+    }
+    
     func didFinishAuthenticationFromMessage(message: Message?) {
-        let msg = messages[messages.count-2].body
-        messageCreator.txtMessage.becomeFirstResponder()
-        animateAddingCharacter(msg)
+        let text = messages[messages.count-2].body
+        messages.append(Message(body: text, type: .Text, payload: nil))
+        self.tableView.beginUpdates()
+        self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow:messages.count-1,inSection:0)], withRowAnimation: .Bottom)
+        self.tableView.endUpdates()
+        self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: self.messages.count - 1, inSection:0) , atScrollPosition: .Top, animated: true)
+        updatePromptStatus()
+        Unifai.sendMessage(text, thread: threadID!, completion: {
+            msg in
+            if !msg.isFromUser {
+                self.threadDelegate?.feedShouldUpdate(message:msg, forThread:self.threadID!)
+            }
+            self.messages.append(msg)
+            self.tableView.beginUpdates()
+            self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow:self.messages.count-1,inSection:0)], withRowAnimation: .Bottom)
+            self.tableView.endUpdates()
+            self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: self.messages.count - 1, inSection:0) , atScrollPosition: .Top, animated: true)
+            self.updatePromptStatus()
+        })
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

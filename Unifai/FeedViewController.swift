@@ -220,8 +220,8 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         creatorShadow.layer.shadowPath = CGPathCreateWithRect(creatorShadow.bounds, nil)
         creatorShadow.layer.shadowColor = UIColor.blackColor().CGColor
         creatorShadow.layer.shadowOffset = CGSizeZero
-        creatorShadow.layer.shadowOpacity = 0.11
-        creatorShadow.layer.shadowRadius = 10
+        creatorShadow.layer.shadowOpacity = 0.15
+        creatorShadow.layer.shadowRadius = 5
         creatorShadow.layer.borderWidth = 0
         creatorShadow.layer.borderColor = UIColor.grayColor().colorWithAlphaComponent(0.2).CGColor
         

@@ -181,6 +181,10 @@ enum Position {
         
         btnGenius.tintColor = currentTheme.foregroundColor
         btnGenius.imageView?.contentMode = .ScaleAspectFit
+        btnGenius.layer.shadowOffset = CGSizeZero
+        btnGenius.layer.shadowColor = UIColor.blackColor().CGColor
+        btnGenius.layer.shadowRadius = 5
+        btnGenius.layer.shadowOpacity = 0.1
         
         //self.backgroundColorView.backgroundColor = currentTheme.backgroundColor
         updateGeniusSuggestionsLocally()

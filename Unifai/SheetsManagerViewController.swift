@@ -57,8 +57,28 @@ class SheetsManagerViewController: UIViewController, SheetCellDelegate, UICollec
         let blocks = generateFilterBlocksFromText(txtSearch.text!)
         let filtered = executeFilterBlocks(blocks)
         self.filteredSheets = filtered
-        self.txtItemsTitle.text = String(self.sheets.count) + " items"
+        self.txtItemsTitle.text = String(self.filteredSheets.count) + " items"
         self.collectionView.reloadData()
+        highlightKeywords()
+    }
+    
+    let keywords = ["is","contains"]
+    func highlightKeywords() {
+        if let text = txtSearch.text {
+            let attributedString = NSMutableAttributedString(string: text)
+            for keyword in keywords {
+                let matches = (keyword + "(\\s|$)").r!.findAll(in: text)
+                for match in matches {
+                    let range = match.range
+                    let start = text.startIndex.distance(to: range.startIndex)
+                    let lenght = text.startIndex.distance(to: range.endIndex) - start
+                    attributedString.addAttributes([NSForegroundColorAttributeName: (service?.color)!],
+                                                   range: NSMakeRange(start, lenght))
+                }
+
+            }
+            txtSearch.attributedText = attributedString
+        }
     }
     
     func generateFilterBlocksFromText(text:String) -> [FilterType] {

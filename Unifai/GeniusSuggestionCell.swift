@@ -19,12 +19,12 @@ class GeniusSuggestionCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
-    func loadData(data:GeniusSuggestion) {
-        txtName.text = data.name.uppercaseString
+    func loadData(_ data:GeniusSuggestion) {
+        txtName.text = data.name.uppercased()
         txtMessage.text = data.message
         if let service = TextUtils.extractService(data.message) {
             innerView.backgroundColor = service.color
@@ -35,8 +35,8 @@ class GeniusSuggestionCell: UITableViewCell {
         
         innerView.layer.cornerRadius = 5
         innerView.layer.masksToBounds = true
-        txtName.textColor = UIColor.whiteColor()
-        txtMessage.textColor = UIColor.whiteColor().colorWithAlphaComponent(0.7)
+        txtName.textColor = UIColor.white
+        txtMessage.textColor = UIColor.white.withAlphaComponent(0.7)
     }
     
 }

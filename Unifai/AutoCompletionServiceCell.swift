@@ -22,8 +22,8 @@ class AutoCompletionServiceCell: UICollectionViewCell {
         backgroundColorView.layer.masksToBounds = true
     }
     
-    func loadService(service : Service) {
-        txtName.text = service.name.uppercaseString
+    func loadService(_ service : Service) {
+        txtName.text = service.name.uppercased()
         imgLogo.image = UIImage(named: service.username)
         backgroundColorView.backgroundColor = service.color
         txtName.textColor = service.color

@@ -11,15 +11,15 @@ import UIKit
 class MessageCreatorTextView: UITextField {
 
     
-    override func drawRect(rect: CGRect) {
-        self.layer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.005).CGColor
+    override func draw(_ rect: CGRect) {
+        self.layer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.005).cgColor
         self.layer.cornerRadius = 5
-        self.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.05).CGColor
+        self.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.05).cgColor
         self.layer.borderWidth = 1
         
-        let paddingView = UIView(frame: CGRectMake(0, 0, 5, self.self.frame.height))
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: self.self.frame.height))
         self.leftView = paddingView
-        self.leftViewMode = UITextFieldViewMode.Always
+        self.leftViewMode = UITextFieldViewMode.always
     }
 //    
 //    let padding = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 5);

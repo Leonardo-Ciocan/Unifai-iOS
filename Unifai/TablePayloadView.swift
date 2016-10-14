@@ -11,16 +11,16 @@ import SnapKit
 
 class TablePayloadView: UIView {
 
-    override func drawRect(rect: CGRect) {
-        self.layer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.02).CGColor
-        self.layer.borderColor = UIColor.greenColor().CGColor
+    override func draw(_ rect: CGRect) {
+        self.layer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.02).cgColor
+        self.layer.borderColor = UIColor.green.cgColor
         self.layer.borderWidth = 0
     }
     
     
     var payload : TablePayload?
     
-    func loadData(payload : TablePayload){
+    func loadData(_ payload : TablePayload){
         self.backgroundColor = currentTheme.shadeColor
         self.payload = payload
         
@@ -45,10 +45,10 @@ class TablePayloadView: UIView {
         self.subviews.forEach({ $0.removeFromSuperview()})
         
         let shadowView = UIView()
-        shadowView.backgroundColor = UIColor.clearColor()
-        shadowView.layer.shadowColor = UIColor.blackColor().CGColor
+        shadowView.backgroundColor = UIColor.clear
+        shadowView.layer.shadowColor = UIColor.black.cgColor
         shadowView.layer.shadowOpacity = 1
-        shadowView.layer.shadowOffset = CGSizeZero
+        shadowView.layer.shadowOffset = CGSize.zero
         shadowView.layer.shadowRadius = 10
         shadowView.layer.masksToBounds = false
         addSubview(shadowView)
@@ -59,13 +59,13 @@ class TablePayloadView: UIView {
         let cols = payload!.columns;
         let rows = payload!.rows;
         
-        self.hidden = true
+        self.isHidden = true
         let colWidth = Int(self.frame.width / CGFloat(cols.count))
         for col in 0..<cols.count{
             let colLabel = UILabel()
             colLabel.textColor = currentTheme.foregroundColor
-            colLabel.textAlignment = .Center
-            colLabel.font = colLabel.font.fontWithSize(13)
+            colLabel.textAlignment = .center
+            colLabel.font = colLabel.font.withSize(13)
             colLabel.text = payload!.columns[col]
             colLabel.backgroundColor = currentTheme.shadeColor
             self.addSubview(colLabel)
@@ -80,8 +80,8 @@ class TablePayloadView: UIView {
             for row in 0..<rows.count{
                 let label = UILabel()
                 label.textColor = currentTheme.foregroundColor
-                label.textAlignment = .Center
-                label.font = label.font.fontWithSize(12)
+                label.textAlignment = .center
+                label.font = label.font.withSize(12)
                 label.text = payload!.rows[row][col]
                 self.addSubview(label)
                 
@@ -93,7 +93,7 @@ class TablePayloadView: UIView {
                                 })
             }
         }
-        self.hidden = false
+        self.isHidden = false
     }
     
 }

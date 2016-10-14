@@ -17,7 +17,7 @@ class CardView: UIView {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var txtTitle: UILabel!
     
-    func loadData(payload : CardListPayloadItem , service:Service){
+    func loadData(_ payload : CardListPayloadItem , service:Service){
         if !(payload.imageURL?.isEmpty)!{
             Alamofire.request(.GET, payload.imageURL!)
                 .responseImage { response in
@@ -45,23 +45,23 @@ class CardView: UIView {
     }
     
     func loadViewFromNib() {
-        let bundle = NSBundle(forClass: self.dynamicType)
+        let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "CardView", bundle: bundle)
-        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         view.frame = bounds
-        view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        view.backgroundColor = UIColor.whiteColor()
-        self.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
+        self.backgroundColor = UIColor.white
         
         self.addSubview(view);
     }
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         layer.masksToBounds = false
-        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.12
-        layer.shadowOffset = CGSizeZero
+        layer.shadowOffset = CGSize.zero
         layer.shadowRadius = 5
         
     }

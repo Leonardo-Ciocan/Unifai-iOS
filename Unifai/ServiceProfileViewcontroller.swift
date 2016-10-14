@@ -13,26 +13,26 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
     var homepage : [Message] = []
     
     @IBOutlet weak var homepageTableView: UITableView!
-    let activtyControl = UIActivityIndicatorView(activityIndicatorStyle: .White)
+    let activtyControl = UIActivityIndicatorView(activityIndicatorStyle: .white)
     
-    @IBAction func logout(sender: AnyObject) {
+    @IBAction func logout(_ sender: AnyObject) {
         Unifai.logoutFromService((service?.username)!)
-        settingsTab.hidden = true
-        tabs.removeSegmentAtIndex(2, animated: true)
-        homepageTableView.hidden = false
-        HUD.flash(.Success, delay: 1)
+        settingsTab.isHidden = true
+        tabs.removeSegment(at: 2, animated: true)
+        homepageTableView.isHidden = false
+        HUD.flash(.success, delay: 1)
         activtyControl.startAnimating()
         self.loadData(service)
     }
     
     override func viewDidLoad() {
-        self.tableView!.registerNib(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
-        self.homepageTableView!.registerNib(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
+        self.tableView!.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
+        self.homepageTableView!.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
 
         self.tableView!.rowHeight = UITableViewAutomaticDimension
         self.tableView!.estimatedRowHeight = 64.0
         self.tableView!.tableFooterView = UIView()
-        self.tableView!.separatorStyle = .None
+        self.tableView!.separatorStyle = .none
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
@@ -41,12 +41,12 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
         self.homepageTableView.delegate = self
         self.homepageTableView.dataSource = self
         
-        navigationController?.navigationBar.barStyle = .Black
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        navigationController?.navigationBar.barStyle = .black
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         
-        self.navigationController?.navigationBar.translucent = false
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage =  UIImage(named:"transparent")
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: activtyControl)
@@ -54,19 +54,19 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
         self.tableView.alpha = 0
         self.view.backgroundColor = currentTheme.backgroundColor
         
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)!, NSForegroundColorAttributeName: UIColor.white]
         
         self.btnLogout.tintColor = self.service?.color
         
     
-        self.settingsTab.hidden = true
+        self.settingsTab.isHidden = true
         updateLoggedInStatus()
     }
     
     func updateLoggedInStatus() {
         Unifai.isUserLoggedInToService((self.service?.username)!, completion: { loggedIn in
             if loggedIn {
-                self.tabs.insertSegmentWithTitle("Account", atIndex: 2, animated: true)
+                self.tabs.insertSegment(withTitle: "Account", at: 2, animated: true)
                 self.settingsTab.backgroundColor = currentTheme.backgroundColor
                 self.txtCurrentlyLoggedIn.textColor = currentTheme.foregroundColor
             }
@@ -74,40 +74,40 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
     }
     
     
-    @IBAction func tabChanged(sender: AnyObject) {
+    @IBAction func tabChanged(_ sender: AnyObject) {
         let index = tabs.selectedSegmentIndex
         if index == 1 {
-            self.homepageTableView.hidden = true
-            self.tableView.hidden = false
-            self.settingsTab.hidden = true
+            self.homepageTableView.isHidden = true
+            self.tableView.isHidden = false
+            self.settingsTab.isHidden = true
         }
         else if index == 0 {
-            self.tableView.hidden = true
-            self.homepageTableView.hidden = false
-            self.settingsTab.hidden = true
+            self.tableView.isHidden = true
+            self.homepageTableView.isHidden = false
+            self.settingsTab.isHidden = true
 
         }
         else if index == 2 {
-            self.tableView.hidden = true
-            self.homepageTableView.hidden = true
-            self.settingsTab.hidden = false
+            self.tableView.isHidden = true
+            self.homepageTableView.isHidden = true
+            self.settingsTab.isHidden = false
         }
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         self.headerBackground.backgroundColor = service?.color
         self.navigationController?.navigationBar.barTintColor = service!.color
     }
     
-    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        guard let indexPath = self.tableView.indexPathForRowAtPoint(location) else { return nil }
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let indexPath = self.tableView.indexPathForRow(at: location) else { return nil }
         
-        guard let cell = tableView?.cellForRowAtIndexPath(indexPath) else { return nil }
+        guard let cell = tableView?.cellForRow(at: indexPath) else { return nil }
         
-        guard let detailVC = storyboard?.instantiateViewControllerWithIdentifier("ThreadViewController") as? ThreadViewController else { return nil }
+        guard let detailVC = storyboard?.instantiateViewController(withIdentifier: "ThreadViewController") as? ThreadViewController else { return nil }
         
-        detailVC.loadData(messages[indexPath.row].threadID!)
+        detailVC.loadData(messages[(indexPath as NSIndexPath).row].threadID!)
         
         detailVC.preferredContentSize = CGSize(width: 0.0, height: 600)
         
@@ -116,21 +116,21 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
         return detailVC
     }
     
-    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         
-        showViewController(viewControllerToCommit, sender: self)
+        show(viewControllerToCommit, sender: self)
         
     }
     
     var service : Service?
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
     
-    func loadData(service:Service?){
+    func loadData(_ service:Service?){
         guard service != nil else{ return }
         self.service = service
-        self.navigationItem.title = service?.name.uppercaseString
+        self.navigationItem.title = service?.name.uppercased()
         
 //        let titleImageView = UIImageView(frame:CGRect(x: 0, y: 0, width: 50, height: 50))
 //        titleImageView.image = UIImage(named: (service?.username)!)
@@ -143,61 +143,61 @@ class ServiceProfileViewcontroller: UIViewController , UITableViewDelegate , UIT
             self.homepageTableView.reloadData()
             self.tableView?.reloadData()
             self.activtyControl.stopAnimating()
-            UIView.animateWithDuration(0.5, animations: {
+            UIView.animate(withDuration: 0.5, animations: {
                 self.tableView.alpha = 1
             })
         })
     }
     
-    @IBAction func doneTapped(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func doneTapped(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
-    func handleRefresh(refreshControl: UIRefreshControl) {
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
         activtyControl.startAnimating()
         loadData(self.service)
     }
     
     var selectedRow = 0
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        guard indexPath.row != 0 && tableView != homepageTableView else { return }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard (indexPath as NSIndexPath).row != 0 && tableView != homepageTableView else { return }
         
-        selectedRow = indexPath.row
+        selectedRow = (indexPath as NSIndexPath).row
         
-        guard let detailVC = UIStoryboard(name: "Thread", bundle: nil).instantiateViewControllerWithIdentifier("ThreadViewController") as? ThreadViewController else { return }
+        guard let detailVC = UIStoryboard(name: "Thread", bundle: nil).instantiateViewController(withIdentifier: "ThreadViewController") as? ThreadViewController else { return }
         
         detailVC.loadData(messages[selectedRow - 1].threadID!)
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell") as! MessageCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell") as! MessageCell
         cell.hideServiceMarkings = true
         cell.hideTime = true
-        cell.selectionStyle = .None
+        cell.selectionStyle = .none
         cell.parentViewController = self
-        cell.setMessage(tableView == self.tableView ? messages[indexPath.row] : homepage[indexPath.row])
+        cell.setMessage(tableView == self.tableView ? messages[(indexPath as NSIndexPath).row] : homepage[(indexPath as NSIndexPath).row])
         cell.delegate = self
         return cell
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableView == self.tableView ? messages.count : homepage.count
     }
     
-    func shouldSendMessageWithText(text: String, sourceRect: CGRect, sourceView: UIView) {
+    func shouldSendMessageWithText(_ text: String, sourceRect: CGRect, sourceView: UIView) {
         let runner = ActionRunnerViewController()
         runner.loadAction(Action(message: text, name: ""))
         
         let rootVC = UINavigationController(rootViewController: runner)
-        rootVC.modalPresentationStyle = .Popover
+        rootVC.modalPresentationStyle = .popover
         rootVC.popoverPresentationController!.sourceView = sourceView
         rootVC.popoverPresentationController!.sourceRect = sourceRect
-        rootVC.preferredContentSize = CGSizeMake(350,500)
-        self.presentViewController(rootVC, animated: true, completion: nil)
+        rootVC.preferredContentSize = CGSize(width: 350,height: 500)
+        self.present(rootVC, animated: true, completion: nil)
     }
     
-    func didFinishAuthenticationFromMessage(message: Message?) {
+    func didFinishAuthenticationFromMessage(_ message: Message?) {
         activtyControl.startAnimating()
         loadData(self.service)
         updateLoggedInStatus()

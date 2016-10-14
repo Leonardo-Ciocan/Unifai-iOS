@@ -6,7 +6,7 @@ class Core {
     static var Actions : [Action] = []
     static var Catalog : [String:[CatalogItem]] = [:]
     
-    class func populateAll(withCallback callback:(()->())?, error : (ResponseStatus) -> ()) {
+    class func populateAll(withCallback callback:(()->())?, error : @escaping (ResponseStatus) -> ()) {
         Unifai.getUserInfo({ username,email in
             Core.Username = username
             Unifai.getServices({services in

@@ -4,7 +4,7 @@ import SafariServices
 import UIKit
 
 extension UITableView {
-    func scrollToBottom(animated animated: Bool) {
+    func scrollToBottom(animated: Bool) {
         if self.contentSize.height < self.bounds.size.height { return }
         let bottomOffset = CGPoint(x: 0, y: self.contentSize.height - self.bounds.size.height)
         self.setContentOffset(bottomOffset, animated: animated)
@@ -12,7 +12,7 @@ extension UITableView {
 }
 
 protocol ThreadVCDelegate {
-    func feedShouldUpdate(message message:Message, forThread threadID:String)
+    func feedShouldUpdate(message:Message, forThread threadID:String)
 }
 
 class ThreadViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , MessageCreatorDelegate, MessageCellDelegate {
@@ -48,13 +48,13 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         super.viewDidLoad()
         
         
-        self.tableView!.registerNib(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
+        self.tableView!.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
         
         self.tableView!.rowHeight = UITableViewAutomaticDimension
         self.tableView!.estimatedRowHeight = 64.0
         self.tableView!.tableFooterView = UIView()
         //self.tableView?.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 70))
-        self.tableView!.separatorStyle = .None
+        self.tableView!.separatorStyle = .none
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.navigationController?.navigationItem.title = "Loaded";
@@ -62,51 +62,51 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         self.messageCreator.assistant = creatorAssistant
         self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 49 + 100 + 10))
         self.messageCreator.updateGeniusSuggestions(threadID!)
-        creatorShadow.layer.shadowColor = UIColor.blackColor().CGColor
-        creatorShadow.layer.shadowOffset = CGSizeZero
+        creatorShadow.layer.shadowColor = UIColor.black.cgColor
+        creatorShadow.layer.shadowOffset = CGSize.zero
         creatorShadow.layer.shadowOpacity = 0.11
         creatorShadow.layer.shadowRadius = 10
         creatorShadow.layer.borderWidth = 0
-        creatorShadow.layer.borderColor = UIColor.grayColor().colorWithAlphaComponent(0.2).CGColor
+        creatorShadow.layer.borderColor = UIColor.gray.withAlphaComponent(0.2).cgColor
         
         messageCreator.parentViewController = self
         
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.barTintColor = UIColor.clearColor() //Constants.appBrandColor.darkenColor(0.05)
-        self.navigationController?.navigationBar.tintColor = UIColor.blackColor()
-        self.navigationController?.navigationBar.translucent = true
+        self.navigationController?.navigationBar.barTintColor = UIColor.clear //Constants.appBrandColor.darkenColor(0.05)
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+        self.navigationController?.navigationBar.isTranslucent = true
         
-        barShadow.layer.shadowColor = UIColor.blackColor().CGColor
-        barShadow.layer.shadowOffset = CGSizeZero
+        barShadow.layer.shadowColor = UIColor.black.cgColor
+        barShadow.layer.shadowOffset = CGSize.zero
         barShadow.layer.shadowOpacity = 0.11
         barShadow.layer.shadowRadius = 10
         barShadow.layer.borderWidth = 0
-        barShadow.layer.borderColor = UIColor.grayColor().colorWithAlphaComponent(0.2).CGColor
+        barShadow.layer.borderColor = UIColor.gray.withAlphaComponent(0.2).cgColor
         
         
         
-        NSNotificationCenter.defaultCenter().addObserver(self,
+        NotificationCenter.default.addObserver(self,
                                                          selector: #selector(keyboardWillShow),
-                                                         name: UIKeyboardDidShowNotification,
+                                                         name: NSNotification.Name.UIKeyboardDidShow,
                                                          object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self,
+        NotificationCenter.default.addObserver(self,
                                                          selector: #selector(keyboardWillHide),
-                                                         name: UIKeyboardDidHideNotification,
+                                                         name: NSNotification.Name.UIKeyboardDidHide,
                                                          object: nil)
         
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
-    func shouldSendMessageWithText(text: String, sourceRect: CGRect, sourceView: UIView) {
+    func shouldSendMessageWithText(_ text: String, sourceRect: CGRect, sourceView: UIView) {
         messages.append(Message(body: text, type: .Text, payload: nil))
         self.tableView.beginUpdates()
-        self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow:messages.count-1,inSection:0)], withRowAnimation: .Bottom)
+        self.tableView.insertRows(at: [IndexPath(row:messages.count-1,section:0)], with: .bottom)
         self.tableView.endUpdates()
-        self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: self.messages.count - 1, inSection:0) , atScrollPosition: .Top, animated: true)
+        self.tableView.scrollToRow(at: IndexPath(row: self.messages.count - 1, section:0) , at: .top, animated: true)
         updatePromptStatus()
         Unifai.sendMessage(text, thread: threadID!, completion: {
             msg in
@@ -115,36 +115,36 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
             }
             self.messages.append(msg)
             self.tableView.beginUpdates()
-            self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow:self.messages.count-1,inSection:0)], withRowAnimation: .Bottom)
+            self.tableView.insertRows(at: [IndexPath(row:self.messages.count-1,section:0)], with: .bottom)
             self.tableView.endUpdates()
-            self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: self.messages.count - 1, inSection:0) , atScrollPosition: .Top, animated: true)
+            self.tableView.scrollToRow(at: IndexPath(row: self.messages.count - 1, section:0) , at: .top, animated: true)
             self.updatePromptStatus()
         })
     }
     
-    func shouldAppendMessage(message: Message) {
+    func shouldAppendMessage(_ message: Message) {
         if !message.isFromUser {
             self.threadDelegate?.feedShouldUpdate(message:message, forThread:threadID!)
         }
         self.messages.append(message)
         self.tableView.beginUpdates()
-        self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow:messages.count-1,inSection:0)], withRowAnimation: .Bottom)
+        self.tableView.insertRows(at: [IndexPath(row:messages.count-1,section:0)], with: .bottom)
         self.tableView.endUpdates()
-        self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: self.messages.count - 1, inSection:0) , atScrollPosition: .Top, animated: true)
+        self.tableView.scrollToRow(at: IndexPath(row: self.messages.count - 1, section:0) , at: .top, animated: true)
         updatePromptStatus()
     }
     
-    func shouldThemeHostWithColor(color: UIColor) {
-        UIView.animateWithDuration(1, animations: {
+    func shouldThemeHostWithColor(_ color: UIColor) {
+        UIView.animate(withDuration: 1, animations: {
             },completion: { _ in
-                self.navigationController?.navigationBar.barStyle =  .Black
+                self.navigationController?.navigationBar.barStyle =  .black
                 self.navigationController?.navigationBar.barTintColor =  color
-                self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+                self.navigationController?.navigationBar.tintColor = UIColor.white
         })
     }
     
     func shouldRemoveThemeFromHost() {
-        UIView.animateWithDuration(1, animations: {
+        UIView.animate(withDuration: 1, animations: {
             },completion: { _ in
                 self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
                 self.navigationController?.navigationBar.barTintColor = nil
@@ -152,7 +152,7 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         })
     }
     
-    func loadData(thread : String){
+    func loadData(_ thread : String){
         self.threadID = thread
         Unifai.getServices({ services in
             Core.Services = services
@@ -164,10 +164,10 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
                 self.messages = threadMessages
                 self.tableView?.reloadData()
                 let delay = 0.4 * Double(NSEC_PER_SEC)
-                let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-                dispatch_after(time, dispatch_get_main_queue()) {
+                let time = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
+                DispatchQueue.main.asyncAfter(deadline: time) {
                     //self.tableView.scrollToBottom(animated: true)
-                    self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: self.messages.count - 1, inSection:0) , atScrollPosition: .Top, animated: true)
+                    self.tableView.scrollToRow(at: IndexPath(row: self.messages.count - 1, section:0) , at: .top, animated: true)
                 }
                 self.updatePromptStatus()
             })
@@ -176,7 +176,7 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     
     func updatePromptStatus() {
         if let lastMessage = messages.last {
-            if lastMessage.type == .Prompt {
+            if lastMessage.type == .prompt {
                 self.messageCreator.enablePromptModeWithSuggestions(lastMessage.service!, suggestions: (lastMessage.payload as! PromptPayload).suggestions, questionText: ((lastMessage.payload as! PromptPayload)).questionText)
             }
             else if self.messageCreator.isInPromptMode {
@@ -185,13 +185,13 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         }
     }
     
-    func didFinishAuthenticationFromMessage(message: Message?) {
+    func didFinishAuthenticationFromMessage(_ message: Message?) {
         let text = messages[messages.count-2].body
         messages.append(Message(body: text, type: .Text, payload: nil))
         self.tableView.beginUpdates()
-        self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow:messages.count-1,inSection:0)], withRowAnimation: .Bottom)
+        self.tableView.insertRows(at: [IndexPath(row:messages.count-1,section:0)], with: .bottom)
         self.tableView.endUpdates()
-        self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: self.messages.count - 1, inSection:0) , atScrollPosition: .Top, animated: true)
+        self.tableView.scrollToRow(at: IndexPath(row: self.messages.count - 1, section:0) , at: .top, animated: true)
         updatePromptStatus()
         Unifai.sendMessage(text, thread: threadID!, completion: {
             msg in
@@ -200,17 +200,17 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
             }
             self.messages.append(msg)
             self.tableView.beginUpdates()
-            self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow:self.messages.count-1,inSection:0)], withRowAnimation: .Bottom)
+            self.tableView.insertRows(at: [IndexPath(row:self.messages.count-1,section:0)], with: .bottom)
             self.tableView.endUpdates()
-            self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: self.messages.count - 1, inSection:0) , atScrollPosition: .Top, animated: true)
+            self.tableView.scrollToRow(at: IndexPath(row: self.messages.count - 1, section:0) , at: .top, animated: true)
             self.updatePromptStatus()
         })
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell") as! MessageCell
-        cell.selectionStyle = .None
-        cell.setMessage(messages[indexPath.row] , shouldShowThreadCount: false)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell") as! MessageCell
+        cell.selectionStyle = .none
+        cell.setMessage(messages[(indexPath as NSIndexPath).row] , shouldShowThreadCount: false)
         
         cell.delegate = self
         cell.parentViewController = self
@@ -218,7 +218,7 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         return cell
     }
     
-    func payloadImageTapped(senderA:UITapGestureRecognizer){
+    func payloadImageTapped(_ senderA:UITapGestureRecognizer){
         let sender = senderA.view as! UIImageView
         let imageInfo      = GSImageInfo(image: sender.image!, imageMode: .AspectFit, imageHD: nil)
         let transitionInfo = GSTransitionInfo(fromView: sender)
@@ -226,41 +226,41 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         self.presentViewController(imageViewer, animated: true, completion: nil)
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : currentTheme.foregroundColor , NSFontAttributeName : UIFont(name:"Helvetica",size:15)! ]
         self.view.backgroundColor = currentTheme.backgroundColor
         self.tableView.backgroundColor = currentTheme.backgroundColor
         self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
         self.navigationController?.navigationBar.barTintColor = nil
         self.navigationController?.navigationBar.tintColor = currentTheme.foregroundColor
-        self.navigationController?.navigationBar.translucent = true
+        self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.tintColor = currentTheme.foregroundColor
         
     }
     
     
-    func keyboardWillShow(notification: NSNotification) {
+    func keyboardWillShow(_ notification: Notification) {
         keyboardShowOrHide(notification)
     }
     
-    func keyboardWillHide(notification: NSNotification) {
+    func keyboardWillHide(_ notification: Notification) {
         keyboardShowOrHide(notification)
     }
     
-    private func keyboardShowOrHide(notification: NSNotification) {
-        guard let userInfo = notification.userInfo else {return}
+    fileprivate func keyboardShowOrHide(_ notification: Notification) {
+        guard let userInfo = (notification as NSNotification).userInfo else {return}
         guard let keyboardFrameEnd = userInfo[UIKeyboardFrameEndUserInfoKey] else { return }
         
-        let keyboardFrameEndRectFromView = view.convertRect(keyboardFrameEnd.CGRectValue, fromView: nil)
-        UIView.animateWithDuration(1.0,
+        let keyboardFrameEndRectFromView = view.convert((keyboardFrameEnd as AnyObject).cgRectValue, from: nil)
+        UIView.animate(withDuration: 1.0,
                                    delay: 0,
                                    options:[],
                                    animations: {
-                                       self.rootView.frame = CGRectMake(0, 0, keyboardFrameEndRectFromView.size.width, keyboardFrameEndRectFromView.origin.y);
+                                       self.rootView.frame = CGRect(x: 0, y: 0, width: keyboardFrameEndRectFromView.size.width, height: keyboardFrameEndRectFromView.origin.y);
 
             }, completion: nil)
     }

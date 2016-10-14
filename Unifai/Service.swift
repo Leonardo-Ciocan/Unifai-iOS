@@ -13,7 +13,7 @@ class Service : Hashable {
 
     var username : String {
         get{
-            return name.lowercaseString
+            return name.lowercased()
         }
     }
     

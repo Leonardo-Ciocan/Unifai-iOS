@@ -10,10 +10,10 @@ import UIKit
 import DynamicColor
 
 extension UIView {
-    func roundCorners(corners:UIRectCorner, radius: CGFloat) {
+    func roundCorners(_ corners:UIRectCorner, radius: CGFloat) {
         let path = UIBezierPath(roundedRect: self.frame, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
         let mask = CAShapeLayer()
-        mask.path = path.CGPath
+        mask.path = path.cgPath
         self.layer.mask = mask
     }
 }
@@ -30,7 +30,7 @@ class CatalogCell: UICollectionViewCell , UITableViewDelegate , UITableViewDataS
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        tableView.registerNib(UINib(nibName: "CatalogItemCell" , bundle: nil), forCellReuseIdentifier: "CatalogItemCell")
+        tableView.register(UINib(nibName: "CatalogItemCell" , bundle: nil), forCellReuseIdentifier: "CatalogItemCell")
         self.tableView!.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 100
         
@@ -44,30 +44,30 @@ class CatalogCell: UICollectionViewCell , UITableViewDelegate , UITableViewDataS
     
     var items : [CatalogItem] = []
     
-    @IBAction func visit(sender: AnyObject) {
+    @IBAction func visit(_ sender: AnyObject) {
         print("ayuyyy")
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("CatalogItemCell", forIndexPath: indexPath) as! CatalogItemCell
-        cell.txtText.text = items[indexPath.row].name
-        cell.txtDescription.text = items[indexPath.row].description
-        cell.backgroundView?.backgroundColor = UIColor.clearColor()
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CatalogItemCell", for: indexPath) as! CatalogItemCell
+        cell.txtText.text = items[(indexPath as NSIndexPath).row].name
+        cell.txtDescription.text = items[(indexPath as NSIndexPath).row].description
+        cell.backgroundView?.backgroundColor = UIColor.clear
         cell.contentView.backgroundColor = serviceColor!.lightenColor(0.05)
-        cell.imgAction.image = cell.imgAction.image?.imageWithRenderingMode(.AlwaysTemplate)
-        cell.imgAction.tintColor = UIColor.whiteColor()
-        cell.backgroundColor = UIColor.clearColor()
+        cell.imgAction.image = cell.imgAction.image?.withRenderingMode(.alwaysTemplate)
+        cell.imgAction.tintColor = UIColor.white
+        cell.backgroundColor = UIColor.clear
         cell.parentViewController = self.parentViewController
         
-        cell.item = items[indexPath.row]
+        cell.item = items[(indexPath as NSIndexPath).row]
         return cell
     }
     
@@ -75,7 +75,7 @@ class CatalogCell: UICollectionViewCell , UITableViewDelegate , UITableViewDataS
     
     var serviceColor : UIColor?
     @IBOutlet weak var tableView: UITableView!
-    func loadData(service:Service) {
+    func loadData(_ service:Service) {
         self.serviceColor = service.color.darkenColor(0.18)
         
 //        self.tableView.separatorStyle = .SingleLine
@@ -83,7 +83,7 @@ class CatalogCell: UICollectionViewCell , UITableViewDelegate , UITableViewDataS
 //        self.tableView.separatorColor = serviceColor?.darkenColor(0.05)
         self.header?.loadData(service)
         
-        items = Core.Catalog[service.name.lowercaseString] ?? []
+        items = Core.Catalog[service.name.lowercased()] ?? []
         
         self.tableView.delegate = self
         self.tableView.dataSource = self

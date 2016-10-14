@@ -7,7 +7,7 @@ struct AutocompletionState {
 
 class Autocomplete {
     class func computeState(fromText query : String) ->  AutocompletionState {
-        let text = query.stringByReplacingOccurrencesOfString("@", withString: "")
+        let text = query.replacingOccurrences(of: "@", with: "")
         if text.characters.count == 0 {
             return AutocompletionState(service: "", keywords: [])
         }
@@ -15,7 +15,7 @@ class Autocomplete {
             return AutocompletionState(service: text, keywords: [])
         }
         else {
-            let parts = text.componentsSeparatedByString(" ")
+            let parts = text.components(separatedBy: " ")
             let service = parts[0]
             let keywords = Array(parts[1..<parts.count])
             return AutocompletionState(service: service, keywords: keywords)

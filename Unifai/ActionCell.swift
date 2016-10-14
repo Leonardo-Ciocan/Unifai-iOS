@@ -22,18 +22,18 @@ class ActionCell: UICollectionViewCell {
     var actionsViewController : ActionsViewController?
     
     var action : Action?
-    func loadData(action:Action){
+    func loadData(_ action:Action){
         self.action = action
         txtName.text = action.name
         let service = TextUtils.extractService(action.message)!
         self.backgroundColor = service.color
-        txtName.textColor = UIColor.whiteColor()
+        txtName.textColor = UIColor.white
     }
     
     
     
-    override func drawRect(rect: CGRect) {
-        super.drawRect(rect)
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
     }
     
     

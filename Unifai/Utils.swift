@@ -3,11 +3,11 @@ import UIKit
 
 class TextUtils {
     
-    class func getPlaceholderPositionsInMessage(text:String) -> [NSRange] {
+    class func getPlaceholderPositionsInMessage(_ text:String) -> [NSRange] {
         do {
             let regex = try NSRegularExpression(pattern: "<[^<>]+>", options: [])
             let nsString = text as NSString
-            let results = regex.matchesInString(text,
+            let results = regex.matches(in: text,
                                                 options: [], range: NSMakeRange(0, nsString.length))
             return results.map { $0.range }
         } catch _ as NSError {
@@ -15,20 +15,20 @@ class TextUtils {
         }
     }
     
-    class func matchesForRegexInText(regex: String!, text: String!) -> [String] {
+    class func matchesForRegexInText(_ regex: String!, text: String!) -> [String] {
         do {
             let regex = try NSRegularExpression(pattern: regex, options: [])
             let nsString = text as NSString
-            let results = regex.matchesInString(text,
+            let results = regex.matches(in: text,
                                                 options: [], range: NSMakeRange(0, nsString.length))
-            return results.map { nsString.substringWithRange($0.range)}
+            return results.map { nsString.substring(with: $0.range)}
         } catch let error as NSError {
             print("invalid regex: \(error.localizedDescription)")
             return []
         }
     }
     
-    class func extractServiceColorFrom(string:String) -> UIColor? {
+    class func extractServiceColorFrom(_ string:String) -> UIColor? {
         if let service = TextUtils.extractService(string) {
             return service.color
         }
@@ -38,7 +38,7 @@ class TextUtils {
     }
     
     
-    class func extractService(string:String) -> Service? {
+    class func extractService(_ string:String) -> Service? {
         var target = matchesForRegexInText("(?:^|\\s|$|[.])@[\\p{L}0-9_]*", text: string)
         if(target.count > 0){
             let name = target[0]
@@ -56,9 +56,9 @@ class TextUtils {
 
 extension String {
     func extractLinks() -> [String]{
-        let detector = try! NSDataDetector(types: NSTextCheckingType.Link.rawValue)
-        let matches = detector.matchesInString(self, options: [], range: NSRange(location: 0, length: self.utf16.count))
+        let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
+        let matches = detector.matches(in: self, options: [], range: NSRange(location: 0, length: self.utf16.count))
 
-        return matches.map({($0.URL?.absoluteString)!})
+        return matches.map({($0.url?.absoluteString)!})
     }
 }

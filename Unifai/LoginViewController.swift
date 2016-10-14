@@ -1,5 +1,4 @@
 import UIKit
-import AlertOnboarding
 import PKHUD
 
 class LoginViewController: UIViewController , UITextFieldDelegate{
@@ -11,60 +10,60 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
     
     override func viewDidLoad() {
         
-        self.view.tintColor = UIColor.whiteColor()
-        self.view.hidden = true
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillShow), name:UIKeyboardWillShowNotification, object: nil);
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:  #selector(keyboardWillHide), name:UIKeyboardWillHideNotification, object: nil);
+        self.view.tintColor = UIColor.white
+        self.view.isHidden = true
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil);
+        NotificationCenter.default.addObserver(self, selector:  #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil);
         
-        btnLogin.layer.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.15).CGColor
-        btnLogin.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.45).CGColor
+        btnLogin.layer.backgroundColor = UIColor.white.withAlphaComponent(0.15).cgColor
+        btnLogin.layer.borderColor = UIColor.white.withAlphaComponent(0.45).cgColor
         btnLogin.layer.borderWidth = 0
         btnLogin.layer.cornerRadius = 5
         btnLogin.layer.masksToBounds = true
         
-        btnSignup.layer.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.15).CGColor
-        btnSignup.layer.borderColor = UIColor.whiteColor().colorWithAlphaComponent(0.35).CGColor
+        btnSignup.layer.backgroundColor = UIColor.white.withAlphaComponent(0.15).cgColor
+        btnSignup.layer.borderColor = UIColor.white.withAlphaComponent(0.35).cgColor
         btnSignup.layer.borderWidth = 1
 
         txtLogin.leftView = UIView(frame:CGRect(x: 0, y: 0, width: 10, height: 0))
-        txtLogin.leftView?.backgroundColor = UIColor.clearColor()
+        txtLogin.leftView?.backgroundColor = UIColor.clear
         txtLogin.layer.cornerRadius = 5
         txtLogin.layer.masksToBounds = true
-        txtLogin.leftViewMode = .Always
+        txtLogin.leftViewMode = .always
         txtLogin.attributedPlaceholder = NSAttributedString(string:"Username",
-                                                              attributes:[NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(0.8)])
+                                                              attributes:[NSForegroundColorAttributeName: UIColor.white.withAlphaComponent(0.8)])
         
 
-        txtPassword.leftViewMode = .Always
+        txtPassword.leftViewMode = .always
         txtPassword.leftView = UIView(frame:CGRect(x: 0, y: 0, width: 10, height: 0))
         txtPassword.layer.cornerRadius = 5
         txtPassword.layer.masksToBounds = true
         txtPassword.attributedPlaceholder = NSAttributedString(string:"Password",
-                                                              attributes:[NSForegroundColorAttributeName: UIColor.whiteColor().colorWithAlphaComponent(0.8)])
+                                                              attributes:[NSForegroundColorAttributeName: UIColor.white.withAlphaComponent(0.8)])
         
         
-        if NSUserDefaults.standardUserDefaults().stringForKey("token") != nil{
+        if UserDefaults.standard.string(forKey: "token") != nil{
             Core.populateAll(withCallback: {
-                self.performSegueWithIdentifier("auth", sender: self)
+                self.performSegue(withIdentifier: "auth", sender: self)
                 },error: { status in
-                    HUD.show(HUDContentType.Label("Can't log in right now"))
+                    HUD.show(HUDContentType.label("Can't log in right now"))
                     PKHUD.sharedHUD.hide(afterDelay: 2.0)
-                    self.view.hidden = false
+                    self.view.isHidden = false
             })
         }
     }
     
     @IBOutlet weak var logoHeight: NSLayoutConstraint!
-    func keyboardWillShow(sender: NSNotification) {
-        _ = sender.userInfo!
+    func keyboardWillShow(_ sender: Notification) {
+        _ = (sender as NSNotification).userInfo!
         //var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
 //        self.logoHeight.constant = 0
 //        UIView.animateWithDuration(0.5, animations: { () -> Void in
 //            self.view.layoutIfNeeded()
 //        })
     }
-    func keyboardWillHide(sender: NSNotification) {
-        _ = sender.userInfo!
+    func keyboardWillHide(_ sender: Notification) {
+        _ = (sender as NSNotification).userInfo!
         //var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
 //        
 //        UIView.animateWithDuration(0.5, animations: { () -> Void in
@@ -72,15 +71,15 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
 //        })
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         //NSUserDefaults.standardUserDefaults().removeObjectForKey("token")
-        if NSUserDefaults.standardUserDefaults().stringForKey("token") != nil{
+        if UserDefaults.standard.string(forKey: "token") != nil{
             
         }
         else{
             txtPassword.delegate = self
             txtLogin.delegate = self
-            self.view.hidden = false
+            self.view.isHidden = false
             
             let arrayOfImage = ["logoWithSlogan", "example1", "schedules","actions"]
             let arrayOfTitle = [
@@ -110,7 +109,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
         }
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if(textField == txtLogin){
             txtPassword.becomeFirstResponder()
         }
@@ -121,33 +120,33 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
         return true
     }
     
-    @IBAction func loginClicked(sender: AnyObject) {
+    @IBAction func loginClicked(_ sender: AnyObject) {
         Unifai.login(txtLogin.text!, password: txtPassword.text! , completion: {
             token in
-            NSUserDefaults.standardUserDefaults().setValue(token, forKey: "token")
-            NSUserDefaults.standardUserDefaults().synchronize()
+            UserDefaults.standard.setValue(token, forKey: "token")
+            UserDefaults.standard.synchronize()
             Core.populateAll(withCallback: {
-                self.performSegueWithIdentifier("auth" , sender: self)
+                self.performSegue(withIdentifier: "auth" , sender: self)
                 },error:{ status in
-                    HUD.show(HUDContentType.Label("Can't log in right now"))
+                    HUD.show(HUDContentType.label("Can't log in right now"))
                     PKHUD.sharedHUD.hide(afterDelay: 2.0)
-                    self.view.hidden = false
+                    self.view.isHidden = false
             })
             
             } , error: {
-                let alert = UIAlertController(title: "Login error", message: "That username and password don't match", preferredStyle: .Alert)
-                let cancel = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+                let alert = UIAlertController(title: "Login error", message: "That username and password don't match", preferredStyle: .alert)
+                let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
                 alert.addAction(cancel)
-                self.presentViewController(alert, animated: true, completion: nil)
+                self.present(alert, animated: true, completion: nil)
         })
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if !(touches.first?.view?.isKindOfClass(UITextField))! {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if !(touches.first?.view?.isKind(of: UITextField.self))! {
             view.endEditing(true)
         }
     }

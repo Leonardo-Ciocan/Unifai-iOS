@@ -1,21 +1,21 @@
 import UIKit
 
 protocol AutoCompletionServicesDelegate {
-    func selectedService(service:Service, selectedByTapping : Bool)
+    func selectedService(_ service:Service, selectedByTapping : Bool)
     func shouldHideServiceAutocompletion()
     func shouldDismiss()
 }
 
 extension UIView
 {
-    func addCornerRadiusAnimation(from: CGFloat, to: CGFloat, duration: CFTimeInterval)
+    func addCornerRadiusAnimation(_ from: CGFloat, to: CGFloat, duration: CFTimeInterval)
     {
         let animation = CABasicAnimation(keyPath:"cornerRadius")
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
         animation.fromValue = from
         animation.toValue = to
         animation.duration = duration
-        self.layer.addAnimation(animation, forKey: "cornerRadius")
+        self.layer.add(animation, forKey: "cornerRadius")
         self.layer.cornerRadius = to
     }
 }
@@ -38,21 +38,21 @@ class AutoCompletionServices: UIView , UICollectionViewDelegateFlowLayout , UICo
     }
     
     func loadViewFromNib() {
-        let bundle = NSBundle(forClass: self.dynamicType)
+        let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "AutoCompletionServices", bundle: bundle)
-        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         view.frame = bounds
-        view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         view.backgroundColor = currentTheme.backgroundColor
         self.backgroundColor = currentTheme.backgroundColor
         
         self.addSubview(view);
         
-        collectionView.registerNib(UINib(nibName: "AutoCompletionServiceCell",bundle: nil), forCellWithReuseIdentifier: "ServiceCell")
+        collectionView.register(UINib(nibName: "AutoCompletionServiceCell",bundle: nil), forCellWithReuseIdentifier: "ServiceCell")
         
         self.overlayView = UIView()
-        self.overlayView?.hidden = true
+        self.overlayView?.isHidden = true
         self.overlayView!.layer.masksToBounds = true
         self.addSubview(overlayView!)
     }
@@ -62,25 +62,25 @@ class AutoCompletionServices: UIView , UICollectionViewDelegateFlowLayout , UICo
         collectionView.dataSource = self
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ServiceCell", forIndexPath: indexPath) as! AutoCompletionServiceCell
-        let index = indexPath.row
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceCell", for: indexPath) as! AutoCompletionServiceCell
+        let index = (indexPath as NSIndexPath).row
         if index == 0 {
             cell.txtName.text = "Dismiss"
-            cell.txtName.textColor = UIColor.grayColor()
+            cell.txtName.textColor = UIColor.gray
             cell.backgroundColorView.backgroundColor = currentTheme.backgroundColor
-            cell.backgroundColorView.layer.borderColor = UIColor.grayColor().CGColor
+            cell.backgroundColorView.layer.borderColor = UIColor.gray.cgColor
             cell.backgroundColorView.layer.borderWidth = 1
             cell.imgLogo.image = UIImage(named: "cancel")
-            cell.imgLogo.tintColor = UIColor.grayColor()
+            cell.imgLogo.tintColor = UIColor.gray
         }
         else {
             cell.loadService(getServices()[index - 1])
@@ -90,39 +90,39 @@ class AutoCompletionServices: UIView , UICollectionViewDelegateFlowLayout , UICo
         return cell
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return getServices().count + 1
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsZero
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.zero
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = self.collectionView.frame
         return CGSize(width: size.width/4, height: size.width/4 + 25)
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row == 0 {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if (indexPath as NSIndexPath).row == 0 {
             delegate?.shouldDismiss()
             return
         }
         
-        self.delegate?.selectedService(getServices()[indexPath.row - 1] , selectedByTapping: true)
-        let cellFrame = collectionView.layoutAttributesForItemAtIndexPath(indexPath)?.frame
+        self.delegate?.selectedService(getServices()[(indexPath as NSIndexPath).row - 1] , selectedByTapping: true)
+        let cellFrame = collectionView.layoutAttributesForItem(at: indexPath)?.frame
         let logoFrame = CGRect(x: (cellFrame?.origin.x)! + 15, y: (cellFrame?.origin.y)! + 15 , width: (cellFrame?.size.width)! - 30, height: (cellFrame?.size.width)! - 30)
-        overlayView?.layer.cornerRadius = (UIScreen.mainScreen().bounds.width / 4 - 30)/2
+        overlayView?.layer.cornerRadius = (UIScreen.main.bounds.width / 4 - 30)/2
         overlayView?.frame = logoFrame
-        overlayView?.hidden = false
-        let service = getServices()[indexPath.row - 1]
+        overlayView?.isHidden = false
+        let service = getServices()[(indexPath as NSIndexPath).row - 1]
         overlayView?.backgroundColor = service.color
         overlayView?.addCornerRadiusAnimation(overlayView!.layer.cornerRadius, to: 0, duration: 0.6)
-        UIView.animateWithDuration(0.45,delay:0,options: UIViewAnimationOptions.CurveEaseIn,
+        UIView.animate(withDuration: 0.45,delay:0,options: UIViewAnimationOptions.curveEaseIn,
                                    animations: {
             self.overlayView?.frame = self.frame
             //self.overlayView?.backgroundColor = service.color.darkenColor(0.25)
@@ -131,16 +131,16 @@ class AutoCompletionServices: UIView , UICollectionViewDelegateFlowLayout , UICo
             } ,completion: {
                 _ in
                 self.delegate?.shouldHideServiceAutocompletion()
-                self.overlayView?.hidden = true
+                self.overlayView?.isHidden = true
                 self.collectionView.alpha = 1
         })
     }
     
     func getServices() -> [Service] {
-        return filterText.isEmpty ? Core.Services : Core.Services.filter({$0.name.lowercaseString.hasPrefix(filterText)})
+        return filterText.isEmpty ? Core.Services : Core.Services.filter({$0.name.lowercased().hasPrefix(filterText)})
     }
     
-    func filterServices(text:String){
+    func filterServices(_ text:String){
         self.filterText = text
         self.collectionView.reloadData()
     }

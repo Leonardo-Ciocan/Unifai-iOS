@@ -27,24 +27,24 @@ class AuthViewController: UIViewController  , UIWebViewDelegate{
         self.automaticallyAdjustsScrollViewInsets = true
         super.viewDidLoad()
         header.backgroundColor = service?.color
-        titleLabel.text = service?.name.uppercaseString
-        var authorizationURL : NSURL?
+        titleLabel.text = service?.name.uppercased()
+        var authorizationURL : URL?
         if payload!.fullAuthorizationURL.isEmpty {
-            let urlComponents = NSURLComponents(string: payload!.url)
+            var urlComponents = URLComponents(string: payload!.url)
             urlComponents?.queryItems = [
-                NSURLQueryItem(name: "redirect_uri", value: "http://127.0.0.1:1989/callback"),
-                NSURLQueryItem(name: "client_id", value: payload?.clientID),
-                NSURLQueryItem(name: "response_type", value: "code"),
-                NSURLQueryItem(name: "state", value: "unifai"),
-                NSURLQueryItem(name: "scope", value: payload?.scope),
-                NSURLQueryItem(name: "duration", value: "permanent"),
+                URLQueryItem(name: "redirect_uri", value: "http://127.0.0.1:1989/callback"),
+                URLQueryItem(name: "client_id", value: payload?.clientID),
+                URLQueryItem(name: "response_type", value: "code"),
+                URLQueryItem(name: "state", value: "unifai"),
+                URLQueryItem(name: "scope", value: payload?.scope),
+                URLQueryItem(name: "duration", value: "permanent"),
             ]
-            authorizationURL = urlComponents?.URL
+            authorizationURL = urlComponents?.url
         }
         else {
-            authorizationURL = NSURL(string: payload!.fullAuthorizationURL)
+            authorizationURL = URL(string: payload!.fullAuthorizationURL)
         }
-        let request = NSURLRequest(URL:authorizationURL!)
+        let request = URLRequest(url:authorizationURL!)
         print(authorizationURL?.absoluteString)
         webView.delegate = self
         webView.scrollView.contentInset = UIEdgeInsetsMake(70, 0,0, 0)
@@ -52,17 +52,17 @@ class AuthViewController: UIViewController  , UIWebViewDelegate{
         webView.loadRequest(request)
     }
 
-    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        if let url : String = request.URL?.absoluteString{
-            if(url.containsString(payload!.parameterNameToCapture +  "=")){
-                let urlComponents = NSURLComponents(string:url)
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        if let url : String = request.url?.absoluteString{
+            if(url.contains(payload!.parameterNameToCapture +  "=")){
+                let urlComponents = URLComponents(string:url)
                 let code = urlComponents?.queryItems?.filter({ $0.name == payload!.parameterNameToCapture}).first?.value
                 print(code)
                 Unifai.updateAuthCode((service?.id)!, code: code!, completion: {
                     _ in
-                    self.dismissViewControllerAnimated(true, completion: nil)
+                    self.dismiss(animated: true, completion: nil)
                     self.delegate?.didFinishAuthentication()
-                    HUD.flash(.Success, delay: 1)
+                    HUD.flash(.success, delay: 1)
                 })
                 return false
             }
@@ -70,20 +70,20 @@ class AuthViewController: UIViewController  , UIWebViewDelegate{
         return true
     }
     
-    @IBAction func closeTapped(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func closeTapped(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
-        print(error?.localizedDescription)
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        print(error.localizedDescription)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
 
 }

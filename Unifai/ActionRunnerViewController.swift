@@ -23,12 +23,12 @@ class ActionRunnerViewController: UIViewController , UITableViewDataSource , UIT
         super.viewDidLoad()
 
         
-        imgLogo.layer.shadowColor = UIColor.blackColor().CGColor
-        imgLogo.layer.shadowOffset = CGSizeZero
+        imgLogo.layer.shadowColor = UIColor.black.cgColor
+        imgLogo.layer.shadowOffset = CGSize.zero
         imgLogo.layer.shadowOpacity = 0.35
         imgLogo.layer.shadowRadius = 15
         
-        tableView.registerNib(UINib(nibName: "MessageCell",bundle: nil), forCellReuseIdentifier: "MessageCell")
+        tableView.register(UINib(nibName: "MessageCell",bundle: nil), forCellReuseIdentifier: "MessageCell")
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 300))
         
         self.tableView!.rowHeight = UITableViewAutomaticDimension
@@ -39,15 +39,15 @@ class ActionRunnerViewController: UIViewController , UITableViewDataSource , UIT
         tableView.delegate = self
         view.backgroundColor = currentTheme.backgroundColor
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Discard", style: .Plain, target: self, action: #selector(discard))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Keep", style: .Plain, target: self, action: #selector(keep))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Discard", style: .plain, target: self, action: #selector(discard))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Keep", style: .plain, target: self, action: #selector(keep))
         
         let service = TextUtils.extractService(action!.message)
         imgLogo.image = UIImage(named: (service?.username)!)
         self.headerBackground.backgroundColor = service?.color
         self.navigationController?.navigationBar.barTintColor = service?.color
-        navigationController?.navigationBar.barStyle = .Black
-        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.tintColor = UIColor.white
         
         self.view.backgroundColor = currentTheme.backgroundColor
         
@@ -61,7 +61,7 @@ class ActionRunnerViewController: UIViewController , UITableViewDataSource , UIT
         })
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
        
     }
 
@@ -71,37 +71,37 @@ class ActionRunnerViewController: UIViewController , UITableViewDataSource , UIT
     }
 
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell") as! MessageCell
-        cell.selectionStyle = .None
-        cell.setMessage(messages[indexPath.row] , shouldShowThreadCount: false)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell") as! MessageCell
+        cell.selectionStyle = .none
+        cell.setMessage(messages[(indexPath as NSIndexPath).row] , shouldShowThreadCount: false)
         cell.hideTime = true
         cell.parentViewController = self
         return cell
     }
     
     
-    @IBAction func keep(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func keep(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     
-    @IBAction func discard(sender: AnyObject) {
+    @IBAction func discard(_ sender: AnyObject) {
         if resultMessage != nil {
             Unifai.deleteThread((resultMessage?.threadID!)!, completion: nil)
         }
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
-    func loadAction(action:Action) {
+    func loadAction(_ action:Action) {
         self.action = action
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
 }

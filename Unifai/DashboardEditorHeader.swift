@@ -25,29 +25,29 @@ class DashboardEditorHeader: UIView {
     }
     
     func loadViewFromNib() {
-        let bundle = NSBundle(forClass: self.dynamicType)
+        let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "DashboardEditorHeader", bundle: bundle)
-        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         view.frame = bounds
-        view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        txtMessage.backgroundColor = UIColor.clearColor()
-        txtMessage.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.06).CGColor
+        txtMessage.backgroundColor = UIColor.clear
+        txtMessage.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.06).cgColor
         txtMessage.layer.borderWidth = 0
-        txtMessage.textColor = UIColor.blackColor()
+        txtMessage.textColor = UIColor.black
         txtMessage.layer.cornerRadius = 17.5
         txtMessage.layer.masksToBounds = true
-        txtMessage.tintColor = UIColor.blackColor()
+        txtMessage.tintColor = UIColor.black
         
         let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
-        txtMessage.leftViewMode = .Always
+        txtMessage.leftViewMode = .always
         txtMessage.leftView = leftView
         
         txtMessage.attributedPlaceholder = NSAttributedString(string: "Enter any message..." ,
-                                                              attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
+                                                              attributes:[NSForegroundColorAttributeName: UIColor.gray])
         
         
-        self.backgroundColor = UIColor.grayColor().lightenColor(0.45)
+        self.backgroundColor = UIColor.gray.lightenColor(0.45)
         
         self.addSubview(view)
     }

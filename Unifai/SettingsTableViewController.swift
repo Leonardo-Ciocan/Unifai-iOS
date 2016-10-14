@@ -23,20 +23,20 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.navigationBar.barStyle = .Default
-        self.tabBarController?.tabBar.barStyle = .Default
+        self.navigationController?.navigationBar.barStyle = .default
+        self.tabBarController?.tabBar.barStyle = .default
 //        
 //        txtTextSizePreview.text = textSizeItems[ Settings.textSize ]
 //        txtCardSizePreview.text = textSizeItems[ Settings.cardSize ]
-        switchTextOnFeed.on = Settings.onlyTextOnFeed
-        switchDarkTheme.on = Settings.darkTheme
+        switchTextOnFeed.isOn = Settings.onlyTextOnFeed
+        switchDarkTheme.isOn = Settings.darkTheme
         
-        txtCacheSize.text = String(NSFileManager.defaultManager().folderSizeAtPath(Cache.cacheFolder.path!)/Int64(1024)) + "KB"
+        txtCacheSize.text = String(FileManager.default.folderSizeAtPath(Cache.cacheFolder.path!)/Int64(1024)) + "KB"
     }
 
-    @IBAction func changeTheme(sender: AnyObject) {
-        NSUserDefaults.standardUserDefaults().setBool(switchDarkTheme.on, forKey: "darkTheme")
-        Settings.darkTheme = switchDarkTheme.on
+    @IBAction func changeTheme(_ sender: AnyObject) {
+        UserDefaults.standard.set(switchDarkTheme.isOn, forKey: "darkTheme")
+        Settings.darkTheme = switchDarkTheme.isOn
     }
     
     override func didReceiveMemoryWarning() {
@@ -45,26 +45,26 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
     
     func deleteCache() {
         do {
-            let paths = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(Cache.cacheFolder.path!)
+            let paths = try FileManager.default.contentsOfDirectory(atPath: Cache.cacheFolder!.path)
             for path in paths
             {
-                try NSFileManager.defaultManager().removeItemAtPath("\(Cache.cacheFolder.path!)/\(path)")
+                try FileManager.default.removeItem(atPath: "\(Cache.cacheFolder?.path)/\(path)")
             }
         } catch let error as NSError {
             print(error.localizedDescription)
         }
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var items : [String] = []
-        let id = tableView.cellForRowAtIndexPath(indexPath)?.reuseIdentifier
+        let id = tableView.cellForRow(at: indexPath)?.reuseIdentifier
         var selected = 0
         
         if id == "logout" {
-            NSUserDefaults.standardUserDefaults().removeObjectForKey("token")
-            NSUserDefaults.standardUserDefaults().synchronize()
+            UserDefaults.standard.removeObject(forKey: "token")
+            UserDefaults.standard.synchronize()
             deleteCache()
-            self.tabBarController?.dismissViewControllerAnimated(true, completion: nil)
+            self.tabBarController?.dismiss(animated: true, completion: nil)
             return
         }
         else if id == "deleteCache" {
@@ -77,19 +77,19 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
             
             // Initialise the RFAboutView:
             
-            let aboutView = RFAboutViewController(copyrightHolderName: "Unifai", contactEmail: "unifai@outlook.com", contactEmailTitle: "Contact us", websiteURL: NSURL(string: "http://unifai.xyz"), websiteURLTitle: "Our Website")
+            let aboutView = RFAboutViewController(copyrightHolderName: "Unifai", contactEmail: "unifai@outlook.com", contactEmailTitle: "Contact us", websiteURL: URL(string: "http://unifai.xyz"), websiteURLTitle: "Our Website")
             
             
             aboutView.headerBackgroundColor = Constants.appBrandColor
-            aboutView.headerTextColor = .whiteColor()
-            aboutView.blurStyle = .Dark
+            aboutView.headerTextColor = .white()
+            aboutView.blurStyle = .dark
             aboutView.headerBackgroundImage = UIImage(named: "unifai")
             
             // Add the aboutView to the NavigationController:
             aboutNav.setViewControllers([aboutView], animated: false)
             
             // Present the navigation controller:
-            self.presentViewController(aboutNav, animated: true, completion: nil)
+            self.present(aboutNav, animated: true, completion: nil)
             return
         }
         else if(id == "textSize"){
@@ -113,15 +113,15 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
         self.navigationController?.pushViewController(selection, animated: true)
     }
     
-    func setSelection(id: String, index: Int , label:String) {
+    func setSelection(_ id: String, index: Int , label:String) {
         if(id == "textSize"){
             self.txtTextSizePreview.text = label
-            NSUserDefaults.standardUserDefaults().setInteger(index, forKey: "textSize")
+            UserDefaults.standard.set(index, forKey: "textSize")
             Settings.textSize = index
         }
         else if(id == "startingPage"){
             self.txtStartingPagePreview.text = label
-            NSUserDefaults.standardUserDefaults().setInteger(index, forKey: "startingPage")
+            UserDefaults.standard.set(index, forKey: "startingPage")
             Settings.startingPage = index
         }
 //        else if(id == "cardSize"){
@@ -132,8 +132,8 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
         
     }
     
-    @IBAction func onSwitchTextOnFeed(sender: AnyObject) {
-        NSUserDefaults.standardUserDefaults().setBool(switchTextOnFeed.on, forKey: "onlyTextOnFeed")
-        Settings.onlyTextOnFeed = switchTextOnFeed.on
+    @IBAction func onSwitchTextOnFeed(_ sender: AnyObject) {
+        UserDefaults.standard.set(switchTextOnFeed.isOn, forKey: "onlyTextOnFeed")
+        Settings.onlyTextOnFeed = switchTextOnFeed.isOn
     }
 }

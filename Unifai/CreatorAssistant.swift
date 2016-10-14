@@ -9,8 +9,8 @@
 import UIKit
 
 protocol CreatorAssistantDelegate {
-    func selectedService(service:Service?, selectedByTapping : Bool)
-    func didSelectAutocompletion(message:String)
+    func selectedService(_ service:Service?, selectedByTapping : Bool)
+    func didSelectAutocompletion(_ message:String)
     func shouldDismiss()
 }
 
@@ -32,11 +32,11 @@ class CreatorAssistant: UIView , AutoCompletionServicesDelegate , AutoCompletion
     }
     
     func loadViewFromNib() {
-        let bundle = NSBundle(forClass: self.dynamicType)
+        let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "CreatorAssistant", bundle: bundle)
-        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         view.frame = bounds
-        view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.serviceAutoCompleteView.delegate = self
         suggestionsView.delegate = self
         promptView.delegate = self
@@ -45,7 +45,7 @@ class CreatorAssistant: UIView , AutoCompletionServicesDelegate , AutoCompletion
     
     var isInPromptMode = false
     
-    func enablePromptModeWithSuggestions(service : Service, suggestions:[SuggestionItem]) {
+    func enablePromptModeWithSuggestions(_ service : Service, suggestions:[SuggestionItem]) {
         self.isInPromptMode = true
         promptView.service = service
         promptView.suggestions = suggestions
@@ -57,21 +57,21 @@ class CreatorAssistant: UIView , AutoCompletionServicesDelegate , AutoCompletion
         promptView.suggestions = []
     }
     
-    func autocompleteFor(query:String) {
+    func autocompleteFor(_ query:String) {
         let autocompletionState = Autocomplete.computeState(fromText: query)
         if isInPromptMode {
-            suggestionsView.hidden = true
-            serviceAutoCompleteView.hidden = true
-            promptView.hidden = false
+            suggestionsView.isHidden = true
+            serviceAutoCompleteView.isHidden = true
+            promptView.isHidden = false
             promptView.filterPromptsWithKeywords(autocompletionState.keywords)
             return
         }
         serviceAutoCompleteView.filterServices(autocompletionState.service)
         suggestionsView.filterSuggestionsWithKeywords(autocompletionState.keywords)
         
-        if query.containsString(" ") {
-            serviceAutoCompleteView.hidden = true
-            suggestionsView.hidden = false
+        if query.contains(" ") {
+            serviceAutoCompleteView.isHidden = true
+            suggestionsView.isHidden = false
             if query.hasSuffix(" ") && query.characters.filter({ $0 == " " }).count == 1 {
                 if let service = TextUtils.extractService(query) {
                     self.selectedService(service , selectedByTapping: false)
@@ -79,14 +79,14 @@ class CreatorAssistant: UIView , AutoCompletionServicesDelegate , AutoCompletion
             }
         }
         else {
-            serviceAutoCompleteView.hidden = false
-            suggestionsView.hidden = true
+            serviceAutoCompleteView.isHidden = false
+            suggestionsView.isHidden = true
             self.delegate?.selectedService(nil , selectedByTapping: false)
         }
         
     }
     
-    func selectedService(service: Service , selectedByTapping : Bool) {
+    func selectedService(_ service: Service , selectedByTapping : Bool) {
         delegate?.selectedService(service , selectedByTapping: selectedByTapping)
         suggestionsView.serviceColor = service.color
         suggestionsView.suggestions = Core.Catalog[service.username] ?? []
@@ -96,22 +96,22 @@ class CreatorAssistant: UIView , AutoCompletionServicesDelegate , AutoCompletion
     }
 
     func shouldHideServiceAutocompletion() {
-        serviceAutoCompleteView.hidden = true
-        suggestionsView.hidden = false
+        serviceAutoCompleteView.isHidden = true
+        suggestionsView.isHidden = false
     }
     
-    func didSelectAutocompletion(message: String) {
+    func didSelectAutocompletion(_ message: String) {
         self.delegate?.didSelectAutocompletion(message)
     }
     
     func resetAutocompletion(){
-        serviceAutoCompleteView.hidden = false
-        suggestionsView.hidden = true
+        serviceAutoCompleteView.isHidden = false
+        suggestionsView.isHidden = true
         serviceAutoCompleteView.filterServices("")
         suggestionsView.filterSuggestionsWithKeywords([])
     }
     
-    func didSelectPromptSuggestionWithName(name: String) {
+    func didSelectPromptSuggestionWithName(_ name: String) {
         self.delegate?.didSelectAutocompletion(name)
     }
     

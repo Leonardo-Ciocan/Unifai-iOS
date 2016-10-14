@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SettingsListDelegate {
-    func setSelection(id:String , index:Int, label:String)
+    func setSelection(_ id:String , index:Int, label:String)
 }
 
 class SettingsListTableViewController: UITableViewController {
@@ -30,8 +30,8 @@ class SettingsListTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
        
         
-        self.tableView = UITableView(frame: self.view.frame, style: .Grouped)
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "DefaultCell")
+        self.tableView = UITableView(frame: self.view.frame, style: .grouped)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "DefaultCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,28 +40,28 @@ class SettingsListTableViewController: UITableViewController {
     }
 
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return items.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("DefaultCell", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultCell", for: indexPath)
 
-        cell.textLabel?.text = items[indexPath.row] as? String
-        cell.accessoryType = indexPath.row == selected ? .Checkmark : .None
+        cell.textLabel?.text = items[(indexPath as NSIndexPath).row] as? String
+        cell.accessoryType = (indexPath as NSIndexPath).row == selected ? .checkmark : .none
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.delegate?.setSelection(id, index: indexPath.row, label: self.items[indexPath.row] as! String)
-        self.navigationController?.popViewControllerAnimated(true)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.delegate?.setSelection(id, index: (indexPath as NSIndexPath).row, label: self.items[(indexPath as NSIndexPath).row] as! String)
+        self.navigationController?.popViewController(animated: true)
     }
 
   

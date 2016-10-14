@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ActionPickerDelegate {
-    func selectedAction(message : String)
+    func selectedAction(_ message : String)
 }
 
 class ActionPickerViewController: UIViewController , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
@@ -24,8 +24,8 @@ class ActionPickerViewController: UIViewController , UICollectionViewDataSource 
         super.viewDidLoad()
 
         
-        self.collectionView.registerNib(UINib(nibName: "ActionCell", bundle: nil), forCellWithReuseIdentifier: "ActionCell")
-        self.collectionView.registerNib(UINib(nibName: "ActionsHeader",bundle:nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
+        self.collectionView.register(UINib(nibName: "ActionCell", bundle: nil), forCellWithReuseIdentifier: "ActionCell")
+        self.collectionView.register(UINib(nibName: "ActionsHeader",bundle:nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -36,15 +36,15 @@ class ActionPickerViewController: UIViewController , UICollectionViewDataSource 
         self.collectionView.backgroundColor = currentTheme.backgroundColor
         
         self.navigationItem.title = "Pick an action"
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: #selector(CancelTapped))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(CancelTapped))
         self.applyCurrentTheme()
         
         self.navigationController?.navigationBar.barTintColor = currentTheme.backgroundColor
         self.navigationController?.navigationBar.tintColor = currentTheme.foregroundColor
-        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.isTranslucent = false
     }
     
-    func setActions(actions : [Action]) {
+    func setActions(_ actions : [Action]) {
         self.actions = [:]
         self.serviceOrder = []
         for action in actions {
@@ -64,63 +64,63 @@ class ActionPickerViewController: UIViewController , UICollectionViewDataSource 
         }
     }
     
-    @IBAction func CancelTapped(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func CancelTapped(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return serviceOrder.count
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let service = self.serviceOrder[section]
         return (self.actions[service]?.count)!
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ActionCell", forIndexPath: indexPath) as! ActionCell
-        let service = serviceOrder[indexPath.section]
-        cell.loadData(actions[service]![indexPath.row])
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ActionCell", for: indexPath) as! ActionCell
+        let service = serviceOrder[(indexPath as NSIndexPath).section]
+        cell.loadData(actions[service]![(indexPath as NSIndexPath).row])
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenRect = self.collectionView.frame
         let screenWidth = screenRect.size.width
         let cellWidth = screenWidth / 2.0
-        let size = CGSizeMake(cellWidth-15, 100)
+        let size = CGSize(width: cellWidth-15, height: 100)
         return size
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        delegate?.selectedAction(self.actions[serviceOrder[indexPath.section]]![indexPath.row].message)
-        self.dismissViewControllerAnimated(true, completion: nil)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.selectedAction(self.actions[serviceOrder[(indexPath as NSIndexPath).section]]![(indexPath as NSIndexPath).row].message)
+        self.dismiss(animated: true, completion: nil)
     }
     
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        let header =  collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "header", forIndexPath: indexPath) as! ActionsHeader
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header =  collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header", for: indexPath) as! ActionsHeader
         
-        let service = serviceOrder[indexPath.section]
+        let service = serviceOrder[(indexPath as NSIndexPath).section]
         
         header.txtName.textColor = service.color
         header.txtCount.textColor = currentTheme.secondaryForegroundColor
         
-        header.txtName.text = service.name.uppercaseString
+        header.txtName.text = service.name.uppercased()
         header.txtCount.text = String(actions[service]!.count) + " actions"
         
         return header
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: self.view.frame.width, height: 70)
     }
 
@@ -130,7 +130,7 @@ class ActionPickerViewController: UIViewController , UICollectionViewDataSource 
         // Dispose of any resources that can be recreated.
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    override var preferredStatusBarStyle : UIStatusBarStyle {
         return currentTheme.statusBarStyle
     }
 }

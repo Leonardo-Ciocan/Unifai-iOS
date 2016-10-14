@@ -8,7 +8,7 @@ class ProfileViewController: UIViewController , UITableViewDelegate , UITableVie
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(handleRefresh), forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: UIControlEvents.valueChanged)
         
         return refreshControl
     }()
@@ -18,12 +18,12 @@ class ProfileViewController: UIViewController , UITableViewDelegate , UITableVie
         self.view.backgroundColor = currentTheme.backgroundColor
         self.tableView.backgroundColor = currentTheme.backgroundColor
 
-        self.tableView!.registerNib(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
+        self.tableView!.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
         
         self.tableView!.rowHeight = UITableViewAutomaticDimension
         self.tableView!.estimatedRowHeight = 64.0
         self.tableView!.tableFooterView = UIView()
-        self.tableView!.separatorStyle = .None
+        self.tableView!.separatorStyle = .none
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -42,28 +42,28 @@ class ProfileViewController: UIViewController , UITableViewDelegate , UITableVie
         loadData()
         
         
-        if( traitCollection.forceTouchCapability == .Available){
+        if( traitCollection.forceTouchCapability == .available){
             
-            registerForPreviewingWithDelegate(self, sourceView: view)
+            registerForPreviewing(with: self, sourceView: view)
             
         }
         
         loadData()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
         self.tabBarController?.tabBar.barStyle = currentTheme.barStyle
     }
     
-    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        guard let indexPath = self.tableView.indexPathForRowAtPoint(location) else { return nil }
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let indexPath = self.tableView.indexPathForRow(at: location) else { return nil }
         
-        guard let cell = tableView?.cellForRowAtIndexPath(indexPath) else { return nil }
+        guard let cell = tableView?.cellForRow(at: indexPath) else { return nil }
         
-        guard let detailVC = storyboard?.instantiateViewControllerWithIdentifier("ThreadViewController") as? ThreadViewController else { return nil }
+        guard let detailVC = storyboard?.instantiateViewController(withIdentifier: "ThreadViewController") as? ThreadViewController else { return nil }
         
-        detailVC.loadData(messages[indexPath.row].threadID!)
+        detailVC.loadData(messages[(indexPath as NSIndexPath).row].threadID!)
         
         detailVC.preferredContentSize = CGSize(width: 0.0, height: 600)
         
@@ -72,19 +72,19 @@ class ProfileViewController: UIViewController , UITableViewDelegate , UITableVie
         return detailVC
     }
     
-    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         
-        showViewController(viewControllerToCommit, sender: self)
+        show(viewControllerToCommit, sender: self)
         
     }
     
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete{
-            messages.removeAtIndex(indexPath.row)
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            messages.remove(at: (indexPath as NSIndexPath).row)
             self.tableView.reloadData()
         }
     }
@@ -98,46 +98,46 @@ class ProfileViewController: UIViewController , UITableViewDelegate , UITableVie
         })
     }
     
-    func handleRefresh(refreshControl: UIRefreshControl) {
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
         loadData()
     }
     
     var selectedRow = 0
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedRow = indexPath.row
-        self.performSegueWithIdentifier("toThread", sender: self)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedRow = (indexPath as NSIndexPath).row
+        self.performSegue(withIdentifier: "toThread", sender: self)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toThread"{
-            let destination = segue.destinationViewController as! ThreadViewController
+            let destination = segue.destination as! ThreadViewController
             destination.loadData(messages[selectedRow].threadID!)
         }
         else if segue.identifier == "toSettings"{
-            segue.destinationViewController.modalPresentationStyle = .Popover
-            segue.destinationViewController.popoverPresentationController!.barButtonItem = sender as? UIBarButtonItem
+            segue.destination.modalPresentationStyle = .popover
+            segue.destination.popoverPresentationController!.barButtonItem = sender as? UIBarButtonItem
             
-            segue.destinationViewController.preferredContentSize = CGSizeMake(300,400)
+            segue.destination.preferredContentSize = CGSize(width: 300,height: 400)
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell") as! MessageCell
-        cell.selectionStyle = .None
-        cell.setMessage(messages[indexPath.row])
-        cell.imgLogo.addTarget(self, action: #selector(imageTapped), forControlEvents: .TouchUpInside)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell") as! MessageCell
+        cell.selectionStyle = .none
+        cell.setMessage(messages[(indexPath as NSIndexPath).row])
+        cell.imgLogo.addTarget(self, action: #selector(imageTapped), for: .touchUpInside)
         
         cell.accessoryView = cell.imgLogo as UIView
-        cell.imgLogo.contentMode = .ScaleAspectFit
-        cell.imgLogo.userInteractionEnabled = true
+        cell.imgLogo.contentMode = .scaleAspectFit
+        cell.imgLogo.isUserInteractionEnabled = true
         return cell
     }
     
-    func imageTapped(sender: UITapGestureRecognizer) {
-        self.performSegueWithIdentifier("toProfile", sender: self)
+    func imageTapped(_ sender: UITapGestureRecognizer) {
+        self.performSegue(withIdentifier: "toProfile", sender: self)
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
     

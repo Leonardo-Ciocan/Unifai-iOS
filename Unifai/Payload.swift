@@ -17,7 +17,7 @@ class TablePayload : Payload {
     var rows : [[String]] = []
     
     init(data:String) {
-        let dt = data.dataUsingEncoding(NSUTF8StringEncoding , allowLossyConversion: true)
+        let dt = data.data(using: String.Encoding.utf8 , allowLossyConversion: true)
         let json = JSON(data:dt!)
         let json_columns = json["headings"].arrayValue
         let json_rows = json["rows"].arrayValue
@@ -42,7 +42,7 @@ class BarChartPayload : Payload {
     var values : [Float]  = []
     
     init(data:String) {
-        let dt = data.dataUsingEncoding(NSUTF8StringEncoding , allowLossyConversion: true)
+        let dt = data.data(using: String.Encoding.utf8 , allowLossyConversion: true)
         if let json = JSON(data:dt!).array{
             for item in json{
                 self.labels.append(item["label"].stringValue)
@@ -61,7 +61,7 @@ class RequestAuthPayload : Payload {
     var parameterNameToCapture = ""
     
     init(data:String) {
-        let dt = data.dataUsingEncoding(NSUTF8StringEncoding , allowLossyConversion: true)
+        let dt = data.data(using: String.Encoding.utf8 , allowLossyConversion: true)
         let json = JSON(data:dt!)
         url = json["url"].stringValue
         clientID = json["client_id"].stringValue
@@ -87,7 +87,7 @@ class CardListPayloadItem {
 class CardListPayload : Payload {
     var items : [CardListPayloadItem] = []
     init(data:String) {
-        let dt = data.dataUsingEncoding(NSUTF8StringEncoding , allowLossyConversion: true)
+        let dt = data.data(using: String.Encoding.utf8 , allowLossyConversion: true)
         if let json = JSON(data:dt!).array{
             for card in json{
                 items.append(CardListPayloadItem(json: card))
@@ -102,7 +102,7 @@ class ProgressPayload : Payload {
     var value = 0
     
     init(data : String ) {
-        let dt = data.dataUsingEncoding(NSUTF8StringEncoding , allowLossyConversion: true)
+        let dt = data.data(using: String.Encoding.utf8 , allowLossyConversion: true)
         let json = JSON(data:dt!)
         if let min = json["min"].int {
             self.min = min
@@ -123,7 +123,7 @@ class PromptPayload : Payload {
     var questionText : String = ""
     
     init(data : String ) {
-        let dt = data.dataUsingEncoding(NSUTF8StringEncoding , allowLossyConversion: true)
+        let dt = data.data(using: String.Encoding.utf8 , allowLossyConversion: true)
         let items = JSON(data:dt!)
         if let question = items["question_text"].string {
             self.questionText = question
@@ -145,7 +145,7 @@ class PromptPayload : Payload {
 class SheetsPayload : Payload {
     var sheets : [Sheet] = []
     init(data:String) {
-        let dt = data.dataUsingEncoding(NSUTF8StringEncoding , allowLossyConversion: true)
+        let dt = data.data(using: String.Encoding.utf8 , allowLossyConversion: true)
         if let json = JSON(data:dt!).array{
             for item in json {
                 let sheet = Sheet()

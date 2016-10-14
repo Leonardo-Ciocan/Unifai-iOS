@@ -5,14 +5,13 @@ struct SheetSearchSuggestionItem {
     let label : String
     let isField : Bool
     
-    static func computeSuggestionsForText(fields:[String], text:String) -> [SheetSearchSuggestionItem] {
-        let lastComponent = text.componentsSeparatedByString(",").last!
-        print(lastComponent)
+    static func computeSuggestionsForText(_ fields:[String], text:String) -> [SheetSearchSuggestionItem] {
+        let lastComponent = text.components(separatedBy: ",").last!
         if lastComponent.isEmpty {
             var initial : [SheetSearchSuggestionItem] =  ["more than","less than"].map {
                 SheetSearchSuggestionItem(label: $0, isField: false)
             }
-            initial.appendContentsOf(fields.map { SheetSearchSuggestionItem(label: $0, isField: true)})
+            initial.append(contentsOf: fields.map { SheetSearchSuggestionItem(label: $0, isField: true)})
             return initial
         }
         else if "(more|less) than (\\d+\\.?\\d*) $".r!.matches( lastComponent ){
@@ -27,7 +26,7 @@ struct SheetSearchSuggestionItem {
 }
 
 protocol SheetsManagerSuggestionsViewDelegate {
-    func didSelectSuggestion(text:String)
+    func didSelectSuggestion(_ text:String)
 }
 
 class SheetsManagerSuggestionsView : UIView, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -48,11 +47,11 @@ class SheetsManagerSuggestionsView : UIView, UICollectionViewDelegate, UICollect
     let collectionView : UICollectionView?
 
     required init?(coder aDecoder: NSCoder) {
-        collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
+        collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         super.init(coder: aDecoder)
-        collectionView!.registerNib(UINib(nibName: "SheetSearchSuggestionCell", bundle: nil), forCellWithReuseIdentifier: "cell")
+        collectionView!.register(UINib(nibName: "SheetSearchSuggestionCell", bundle: nil), forCellWithReuseIdentifier: "cell")
         layout.estimatedItemSize = CGSize(width: 100, height: 40)
-        layout.scrollDirection = .Horizontal
+        layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 5
         layout.minimumLineSpacing = 5
         self.addSubview(collectionView!)
@@ -63,31 +62,31 @@ class SheetsManagerSuggestionsView : UIView, UICollectionViewDelegate, UICollect
         collectionView!.showsHorizontalScrollIndicator = false
         collectionView!.delegate = self
         collectionView!.dataSource = self
-        collectionView!.backgroundColor = UIColor.clearColor()
+        collectionView!.backgroundColor = UIColor.clear
     }
     
-    func setSuggestions(suggestions:[SheetSearchSuggestionItem], forService service:Service) {
+    func setSuggestions(_ suggestions:[SheetSearchSuggestionItem], forService service:Service) {
         self.items = suggestions
         self.service = service
         self.collectionView!.reloadData()
     }
     
-    static let regularFont = UIFont.systemFontOfSize(15)
-    static let boldFont = UIFont.boldSystemFontOfSize(15)
+    static let regularFont = UIFont.systemFont(ofSize: 15)
+    static let boldFont = UIFont.boldSystemFont(ofSize: 15)
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! SheetSearchSuggestionCell
-        cell.txtName.text = "  " + self.items[indexPath.row].label + "  "
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! SheetSearchSuggestionCell
+        cell.txtName.text = "  " + self.items[(indexPath as NSIndexPath).row].label + "  "
         cell.txtName.textColor = service?.color.darkerColor()
-        cell.txtName.font = self.items[indexPath.row].isField ? SheetsManagerSuggestionsView.boldFont : SheetsManagerSuggestionsView.regularFont
+        cell.txtName.font = self.items[(indexPath as NSIndexPath).row].isField ? SheetsManagerSuggestionsView.boldFont : SheetsManagerSuggestionsView.regularFont
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        self.delegate?.didSelectSuggestion(items[indexPath.row].label)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.delegate?.didSelectSuggestion(items[(indexPath as NSIndexPath).row].label)
     }
 }

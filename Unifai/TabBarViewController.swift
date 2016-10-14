@@ -12,7 +12,7 @@ class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.selectedIndex = NSUserDefaults.standardUserDefaults().integerForKey("startingPage")
+        self.selectedIndex = UserDefaults.standard.integer(forKey: "startingPage")
         self.tabBar.barStyle = currentTheme.barStyle
         //self.tabBar.translucent = false
         self.tabBar.barTintColor = currentTheme.backgroundColor
@@ -28,8 +28,8 @@ class TabBarViewController: UITabBarController {
         super.didReceiveMemoryWarning()
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
 
 }

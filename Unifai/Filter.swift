@@ -3,21 +3,21 @@ import Regex
 
 extension String {
     func trim() -> String {
-        return self.stringByTrimmingCharactersInSet(
-            NSCharacterSet.whitespaceAndNewlineCharacterSet()
+        return self.trimmingCharacters(
+            in: CharacterSet.whitespacesAndNewlines
         )
     }
 }
 
 enum FilterType {
-    case StartsWith(key:String, value : String )
-    case Contains(key:String, value : String )
-    case MoreThan(key:String, value:Int)
-    case LessThan(key:String, value:Int)
-    case Between(from : Int, to : Int)
-    case None
+    case startsWith(key:String, value : String )
+    case contains(key:String, value : String )
+    case moreThan(key:String, value:Int)
+    case lessThan(key:String, value:Int)
+    case between(from : Int, to : Int)
+    case none
     
-    static func fromText(text:String) -> FilterType {
+    static func fromText(_ text:String) -> FilterType {
         let startsWithResult = "(.+) is (.+)".r!.findFirst(in: text)
         if let startsWithResult = startsWithResult {
             if startsWithResult.subgroups.count == 2 {
@@ -54,13 +54,13 @@ enum FilterType {
             }
         }
         
-        return .None
+        return .none
     }
     
     var rawValue : Int {
         get {
             switch self {
-            case .None(info: _) : return 0
+            case .none(info: _) : return 0
             default : return 1
             }
         }

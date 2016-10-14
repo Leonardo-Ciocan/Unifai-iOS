@@ -1,29 +1,29 @@
 PODS:
-  - ActiveLabel (0.6.2)
-  - Alamofire (3.3.1)
-  - AlamofireImage (2.4.1):
-    - Alamofire (~> 3.3)
-  - AlertOnboarding (1.5)
-  - Answers (1.2.1):
+  - ActiveLabel (0.7.0)
+  - Alamofire (3.5.1)
+  - AlamofireImage (2.5.0):
+    - Alamofire (~> 3.5)
+  - AlertOnboarding (1.9)
+  - Answers (1.3.3):
     - Fabric (~> 1.6.3)
   - Boilerplate (0.2.4):
     - Result (~> 2.0)
-  - Charts (2.2.5):
-    - Charts/Core (= 2.2.5)
-  - Charts/Core (2.2.5)
+  - Charts (2.3.0):
+    - Charts/Core (= 2.3.0)
+  - Charts/Core (2.3.0)
   - CrossroadRegex (0.8.0):
     - Boilerplate (~> 0.2)
   - DateTools (1.7.0)
-  - DGElasticPullToRefresh (1.0.3)
+  - DGElasticPullToRefresh (1.1)
   - DynamicColor (2.4.0)
-  - expanding-collection (0.3.2)
-  - Fabric (1.6.7)
-  - GSImageViewerController (1.1.1)
+  - expanding-collection (1.0.2)
+  - Fabric (1.6.10)
+  - GSImageViewerController (1.2.0)
   - PKHUD (3.2.1)
   - Result (2.1.3)
-  - RFAboutView-Swift (1.0.13)
+  - RFAboutView-Swift (1.0.16)
   - SnapKit (0.15.0)
-  - SwiftyJSON (2.3.2)
+  - SwiftyJSON (3.1.1)
 
 DEPENDENCIES:
   - ActiveLabel
@@ -50,28 +50,28 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   SwiftyJSON:
-    :commit: 2a5b70f06001316d4fb54501edc70b4084705da0
+    :commit: 707516458b618c48ad9365d23a0dad3c3b860fa0
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  ActiveLabel: 2394eb48a2e31644ea90d6543c17bffe1d06f549
-  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
-  AlamofireImage: 3ccf3347d9ea24580dc11fb892770a0be6a29826
-  AlertOnboarding: 4b92341965987dc9492a37d453aac7826f60f0a3
-  Answers: 57ee6bcc9bd3c6710862065c9251365a2a404920
+  ActiveLabel: eb405c5b99275be52fac161f7a55cab1dd672c54
+  Alamofire: 0dfba1184a543e2aa160f4e39cac4e8aba48d223
+  AlamofireImage: 2d34936e5201270bb17a316a786e90e83b4a249d
+  AlertOnboarding: 0c97f5c4feac0a4e914bae5d530f66b4dbc6b771
+  Answers: 3e2a5906e8d9565da4dd585e0db90b1b6b8a81d7
   Boilerplate: cc76b26f60747f7b75f43b8ac38d2071cfb0e75a
-  Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
+  Charts: 55d7fd9af175b500208601bea872f0fc72c1d19e
   CrossroadRegex: f1ab8cb19a65c1db9a2ed809e8f71b49a40aa8cb
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
-  DGElasticPullToRefresh: 040f39ae69840b3261d163fe6735c5901bf851e9
+  DGElasticPullToRefresh: 28f11a6026302a90f8ffebbc6e24748e584dddd3
   DynamicColor: 2f3fd61053684667bad9f03045dcf9a2a5a007ea
-  expanding-collection: 0a237d343a1d71472a312296a8e1359be01244ab
-  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
-  GSImageViewerController: 1fd7ff9210bca2eaaeb89811c55230b575377143
+  expanding-collection: 0370a4efe83e6a016e0446b596444ac67c4c1460
+  Fabric: c73f371ee543e3f0b80608f2674750e4910d1669
+  GSImageViewerController: cd90d8a692666981d432f7633bcaa66aa7592221
   PKHUD: 001c11518f125a273ddf026bcc64918423744ea2
   Result: 18e1a7597fbcca5923c565b40a25a98afafdee02
-  RFAboutView-Swift: 744c159dfa3c59e967dc191f4de0973b131d5ff9
+  RFAboutView-Swift: 18e756365255d09aff32797aa2328f4c8a3a097c
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
-  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
 COCOAPODS: 0.39.0

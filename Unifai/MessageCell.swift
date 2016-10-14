@@ -9,13 +9,13 @@ import AlamofireImage
 import PKHUD
 
 protocol MessageCellDelegate {
-    func shouldSendMessageWithText(text:String, sourceRect:CGRect, sourceView:UIView)
-    func didFinishAuthenticationFromMessage(message:Message?)
+    func shouldSendMessageWithText(_ text:String, sourceRect:CGRect, sourceView:UIView)
+    func didFinishAuthenticationFromMessage(_ message:Message?)
 }
 
 extension UITextView {
-    func setHTMLFromString(text: String, color:UIColor) {
-        let textColor = self.textColor ?? UIColor.blackColor()
+    func setHTMLFromString(_ text: String, color:UIColor) {
+        let textColor = self.textColor ?? UIColor.black
         let font = Constants.standardFont
         let imgSizeStyle = "<head>" +
         "   <style>" +
@@ -26,8 +26,8 @@ extension UITextView {
         
         
         let attrStr = try! NSMutableAttributedString(
-            data: modifiedFont.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!,
-            options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: NSUTF8StringEncoding],
+            data: modifiedFont.data(using: String.Encoding.unicode, allowLossyConversion: true)!,
+            options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8],
             documentAttributes: nil)
         
 //        let flatText = attrStr.string
@@ -75,17 +75,17 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
     @IBOutlet weak var txtBodyLeadingConstraint: NSLayoutConstraint!
     var hideTime : Bool{
         set(hide){
-            txtTime.hidden = hide
+            txtTime.isHidden = hide
         }
         get{
-            return txtTime.hidden
+            return txtTime.isHidden
         }
     }
     
     var hideServiceMarkings : Bool? {
         didSet {
-            txtName.hidden = hideServiceMarkings!
-            imgLogo.hidden = hideServiceMarkings!
+            txtName.isHidden = hideServiceMarkings!
+            imgLogo.isHidden = hideServiceMarkings!
             txtBodyLeadingConstraint.constant = hideServiceMarkings! ? 20 : 73
             layoutIfNeeded()
         }
@@ -93,7 +93,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
     
     static let imageDownloader = ImageDownloader(
         configuration: ImageDownloader.defaultURLSessionConfiguration(),
-        downloadPrioritization: .FIFO,
+        downloadPrioritization: .fifo,
         maximumActiveDownloads: 4,
         imageCache: AutoPurgingImageCache()
     )
@@ -109,19 +109,19 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
 //        textView.textContainerInset = UIEdgeInsetsMake(10, 10, 10, 10);
         txtBody.delegate = self
         
-        contentView.userInteractionEnabled = false
+        contentView.isUserInteractionEnabled = false
         threadCountView.layer.masksToBounds = true
         threadCountView.layer.cornerRadius = 10
         threadCountView.layer.borderWidth = 2
-        threadCountView.layer.borderColor = currentTheme.backgroundColor.CGColor
+        threadCountView.layer.borderColor = currentTheme.backgroundColor.cgColor
         self.backgroundColor = currentTheme.backgroundColor
         txtBody.textColor = currentTheme.foregroundColor
         txtName.textColor = currentTheme.foregroundColor
         
-        payloadContainer.backgroundColor = UIColor.clearColor()
+        payloadContainer.backgroundColor = UIColor.clear
         
         let textSize = [10,15,20][Settings.textSize]
-        let font = UIFont.systemFontOfSize(CGFloat(textSize), weight: UIFontWeightThin)
+        let font = UIFont.systemFont(ofSize: CGFloat(textSize), weight: UIFontWeightThin)
         txtBody.font = font
         
         txtTime.font = font
@@ -152,9 +152,9 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         txtBody.addGestureRecognizer(longTapRecognizer)
     }
     
-    func textView(textView: UITextView, shouldInteractWithURL URL: NSURL, inRange characterRange: NSRange) -> Bool {
-        let svc = SFSafariViewController(URL: URL)
-        self.parentViewController!.presentViewController(svc, animated: true, completion: nil)
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
+        let svc = SFSafariViewController(url: URL)
+        self.parentViewController!.present(svc, animated: true, completion: nil)
         return false
     }
     
@@ -164,64 +164,64 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         guard let serviceColor = TextUtils.extractServiceColorFrom(txtBody.text!) else { return }
         HUD.dimsBackground = false
 
-        let actionPicker = UIAlertController(title: "What do you want to do with this message?", message: txtBody.text , preferredStyle: .ActionSheet)
-        actionPicker.addAction(UIAlertAction(title: "Add to the top of my dashboard", style: .Default, handler: {
+        let actionPicker = UIAlertController(title: "What do you want to do with this message?", message: txtBody.text , preferredStyle: .actionSheet)
+        actionPicker.addAction(UIAlertAction(title: "Add to the top of my dashboard", style: .default, handler: {
              _ in
             Unifai.getDashboardItems({ items in
                 let newItems = [self.txtBody.text!] + items
                 Unifai.setDashboardItems(newItems, completion: { _ in
                     HUD.dimsBackground = false
-                    HUD.flash(.Success, delay: 1)
+                    HUD.flash(.success, delay: 1)
                 })
             })
         }))
         
-        actionPicker.addAction(UIAlertAction(title: "Add to the bottom of my dashboard", style: .Default, handler: {
+        actionPicker.addAction(UIAlertAction(title: "Add to the bottom of my dashboard", style: .default, handler: {
             _ in
             Unifai.getDashboardItems({ items in
                 let newItems = items + [self.txtBody.text!]
                 Unifai.setDashboardItems(newItems, completion: { _ in
-                    HUD.flash(.Success, delay: 1)
+                    HUD.flash(.success, delay: 1)
                 })
             })
         }))
         
-        actionPicker.addAction(UIAlertAction(title: "Save as action", style: .Default, handler: {
+        actionPicker.addAction(UIAlertAction(title: "Save as action", style: .default, handler: {
             _ in
-            let namePrompt = UIAlertController(title: "How do you want to call this?", message: "", preferredStyle: .Alert)
-            namePrompt.addTextFieldWithConfigurationHandler({ textField in
+            let namePrompt = UIAlertController(title: "How do you want to call this?", message: "", preferredStyle: .alert)
+            namePrompt.addTextField(configurationHandler: { textField in
                 textField.placeholder = "Enter a name for this action"
-                textField.clearButtonMode = .WhileEditing
+                textField.clearButtonMode = .whileEditing
             })
             
-            namePrompt.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-            namePrompt.addAction(UIAlertAction(title: "Create action", style: .Default, handler: { _ in
+            namePrompt.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            namePrompt.addAction(UIAlertAction(title: "Create action", style: .default, handler: { _ in
                 guard let name = namePrompt.textFields![0].text else { return }
                 let action = Action(message: self.txtBody.text!, name: name)
                 Core.Actions.append(action)
                 Unifai.createAction(self.txtBody.text!, name: name, completion: {
-                        HUD.flash(.Success, delay: 1)
+                        HUD.flash(.success, delay: 1)
                     }, error: {
-                        HUD.flash(.Error,delay: 1)
+                        HUD.flash(.error,delay: 1)
                 })
             }))
-            self.parentViewController!.presentViewController(namePrompt, animated: true, completion: {
-                UIView.animateWithDuration(0.5, animations: {
+            self.parentViewController!.present(namePrompt, animated: true, completion: {
+                UIView.animate(withDuration: 0.5, animations: {
                     namePrompt.view.tintColor = serviceColor
                 })
             })
         }))
         
-        actionPicker.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        actionPicker.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         let popover = actionPicker.popoverPresentationController
         if let popover = popover {
             popover.sourceView = self.txtBody
             popover.sourceRect = self.txtBody.bounds
-            popover.permittedArrowDirections = .Any
+            popover.permittedArrowDirections = .any
         }
-        self.parentViewController!.presentViewController(actionPicker, animated: true, completion: {
-            UIView.animateWithDuration(0.5, animations: {
+        self.parentViewController!.present(actionPicker, animated: true, completion: {
+            UIView.animate(withDuration: 0.5, animations: {
                 actionPicker.view.tintColor = serviceColor
             })
         })
@@ -237,10 +237,10 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
 //        backgroundShadowView.layer.borderWidth = 0
 //        backgroundShadowView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.02)
         
-        imgLogo.setImage(message.logo, forState: .Normal)
+        imgLogo.setImage(message.logo, for: UIControlState())
         txtName.textColor = message.color
         
-        self.txtName.text = message.isFromUser ? Core.Username.uppercaseString : message.service?.name.uppercaseString
+        self.txtName.text = message.isFromUser ? Core.Username.uppercased() : message.service?.name.uppercased()
 //        txtBody.URLColor = message.color
 //        if message.isFromUser {
 //            let atColor = TextUtils.extractServiceColorFrom(message.body)
@@ -248,20 +248,20 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
 //        }
     }
     
-    func handleThreadCount(shouldShowThreadCount: Bool) {
+    func handleThreadCount(_ shouldShowThreadCount: Bool) {
         guard let message = self.message else { return }
         if shouldShowThreadCount {
             threadCountView.backgroundColor = message.service?.color
             threadCount.text = String(message.messagesInThread)
         } else {
-            threadCountView.hidden = true
+            threadCountView.isHidden = true
         }
     }
     
     func handleTime() {
         guard let message = self.message else { return }
-        let timeSinceMessage = NSDate().timeIntervalSinceDate(message.timestamp)
-        self.txtTime.text = timeSinceMessage < 60 ? "just now" : message.timestamp.shortTimeAgoSinceNow()
+        let timeSinceMessage = Date().timeIntervalSince(message.timestamp as Date)
+        self.txtTime.text = timeSinceMessage < 60 ? "just now" : (message.timestamp as NSDate).shortTimeAgoSinceNow()
     }
     
     func handleTablePayload() {
@@ -293,12 +293,12 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         }
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 5
-        imageView.layer.shadowColor = UIColor.blackColor().CGColor
+        imageView.layer.shadowColor = UIColor.black.cgColor
         imageView.layer.shadowOpacity = 0.15
-        imageView.layer.shadowOffset = CGSizeZero
+        imageView.layer.shadowOffset = CGSize.zero
         imageView.layer.shadowRadius = 10
         
-        let URLRequest = NSURLRequest(URL: NSURL(string:(message.payload as! ImagePayload).URL)!)
+        let URLRequest = Foundation.URLRequest(url: URL(string:(message.payload as! ImagePayload).URL)!)
         MessageCell.imageDownloader.downloadImage(URLRequest: URLRequest) { response in
             if let image = response.result.value {
                 self.img = image
@@ -310,7 +310,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         
         self.imgView = imageView
         
-        imageView.contentMode = .ScaleAspectFit
+        imageView.contentMode = .scaleAspectFit
         self.payloadContainer.addSubview(imageView)
         imageView.snp_makeConstraints(closure: { (make)->Void in
             make.trailing.leading.equalTo(0)
@@ -319,7 +319,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         
         let singleTap = UITapGestureRecognizer(target: self, action:#selector(payloadImageTapped))
         singleTap.numberOfTapsRequired = 1
-        imageView.userInteractionEnabled = true
+        imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(singleTap)
         
         let longTap = UILongPressGestureRecognizer(target: self, action:#selector(payloadImageWasLongTapped))
@@ -335,12 +335,12 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         view.userInteractionEnabled = false
         let payload = message.payload as! BarChartPayload
         var yVals : [BarChartDataEntry]  = []
-        for (index, item) in payload.values.enumerate(){
+        for (index, item) in payload.values.enumerated(){
             yVals.append(BarChartDataEntry(value: Double(item), xIndex: index))
         }
         
         let dataSet = BarChartDataSet(yVals: yVals, label: "")
-        dataSet.valueFormatter = NSNumberFormatter()
+        dataSet.valueFormatter = NumberFormatter()
         dataSet.valueFormatter?.minimumFractionDigits = 0
         
         dataSet.colors = [message.color]
@@ -363,7 +363,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         view.rightAxis.drawAxisLineEnabled = false
         view.xAxis.labelPosition = .Bottom
         view.backgroundColor = UIColor.clearColor()
-        view.leftAxis.valueFormatter = NSNumberFormatter()
+        view.leftAxis.valueFormatter = NumberFormatter()
         view.leftAxis.valueFormatter?.minimumFractionDigits = 0
         view.leftAxis.labelTextColor = currentTheme.foregroundColor
         view.xAxis.labelTextColor = currentTheme.foregroundColor
@@ -413,7 +413,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         scrollView.contentSize = CGSize(width: cardSize * payload.items.count + (payload.items.count-1) * 10 + 77, height: cardSize)
         
         var lastCard : CardView? = nil
-        for (index,item) in payload.items.enumerate(){
+        for (index,item) in payload.items.enumerated(){
             let card = CardView()
             
             let recon = UITapGestureRecognizer(target: self, action: #selector(onCardTapped))
@@ -461,7 +461,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         progressView.setProgressValues(payload.min, max: payload.max, value: payload.value)
         progressView.progressBar.backgroundColor = message.service?.color
         progressView.valueBackground.backgroundColor = message.service?.color
-        progressView.barView.layer.borderColor = message.service?.color.CGColor
+        progressView.barView.layer.borderColor = message.service?.color.cgColor
         progressView.barView.layer.borderWidth = 1
     }
     
@@ -474,10 +474,10 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         self.imgView = imageView
         
         Unifai.getDataForMessage(withID: message.id, completion: { data in
-            imageView.image = UIImage(data: data)
+            imageView.image = UIImage(data: data as Data)
         })
         
-        imageView.contentMode = .ScaleAspectFit
+        imageView.contentMode = .scaleAspectFit
         self.payloadContainer.addSubview(imageView)
         imageView.snp_makeConstraints(closure: { (make)->Void in
             make.trailing.leading.equalTo(0)
@@ -496,7 +496,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         self.payloadContainerHeight.constant = CGFloat(height) + 40
         
         let sheetsView = SheetsView()
-        sheetsView.backgroundColor = UIColor.clearColor()
+        sheetsView.backgroundColor = UIColor.clear
         sheetsView.delegate = self
         sheetsView.loadSheets(payload.sheets, color: message.color, service:message.service)
         sheetsView.collectionView.contentInset = UIEdgeInsets(top: 10, left: self.hideServiceMarkings != true ? 77 : 20, bottom: 0, right: 10)
@@ -508,12 +508,12 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         })
     }
     
-    func shouldOpenSheetsManagerWithSheets(sheets: [Sheet], service: Service) {
+    func shouldOpenSheetsManagerWithSheets(_ sheets: [Sheet], service: Service) {
         let rootVC = SheetsManagerViewController()
         //let nav = UINavigationController(rootViewController: rootVC)
         let height = CGFloat(sheets[0].entries.reduce(0){$0 + $1.size()})
         rootVC.loadSheets(sheets, service: service, itemHeight: height)
-        self.parentViewController?.presentViewController(rootVC, animated: true, completion: nil)
+        self.parentViewController?.present(rootVC, animated: true, completion: nil)
     }
     
     func handlePayload() {
@@ -526,23 +526,23 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         }
         
         switch message.type {
-        case .Text , .Prompt:
+        case .text , .prompt:
             self.payloadContainerHeight.constant = 0
-        case .Table:
+        case .table:
             handleTablePayload()
-        case .Image:
+        case .image:
             handleImagePayload()
-        case .BarChart:
+        case .barChart:
             handleBarChartPayload()
-        case .RequestAuth:
+        case .requestAuth:
             handleAuthPayload()
-        case .CardList:
+        case .cardList:
             handleCardListPayload()
-        case .Progress:
+        case .progress:
             handleProgressPayload()
-        case .ImageUpload:
+        case .imageUpload:
             handleImageUploadPayload()
-        case .Sheets:
+        case .sheets:
             handleSheetsPayload()
         default:
             break
@@ -551,7 +551,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
     }
     
     var message : Message?
-    func setMessage(message : Message , shouldShowThreadCount : Bool = false){
+    func setMessage(_ message : Message , shouldShowThreadCount : Bool = false){
         self.message = message
         handleMessage()
         handleThreadCount(shouldShowThreadCount)
@@ -559,18 +559,18 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         handlePayload()
     }
     
-    func shouldSendMessageWithText(text: String, sourceRect: CGRect, sourceView: UIView) {
+    func shouldSendMessageWithText(_ text: String, sourceRect: CGRect, sourceView: UIView) {
         delegate?.shouldSendMessageWithText(text, sourceRect: sourceRect, sourceView: sourceView)
     }
     
-    func shouldOpenLinkWithURL(url: String) {
-        let svc = SFSafariViewController(URL: NSURL(string: url)!)
-        self.parentViewController!.presentViewController(svc, animated: true, completion: nil)
+    func shouldOpenLinkWithURL(_ url: String) {
+        let svc = SFSafariViewController(url: URL(string: url)!)
+        self.parentViewController!.present(svc, animated: true, completion: nil)
     }
     
-    func payloadImageTapped(senderA:UITapGestureRecognizer){
+    func payloadImageTapped(_ senderA:UITapGestureRecognizer){
         guard let message = self.message else { return }
-        let URLRequest = NSURLRequest(URL: NSURL(string:(message.payload as! ImagePayload).URL)!)
+        let URLRequest = Foundation.URLRequest(url: URL(string:(message.payload as! ImagePayload).URL)!)
         MessageCell.imageDownloader.downloadImage(URLRequest: URLRequest) { response in
             if let image = response.result.value {
                 let imageInfo      = GSImageInfo(image: image, imageMode: .AspectFit, imageHD: nil)
@@ -581,49 +581,49 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         }
     }
     
-    func payloadImageWasLongTapped(senderA:UITapGestureRecognizer){
+    func payloadImageWasLongTapped(_ senderA:UITapGestureRecognizer){
         guard let message = self.message else { return }
-        let URLRequest = NSURLRequest(URL: NSURL(string:(message.payload as! ImagePayload).URL)!)
+        let URLRequest = Foundation.URLRequest(url: URL(string:(message.payload as! ImagePayload).URL)!)
         MessageCell.imageDownloader.downloadImage(URLRequest: URLRequest) { response in
             if let image = response.result.value {
-                let prompt = UIAlertController(title: "Do you want to save this image?", message: "", preferredStyle: .ActionSheet)
-                prompt.addAction(UIAlertAction(title: "Save image", style: .Default, handler: { _ in
+                let prompt = UIAlertController(title: "Do you want to save this image?", message: "", preferredStyle: .actionSheet)
+                prompt.addAction(UIAlertAction(title: "Save image", style: .default, handler: { _ in
                     UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-                    HUD.flash(.Success, delay: 0.35)
+                    HUD.flash(.success, delay: 0.35)
                 }))
-                prompt.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-                self.parentViewController?.presentViewController(prompt, animated: true, completion: nil)
+                prompt.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                self.parentViewController?.present(prompt, animated: true, completion: nil)
             }
         }
     }
     
-    func onCardTapped(recon:UITapGestureRecognizer){
+    func onCardTapped(_ recon:UITapGestureRecognizer){
         let view = recon.view as! CardView
-        let svc = SFSafariViewController(URL: NSURL(string: view.navigateURL)!)
-        self.parentViewController!.presentViewController(svc, animated: true, completion: nil)
+        let svc = SFSafariViewController(url: URL(string: view.navigateURL)!)
+        self.parentViewController!.present(svc, animated: true, completion: nil)
     }
     
-    func loginButtonWasTapped(recon:UITapGestureRecognizer){
+    func loginButtonWasTapped(_ recon:UITapGestureRecognizer){
         let payload = message?.payload as! RequestAuthPayload
         
         let vc = AuthViewController()
         vc.delegate = self
         vc.payload = payload
         vc.service = message?.service
-        self.parentViewController?.presentViewController(vc, animated: true, completion: nil)
+        self.parentViewController?.present(vc, animated: true, completion: nil)
     }
 
     func didFinishAuthentication() {
         self.delegate?.didFinishAuthenticationFromMessage(self.message)
     }
 
-    @IBAction func profilePictureTapped(sender: AnyObject) {
+    @IBAction func profilePictureTapped(_ sender: AnyObject) {
         guard self.message?.service != nil else { return }
-        let profileVC = UIStoryboard(name: "Feed", bundle: nil).instantiateViewControllerWithIdentifier("profile") as! ServiceProfileViewcontroller
+        let profileVC = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "profile") as! ServiceProfileViewcontroller
         profileVC.loadData(self.message!.service)
         let nav = UINavigationController(rootViewController: profileVC)
         
-        nav.modalPresentationStyle = .Popover
+        nav.modalPresentationStyle = .popover
         let viewForSource = sender as! UIView
         nav.popoverPresentationController!.sourceView = viewForSource
         
@@ -631,9 +631,9 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         nav.popoverPresentationController!.sourceRect = viewForSource.bounds
         
         // the size you want to display
-        nav.preferredContentSize = CGSizeMake(300,450)
+        nav.preferredContentSize = CGSize(width: 300,height: 450)
         
-        self.parentViewController!.presentViewController(nav, animated: true, completion: nil)
+        self.parentViewController!.present(nav, animated: true, completion: nil)
     }
     
 }

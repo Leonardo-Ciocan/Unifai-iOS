@@ -8,7 +8,7 @@
 
 import UIKit
 protocol AutoCompletionSuggestionsDelegate {
-    func didSelectAutocompletion(message : String)
+    func didSelectAutocompletion(_ message : String)
 }
 class AutoCompletionSuggestions: UIView , UITableViewDelegate , UITableViewDataSource {
 
@@ -40,14 +40,14 @@ class AutoCompletionSuggestions: UIView , UITableViewDelegate , UITableViewDataS
     }
     
     func loadViewFromNib() {
-        let bundle = NSBundle(forClass: self.dynamicType)
+        let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "AutoCompletionSuggestions", bundle: bundle)
-        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         view.frame = bounds
-        view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.addSubview(view);
         
-        self.tableView.registerNib(UINib(nibName: "SuggestionCell",bundle: nil), forCellReuseIdentifier: "SuggestionCell")
+        self.tableView.register(UINib(nibName: "SuggestionCell",bundle: nil), forCellReuseIdentifier: "SuggestionCell")
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView!.rowHeight = UITableViewAutomaticDimension
@@ -55,57 +55,57 @@ class AutoCompletionSuggestions: UIView , UITableViewDelegate , UITableViewDataS
         self.tableView.tableHeaderView = UIView(frame:CGRect(x: 0, y: 0, width: 0, height: 20))
         self.tableView.tableFooterView = UIView(frame:CGRect(x: 0, y: 0, width: 0, height: 50))
         self.tableView.separatorColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
-        self.tableView.separatorInset = UIEdgeInsetsZero
-        self.tableView.separatorStyle = .None
+        self.tableView.separatorInset = UIEdgeInsets.zero
+        self.tableView.separatorStyle = .none
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = SuggestionsHeader(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 50) , color:serviceColor ?? UIColor.whiteColor())
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = SuggestionsHeader(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 50) , color:serviceColor ?? UIColor.white)
         view.backgroundColor = serviceColor
         view.txtName.text = ( (section == 0) ? "CATALOG" : "ACTIONS") + " (" + String( section == 0 ? filteredSuggestions.count : filteredActions.count) + ")"
         return view
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return section == 0 ? filteredSuggestions.count : filteredActions.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("SuggestionCell") as! SuggestionCell
-        print(indexPath.row)
-        if indexPath.section == 0{
-            cell.txtName.text = filteredSuggestions[indexPath.row].name
-            cell.txtMessage.text = filteredSuggestions[indexPath.row].message
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SuggestionCell") as! SuggestionCell
+        print((indexPath as NSIndexPath).row)
+        if (indexPath as NSIndexPath).section == 0{
+            cell.txtName.text = filteredSuggestions[(indexPath as NSIndexPath).row].name
+            cell.txtMessage.text = filteredSuggestions[(indexPath as NSIndexPath).row].message
         }
         else {
-            cell.txtName.text = filteredActions[indexPath.row].name
-            cell.txtMessage.text = filteredActions[indexPath.row].message
+            cell.txtName.text = filteredActions[(indexPath as NSIndexPath).row].name
+            cell.txtMessage.text = filteredActions[(indexPath as NSIndexPath).row].message
         }
-        cell.selectionStyle = .None
+        cell.selectionStyle = .none
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.delegate?.didSelectAutocompletion(
-            indexPath.section == 0 ? filteredSuggestions[indexPath.row].message : filteredActions[indexPath.row].message
+            (indexPath as NSIndexPath).section == 0 ? filteredSuggestions[(indexPath as NSIndexPath).row].message : filteredActions[(indexPath as NSIndexPath).row].message
         )
     }
     
-    func filterSuggestionsWithKeywords(keywords:[String]) {
+    func filterSuggestionsWithKeywords(_ keywords:[String]) {
         self.filterKeywords = keywords
         var filtered : [CatalogItem] = self.suggestions
         self.filterKeywords.forEach({ keyword in
             filtered = filtered.filter({
-                    $0.name.lowercaseString.containsString(keyword.lowercaseString) ||
-                    $0.message.lowercaseString.containsString(keyword.lowercaseString) ||
+                    $0.name.lowercased().contains(keyword.lowercased()) ||
+                    $0.message.lowercased().contains(keyword.lowercased()) ||
                     keyword == ""
             })
         })
@@ -113,8 +113,8 @@ class AutoCompletionSuggestions: UIView , UITableViewDelegate , UITableViewDataS
         var filteredActions : [Action] = self.actions
         self.filterKeywords.forEach({ keyword in
             filteredActions = filteredActions.filter({
-                $0.name.lowercaseString.containsString(keyword.lowercaseString) ||
-                    $0.message.lowercaseString.containsString(keyword.lowercaseString) ||
+                $0.name.lowercased().contains(keyword.lowercased()) ||
+                    $0.message.lowercased().contains(keyword.lowercased()) ||
                     keyword == ""
             })
         })

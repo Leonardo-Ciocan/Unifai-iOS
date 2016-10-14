@@ -3,17 +3,17 @@ import UIKit
 import SwiftyJSON
 
 enum MessageType : Int{
-    case Text , Table , Image , BarChart , RequestAuth , CardList , File , Progress , ImageUpload, Prompt, Sheets
+    case text , table , image , barChart , requestAuth , cardList , file , progress , imageUpload, prompt, sheets
 }
 
 class Message {
     var id = "0"
     var body : String = ""
-    var type : MessageType = .Text
+    var type : MessageType = .text
     var payload : Payload?
     var service : Service?
     var threadID : String?
-    var timestamp : NSDate = NSDate()
+    var timestamp : Date = Date()
     var messagesInThread = "1"
     
     
@@ -82,19 +82,19 @@ class Message {
         
         let thread = json["thread_id"].string
 
-        self.id = String(id)
+        self.id = String(describing: id)
         let threadCount = json["numberOfMessagesInThread"].numberValue
-        self.messagesInThread = String(threadCount == 0 ? 1 : threadCount)
+        self.messagesInThread = String(describing: threadCount == 0 ? 1 : threadCount)
         self.body = body
         self.service = Core.Services.filter{ $0.username == service }.first
         self.threadID = thread
         
         if let time = json["timestamp"].string {
             print(time)
-            let formatter = NSDateFormatter()
-            formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+            let formatter = DateFormatter()
+            formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale!
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-            if let date =  formatter.dateFromString(time){
+            if let date =  formatter.date(from: time){
                 self.timestamp = date
             }
         }

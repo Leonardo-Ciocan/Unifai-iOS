@@ -17,40 +17,40 @@ class TestingViewController : UIViewController , UITableViewDelegate , UITableVi
     
     
     override func viewDidLoad() {
-        self.tableView!.registerNib(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
+        self.tableView!.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
         
         self.tableView!.rowHeight = UITableViewAutomaticDimension
         self.tableView!.estimatedRowHeight = 64.0
         self.tableView!.tableFooterView = UIView()
-        self.tableView!.separatorStyle = .None
+        self.tableView!.separatorStyle = .none
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
         
-        guard NSUserDefaults.standardUserDefaults().stringForKey("token") != nil else{return}
+        guard UserDefaults.standard.string(forKey: "token") != nil else{return}
         
         self.tabBarController?.title = "Feed"
         print("loading view")
         
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell") as! MessageCell
-        cell.selectionStyle = .None
-        cell.setMessage(messages[indexPath.row])
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell") as! MessageCell
+        cell.selectionStyle = .none
+        cell.setMessage(messages[(indexPath as NSIndexPath).row])
         
         cell.accessoryView = cell.imgLogo as UIView
-        cell.imgLogo.contentMode = .ScaleAspectFit
-        cell.imgLogo.userInteractionEnabled = true
-        cell.imgLogo.tag = indexPath.row
+        cell.imgLogo.contentMode = .scaleAspectFit
+        cell.imgLogo.isUserInteractionEnabled = true
+        cell.imgLogo.tag = (indexPath as NSIndexPath).row
         
         
         return cell
     }
     
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
     

@@ -25,13 +25,13 @@ class CatalogCellHeader: UIView {
     }
     
     func loadViewFromNib() {
-        let bundle = NSBundle(forClass: self.dynamicType)
+        let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "CatalogCellHeader", bundle: bundle)
-        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         view.frame = bounds
-        view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        visitProfile.layer.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.2).CGColor
+        visitProfile.layer.backgroundColor = UIColor.white.withAlphaComponent(0.2).cgColor
         visitProfile.layer.cornerRadius = 5
         visitProfile.layer.masksToBounds = true
         
@@ -39,10 +39,10 @@ class CatalogCellHeader: UIView {
     }
 
     var service : Service?
-    func loadData(service:Service) {
+    func loadData(_ service:Service) {
         self.service = service
-        txtServiceName.text = service.name.uppercaseString
-        visitProfile.setTitle("Visit @\(service.username) profile", forState: .Normal)
+        txtServiceName.text = service.name.uppercased()
+        visitProfile.setTitle("Visit @\(service.username) profile", for: UIControlState())
         imgLogo.image = UIImage(named: service.username)
         self.backgroundColor = service.color.darkenColor(0.08)
         
@@ -50,13 +50,13 @@ class CatalogCellHeader: UIView {
         //txtServiceName.textColor = service.color
     }
 
-    @IBAction func visitProfile(sender: AnyObject) {
+    @IBAction func visitProfile(_ sender: AnyObject) {
         guard let service = self.service else { return }
-        let profileVC = UIStoryboard(name: "Feed", bundle: nil).instantiateViewControllerWithIdentifier("profile") as! ServiceProfileViewcontroller
+        let profileVC = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "profile") as! ServiceProfileViewcontroller
         profileVC.loadData(service)
         let nav = UINavigationController(rootViewController: profileVC)
         
-        nav.modalPresentationStyle = .Popover
+        nav.modalPresentationStyle = .popover
         let viewForSource = sender as! UIView
         nav.popoverPresentationController!.sourceView = viewForSource
         
@@ -64,8 +64,8 @@ class CatalogCellHeader: UIView {
         nav.popoverPresentationController!.sourceRect = viewForSource.bounds
         
         // the size you want to display
-        nav.preferredContentSize = CGSizeMake(300,450)
+        nav.preferredContentSize = CGSize(width: 300,height: 450)
         
-        self.parentViewController!.presentViewController(nav, animated: true, completion: nil)
+        self.parentViewController!.present(nav, animated: true, completion: nil)
     }
 }

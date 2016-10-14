@@ -3,8 +3,8 @@ import UIKit
 class ActionsViewController: UIViewController , UICollectionViewDelegate , UICollectionViewDataSource , ActionCreatorDelegate {
     
     @IBOutlet weak var btnEdit: UIBarButtonItem!
-    private let reuseIdentifier = "ActionCell"
-    private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+    fileprivate let reuseIdentifier = "ActionCell"
+    fileprivate let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     
     @IBOutlet weak var barShadow: UIView!
     @IBOutlet weak var tutorialView: UIView!
@@ -14,13 +14,13 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
     
     override func viewDidLoad() {
         
-        guard NSUserDefaults.standardUserDefaults().stringForKey("token") != nil else{return}
+        guard UserDefaults.standard.string(forKey: "token") != nil else{return}
         self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
         self.view.backgroundColor = currentTheme.backgroundColor
         self.collectionView.backgroundColor = currentTheme.backgroundColor
 
-        self.collectionView.registerNib(UINib(nibName: "ActionCell", bundle: nil), forCellWithReuseIdentifier: "ActionCell")
-        self.collectionView.registerNib(UINib(nibName: "ActionsHeader",bundle:nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
+        self.collectionView.register(UINib(nibName: "ActionCell", bundle: nil), forCellWithReuseIdentifier: "ActionCell")
+        self.collectionView.register(UINib(nibName: "ActionsHeader",bundle:nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
 
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -33,23 +33,23 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         
         
         
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.barTintColor = UIColor.clearColor() //Constants.appBrandColor.darkenColor(0.05)
-        self.navigationController?.navigationBar.tintColor = UIColor.blackColor()
-        self.navigationController?.navigationBar.translucent = true
+        self.navigationController?.navigationBar.barTintColor = UIColor.clear //Constants.appBrandColor.darkenColor(0.05)
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+        self.navigationController?.navigationBar.isTranslucent = true
         
-        barShadow.layer.shadowPath = CGPathCreateWithRect(barShadow.bounds, nil)
-        barShadow.layer.shadowColor = UIColor.blackColor().CGColor
-        barShadow.layer.shadowOffset = CGSizeZero
+        barShadow.layer.shadowPath = CGPath(rect: barShadow.bounds, transform: nil)
+        barShadow.layer.shadowColor = UIColor.black.cgColor
+        barShadow.layer.shadowOffset = CGSize.zero
         barShadow.layer.shadowOpacity = 0.11
         barShadow.layer.shadowRadius = 10
         barShadow.layer.borderWidth = 0
-        barShadow.layer.borderColor = UIColor.grayColor().colorWithAlphaComponent(0.2).CGColor
+        barShadow.layer.borderColor = UIColor.gray.withAlphaComponent(0.2).cgColor
     }
     
     var isFirstLoad : Bool = true
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         if !isFirstLoad {
             self.setActions(Core.Actions)
             self.collectionView.reloadData()
@@ -59,7 +59,7 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         }
     }
     
-    func setActions(actions : [Action]) {
+    func setActions(_ actions : [Action]) {
         
         self.actions = [:]
         self.serviceOrder = []
@@ -78,7 +78,7 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
         }
     }
     
-    func didCreateAction(action:Action) {
+    func didCreateAction(_ action:Action) {
         Core.Actions.append(action)
         setActions(Core.Actions)
         collectionView.reloadData()
@@ -89,114 +89,114 @@ class ActionsViewController: UIViewController , UICollectionViewDelegate , UICol
     }
 
     
-    @IBAction func create(sender: AnyObject) {
+    @IBAction func create(_ sender: AnyObject) {
         //self.navigationController?.pushViewController(NewActionController(), animated: true)
         let creator = ActionCreatorViewController()
         creator.delegate = self
-        creator.modalPresentationStyle = .Popover
+        creator.modalPresentationStyle = .popover
         creator.popoverPresentationController!.barButtonItem = sender as? UIBarButtonItem
         
         
-        creator.preferredContentSize = CGSizeMake(300,250)
-        self.presentViewController(creator, animated: true, completion: nil)
+        creator.preferredContentSize = CGSize(width: 300,height: 250)
+        self.present(creator, animated: true, completion: nil)
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         if serviceOrder.count == 0 {
-            tutorialView.hidden = false
+            tutorialView.isHidden = false
         }
         else {
-            tutorialView.hidden = true
+            tutorialView.isHidden = true
         }
         return serviceOrder.count
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let service = self.serviceOrder[section]
         return (self.actions[service]?.count)!
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ActionCell
-        let service = serviceOrder[indexPath.section]
-        cell.loadData(actions[service]![indexPath.row])
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ActionCell
+        let service = serviceOrder[(indexPath as NSIndexPath).section]
+        cell.loadData(actions[service]![(indexPath as NSIndexPath).row])
         cell.actionsViewController = self
         return cell
     }
     
     func getNumberOfCollumns() -> CGFloat {
-        return UIDevice.currentDevice().userInterfaceIdiom == .Pad ? 5 : 2
+        return UIDevice.current.userInterfaceIdiom == .pad ? 5 : 2
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let screenRect = UIScreen.mainScreen().bounds
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
+        let screenRect = UIScreen.main.bounds
         let screenWidth = screenRect.size.width
         let cellWidth = screenWidth / getNumberOfCollumns()
-        let size = CGSizeMake(cellWidth-10, 70)
+        let size = CGSize(width: cellWidth-10, height: 70)
         return size
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
     //
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
         return 10.0
     }
     
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let action = self.actions[serviceOrder[indexPath.section]]![indexPath.row]
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let action = self.actions[serviceOrder[(indexPath as NSIndexPath).section]]![(indexPath as NSIndexPath).row]
         let runner = ActionRunnerViewController()
         runner.loadAction(action)
         
         let rootVC = UINavigationController(rootViewController: runner)
         
-        let cell = collectionView.cellForItemAtIndexPath(indexPath)
+        let cell = collectionView.cellForItem(at: indexPath)
         
-        rootVC.modalPresentationStyle = .Popover
+        rootVC.modalPresentationStyle = .popover
         let viewForSource = cell
         rootVC.popoverPresentationController!.sourceView = viewForSource
         rootVC.popoverPresentationController!.sourceRect = viewForSource!.bounds
-        rootVC.preferredContentSize = CGSizeMake(350,500)
-        self.presentViewController(rootVC, animated: true, completion: nil)
+        rootVC.preferredContentSize = CGSize(width: 350,height: 500)
+        self.present(rootVC, animated: true, completion: nil)
     }
     
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        let header =  collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "header", forIndexPath: indexPath) as! ActionsHeader
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header =  collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header", for: indexPath) as! ActionsHeader
 
-        let service = serviceOrder[indexPath.section]
+        let service = serviceOrder[(indexPath as NSIndexPath).section]
         
         header.txtName.textColor = service.color
         header.txtCount.textColor = currentTheme.secondaryForegroundColor
         
-        header.txtName.text = service.name.uppercaseString
+        header.txtName.text = service.name.uppercased()
         header.txtCount.text = String(actions[service]!.count) + " actions"
         
         return header
     }
     
-    func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
         let item = UIMenuItem(title: "Delete", action: #selector(deleteAction))
-        UIMenuController.sharedMenuController().menuItems = [item]
+        UIMenuController.shared.menuItems = [item]
         
         return true
     }
     
-    func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
+    func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
         if(action == #selector(deleteAction)){
             return true
         }
         return false
     }
     
-    func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
+    func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
         print("zzzz")
         
     }
     
-    override func canBecomeFirstResponder() -> Bool {
+    override var canBecomeFirstResponder : Bool {
         return true
     }
     

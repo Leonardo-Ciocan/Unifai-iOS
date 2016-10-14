@@ -10,31 +10,31 @@ import UIKit
 
 class CatalogViewController : UIViewController , UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
 
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
     
     let pageControl: UIPageControl  = UIPageControl()
-    var lastColor = UIColor.clearColor()
+    var lastColor = UIColor.clear
     var serivices : [Service] = []
     
-    @IBAction func doneTapped(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func doneTapped(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.collectionView.registerNib(UINib(nibName: "CatalogCell", bundle: nil), forCellWithReuseIdentifier: "CatalogCell")
+        self.collectionView.register(UINib(nibName: "CatalogCell", bundle: nil), forCellWithReuseIdentifier: "CatalogCell")
         
-        self.serivices = Core.Services.sort({ $0.name < $1.name }) //.filter({ $0.id != "1989" })
+        self.serivices = Core.Services.sorted(by: { $0.name < $1.name }) //.filter({ $0.id != "1989" })
         
         
         pageControl.numberOfPages = self.serivices.count - 1
         self.navigationItem.titleView = pageControl
-        let invisibleButton = UIBarButtonItem(title: "Done", style: .Done, target: nil, action: nil)
-        invisibleButton.tintColor = UIColor.clearColor()
+        let invisibleButton = UIBarButtonItem(title: "Done", style: .done, target: nil, action: nil)
+        invisibleButton.tintColor = UIColor.clear
         self.navigationItem.leftBarButtonItem = invisibleButton
         
         collectionView.delegate = self
@@ -42,51 +42,51 @@ class CatalogViewController : UIViewController , UICollectionViewDelegate , UICo
         //self.tabBarController?.tabBar.tintColor = UIColor.whiteColor()
         self.tabBarController?.tabBar.tintColor  = serivices[0].color
         self.navigationController?.navigationBar.barTintColor = serivices[0].color
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         lastColor = serivices[0].color
         collectionView.allowsSelection = false
-        navigationController?.navigationBar.barStyle = .Black
+        navigationController?.navigationBar.barStyle = .black
         
         (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).minimumInteritemSpacing = 0
-        (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).itemSize = UIScreen.mainScreen().bounds.size
+        (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).itemSize = UIScreen.main.bounds.size
         
         
         self.navigationController?.navigationBar.barTintColor = serivices[0].color
-        self.collectionView.backgroundColor = UIColor.whiteColor()
+        self.collectionView.backgroundColor = UIColor.white
     }
 
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
 
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return serivices.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CatalogCell", forIndexPath: indexPath) as! CatalogCell
-        cell.loadData(self.serivices[indexPath.row])
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CatalogCell", for: indexPath) as! CatalogCell
+        cell.loadData(self.serivices[(indexPath as NSIndexPath).row])
         cell.parentViewController = self
         return cell
     }
             
-    override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+    override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
         collectionView.collectionViewLayout.invalidateLayout()
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return self.collectionView.frame.size
     }
     
-    func xxscrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    func xxscrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pos = Int(floor(collectionView.contentOffset.x / (collectionView.contentSize.width-collectionView.frame.width) * CGFloat(serivices.count-1)))
         //print("\(scrollView.contentOffset.x) out of \(scrollView.contentSize.width-collectionView.frame.width)")
         //let pos = collectionView.indexPathsForVisibleItems().sort({ $0.row > $1.row}).first
@@ -109,7 +109,7 @@ class CatalogViewController : UIViewController , UICollectionViewDelegate , UICo
     }
     
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         //let percentage = collectionView.contentOffset.x / (collectionView.contentSize.width-collectionView.frame.width)
         let pos = Int(floor((collectionView.contentOffset.x / self.view.frame.width)))
         if pos == serivices.count-1
@@ -118,7 +118,7 @@ class CatalogViewController : UIViewController , UICollectionViewDelegate , UICo
         }
         //print("\(pos)-\(pos+1)")
         let c = serivices[pos+1]
-        let col = self.fadeFromColor(serivices[pos].color, toColor: c.color, withPercentage: (collectionView.contentOffset.x % self.view.frame.width) / (self.view.frame.width))
+        let col = self.fadeFromColor(serivices[pos].color, toColor: c.color, withPercentage: (collectionView.contentOffset.x.truncatingRemainder(dividingBy: self.view.frame.width)) / (self.view.frame.width))
         pageControl.currentPage = pos
         
         self.navigationController?.navigationBar.barTintColor = col
@@ -126,7 +126,7 @@ class CatalogViewController : UIViewController , UICollectionViewDelegate , UICo
         //self.collectionView.backgroundColor = col
     }
     
-    func fadeFromColor(fromColor: UIColor, toColor: UIColor, withPercentage: CGFloat) -> UIColor {
+    func fadeFromColor(_ fromColor: UIColor, toColor: UIColor, withPercentage: CGFloat) -> UIColor {
         
         var fromRed: CGFloat = 0.0
         var fromGreen: CGFloat = 0.0
@@ -152,14 +152,14 @@ class CatalogViewController : UIViewController , UICollectionViewDelegate , UICo
         return UIColor(red: red, green: green, blue: blue, alpha: alpha)
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsZero
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.zero
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
 

@@ -1,7 +1,7 @@
 import UIKit
 
 protocol ActionCreatorDelegate {
-    func didCreateAction(action: Action)
+    func didCreateAction(_ action: Action)
 }
 
 class ActionCreatorViewController: UIViewController, UITextFieldDelegate {
@@ -19,70 +19,70 @@ class ActionCreatorViewController: UIViewController, UITextFieldDelegate {
         txtMessage.delegate = self
         
         self.view.backgroundColor = currentTheme.backgroundColor
-        txtName.tintColor = UIColor.whiteColor()
-        txtMessage.tintColor = UIColor.whiteColor()
-        changeColor(UIColor.grayColor().lightenColor(0.05))
-        self.navigationController?.navigationController?.navigationBar.translucent = false
+        txtName.tintColor = UIColor.white
+        txtMessage.tintColor = UIColor.white
+        changeColor(UIColor.gray.lightenColor(0.05))
+        self.navigationController?.navigationController?.navigationBar.isTranslucent = false
         
         let leftView1 = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 0))
-        txtName.leftViewMode = .Always
+        txtName.leftViewMode = .always
         txtName.leftView = leftView1
         
         let leftView2 = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 0))
-        txtMessage.leftViewMode = .Always
+        txtMessage.leftViewMode = .always
         txtMessage.leftView = leftView2
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.createTapped(self)
         return true
     }
     
-    func changeColor(color:UIColor) {
-        UIView.animateWithDuration(0.5, animations: {
+    func changeColor(_ color:UIColor) {
+        UIView.animate(withDuration: 0.5, animations: {
             self.txtName.backgroundColor = color.darkenColor(0.05)
             self.txtMessage.backgroundColor = color.darkenColor(0.05)
             self.view.backgroundColor = color
         })
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         let color = TextUtils.extractServiceColorFrom(txtMessage.text!)
-        changeColor( color ?? UIColor.grayColor().lightenColor(0.05) )
+        changeColor( color ?? UIColor.gray.lightenColor(0.05) )
     }
 
-    @IBAction func textChanged(sender: AnyObject) {
+    @IBAction func textChanged(_ sender: AnyObject) {
         let color = TextUtils.extractServiceColorFrom(txtMessage.text!)
-        changeColor( color ?? UIColor.grayColor().lightenColor(0.05) )
+        changeColor( color ?? UIColor.gray.lightenColor(0.05) )
     }
     
-    @IBAction func createTapped(sender: AnyObject) {
+    @IBAction func createTapped(_ sender: AnyObject) {
         let placeholderRanges = TextUtils.getPlaceholderPositionsInMessage(txtMessage.text!)
         if placeholderRanges.count > 0 {
             let range = placeholderRanges[0]
-            let start = txtMessage.positionFromPosition(txtMessage.beginningOfDocument, offset: range.location)
+            let start = txtMessage.position(from: txtMessage.beginningOfDocument, offset: range.location)
             guard start != nil else { return }
-            let end = txtMessage.positionFromPosition(start!, offset: range.length)
-            txtMessage.selectedTextRange = txtMessage.textRangeFromPosition(start!, toPosition: end!)
+            let end = txtMessage.position(from: start!, offset: range.length)
+            txtMessage.selectedTextRange = txtMessage.textRange(from: start!, to: end!)
         }
         else{
             Unifai.createAction(txtMessage.text! , name: txtName.text! , completion: {
                 self.delegate?.didCreateAction(Action(message: self.txtMessage.text!, name: self.txtName.text!))
-                self.dismissViewControllerAnimated(true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
                 },error: {
-                    let dialog = UIAlertController(title: "Can't create action", message: "You need to enter a valid message and name", preferredStyle: .Alert)
-                    let cancel = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                    let dialog = UIAlertController(title: "Can't create action", message: "You need to enter a valid message and name", preferredStyle: .alert)
+                    let cancel = UIAlertAction(title: "OK", style: .default, handler: nil)
                     dialog.addAction(cancel)
-                    self.presentViewController(dialog, animated: true, completion: nil)
+                    self.present(dialog, animated: true, completion: nil)
             })
         }
     }
     
-    @IBAction func cancelTapped(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func cancelTapped(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
 }

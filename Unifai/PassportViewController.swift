@@ -20,16 +20,16 @@ class PassportViewController: UIViewController , CLLocationManagerDelegate {
         passportView.layer.cornerRadius = 5
         passportView.layer.shadowRadius = 4
         passportView.layer.shadowOpacity = 0.05
-        passportView.layer.shadowColor = UIColor.blackColor().CGColor
-        passportView.layer.shadowOffset = CGSizeZero
-        passportView.layer.borderColor = currentTheme.shadeColor.CGColor
+        passportView.layer.shadowColor = UIColor.black.cgColor
+        passportView.layer.shadowOffset = CGSize.zero
+        passportView.layer.borderColor = currentTheme.shadeColor.cgColor
         passportView.layer.borderWidth = 1
         
         map.layer.shadowRadius = 8
         map.layer.shadowOpacity = 0.1
-        map.layer.shadowColor = UIColor.blackColor().CGColor
-        map.layer.shadowOffset = CGSizeZero
-        map.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).CGColor
+        map.layer.shadowColor = UIColor.black.cgColor
+        map.layer.shadowOffset = CGSize.zero
+        map.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
         map.layer.borderWidth = 1
         self.view.backgroundColor = currentTheme.backgroundColor
         
@@ -50,7 +50,7 @@ class PassportViewController: UIViewController , CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last
         
         let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)

@@ -4,8 +4,8 @@ import Alamofire
 import PKHUD
 
 protocol SheetCellDelegate {
-    func shouldOpenLinkWithURL(url:String)
-    func shouldSendMessageWithText(text:String, sourceRect:CGRect, sourceView:UIView)
+    func shouldOpenLinkWithURL(_ url:String)
+    func shouldSendMessageWithText(_ text:String, sourceRect:CGRect, sourceView:UIView)
 }
 
 class SheetCell: UICollectionViewCell {
@@ -17,9 +17,9 @@ class SheetCell: UICollectionViewCell {
         super.awakeFromNib()
         layer.masksToBounds = false
         
-        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.15
-        layer.shadowOffset = CGSizeZero
+        layer.shadowOffset = CGSize.zero
         layer.shadowRadius = 10
     }
     var entries : [SheetEntry] = []
@@ -29,16 +29,16 @@ class SheetCell: UICollectionViewCell {
     
     static let imageDownloader = ImageDownloader(
         configuration: ImageDownloader.defaultURLSessionConfiguration(),
-        downloadPrioritization: .FIFO,
+        downloadPrioritization: .fifo,
         maximumActiveDownloads: 4,
         imageCache: AutoPurgingImageCache()
     )
     
-    func loadEntries(entries:[SheetEntry]) {
+    func loadEntries(_ entries:[SheetEntry]) {
         self.entries = entries
-        for (index,entry) in entries.enumerate() {
+        for (index,entry) in entries.enumerated() {
             let height = CGFloat(entry.size())
-            let y = CGFloat((Array<SheetEntry>(entries[0..<index])).reduce(0, combine: {$0 + $1.size()}))
+            let y = CGFloat((Array<SheetEntry>(entries[0..<index])).reduce(0, {$0 + $1.size()}))
             switch entry {
             case let entry as TitledSheetEntry:
                 let item = cellWasInitialized ?
@@ -62,9 +62,9 @@ class SheetCell: UICollectionViewCell {
                 
                 if !cellWasInitialized {
                     item.backgroundColor = currentTheme.shadeColor
-                    label.textColor = UIColor.whiteColor()
-                    label.font = label.font.fontWithSize(13)
-                    label.textAlignment = .Center
+                    label.textColor = UIColor.white
+                    label.font = label.font.withSize(13)
+                    label.textAlignment = .center
                     item.addSubview(label)
                     label.snp_makeConstraints(closure: { make in
                         make.center.equalTo(item)
@@ -79,16 +79,16 @@ class SheetCell: UICollectionViewCell {
                     UICache[index][0] as! UIButton :
                     UIButton(frame: CGRect(x: CGFloat(15), y: y+10, width: frame.width - 30, height: height - 20))
                 
-                item.setTitle(entry.label, forState: .Normal)
+                item.setTitle(entry.label, for: UIControlState())
                
                 if !cellWasInitialized {
                     item.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.04)
-                    item.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-                    item.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.08).CGColor
+                    item.setTitleColor(UIColor.white, for: UIControlState())
+                    item.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.08).cgColor
                     item.layer.borderWidth = 1
-                    item.titleLabel!.font = item.titleLabel!.font.fontWithSize(12)
+                    item.titleLabel!.font = item.titleLabel!.font.withSize(12)
                     item.tag = index
-                    item.addTarget(self, action: #selector(tappedButton), forControlEvents: .TouchUpInside)
+                    item.addTarget(self, action: #selector(tappedButton), for: .touchUpInside)
                     addSubview(item)
                     UICache.append([item])
                 }
@@ -119,7 +119,7 @@ class SheetCell: UICollectionViewCell {
                     imageview.image = UIImage(named: (service?.username)!)
                 }
                 else {
-                    let URLRequest = NSURLRequest(URL: NSURL(string:entry.url)!)
+                    let URLRequest = Foundation.URLRequest(url: URL(string:entry.url)!)
                     
                     SheetCell.imageDownloader.downloadImage(URLRequest: URLRequest) { response in
                         if let image = response.result.value {
@@ -132,20 +132,20 @@ class SheetCell: UICollectionViewCell {
                 
                 if !cellWasInitialized {
                     if entry.isIcon {
-                        blurView.hidden = true
-                        label.hidden = true
-                        imageview.contentMode = .ScaleAspectFit
+                        blurView.isHidden = true
+                        label.isHidden = true
+                        imageview.contentMode = .scaleAspectFit
                     }
                     else {
-                        blurView.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.3)
-                        blurView.effect = UIBlurEffect(style: .Light)
-                        label.layer.shadowOffset = CGSizeZero
-                        label.layer.shadowColor = UIColor.blackColor().CGColor
+                        blurView.backgroundColor = UIColor.white.withAlphaComponent(0.3)
+                        blurView.effect = UIBlurEffect(style: .light)
+                        label.layer.shadowOffset = CGSize.zero
+                        label.layer.shadowColor = UIColor.black.cgColor
                         label.layer.shadowOpacity = 0.35
                         label.layer.shadowRadius = 3
-                        label.textColor = UIColor.whiteColor()
-                        label.font = label.font.fontWithSize(13)
-                        label.textAlignment = .Center
+                        label.textColor = UIColor.white
+                        label.font = label.font.withSize(13)
+                        label.textAlignment = .center
                         blurView.addSubview(label)
                         label.snp_makeConstraints(closure: { make in
                             make.center.equalTo(blurView)
@@ -156,7 +156,7 @@ class SheetCell: UICollectionViewCell {
                         imageview.addGestureRecognizer(tapRecon)
                     }
                     
-                    imageview.userInteractionEnabled = true
+                    imageview.isUserInteractionEnabled = true
                     imageview.tag = index
                     
                     
@@ -176,14 +176,14 @@ class SheetCell: UICollectionViewCell {
         cellWasInitialized = true
     }
     
-    func tappedImage(sender:UITapGestureRecognizer) {
+    func tappedImage(_ sender:UITapGestureRecognizer) {
         let index = sender.view!.tag
         let actionEntry = (entries[index] as! ImageSheetEntry)
         guard !actionEntry.link.isEmpty else { return }
         delegate?.shouldOpenLinkWithURL(actionEntry.link)
     }
     
-    func tappedButton(sender:UIButton) {
+    func tappedButton(_ sender:UIButton) {
         let index = sender.tag 
         let actionEntry = (entries[index] as! ActionSheetEntry)
         if actionEntry.action == "url" {
@@ -193,9 +193,9 @@ class SheetCell: UICollectionViewCell {
             delegate?.shouldSendMessageWithText(actionEntry.value,sourceRect:  sender.bounds ,sourceView:  sender)
         }
         else if actionEntry.action == "copy" {
-            UIPasteboard.generalPasteboard().string = actionEntry.value
+            UIPasteboard.general.string = actionEntry.value
             PKHUD.sharedHUD.dimsBackground = false
-            HUD.flash(.Success, delay: 0.75)
+            HUD.flash(.success, delay: 0.75)
         }
     }
 }

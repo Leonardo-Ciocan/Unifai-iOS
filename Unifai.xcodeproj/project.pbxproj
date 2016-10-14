@@ -663,6 +663,7 @@
 					B363CF801CCEEBB300B6182D = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = C777FZ7828;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -672,11 +673,13 @@
 					B363CF961CCEEBB300B6182D = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 4FLSWMW6LR;
+						LastSwiftMigration = 0800;
 						TestTargetID = B363CF801CCEEBB300B6182D;
 					};
 					B363CFA11CCEEBB300B6182D = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 4FLSWMW6LR;
+						LastSwiftMigration = 0800;
 						TestTargetID = B363CF801CCEEBB300B6182D;
 					};
 				};
@@ -1085,6 +1088,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.unifai;
 				PRODUCT_NAME = Unifai;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1100,6 +1104,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.unifai;
 				PRODUCT_NAME = Unifai;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -1112,6 +1117,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = unifai.UnifaiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Unifai.app/Unifai";
 			};
 			name = Debug;
@@ -1124,6 +1130,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = unifai.UnifaiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Unifai.app/Unifai";
 			};
 			name = Release;
@@ -1135,6 +1142,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = unifai.UnifaiUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Unifai;
 				USES_XCTRUNNER = YES;
 			};
@@ -1147,6 +1155,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = unifai.UnifaiUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Unifai;
 				USES_XCTRUNNER = YES;
 			};

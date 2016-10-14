@@ -14,7 +14,7 @@ class CatalogItemCell: UITableViewCell , ActionCreatorDelegate {
         super.awakeFromNib()
         
         let recon = UITapGestureRecognizer(target: self, action: #selector(imgActionTapped))
-        imgAction.userInteractionEnabled = true
+        imgAction.isUserInteractionEnabled = true
         imgAction.addGestureRecognizer(recon)
     }
     
@@ -23,15 +23,15 @@ class CatalogItemCell: UITableViewCell , ActionCreatorDelegate {
         actionCreator.presetName = (item?.name)!
         actionCreator.presetMessage = (item?.message)!
         actionCreator.delegate = self
-        parentViewController?.presentViewController(actionCreator, animated: true, completion: nil)
+        parentViewController?.present(actionCreator, animated: true, completion: nil)
     }
     
-    func createAction(name: String, message: String) {
+    func createAction(_ name: String, message: String) {
         Unifai.createAction(message, name: name, completion: nil, error:nil)
-        imgAction.hidden = true
+        imgAction.isHidden = true
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     

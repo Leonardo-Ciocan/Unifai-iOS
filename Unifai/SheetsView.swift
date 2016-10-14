@@ -9,9 +9,9 @@
 import UIKit
 
 protocol SheetsViewDelegate {
-    func shouldOpenLinkWithURL(url:String)
-    func shouldSendMessageWithText(text:String, sourceRect:CGRect, sourceView:UIView)
-    func shouldOpenSheetsManagerWithSheets(sheets:[Sheet], service:Service)
+    func shouldOpenLinkWithURL(_ url:String)
+    func shouldSendMessageWithText(_ text:String, sourceRect:CGRect, sourceView:UIView)
+    func shouldOpenSheetsManagerWithSheets(_ sheets:[Sheet], service:Service)
 }
 
 class SheetsView: UIView, UICollectionViewDelegate , UICollectionViewDataSource , SheetCellDelegate, UICollectionViewDelegateFlowLayout {
@@ -34,45 +34,45 @@ class SheetsView: UIView, UICollectionViewDelegate , UICollectionViewDataSource 
     }
     
     func loadViewFromNib() {
-        let bundle = NSBundle(forClass: self.dynamicType)
+        let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "SheetsView", bundle: bundle)
-        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         view.frame = bounds
-        view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        view.backgroundColor = UIColor.clearColor()
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.backgroundColor = UIColor.clear
         
         self.addSubview(view);
-        collectionView.backgroundColor = UIColor.clearColor()
+        collectionView.backgroundColor = UIColor.clear
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 60
         layout.minimumLineSpacing = 15
-        layout.scrollDirection = .Horizontal
+        layout.scrollDirection = .horizontal
         collectionView.collectionViewLayout = layout
 
-        collectionView.registerNib(UINib(nibName: "SheetCell", bundle: nil), forCellWithReuseIdentifier: "SheetCell")
-        collectionView.registerNib(UINib(nibName: "SheetsViewHeader", bundle: nil), forSupplementaryViewOfKind: "UICollectionElementKindSectionHeader", withReuseIdentifier: "header")
+        collectionView.register(UINib(nibName: "SheetCell", bundle: nil), forCellWithReuseIdentifier: "SheetCell")
+        collectionView.register(UINib(nibName: "SheetsViewHeader", bundle: nil), forSupplementaryViewOfKind: "UICollectionElementKindSectionHeader", withReuseIdentifier: "header")
         collectionView.delegate = self
         collectionView.dataSource = self
     }
   
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return sheets.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SheetCell", forIndexPath: indexPath) as! SheetCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SheetCell", for: indexPath) as! SheetCell
         cell.service = self.service
-        cell.loadEntries(sheets[indexPath.row].entries)
+        cell.loadEntries(sheets[(indexPath as NSIndexPath).row].entries)
         cell.backgroundColor = color
         cell.delegate = self
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 200, height: collectionView.frame.height - 40)
     }
     
-    func loadSheets(sheets:[Sheet],color:UIColor,service:Service?) {
+    func loadSheets(_ sheets:[Sheet],color:UIColor,service:Service?) {
         self.sheets = sheets
         self.color = color
         self.service = service
@@ -80,16 +80,16 @@ class SheetsView: UIView, UICollectionViewDelegate , UICollectionViewDataSource 
         self.collectionView.reloadData()
     }
     
-    func shouldOpenLinkWithURL(url: String) {
+    func shouldOpenLinkWithURL(_ url: String) {
         self.delegate?.shouldOpenLinkWithURL(url)
     }
     
-    @IBAction func tappedFilter(sender: AnyObject) {
+    @IBAction func tappedFilter(_ sender: AnyObject) {
         self.delegate?.shouldOpenSheetsManagerWithSheets(sheets, service: service!)
         
     }
     
-    func shouldSendMessageWithText(text: String, sourceRect: CGRect, sourceView: UIView) {
+    func shouldSendMessageWithText(_ text: String, sourceRect: CGRect, sourceView: UIView) {
         delegate?.shouldSendMessageWithText(text, sourceRect: sourceRect, sourceView: sourceView)
     }
 }

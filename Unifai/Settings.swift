@@ -11,15 +11,15 @@ class Settings {
     
     static func setup(){
         
-        let url = NSBundle.mainBundle().URLForResource("DefaultSettings", withExtension: "plist")
-        let prefs : [String:AnyObject] = NSDictionary(contentsOfURL: url!)! as! [String : AnyObject]
-        NSUserDefaults.standardUserDefaults().registerDefaults(prefs)
+        let url = Bundle.main.url(forResource: "DefaultSettings", withExtension: "plist")
+        let prefs : [String:AnyObject] = NSDictionary(contentsOf: url!)! as! [String : AnyObject]
+        UserDefaults.standard.register(defaults: prefs)
         
-        onlyTextOnFeed = NSUserDefaults.standardUserDefaults().boolForKey("onlyTextOnFeed")
-        darkTheme = NSUserDefaults.standardUserDefaults().boolForKey("darkTheme")
-        textSize = NSUserDefaults.standardUserDefaults().integerForKey("textSize")
-        cardSize = NSUserDefaults.standardUserDefaults().integerForKey("cardSize")
-        startingPage = NSUserDefaults.standardUserDefaults().integerForKey("startingPage")
+        onlyTextOnFeed = UserDefaults.standard.bool(forKey: "onlyTextOnFeed")
+        darkTheme = UserDefaults.standard.bool(forKey: "darkTheme")
+        textSize = UserDefaults.standard.integer(forKey: "textSize")
+        cardSize = UserDefaults.standard.integer(forKey: "cardSize")
+        startingPage = UserDefaults.standard.integer(forKey: "startingPage")
         
         currentTheme = darkTheme ? DarkTheme() : LightTheme()
     }

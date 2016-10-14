@@ -14,9 +14,9 @@ class LoginButton: UIView {
     
     var service : Service?
     
-    func setService(s : Service){
+    func setService(_ s : Service){
         service = s
-        loginText.text = "Login to " + s.name.uppercaseString
+        loginText.text = "Login to " + s.name.uppercased()
         loginText.textColor = service?.color
 
         //self.backgroundColor = s.color
@@ -35,11 +35,11 @@ class LoginButton: UIView {
     }
     
     func loadViewFromNib() {
-        let bundle = NSBundle(forClass: self.dynamicType)
+        let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "LoginButton", bundle: bundle)
-        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         view.frame = bounds
-        view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.backgroundColor = currentTheme.backgroundColor
         
         self.addSubview(view);
@@ -48,19 +48,19 @@ class LoginButton: UIView {
     
     let newLayer = CALayer()
 
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         //guard service != nil else { return }
-        newLayer.borderColor = service?.color.CGColor
+        newLayer.borderColor = service?.color.cgColor
         newLayer.borderWidth = 1
         newLayer.cornerRadius = 2
-        newLayer.backgroundColor = UIColor.clearColor().CGColor
+        newLayer.backgroundColor = UIColor.clear.cgColor
         //newLayer.frame = CGRect(x: 10, y: 0, width: self.frame.width-10, height: self.frame.height)
         
         newLayer.cornerRadius = 5
         newLayer.masksToBounds = true
         self.layer.addSublayer(newLayer)
 
-        super.drawRect(rect)
+        super.draw(rect)
     }
     
     override func layoutSubviews() {

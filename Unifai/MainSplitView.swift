@@ -18,23 +18,23 @@ class MainSplitView : UISplitViewController , UISplitViewControllerDelegate {
     
     var selectedMessage : Message?
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toThread"{
-            let destination = segue.destinationViewController as! ThreadViewController
+            let destination = segue.destination as! ThreadViewController
             destination.threadDelegate = ((self.childViewControllers[0] as! UINavigationController).childViewControllers[0] as! FeedViewController)
             destination.loadData(selectedMessage!.threadID!)
         }
         else if segue.identifier == "toProfile"{
-            let destination = segue.destinationViewController as! ServiceProfileViewcontroller
+            let destination = segue.destination as! ServiceProfileViewcontroller
             destination.loadData(selectedMessage!.service)
         }
     }
     
-    func splitViewController(svc: UISplitViewController, shouldHideViewController vc: UIViewController, inOrientation orientation: UIInterfaceOrientation) -> Bool {
+    func splitViewController(_ svc: UISplitViewController, shouldHide vc: UIViewController, in orientation: UIInterfaceOrientation) -> Bool {
         return false
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    override var preferredStatusBarStyle : UIStatusBarStyle {
         return currentTheme.statusBarStyle
     }
 }

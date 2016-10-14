@@ -18,11 +18,11 @@ class DashboardEditorCell: UITableViewCell {
         self.txtMessage.textColor = currentTheme.foregroundColor
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
-    func setMessage(msg : String) {
+    func setMessage(_ msg : String) {
         self.txtMessage.text = msg
         if let color = TextUtils.extractServiceColorFrom(msg) {
             txtMessage.mentionColor = color

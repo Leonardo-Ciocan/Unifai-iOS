@@ -1,12 +1,5 @@
-//
-//  CatalogCellHeader.swift
-//  Unifai
-//
-//  Created by Leonardo Ciocan on 22/08/2016.
-//  Copyright © 2016 Unifai. All rights reserved.
-//
-
 import UIKit
+import DynamicColor
 
 class CatalogCellHeader: UIView {
 
@@ -44,7 +37,7 @@ class CatalogCellHeader: UIView {
         txtServiceName.text = service.name.uppercased()
         visitProfile.setTitle("Visit @\(service.username) profile", for: UIControlState())
         imgLogo.image = UIImage(named: service.username)
-        self.backgroundColor = service.color.darkenColor(0.08)
+        self.backgroundColor = service.color.darkened(amount: 0.08)
         
         //visitProfile.layer.backgroundColor = service.color.CGColor
         //txtServiceName.textColor = service.color

@@ -46,7 +46,7 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         navigationItem.titleView = titleContainer
         
         let loadingView = DGElasticPullToRefreshLoadingViewCircle()
-        loadingView.tintColor = UIColor.whiteColor()
+        loadingView.tintColor = UIColor.white
         tableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
             self!.loadData()
             self?.tableView.dg_stopLoading()
@@ -73,7 +73,7 @@ class DashboardViewController : UIViewController , UITableViewDelegate , UITable
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.barTintColor = UIColor.clear //Constants.appBrandColor.darkenColor(0.05)
+        self.navigationController?.navigationBar.barTintColor = UIColor.clear //Constants.appBrandColor.darkened(amount: (0.05)
         self.navigationController?.navigationBar.tintColor = UIColor.black
         //self.navigationController?.navigationBar.barStyle = .Black
         self.navigationController?.navigationBar.isTranslucent = true

@@ -80,32 +80,6 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
             txtPassword.delegate = self
             txtLogin.delegate = self
             self.view.isHidden = false
-            
-            let arrayOfImage = ["logoWithSlogan", "example1", "schedules","actions"]
-            let arrayOfTitle = [
-                "UNIF(AI)",
-                "Your services work toghether",
-                "SCHEDULES",
-                "ACTIONS"]
-            let arrayOfDescription = ["All your services , 1 interface",
-                                      "Simply mention the service with @ and you're ready to converse with it",
-                                      "Schedule messages so you that you don't even have to type",
-                                      "Make buttons for common things you do."]
-            
-            //Simply call AlertOnboarding...
-            let alertView = AlertOnboarding(arrayOfImage: arrayOfImage, arrayOfTitle: arrayOfTitle, arrayOfDescription: arrayOfDescription)
-            
-            alertView.colorButtonText = Constants.appBrandColor
-            alertView.colorButtonBottomBackground = UIColor(red: 0, green: 0, blue: 0, alpha: 0.01)
-            
-            alertView.colorTitleLabel = Constants.appBrandColor
-            alertView.colorCurrentPageIndicator = Constants.appBrandColor
-            
-            alertView.purcentageRatioWidth = 0.9
-            alertView.purcentageRatioHeight = 0.9
-            
-            //... and show it !
-            //alertView.show()
         }
     }
     

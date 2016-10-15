@@ -51,7 +51,7 @@ class ActionRunnerViewController: UIViewController , UITableViewDataSource , UIT
         
         self.view.backgroundColor = currentTheme.backgroundColor
         
-        let message = Message(body: action!.message, type: .Text, payload: nil)
+        let message = Message(body: action!.message, type: .text, payload: nil)
         messages = [message]
         Unifai.runAction(action!, completion: { msg in
             self.resultMessage = msg

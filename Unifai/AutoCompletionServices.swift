@@ -125,7 +125,7 @@ class AutoCompletionServices: UIView , UICollectionViewDelegateFlowLayout , UICo
         UIView.animate(withDuration: 0.45,delay:0,options: UIViewAnimationOptions.curveEaseIn,
                                    animations: {
             self.overlayView?.frame = self.frame
-            //self.overlayView?.backgroundColor = service.color.darkenColor(0.25)
+            //self.overlayView?.backgroundColor = service.color.darkened(amount: (0.25)
             //self.overlayView?.layer.cornerRadius = 0
             self.collectionView.alpha = 0
             } ,completion: {

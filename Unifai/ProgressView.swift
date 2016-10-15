@@ -42,7 +42,7 @@ class ProgressView: UIView {
         guard (max-min) != 0 && max != 0 else { return }
         let percentage = CGFloat(value-min) / CGFloat(max-min)
         
-        progressBar.snp_makeConstraints(closure: { make in
+        progressBar.snp_makeConstraints({ make in
             make.width.equalTo(progressBar.superview!).multipliedBy(percentage)
         })
         

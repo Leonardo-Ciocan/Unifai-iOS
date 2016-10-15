@@ -61,7 +61,7 @@ class CatalogCell: UICollectionViewCell , UITableViewDelegate , UITableViewDataS
         cell.txtText.text = items[(indexPath as NSIndexPath).row].name
         cell.txtDescription.text = items[(indexPath as NSIndexPath).row].description
         cell.backgroundView?.backgroundColor = UIColor.clear
-        cell.contentView.backgroundColor = serviceColor!.lightenColor(0.05)
+        cell.contentView.backgroundColor = serviceColor!.lighter(amount: 0.05)
         cell.imgAction.image = cell.imgAction.image?.withRenderingMode(.alwaysTemplate)
         cell.imgAction.tintColor = UIColor.white
         cell.backgroundColor = UIColor.clear
@@ -76,7 +76,7 @@ class CatalogCell: UICollectionViewCell , UITableViewDelegate , UITableViewDataS
     var serviceColor : UIColor?
     @IBOutlet weak var tableView: UITableView!
     func loadData(_ service:Service) {
-        self.serviceColor = service.color.darkenColor(0.18)
+        self.serviceColor = service.color.darkened(amount:0.18)
         
 //        self.tableView.separatorStyle = .SingleLine
 //        self.tableView.separatorInset = UIEdgeInsetsZero

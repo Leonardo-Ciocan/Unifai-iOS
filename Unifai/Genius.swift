@@ -28,7 +28,7 @@ struct GeniusSuggestion {
         guard let name = json["name"].string  else { return nil }
         guard let message = json["message"].string  else { return nil }
 
-        return GeniusSuggestion(name: name, message: message, trigger: .SendMessage)
+        return GeniusSuggestion(name: name, message: message, trigger: .sendMessage)
     }
 }
 

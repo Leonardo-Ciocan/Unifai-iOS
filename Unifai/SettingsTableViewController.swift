@@ -31,7 +31,7 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
         switchTextOnFeed.isOn = Settings.onlyTextOnFeed
         switchDarkTheme.isOn = Settings.darkTheme
         
-        txtCacheSize.text = String(FileManager.default.folderSizeAtPath(Cache.cacheFolder.path!)/Int64(1024)) + "KB"
+        txtCacheSize.text = String(FileManager.default.folderSizeAtPath(Cache.cacheFolder.path)/Int64(1024)) + "KB"
     }
 
     @IBAction func changeTheme(_ sender: AnyObject) {
@@ -45,10 +45,10 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
     
     func deleteCache() {
         do {
-            let paths = try FileManager.default.contentsOfDirectory(atPath: Cache.cacheFolder!.path)
+            let paths = try FileManager.default.contentsOfDirectory(atPath: Cache.cacheFolder.path)
             for path in paths
             {
-                try FileManager.default.removeItem(atPath: "\(Cache.cacheFolder?.path)/\(path)")
+                try FileManager.default.removeItem(atPath: "\(Cache.cacheFolder.path)/\(path)")
             }
         } catch let error as NSError {
             print(error.localizedDescription)
@@ -81,7 +81,7 @@ class SettingsTableViewController: UITableViewController , SettingsListDelegate 
             
             
             aboutView.headerBackgroundColor = Constants.appBrandColor
-            aboutView.headerTextColor = .white()
+            aboutView.headerTextColor = UIColor.white
             aboutView.blurStyle = .dark
             aboutView.headerBackgroundImage = UIImage(named: "unifai")
             

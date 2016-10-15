@@ -73,7 +73,7 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.barTintColor = UIColor.clear //Constants.appBrandColor.darkenColor(0.05)
+        self.navigationController?.navigationBar.barTintColor = UIColor.clear //Constants.appBrandColor.darkened(amount: (0.05)
         self.navigationController?.navigationBar.tintColor = UIColor.black
         self.navigationController?.navigationBar.isTranslucent = true
         
@@ -102,7 +102,7 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     }
     
     func shouldSendMessageWithText(_ text: String, sourceRect: CGRect, sourceView: UIView) {
-        messages.append(Message(body: text, type: .Text, payload: nil))
+        messages.append(Message(body: text, type: .text, payload: nil))
         self.tableView.beginUpdates()
         self.tableView.insertRows(at: [IndexPath(row:messages.count-1,section:0)], with: .bottom)
         self.tableView.endUpdates()
@@ -187,7 +187,7 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     
     func didFinishAuthenticationFromMessage(_ message: Message?) {
         let text = messages[messages.count-2].body
-        messages.append(Message(body: text, type: .Text, payload: nil))
+        messages.append(Message(body: text, type: .text, payload: nil))
         self.tableView.beginUpdates()
         self.tableView.insertRows(at: [IndexPath(row:messages.count-1,section:0)], with: .bottom)
         self.tableView.endUpdates()
@@ -220,10 +220,10 @@ class ThreadViewController: UIViewController , UITableViewDelegate , UITableView
     
     func payloadImageTapped(_ senderA:UITapGestureRecognizer){
         let sender = senderA.view as! UIImageView
-        let imageInfo      = GSImageInfo(image: sender.image!, imageMode: .AspectFit, imageHD: nil)
+        let imageInfo      = GSImageInfo(image: sender.image!, imageMode: .aspectFit, imageHD: nil)
         let transitionInfo = GSTransitionInfo(fromView: sender)
         let imageViewer    = GSImageViewerController(imageInfo: imageInfo, transitionInfo: transitionInfo)
-        self.presentViewController(imageViewer, animated: true, completion: nil)
+        self.present(imageViewer, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

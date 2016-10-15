@@ -66,7 +66,7 @@ class SheetCell: UICollectionViewCell {
                     label.font = label.font.withSize(13)
                     label.textAlignment = .center
                     item.addSubview(label)
-                    label.snp_makeConstraints(closure: { make in
+                    label.snp_makeConstraints({ make in
                         make.center.equalTo(item)
                         make.width.equalTo(item).offset(-20)
                         make.height.equalTo(item)
@@ -120,10 +120,9 @@ class SheetCell: UICollectionViewCell {
                 }
                 else {
                     let URLRequest = Foundation.URLRequest(url: URL(string:entry.url)!)
-                    
-                    SheetCell.imageDownloader.downloadImage(URLRequest: URLRequest) { response in
+                    SheetCell.imageDownloader.download(URLRequest) { response in
                         if let image = response.result.value {
-                            imageview.image = image.af_imageAspectScaledToFillSize(CGSize(width: 200, height: 200))
+                            imageview.image = image.af_imageAspectScaled(toFill: CGSize(width: 200, height: 200))
                             indicator.stopAnimating()
                         }
                     }
@@ -147,7 +146,7 @@ class SheetCell: UICollectionViewCell {
                         label.font = label.font.withSize(13)
                         label.textAlignment = .center
                         blurView.addSubview(label)
-                        label.snp_makeConstraints(closure: { make in
+                        label.snp_makeConstraints({ make in
                             make.center.equalTo(blurView)
                             make.width.equalTo(blurView).offset(-20)
                             make.height.equalTo(blurView)

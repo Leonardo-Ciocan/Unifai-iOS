@@ -16,7 +16,7 @@ class SettingsListTableViewController: UITableViewController {
 
     @IBOutlet var tb: UITableView!
     var delegate : SettingsListDelegate?
-    var items = []
+    var items : [String] = []
     var id = ""
     var selected = 0
     

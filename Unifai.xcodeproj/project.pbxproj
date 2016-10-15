@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01D26ACE065065C701F8A3F1 /* Pods_Unifai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F2C595C8687C920B4DB1A2A /* Pods_Unifai.framework */; };
 		B30663F51CCF9D2E00F3CC92 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30663F41CCF9D2E00F3CC92 /* FeedViewController.swift */; };
 		B307437C1D2C4E7300A9CD0E /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B307437B1D2C4E7300A9CD0E /* CatalogViewController.swift */; };
 		B307437F1D2C4EFE00A9CD0E /* CatalogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B307437D1D2C4EFE00A9CD0E /* CatalogCell.swift */; };
@@ -125,6 +124,7 @@
 		B3F7B00E1CF93FA800734F9B /* Thread.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3F7B00C1CF93FA800734F9B /* Thread.storyboard */; };
 		B3F7B0131CF94AD000734F9B /* MessageCreatorTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7B0121CF94AD000734F9B /* MessageCreatorTextView.swift */; };
 		B3F7B0151CF94F5800734F9B /* MessageCreatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F7B0141CF94F5800734F9B /* MessageCreatorDelegate.swift */; };
+		B6374AAB96564755D3D9F576 /* Pods_Unifai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73B6BEFE19C8A1C448595DA7 /* Pods_Unifai.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,9 +158,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		610AC2CFFAE76B26B6619070 /* Pods-Unifai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unifai.release.xcconfig"; path = "Pods/Target Support Files/Pods-Unifai/Pods-Unifai.release.xcconfig"; sourceTree = "<group>"; };
-		6F2C595C8687C920B4DB1A2A /* Pods_Unifai.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unifai.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AF737EEAD9673B524EA2C60B /* Pods-Unifai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unifai.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Unifai/Pods-Unifai.debug.xcconfig"; sourceTree = "<group>"; };
+		73B6BEFE19C8A1C448595DA7 /* Pods_Unifai.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Unifai.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA8F11E1A47306871D25225D /* Pods-Unifai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unifai.release.xcconfig"; path = "Pods/Target Support Files/Pods-Unifai/Pods-Unifai.release.xcconfig"; sourceTree = "<group>"; };
 		B30663F41CCF9D2E00F3CC92 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		B307437B1D2C4E7300A9CD0E /* CatalogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		B307437D1D2C4EFE00A9CD0E /* CatalogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogCell.swift; sourceTree = "<group>"; };
@@ -288,6 +287,7 @@
 		B3F7B00D1CF93FA800734F9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Thread.storyboard; sourceTree = "<group>"; };
 		B3F7B0121CF94AD000734F9B /* MessageCreatorTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCreatorTextView.swift; sourceTree = "<group>"; };
 		B3F7B0141CF94F5800734F9B /* MessageCreatorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCreatorDelegate.swift; sourceTree = "<group>"; };
+		B428612511B4416DF78FF730 /* Pods-Unifai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Unifai.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Unifai/Pods-Unifai.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,7 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B32040B11D3F7A700062686F /* MapKit.framework in Frameworks */,
-				01D26ACE065065C701F8A3F1 /* Pods_Unifai.framework in Frameworks */,
+				B6374AAB96564755D3D9F576 /* Pods_Unifai.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,11 +317,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		631C73C1605A0315FCA90CA7 /* Pods */ = {
+		0261B71C6E32FBD24ACCBACC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AF737EEAD9673B524EA2C60B /* Pods-Unifai.debug.xcconfig */,
-				610AC2CFFAE76B26B6619070 /* Pods-Unifai.release.xcconfig */,
+				B428612511B4416DF78FF730 /* Pods-Unifai.debug.xcconfig */,
+				AA8F11E1A47306871D25225D /* Pods-Unifai.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -330,8 +330,8 @@
 			isa = PBXGroup;
 			children = (
 				B32040B01D3F7A700062686F /* MapKit.framework */,
-				6F2C595C8687C920B4DB1A2A /* Pods_Unifai.framework */,
 				B39006A51CD6853400F472AC /* NotificationCenter.framework */,
+				73B6BEFE19C8A1C448595DA7 /* Pods_Unifai.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -444,8 +444,8 @@
 				B363CFA51CCEEBB300B6182D /* UnifaiUITests */,
 				B39006A71CD6853400F472AC /* UnifaiWidget */,
 				B363CF821CCEEBB300B6182D /* Products */,
-				631C73C1605A0315FCA90CA7 /* Pods */,
 				B118B9FF59514405996BA216 /* Frameworks */,
+				0261B71C6E32FBD24ACCBACC /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -596,14 +596,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B363CFAB1CCEEBB300B6182D /* Build configuration list for PBXNativeTarget "Unifai" */;
 			buildPhases = (
-				6F9134C6F6DDF9148448CB36 /* Check Pods Manifest.lock */,
+				9779C68396E108B0A1885164 /* [CP] Check Pods Manifest.lock */,
 				B363CF7D1CCEEBB300B6182D /* Sources */,
 				B363CF7E1CCEEBB300B6182D /* Frameworks */,
 				B363CF7F1CCEEBB300B6182D /* Resources */,
-				F9B83672CF0722E3BAB3ED7E /* Embed Pods Frameworks */,
-				B9E744749A4B9F18D8176132 /* Copy Pods Resources */,
 				B39006B41CD6853400F472AC /* Embed App Extensions */,
 				B37FB8621D4D7989004F6653 /* ShellScript */,
+				4A5467BC8C7A98E1BB03FEEF /* [CP] Embed Pods Frameworks */,
+				C2FED8DB8E328AB00C14FEC4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -657,7 +657,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Unifai;
 				TargetAttributes = {
 					B363CF801CCEEBB300B6182D = {
@@ -770,14 +770,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6F9134C6F6DDF9148448CB36 /* Check Pods Manifest.lock */ = {
+		4A5467BC8C7A98E1BB03FEEF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Unifai/Pods-Unifai-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9779C68396E108B0A1885164 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -796,36 +811,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" e36fda02eda41a3af1dfa65487c8d565a76c6633 e6c5c11a117d10d15aeb1ef9f16a3273826bf5844a3ee583d46fa4afb5640859";
+			shellScript = "";
 		};
-		B9E744749A4B9F18D8176132 /* Copy Pods Resources */ = {
+		C2FED8DB8E328AB00C14FEC4 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Unifai/Pods-Unifai-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F9B83672CF0722E3BAB3ED7E /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Unifai/Pods-Unifai-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -997,6 +997,7 @@
 		B363CFA91CCEEBB300B6182D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1007,14 +1008,15 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1036,12 +1038,14 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		B363CFAA1CCEEBB300B6182D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1052,14 +1056,15 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1073,17 +1078,19 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		B363CFAC1CCEEBB300B6182D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF737EEAD9673B524EA2C60B /* Pods-Unifai.debug.xcconfig */;
+			baseConfigurationReference = B428612511B4416DF78FF730 /* Pods-Unifai.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Unifai/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.unifai;
@@ -1095,11 +1102,11 @@
 		};
 		B363CFAD1CCEEBB300B6182D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 610AC2CFFAE76B26B6619070 /* Pods-Unifai.release.xcconfig */;
+			baseConfigurationReference = AA8F11E1A47306871D25225D /* Pods-Unifai.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Unifai/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.unifai;

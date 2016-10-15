@@ -6,18 +6,18 @@ struct SheetSearchSuggestionItem {
     let isField : Bool
     
     static func computeSuggestionsForText(_ fields:[String], text:String) -> [SheetSearchSuggestionItem] {
-        let lastComponent = text.components(separatedBy: ",").last!
-        if lastComponent.isEmpty {
-            var initial : [SheetSearchSuggestionItem] =  ["more than","less than"].map {
-                SheetSearchSuggestionItem(label: $0, isField: false)
-            }
-            initial.append(contentsOf: fields.map { SheetSearchSuggestionItem(label: $0, isField: true)})
-            return initial
-        }
-        else if "(more|less) than (\\d+\\.?\\d*) $".r!.matches( lastComponent ){
-            return fields.map({ SheetSearchSuggestionItem(label:$0, isField: true) })
-        }
-        
+//        let lastComponent = text.components(separatedBy: ",").last!
+//        if lastComponent.isEmpty {
+//            var initial : [SheetSearchSuggestionItem] =  ["more than","less than"].map {
+//                SheetSearchSuggestionItem(label: $0, isField: false)
+//            }
+//            initial.append(contentsOf: fields.map { SheetSearchSuggestionItem(label: $0, isField: true)})
+//            return initial
+//        }
+//        else if "(more|less) than (\\d+\\.?\\d*) $".r!.matches( lastComponent ){
+//            return fields.map({ SheetSearchSuggestionItem(label:$0, isField: true) })
+//        }
+//        
         return [
             SheetSearchSuggestionItem(label: "is", isField: false),
             SheetSearchSuggestionItem(label: ",", isField: false),
@@ -55,7 +55,7 @@ class SheetsManagerSuggestionsView : UIView, UICollectionViewDelegate, UICollect
         layout.minimumInteritemSpacing = 5
         layout.minimumLineSpacing = 5
         self.addSubview(collectionView!)
-        collectionView!.snp_makeConstraints(closure: { make in
+        collectionView!.snp_makeConstraints({ make in
             make.leading.trailing.bottom.top.equalTo(self)
         })
         collectionView!.showsVerticalScrollIndicator = false
@@ -77,7 +77,7 @@ class SheetsManagerSuggestionsView : UIView, UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! SheetSearchSuggestionCell
         cell.txtName.text = "  " + self.items[(indexPath as NSIndexPath).row].label + "  "
-        cell.txtName.textColor = service?.color.darkerColor()
+        cell.txtName.textColor = service?.color.darkened()
         cell.txtName.font = self.items[(indexPath as NSIndexPath).row].isField ? SheetsManagerSuggestionsView.boldFont : SheetsManagerSuggestionsView.regularFont
         return cell
     }

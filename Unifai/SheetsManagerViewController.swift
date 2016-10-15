@@ -88,22 +88,22 @@ class SheetsManagerViewController: UIViewController, SheetCellDelegate, UICollec
     
     let keywords = ["is","contains","more than","less than"]
     func highlightKeywords() {
-        if let text = txtSearch.text {
-            let cursorPosition = txtSearch.selectedTextRange
-            let attributedString = NSMutableAttributedString(string: text)
-            for keyword in keywords {
-                let matches = ("(\\s|^)" + keyword + "(\\s|$)").r!.findAll(in: text)
-                for match in matches {
-                    let range = match.range
-                    let start = text.startIndex.distance(to: range.startIndex)
-                    let lenght = text.startIndex.distance(to: range.endIndex) - start
-                    attributedString.addAttributes([NSForegroundColorAttributeName: (service?.color)!],
-                                                   range: NSMakeRange(start, lenght))
-                }
-            }
-            txtSearch.attributedText = attributedString
-            txtSearch.selectedTextRange = cursorPosition
-        }
+//        if let text = txtSearch.text {
+//            let cursorPosition = txtSearch.selectedTextRange
+//            let attributedString = NSMutableAttributedString(string: text)
+//            for keyword in keywords {
+//                let matches = ("(\\s|^)" + keyword + "(\\s|$)").r!.findAll(in: text)
+//                for match in matches {
+//                    let range = match.range
+//                    let start = text.startIndex.distance(to: range.startIndex)
+//                    let lenght = text.startIndex.distance(to: range.endIndex) - start
+//                    attributedString.addAttributes([NSForegroundColorAttributeName: (service?.color)!],
+//                                                   range: NSMakeRange(start, lenght))
+//                }
+//            }
+//            txtSearch.attributedText = attributedString
+//            txtSearch.selectedTextRange = cursorPosition
+//        }
     }
     
     func generateFilterBlocksFromText(_ text:String) -> [FilterType] {

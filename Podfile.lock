@@ -1,77 +1,76 @@
 PODS:
   - ActiveLabel (0.7.0)
-  - Alamofire (3.5.1)
-  - AlamofireImage (2.5.0):
-    - Alamofire (~> 3.5)
+  - Alamofire (4.0.1)
+  - AlamofireImage (3.1.0):
+    - Alamofire (~> 4.0)
   - AlertOnboarding (1.9)
-  - Answers (1.3.3):
-    - Fabric (~> 1.6.3)
-  - Boilerplate (0.2.4):
-    - Result (~> 2.0)
-  - Charts (2.3.0):
-    - Charts/Core (= 2.3.0)
-  - Charts/Core (2.3.0)
-  - CrossroadRegex (0.8.0):
-    - Boilerplate (~> 0.2)
+  - Charts (3.0.0):
+    - Charts/Core (= 3.0.0)
+  - Charts/Core (3.0.0)
   - DateTools (1.7.0)
   - DGElasticPullToRefresh (1.1)
-  - DynamicColor (2.4.0)
+  - DynamicColor (3.1.0)
   - expanding-collection (1.0.2)
-  - Fabric (1.6.10)
   - GSImageViewerController (1.2.0)
   - PKHUD (3.2.1)
-  - Result (2.1.3)
-  - RFAboutView-Swift (1.0.16)
-  - SnapKit (0.15.0)
+  - Result (3.0.0)
+  - RFAboutView-Swift (2.0.1)
+  - SnapKit (3.0.2)
   - SwiftyJSON (3.1.1)
 
 DEPENDENCIES:
   - ActiveLabel
-  - Alamofire (~> 3.3)
-  - AlamofireImage (~> 2.0)
+  - Alamofire (~> 4.0)
+  - AlamofireImage (~> 3.1)
   - AlertOnboarding
-  - Answers
-  - Charts
-  - CrossroadRegex
+  - Charts (from `https://github.com/danielgindi/Charts`)
   - DateTools
   - DGElasticPullToRefresh
-  - DynamicColor (~> 2.4.0)
+  - DynamicColor (~> 3.1.0)
   - expanding-collection
-  - Fabric
   - GSImageViewerController
-  - PKHUD
-  - RFAboutView-Swift (~> 1.0.13)
-  - SnapKit (~> 0.15.0)
+  - PKHUD (from `https://github.com/toyship/PKHUD.git`)
+  - Result (~> 3.0.0)
+  - RFAboutView-Swift (~> 2.0.1)
+  - SnapKit (~> 3.0.2)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
+  Charts:
+    :git: https://github.com/danielgindi/Charts
+  PKHUD:
+    :git: https://github.com/toyship/PKHUD.git
   SwiftyJSON:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 CHECKOUT OPTIONS:
+  Charts:
+    :commit: 5d54cfd6a846df07b44cb7217403e03760bf0311
+    :git: https://github.com/danielgindi/Charts
+  PKHUD:
+    :commit: 28fb970b41d63134e962f9da766b96670c0f55f0
+    :git: https://github.com/toyship/PKHUD.git
   SwiftyJSON:
     :commit: 707516458b618c48ad9365d23a0dad3c3b860fa0
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
   ActiveLabel: eb405c5b99275be52fac161f7a55cab1dd672c54
-  Alamofire: 0dfba1184a543e2aa160f4e39cac4e8aba48d223
-  AlamofireImage: 2d34936e5201270bb17a316a786e90e83b4a249d
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  AlamofireImage: bb8c8351c51cb1633bb6be69b6dbbaff37ce65b7
   AlertOnboarding: 0c97f5c4feac0a4e914bae5d530f66b4dbc6b771
-  Answers: 3e2a5906e8d9565da4dd585e0db90b1b6b8a81d7
-  Boilerplate: cc76b26f60747f7b75f43b8ac38d2071cfb0e75a
-  Charts: 55d7fd9af175b500208601bea872f0fc72c1d19e
-  CrossroadRegex: f1ab8cb19a65c1db9a2ed809e8f71b49a40aa8cb
+  Charts: 3f0da988b104c8e5f069fcef55da699f597dac67
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   DGElasticPullToRefresh: 28f11a6026302a90f8ffebbc6e24748e584dddd3
-  DynamicColor: 2f3fd61053684667bad9f03045dcf9a2a5a007ea
+  DynamicColor: 4dec283a881f7f9d9f3bc88fb5f306724242575f
   expanding-collection: 0370a4efe83e6a016e0446b596444ac67c4c1460
-  Fabric: c73f371ee543e3f0b80608f2674750e4910d1669
   GSImageViewerController: cd90d8a692666981d432f7633bcaa66aa7592221
   PKHUD: 001c11518f125a273ddf026bcc64918423744ea2
-  Result: 18e1a7597fbcca5923c565b40a25a98afafdee02
-  RFAboutView-Swift: 18e756365255d09aff32797aa2328f4c8a3a097c
-  SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
+  Result: 1b3e431f37cbcd3ad89c6aa9ab0ae55515fae3b6
+  RFAboutView-Swift: dc31db0e7bc890ab6c9e1ca8f50e8f97bdba9622
+  SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   SwiftyJSON: f0be2e604f83e8405a624e9f891898bf6ed4e019
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 444271fb680a585ad5d85fadfb8209ee3f97c30c
+
+COCOAPODS: 1.0.1

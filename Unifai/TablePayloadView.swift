@@ -52,7 +52,7 @@ class TablePayloadView: UIView {
         shadowView.layer.shadowRadius = 10
         shadowView.layer.masksToBounds = false
         addSubview(shadowView)
-        shadowView.snp_makeConstraints(closure: { make in
+        shadowView.snp_makeConstraints({ make in
                 make.left.right.top.bottom.equalTo(0)
         })
         
@@ -69,7 +69,7 @@ class TablePayloadView: UIView {
             colLabel.text = payload!.columns[col]
             colLabel.backgroundColor = currentTheme.shadeColor
             self.addSubview(colLabel)
-                        colLabel.snp_makeConstraints(closure: { (make)->Void in
+                        colLabel.snp_makeConstraints({ (make)->Void in
                             make.leading.equalTo(colWidth * col)
                             make.width.equalTo(colWidth)
                             make.top.equalTo(0)
@@ -85,7 +85,7 @@ class TablePayloadView: UIView {
                 label.text = payload!.rows[row][col]
                 self.addSubview(label)
                 
-                                label.snp_makeConstraints(closure: { (make)->Void in
+                                label.snp_makeConstraints({ (make)->Void in
                                     make.leading.equalTo(colWidth * col)
                                     make.width.equalTo(colWidth)
                                     make.top.equalTo(50 * row + 50)

@@ -9,116 +9,7 @@ extension UIScrollView {
 }
 
 
-//Table view methods
-extension FeedViewController {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedRow = (indexPath as NSIndexPath).row
-        self.mainSplitView.selectedMessage = messages[(indexPath as NSIndexPath).row]
-        self.navigationController!.navigationBar.isHidden = false
-        self.splitViewController!.performSegue(withIdentifier: "toThread", sender: self)
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell") as! MessageCell
-        cell.selectionStyle = .none
-        cell.shouldShowText = !Settings.onlyTextOnFeed
-        cell.setMessage(messages[(indexPath as NSIndexPath).row] , shouldShowThreadCount: true)
-        cell.delegate = self
-        cell.accessoryView = cell.imgLogo as UIView
-        cell.imgLogo.contentMode = .scaleAspectFit
-        cell.imgLogo.isUserInteractionEnabled = true
-        cell.parentViewController = self
-        cell.txtBody.isUserInteractionEnabled = false
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return messages.count
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete{
-            let msg = messages.remove(at: (indexPath as NSIndexPath).row)
-            self.tableView.reloadData()
-            Unifai.deleteThread(msg.threadID!, completion: nil)
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-}
-
-//Cell creator delegate
-extension FeedViewController : MessageCreatorDelegate {
-    func shouldThemeHostWithColor(_ color: UIColor) {
-        UIView.animate(withDuration: 1, animations: {
-            },completion: { _ in
-                self.navigationController?.navigationBar.barStyle =  .black
-                self.navigationController?.navigationBar.barTintColor =  color
-                self.navigationController?.navigationBar.tintColor = UIColor.white
-                self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)!, NSForegroundColorAttributeName: UIColor.white]
-        })
-    }
-    
-    func shouldRemoveThemeFromHost() {
-        UIView.animate(withDuration: 1, animations: {
-            },completion: { _ in
-                self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
-                self.navigationController?.navigationBar.barTintColor = nil
-                self.navigationController?.navigationBar.tintColor = currentTheme.foregroundColor
-                self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)!, NSForegroundColorAttributeName: currentTheme.foregroundColor]
-        })
-    }
-    
-    func didStartWriting() {
-    }
-    
-    func didFinishWirting() {
-    }
-    
-    func shouldAppendMessage(_ message: Message) {
-        guard message.service != nil else { return }
-        offset += 1
-        self.messages.insert(message, at: 0)
-        self.tableView.beginUpdates()
-        self.tableView.insertRows(at: [IndexPath(row:0,section:0)], with: .automatic)
-        self.tableView.endUpdates()
-    }
-}
-
-//Cell delegate
-extension FeedViewController {
-    func didFinishAuthenticationFromMessage(_ message: Message?) {
-        guard let message = message ,
-            let threadID = message.threadID
-            else { return }
-        Unifai.getThread(threadID, completion: { threadMessages in
-            guard threadMessages.count > 1 else { return }
-            let messageToResend = threadMessages[threadMessages.count - 2]
-            guard messageToResend.isFromUser else { return }
-            Unifai.sendMessage(messageToResend.body, thread: threadID, completion: { answer in
-                guard let indexToReplace = self.messages.index(where: { $0.id == message.id }) else { return }
-                self.messages[indexToReplace] = answer
-                self.tableView.reloadData()
-            })
-        })
-    }
-    
-    func shouldSendMessageWithText(_ text: String, sourceRect: CGRect, sourceView: UIView) {
-        let runner = ActionRunnerViewController()
-        runner.loadAction(Action(message: text, name: ""))
-        
-        let rootVC = UINavigationController(rootViewController: runner)
-        rootVC.modalPresentationStyle = .popover
-        rootVC.popoverPresentationController!.sourceView = sourceView
-        rootVC.popoverPresentationController!.sourceRect = sourceRect
-        rootVC.preferredContentSize = CGSize(width: 350,height: 500)
-        self.present(rootVC, animated: true, completion: nil)
-    }
-}
-
-class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , MessageCellDelegate , ThreadVCDelegate {
+class FeedViewController: UIViewController , UITableViewDelegate , MessageCellDelegate , ThreadVCDelegate, MessageCreatorDelegate , UITableViewDataSource {
     
     var mainSplitView : MainSplitView { return self.splitViewController as! MainSplitView }
     @IBOutlet weak var tableView: UITableView!
@@ -161,7 +52,7 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         
         self.tabBarController?.title = "Feed"
         let loadingView = DGElasticPullToRefreshLoadingViewCircle()
-        loadingView.tintColor = UIColor.whiteColor()
+        loadingView.tintColor = UIColor.white
         tableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
             self?.offset = 0
             self?.didReachEndOfFeed = false
@@ -190,11 +81,11 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
         loadMoreFooter.addSubview(loadMoreText)
         loadMoreFooter.addSubview(loadMoreSpinner)
         
-        loadMoreText.snp_makeConstraints(closure: { make in
+        loadMoreText.snp_makeConstraints({ make in
             make.center.equalTo(loadMoreFooter)
         })
         
-        loadMoreSpinner.snp_makeConstraints(closure: { make in
+        loadMoreSpinner.snp_makeConstraints({ make in
             make.center.equalTo(loadMoreFooter)
         })
         
@@ -306,4 +197,111 @@ class FeedViewController: UIViewController , UITableViewDelegate , UITableViewDa
     {
         assistantBottomConstraint.constant = 0
     }
+    
+    
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        selectedRow = (indexPath as NSIndexPath).row
+        self.mainSplitView.selectedMessage = messages[(indexPath as NSIndexPath).row]
+        self.navigationController!.navigationBar.isHidden = false
+        self.splitViewController!.performSegue(withIdentifier: "toThread", sender: self)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell") as! MessageCell
+        cell.selectionStyle = .none
+        cell.shouldShowText = !Settings.onlyTextOnFeed
+        cell.setMessage(messages[(indexPath as NSIndexPath).row] , shouldShowThreadCount: true)
+        cell.delegate = self
+        cell.accessoryView = cell.imgLogo as UIView
+        cell.imgLogo.contentMode = .scaleAspectFit
+        cell.imgLogo.isUserInteractionEnabled = true
+        cell.parentViewController = self
+        cell.txtBody.isUserInteractionEnabled = false
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return messages.count
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            let msg = messages.remove(at: (indexPath as NSIndexPath).row)
+            self.tableView.reloadData()
+            Unifai.deleteThread(msg.threadID!, completion: nil)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    
+    func shouldThemeHostWithColor(_ color: UIColor) {
+        UIView.animate(withDuration: 1, animations: {
+            },completion: { _ in
+                self.navigationController?.navigationBar.barStyle =  .black
+                self.navigationController?.navigationBar.barTintColor =  color
+                self.navigationController?.navigationBar.tintColor = UIColor.white
+                self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)!, NSForegroundColorAttributeName: UIColor.white]
+        })
+    }
+    
+    func shouldRemoveThemeFromHost() {
+        UIView.animate(withDuration: 1, animations: {
+            },completion: { _ in
+                self.navigationController?.navigationBar.barStyle = currentTheme.barStyle
+                self.navigationController?.navigationBar.barTintColor = nil
+                self.navigationController?.navigationBar.tintColor = currentTheme.foregroundColor
+                self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName : UIFont(name:"Helvetica",size:15)!, NSForegroundColorAttributeName: currentTheme.foregroundColor]
+        })
+    }
+    
+    func didStartWriting() {
+    }
+    
+    func didFinishWirting() {
+    }
+    
+    func shouldAppendMessage(_ message: Message) {
+        guard message.service != nil else { return }
+        offset += 1
+        self.messages.insert(message, at: 0)
+        self.tableView.beginUpdates()
+        self.tableView.insertRows(at: [IndexPath(row:0,section:0)], with: .automatic)
+        self.tableView.endUpdates()
+    }
+    
+    
+    func didFinishAuthenticationFromMessage(_ message: Message?) {
+        guard let message = message ,
+            let threadID = message.threadID
+            else { return }
+        Unifai.getThread(threadID, completion: { threadMessages in
+            guard threadMessages.count > 1 else { return }
+            let messageToResend = threadMessages[threadMessages.count - 2]
+            guard messageToResend.isFromUser else { return }
+            Unifai.sendMessage(messageToResend.body, thread: threadID, completion: { answer in
+                guard let indexToReplace = self.messages.index(where: { $0.id == message.id }) else { return }
+                self.messages[indexToReplace] = answer
+                self.tableView.reloadData()
+            })
+        })
+    }
+    
+    func shouldSendMessageWithText(_ text: String, sourceRect: CGRect, sourceView: UIView) {
+        let runner = ActionRunnerViewController()
+        runner.loadAction(Action(message: text, name: ""))
+        
+        let rootVC = UINavigationController(rootViewController: runner)
+        rootVC.modalPresentationStyle = .popover
+        rootVC.popoverPresentationController!.sourceView = sourceView
+        rootVC.popoverPresentationController!.sourceRect = sourceRect
+        rootVC.preferredContentSize = CGSize(width: 350,height: 500)
+        self.present(rootVC, animated: true, completion: nil)
+    }
+    
+    
+
 }

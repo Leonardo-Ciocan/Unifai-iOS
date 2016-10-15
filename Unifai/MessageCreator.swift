@@ -240,7 +240,7 @@ enum Position {
             txtMessage.selectedTextRange = txtMessage.textRange(from: start!, to: end!)
         }
         else{
-            self.creatorDelegate?.shouldAppendMessage(Message(body: txtMessage.text!, type: .Text, payload: nil))
+            self.creatorDelegate?.shouldAppendMessage(Message(body: txtMessage.text!, type: .text, payload: nil))
             txtMessage.text = ""
             txtMessage.resignFirstResponder()
             btnSend.tintColor = Constants.appBrandColor

@@ -101,22 +101,22 @@ class Message {
         
         if let data = json["data"].string {
         self.type = MessageType(rawValue:Int(type))!
-            switch type {
-            case MessageType.Table.rawValue:
+            switch Int(type) {
+            case MessageType.table.rawValue:
                 self.payload = TablePayload(data: data)
-            case MessageType.Image.rawValue:
+            case MessageType.image.rawValue:
                 self.payload = ImagePayload(data: data)
-            case MessageType.BarChart.rawValue:
+            case MessageType.barChart.rawValue:
                 self.payload = BarChartPayload(data: data)
-            case  MessageType.RequestAuth.rawValue:
+            case  MessageType.requestAuth.rawValue:
                 self.payload = RequestAuthPayload(data: data)
-            case MessageType.CardList.rawValue:
+            case MessageType.cardList.rawValue:
                 self.payload = CardListPayload(data: data)
-            case MessageType.Progress.rawValue:
+            case MessageType.progress.rawValue:
                 self.payload = ProgressPayload(data: data)
-            case MessageType.Prompt.rawValue:
+            case MessageType.prompt.rawValue:
                 self.payload = PromptPayload(data: data)
-            case MessageType.Sheets.rawValue:
+            case MessageType.sheets.rawValue:
                 self.payload = SheetsPayload(data: data)
             default:
                 break

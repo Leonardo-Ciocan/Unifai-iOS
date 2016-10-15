@@ -80,7 +80,7 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.barTintColor = UIColor.clear //Constants.appBrandColor.darkenColor(0.05)
+        self.navigationController?.navigationBar.barTintColor = UIColor.clear //Constants.appBrandColor.darkened(amount: (0.05)
         self.navigationController?.navigationBar.tintColor = UIColor.black
         self.navigationController?.navigationBar.isTranslucent = true
         
@@ -220,7 +220,7 @@ class DashboardEditorViewController: UIViewController , UITableViewDataSource , 
             cell.txtName.text = dashboardSuggestions[(indexPath as NSIndexPath).row].name
             cell.txtMessage.text = dashboardSuggestions[(indexPath as NSIndexPath).row].message
             if let color = TextUtils.extractServiceColorFrom(dashboardSuggestions[(indexPath as NSIndexPath).row].message) {
-                cell.backgroundColor = color.darkenColor(0.03)
+                cell.backgroundColor = color.darkened(amount: (0.03))
             }
             cell.selectionStyle = .none
             return cell

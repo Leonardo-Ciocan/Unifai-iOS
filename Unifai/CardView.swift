@@ -19,10 +19,10 @@ class CardView: UIView {
     
     func loadData(_ payload : CardListPayloadItem , service:Service){
         if !(payload.imageURL?.isEmpty)!{
-            Alamofire.request(.GET, payload.imageURL!)
+            Alamofire.request(payload.imageURL!)
                 .responseImage { response in
                     if let image = response.result.value {
-                        self.imageView.image = image.af_imageAspectScaledToFillSize(CGSize(width: 200, height: 200))
+                        self.imageView.image = image.af_imageAspectScaled(toFill: CGSize(width: 200, height: 200))
                     }
             }
         }

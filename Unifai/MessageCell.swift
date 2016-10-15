@@ -271,7 +271,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
             self.payloadContainerHeight.constant = CGFloat(payload.rows.count) * 50 + 50
             let tableView = TablePayloadView()
             self.payloadContainer.addSubview(tableView)
-            tableView.snp_makeConstraints(closure: { (make)->Void in
+            tableView.snp_makeConstraints({ (make)->Void in
                 make.trailing.equalTo(0)
                 make.leading.equalTo(self.hideServiceMarkings ?? false ? -45 : 0)
                 make.bottom.top.equalTo(0)
@@ -299,10 +299,10 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         imageView.layer.shadowRadius = 10
         
         let URLRequest = Foundation.URLRequest(url: URL(string:(message.payload as! ImagePayload).URL)!)
-        MessageCell.imageDownloader.downloadImage(URLRequest: URLRequest) { response in
+        MessageCell.imageDownloader.download(URLRequest) { response in
             if let image = response.result.value {
                 self.img = image
-                imageView.image = image.af_imageAspectScaledToFitSize(CGSize(width: 250, height: 150))
+                imageView.image = image.af_imageAspectScaled(toFill: CGSize(width: 250, height: 150))
             }
         }
 
@@ -312,7 +312,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         
         imageView.contentMode = .scaleAspectFit
         self.payloadContainer.addSubview(imageView)
-        imageView.snp_makeConstraints(closure: { (make)->Void in
+        imageView.snp_makeConstraints({ (make)->Void in
             make.trailing.leading.equalTo(0)
             make.bottom.top.equalTo(0)
         })
@@ -332,27 +332,29 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         self.payloadContainerHeight.constant = 180
         
         let view = BarChartView()
-        view.userInteractionEnabled = false
+        view.isUserInteractionEnabled = false
         let payload = message.payload as! BarChartPayload
         var yVals : [BarChartDataEntry]  = []
         for (index, item) in payload.values.enumerated(){
-            yVals.append(BarChartDataEntry(value: Double(item), xIndex: index))
+            yVals.append(BarChartDataEntry(x: Double(item), y: Double(index)))
+            
         }
         
-        let dataSet = BarChartDataSet(yVals: yVals, label: "")
-        dataSet.valueFormatter = NumberFormatter()
-        dataSet.valueFormatter?.minimumFractionDigits = 0
+        let dataSet = BarChartDataSet(values: yVals, label: "")
+//        dataSet.valueFormatter = NumberFormatter()
+//        dataSet.valueFormatter?.minimumFractionDigits = 0
         
         dataSet.colors = [message.color]
-        let data = BarChartData(xVals: payload.labels, dataSet: dataSet)
+        let data = BarChartData(dataSets: [dataSet])
+        
         view.data = data
         view.tintColor = message.color
-        view.rightAxis.labelTextColor = UIColor.clearColor()
+        view.rightAxis.labelTextColor = UIColor.clear
         view.leftAxis.axisMinValue = 0
-        view.borderColor = UIColor.clearColor()
+        view.borderColor = UIColor.clear
         view.drawGridBackgroundEnabled = false
         view.legend.enabled = false
-        view.gridBackgroundColor = UIColor.clearColor()
+        view.gridBackgroundColor = UIColor.clear
         view.xAxis.drawGridLinesEnabled = false
         view.leftAxis.drawGridLinesEnabled = false
         view.rightAxis.drawGridLinesEnabled = false
@@ -361,17 +363,17 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         view.descriptionText = ""
         view.leftAxis.drawAxisLineEnabled = false
         view.rightAxis.drawAxisLineEnabled = false
-        view.xAxis.labelPosition = .Bottom
-        view.backgroundColor = UIColor.clearColor()
-        view.leftAxis.valueFormatter = NumberFormatter()
-        view.leftAxis.valueFormatter?.minimumFractionDigits = 0
+        view.xAxis.labelPosition = .bottom
+        view.backgroundColor = UIColor.clear
+//        view.leftAxis.valueFormatter = NumberFormatter()
+//        view.leftAxis.valueFormatter?.minimumFractionDigits = 0
         view.leftAxis.labelTextColor = currentTheme.foregroundColor
         view.xAxis.labelTextColor = currentTheme.foregroundColor
         view.leftAxis.labelTextColor = currentTheme.foregroundColor
         
         self.payloadContainer.addSubview(view)
         
-        view.snp_makeConstraints(closure: { (make)->Void in
+        view.snp_makeConstraints({ (make)->Void in
             make.trailing.leading.equalTo(0)
             make.bottom.top.equalTo(0)
         })
@@ -389,7 +391,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         btn.addGestureRecognizer(recon)
         
         
-        btn.snp_makeConstraints(closure: { (make)->Void in
+        btn.snp_makeConstraints({ (make)->Void in
             make.trailing.equalTo(0)
             make.leading.equalTo((self.hideServiceMarkings ?? false ? -50 : 0))
             make.height.equalTo(35)
@@ -421,7 +423,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
             
             card.loadData(item,service:message.service!)
             scrollView.addSubview(card)
-            card.snp_makeConstraints(closure: { (make)->Void in
+            card.snp_makeConstraints({ (make)->Void in
                 make.height.equalTo(cardSize)
                 make.top.equalTo(0)
                 make.width.equalTo(cardSize)
@@ -436,7 +438,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
             lastCard = card
         }
         self.payloadContainer.addSubview(scrollView)
-        scrollView.snp_makeConstraints(closure: { (make)->Void in
+        scrollView.snp_makeConstraints({ (make)->Void in
             make.leading.equalTo(-67)
             make.trailing.equalTo(19)
             make.top.bottom.equalTo(0)
@@ -453,7 +455,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         
         let payload = message.payload as! ProgressPayload
         
-        progressView.snp_makeConstraints(closure: { make in
+        progressView.snp_makeConstraints({ make in
             make.trailing.top.bottom.equalTo(0)
             make.leading.equalTo(self.hideServiceMarkings != true ? 0 : -47)
         })
@@ -479,7 +481,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         
         imageView.contentMode = .scaleAspectFit
         self.payloadContainer.addSubview(imageView)
-        imageView.snp_makeConstraints(closure: { (make)->Void in
+        imageView.snp_makeConstraints({ (make)->Void in
             make.trailing.leading.equalTo(0)
             make.bottom.top.equalTo(0)
         })
@@ -501,7 +503,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
         sheetsView.loadSheets(payload.sheets, color: message.color, service:message.service)
         sheetsView.collectionView.contentInset = UIEdgeInsets(top: 10, left: self.hideServiceMarkings != true ? 77 : 20, bottom: 0, right: 10)
         self.payloadContainer.addSubview(sheetsView)
-        sheetsView.snp_makeConstraints(closure: { (make)->Void in
+        sheetsView.snp_makeConstraints({ (make)->Void in
             make.leading.equalTo(-67)
             make.trailing.equalTo(19)
             make.top.bottom.equalTo(0)
@@ -571,12 +573,12 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
     func payloadImageTapped(_ senderA:UITapGestureRecognizer){
         guard let message = self.message else { return }
         let URLRequest = Foundation.URLRequest(url: URL(string:(message.payload as! ImagePayload).URL)!)
-        MessageCell.imageDownloader.downloadImage(URLRequest: URLRequest) { response in
+        MessageCell.imageDownloader.download( URLRequest) { response in
             if let image = response.result.value {
-                let imageInfo      = GSImageInfo(image: image, imageMode: .AspectFit, imageHD: nil)
+                let imageInfo      = GSImageInfo(image: image, imageMode: .aspectFit, imageHD: nil)
                 let transitionInfo = GSTransitionInfo(fromView: senderA.view!)
                 let imageViewer    = GSImageViewerController(imageInfo: imageInfo, transitionInfo: transitionInfo)
-                self.parentViewController!.presentViewController(imageViewer, animated: true, completion: nil)
+                self.parentViewController!.present(imageViewer, animated: true, completion: nil)
             }
         }
     }
@@ -584,7 +586,7 @@ class MessageCell: UITableViewCell, SheetsViewDelegate, AuthViewDelegate, UIText
     func payloadImageWasLongTapped(_ senderA:UITapGestureRecognizer){
         guard let message = self.message else { return }
         let URLRequest = Foundation.URLRequest(url: URL(string:(message.payload as! ImagePayload).URL)!)
-        MessageCell.imageDownloader.downloadImage(URLRequest: URLRequest) { response in
+        MessageCell.imageDownloader.download(URLRequest) { response in
             if let image = response.result.value {
                 let prompt = UIAlertController(title: "Do you want to save this image?", message: "", preferredStyle: .actionSheet)
                 prompt.addAction(UIAlertAction(title: "Save image", style: .default, handler: { _ in

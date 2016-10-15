@@ -1,7 +1,5 @@
 import UIKit
 import MapKit
-import Fabric
-import Answers
 
 
 @UIApplicationMain

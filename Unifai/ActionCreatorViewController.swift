@@ -21,7 +21,7 @@ class ActionCreatorViewController: UIViewController, UITextFieldDelegate {
         self.view.backgroundColor = currentTheme.backgroundColor
         txtName.tintColor = UIColor.white
         txtMessage.tintColor = UIColor.white
-        changeColor(UIColor.gray.lightenColor(0.05))
+        changeColor(UIColor.gray.lighter(amount:0.05))
         self.navigationController?.navigationController?.navigationBar.isTranslucent = false
         
         let leftView1 = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 0))
@@ -40,20 +40,20 @@ class ActionCreatorViewController: UIViewController, UITextFieldDelegate {
     
     func changeColor(_ color:UIColor) {
         UIView.animate(withDuration: 0.5, animations: {
-            self.txtName.backgroundColor = color.darkenColor(0.05)
-            self.txtMessage.backgroundColor = color.darkenColor(0.05)
+            self.txtName.backgroundColor = color.darkened(amount: 0.05)
+            self.txtMessage.backgroundColor = color.darkened(amount: (0.05))
             self.view.backgroundColor = color
         })
     }
     
     override func viewDidAppear(_ animated: Bool) {
         let color = TextUtils.extractServiceColorFrom(txtMessage.text!)
-        changeColor( color ?? UIColor.gray.lightenColor(0.05) )
+        changeColor( color ?? UIColor.gray.lighter(amount:0.05) )
     }
 
     @IBAction func textChanged(_ sender: AnyObject) {
         let color = TextUtils.extractServiceColorFrom(txtMessage.text!)
-        changeColor( color ?? UIColor.gray.lightenColor(0.05) )
+        changeColor( color ?? UIColor.gray.lighter(amount:0.05) )
     }
     
     @IBAction func createTapped(_ sender: AnyObject) {
